@@ -1,0 +1,41 @@
+.outer {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin-bottom: -15px;
+}
+
+.strip {
+  background: #000000;
+  padding: 0.85rem 0;
+  transform: rotate(-1.25deg) scale(1.02);
+  transform-origin: center center;
+  margin-top: -15px;
+}
+
+.swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.slide {
+  display: inline-flex !important;
+  width: auto !important;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.segmentText {
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.dot {
+  margin-right: 0.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.95;
+}

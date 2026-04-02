@@ -1,0 +1,14 @@
+.homebanner {
+  position: relative;
+  background-color: #000000;
+  min-height: clamp(720px, 92vh, 900px);
+}
+
+.shadowGlow {
+  opacity: 0.9;
+  filter: blur(0.5px);
+}
+
+.shadowWrap {
+  pointer-events: none;
+}

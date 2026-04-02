@@ -1,0 +1,14 @@
+/* Section-level styles (not globals.css) — light band + optional texture hooks */
+
+section {
+  padding: clamp(44px, 6vw, 80px) 0;
+}
+
+body {
+  background-color: #FDF7EC;
+  overflow-x: hidden;
+}
+
+.sections-surface {
+  background-color: #f7f4ef;
+}

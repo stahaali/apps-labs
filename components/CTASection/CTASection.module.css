@@ -1,0 +1,288 @@
+.section {
+  width: 100%;
+  overflow-x: clip;
+  background: #fff9ee;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 7rem 1.5rem 6rem;
+  }
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1120px;
+}
+
+.blueCard {
+  position: relative;
+  overflow: visible;
+  border-radius: 28px;
+  background: #424FFA;
+  padding: 2.75rem 1.5rem 4.5rem;
+}
+
+@media (min-width: 640px) {
+  .blueCard {
+    border-radius: 32px;
+    padding: 3.25rem 2.5rem 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blueCard {
+    padding: 3.5rem 3rem 5.5rem;
+  }
+}
+
+.floatIconTop {
+  pointer-events: none;
+  position: absolute;
+  left: 6%;
+  top: 8%;
+  z-index: 2;
+  line-height: 0;
+}
+
+.floatIconBottom {
+  pointer-events: none;
+  position: absolute;
+  right: 8%;
+  bottom: 14%;
+  z-index: 2;
+  line-height: 0;
+}
+
+.floatImg {
+  display: block;
+  height: auto;
+  width: 44px;
+  max-width: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.2));
+}
+
+@media (min-width: 640px) {
+  .floatImg {
+    width: 52px;
+  }
+}
+
+.centerBlock {
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.lead {
+  margin-top: 1rem;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (min-width: 640px) {
+  .lead {
+    font-size: 16px;
+  }
+}
+
+.ctaBtn {
+  margin-top: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #ffffff;
+  padding: 0.85rem 1.75rem;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-2px);
+}
+
+.sideCard {
+  position: absolute;
+  z-index: 3;
+  width: min(92%, 280px);
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+@media (min-width: 640px) {
+  .sideCard {
+    width: 260px;
+    padding: 1.15rem 1.25rem 1.25rem;
+  }
+}
+
+/* Cool off-white / lavender tint (left + right cards) */
+.sideCardLeft {
+  left: 2%;
+  bottom: -1.25rem;
+  border-radius: 22px;
+  background: #f5f7fb;
+  padding: 1.15rem 1.2rem 1.2rem;
+}
+
+@media (min-width: 640px) {
+  .sideCardLeft {
+    padding: 1.25rem 1.35rem 1.35rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sideCardLeft {
+    bottom: 2.5rem;
+    left: -4%;
+  }
+}
+
+/* Base: mobile — keep card inside the blue box */
+.sideCardRight {
+  right: 2%;
+  top: -1.25rem;
+  border-radius: 22px;
+  background: #f5f7fb;
+  padding: 1.15rem 1.2rem 1.2rem;
+}
+
+@media (min-width: 640px) {
+  .sideCardRight {
+    padding: 1.25rem 1.35rem 1.35rem;
+  }
+}
+
+/* Tablet+: match design — must come after base so top/right win */
+@media (min-width: 1024px) {
+  .sideCardRight {
+    top: 20%;
+    right: -4%;
+  }
+}
+
+/* Very large screens: same hang; optional tweak if needed */
+@media (min-width: 1921px) {
+  .sideCardRight {
+    top: 20%;
+    right: -8%;
+  }
+  .sideCardLeft {
+    bottom: 2.5rem;
+    left: -10%;
+  }
+}
+
+/* Left card: icon + title row */
+.sideCardHead {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sideCardIconImg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.sideCardHeadText {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-align: left;
+}
+
+.sideCardBrandName {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+}
+
+.sideCardBrandTag {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #64748b;
+}
+
+.sideCardTitle {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+}
+
+.checkList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* List rows — soft gray text + light blue circle + blue check (left + right cards) */
+.checkItemLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.checkItemLeft + .checkItemLeft {
+  margin-top: 0.5rem;
+}
+
+.checkItemText {
+  flex: 1;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Light blue circle behind PNG check (matches design) */
+.checkIconWrap {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #dbeafe;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.1);
+  line-height: 0;
+}
+
+.checkIconImg {
+  width: 10px;
+  height:10px;
+}

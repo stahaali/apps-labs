@@ -1,0 +1,315 @@
+.section {
+  position: relative;
+  width: 100%;
+  background: #E8ECFF;
+  padding-bottom: 6rem;
+}
+
+.inner {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.card {
+  position: relative;
+  border-radius: 40px;
+  background: #fff9ee;
+  padding: 2.5rem 1.25rem 2.75rem;
+}
+
+.card .header,
+.card .desktopFlow,
+.card .mobileFlow {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 8rem 2rem 3.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 3.5rem 3rem 3.75rem;
+  }
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    margin-bottom: 3rem;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+  border-radius: 9999px;
+  background: #2563eb;
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.subtitle {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.25rem;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #525252;
+}
+.iconShadowWrap
+{
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  z-index: 1;
+  width: 50%;
+  height:50%;
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: 16px;
+  }
+}
+
+.desktopFlow {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .desktopFlow {
+    display: block;
+  }
+}
+
+.mobileFlow {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .mobileFlow {
+    display: none;
+  }
+}
+
+/* One shadow behind entire icon row — not per icon */
+.iconsBlock {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.75rem;
+  min-height: 88px;
+  overflow: visible;
+}
+
+.iconsBlock .iconShadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: fit-content;
+  transform: translate(-50%, -50%);
+}
+
+/* Display: width capped at 700px; height follows asset aspect ratio */
+.iconsBlock .iconShadowImage {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.iconsRow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: flex-end;
+  justify-items: center;
+}
+
+.iconWrap {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .iconWrap {
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .iconWrap {
+    max-width: 220px;
+  }
+}
+
+.iconImage {
+  height: auto;
+  width: 80px;
+  max-width: 80px;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.trackRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: min(100%, 680px);
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .trackRow {
+    margin-bottom: 2.25rem;
+    max-width: 720px;
+  }
+}
+
+.trackSegment {
+  flex: 1 1 0;
+  min-width: 1.25rem;
+  height: 0;
+  align-self: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border: 0;
+  border-top: 1px dashed #3f3f46;
+}
+
+.marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px dashed #3f3f46;
+  background: #fff9ee;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #171717;
+}
+
+@media (min-width: 640px) {
+  .marker {
+    height: 2.625rem;
+    width: 2.625rem;
+    font-size: 12px;
+  }
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .stepsGrid {
+    gap: 2rem;
+  }
+}
+
+.stepTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #171717;
+}
+
+@media (min-width: 640px) {
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+}
+
+.stepKicker {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+@media (min-width: 640px) {
+  .stepKicker {
+    font-size: 15px;
+  }
+}
+
+.stepBody {
+  margin-top: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #525252;
+}
+
+@media (min-width: 640px) {
+  .stepBody {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stepBody {
+    max-width: none;
+  }
+}
+
+/* Mobile stacked steps */
+.mobileStep {
+  text-align: center;
+}
+
+.mobileStep + .mobileStep {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px dashed rgba(196, 184, 168, 0.6);
+}
+
+.mobileStep .iconWrap {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 180px;
+}
+
+.mobileMarkerWrap {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

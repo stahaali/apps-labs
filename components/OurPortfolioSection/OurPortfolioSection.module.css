@@ -1,0 +1,276 @@
+.portfolioSection {
+  width: 100%;
+  padding-top:0px;
+}
+
+.header {
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+  border-radius: 9999px;
+  background: #2563eb;
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.subtitle {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.25rem;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #525252;
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: 16px;
+  }
+}
+
+.portfolioCard {
+  position: relative;
+  margin-top: 2.5rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: #0b0c10;
+}
+
+/* Purple glow — right side of card, behind content */
+.shadowLayer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  width: min(58%, 520px);
+  min-width: 240px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shadowImage {
+  object-fit: cover;
+  object-position: right center;
+}
+
+.cardGrain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.cardInner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 1.75rem 1.25rem 2rem;
+}
+
+@media (min-width: 640px) {
+  .cardInner {
+    padding: 2rem 2rem 2.25rem;
+    gap: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem 2.5rem 2.75rem 2rem;
+  }
+}
+
+.visualCol {
+  position: relative;
+  min-height: 0;
+}
+
+.visualFrame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.detailCol {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .detailCol {
+    min-height: 320px;
+  }
+}
+
+.category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #60a5fa;
+}
+
+.projectTitle {
+  margin-top: 0.65rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+
+@media (min-width: 640px) {
+  .projectTitle {
+    font-size: 2rem;
+  }
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #a3a3a3;
+}
+
+@media (min-width: 640px) {
+  .description {
+    font-size: 15px;
+  }
+}
+
+.tagRow {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.85rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+
+.statsRow {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+
+@media (min-width: 640px) {
+  .statValue {
+    font-size: 2rem;
+  }
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #737373;
+}
+
+.statDivider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cardFooter {
+  margin-top: auto;
+  padding-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.dotActive {
+  width: 22px;
+  border-radius: 9999px;
+  background: #2563eb;
+}
+
+.viewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fafafa;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.viewLink:hover {
+  opacity: 0.9;
+}
+
+.viewIconBtn {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #2563eb;
+  box-shadow: 0 8px 20px -8px rgba(37, 99, 235, 0.55);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.viewLink:hover .viewIconBtn {
+  transform: translate(2px, -2px);
+  box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.6);
+}
