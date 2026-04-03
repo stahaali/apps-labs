@@ -38,7 +38,7 @@ export default function ReadyToTransformSection() {
           </p>
           <Link
             href="/contact"
-            className="mt-9 inline-flex rounded-full bg-[#2563eb] px-8 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_24px_-6px_rgba(37,99,235,0.55)] transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-6px_rgba(37,99,235,0.6)] sm:px-10 sm:py-4 sm:text-[16px]"
+            className="mt-9 inline-flex rounded-full bg-[#2563eb] px-8 py-3.5 text-[15px] font-semibold text-white sm:px-10 sm:py-4 sm:text-[16px]"
           >
             Book Free Consultation
           </Link>
