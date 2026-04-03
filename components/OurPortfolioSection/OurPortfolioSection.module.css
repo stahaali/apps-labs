@@ -1,6 +1,6 @@
 .portfolioSection {
   width: 100%;
-  padding-top: var(--home-section-py);
+  padding-top: 0;
   padding-bottom: var(--home-section-py);
   --portfolio-accent: #2563eb;
   --portfolio-accent-soft: rgba(37, 99, 235, 0.55);
