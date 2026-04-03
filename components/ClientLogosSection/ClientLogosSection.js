@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./ClientLogos.module.css";
-const PRIMARY = "#4D5DFB";
+const PRIMARY = "#70AA26";
 const CLIENT_IMAGES_BASE = "/assets/images-webp/our-clients";
 const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 const SHADOW_WIDTH = 700;

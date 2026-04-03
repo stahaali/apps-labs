@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./CTASection.module.css";
 
 const BASE = "/assets/images-webp/cta-section";
-const CHECK_ICON = `${BASE}/check-icon.svg`;
+const CHECK_ICON = `${BASE}/check-icon2.svg`;
 
 const LEFT_CHECKS = [
   "Food Delivery Solutions",

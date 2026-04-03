@@ -5,7 +5,7 @@ import styles from "./ContactFooterSection.module.css";
 const FOOTER_BG = "/assets/images-webp/footer/footer-bg.webp";
 const BASE = "/assets/images-webp/contact";
 /* `public/assets/images-webp/shadow-1.png` (or `.webp` — update extension if needed) */
-const SHADOW_IMAGE = "/assets/images-webp/footer/shadow-1.png";
+const SHADOW_IMAGE = "/assets/images-webp/footer/shadow-2.png";
 const SHADOW_WIDTH = 700;
 
 const CONTACT_ITEMS = [

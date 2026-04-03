@@ -74,7 +74,7 @@ export default function IndustrySolutionsSection() {
         className={`mx-auto max-w-[1200px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.lavenderPanel}`}
       >
         <div className="mx-auto max-w-[820px] text-center">
-          <span className="mb-5 inline-flex rounded-full bg-[#2563eb] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
+          <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Industries We Serve
           </span>
           <h2
@@ -82,7 +82,7 @@ export default function IndustrySolutionsSection() {
             className="site-title text-balance text-neutral-900"
           >
             App Solutions for{" "}
-            <span className="text-[#2563eb]">Every Industry</span>
+            <span className="text-[#70AA26]">Every Industry</span>
           </h2>
           <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
             Deep domain expertise across six major verticals. We build tailored

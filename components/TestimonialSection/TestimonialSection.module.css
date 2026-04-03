@@ -46,7 +46,7 @@
 .badge {
   display: inline-flex;
   border-radius: 9999px;
-  background: #2563eb;
+  background: #70AA26;
   padding: 0.5rem 1rem;
   font-size: 13px;
   font-weight: 600;
@@ -65,7 +65,7 @@
 }
 
 .headingAccent {
-  color: #2563eb;
+  color: #70AA26;
 }
 
 .metaRow {
@@ -108,7 +108,7 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 700;
-  color: #2563eb;
+  color: #70AA26;
 }
 
 .totalLink:hover {

@@ -118,7 +118,7 @@ export default function Header() {
       <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-6 min-[992px]:px-8">
         <Link href="/" className="shrink-0 text-[22px] font-bold tracking-tight">
           <span className="text-white">Apex </span>
-          <span className="text-[#3b82f6]">Labs</span>
+          <span className="text-[#70AA26]">Labs</span>
         </Link>
 
         <nav

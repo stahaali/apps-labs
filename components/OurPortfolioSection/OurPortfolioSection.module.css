@@ -2,9 +2,9 @@
   width: 100%;
   padding-top: 0;
   padding-bottom: var(--home-section-py);
-  --portfolio-accent: #2563eb;
-  --portfolio-accent-soft: rgba(37, 99, 235, 0.55);
-  --portfolio-accent-soft-hover: rgba(37, 99, 235, 0.6);
+  --portfolio-accent: #70AA26;
+  --portfolio-accent-soft: #70AA26;
+  --portfolio-accent-soft-hover: #70AA26;
 }
 
 .header {

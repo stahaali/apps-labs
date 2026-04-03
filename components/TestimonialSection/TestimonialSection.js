@@ -133,7 +133,7 @@ export default function TestimonialSection() {
 
             <div className={styles.smileWrap} aria-hidden>
               <Image
-                src={`${BASE}/smile-icon.png`}
+                src={`${BASE}/smile-icon2.png`}
                 alt=""
                 width={74}
                 height={74}

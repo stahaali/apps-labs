@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styles from "./HeroBanner.module.css";
 
-const HERO = "/assets/images-webp/hero-banner/hero-img.webp";
-const SHADOW = "/assets/images-webp/hero-banner/shadow-2.webp";
+const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
+const SHADOW = "/assets/images-webp/hero-banner/shadow-3.png";
 const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
 
 function StarIcon({ className }) {
@@ -67,7 +67,7 @@ export default function HeroBanner() {
               className="site-title text-balance text-white"
             >
               We Build Apps That{" "}
-              <span className="text-[#424FFA]">Dominate Markets</span>
+              <span className="text-[#70AA26]">Dominate Markets</span>
             </h1>
             <p className="mt-6 max-w-[540px] text-[17px] leading-[1.65] text-neutral-400">
               From zero to launch — we design, develop, and scale world-class
@@ -109,7 +109,7 @@ export default function HeroBanner() {
                 />
                 <button
                   type="submit"
-                  className="flex shrink-0 items-center justify-center self-stretch rounded-full bg-gradient-to-b from-[#424FFA] to-[#424FFA] px-4 text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95"
+                  className="flex shrink-0 items-center justify-center self-stretch rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-4 text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95"
                 >
                   Get Started
                 </button>
@@ -120,7 +120,7 @@ export default function HeroBanner() {
               <div
                 className={`flex min-w-0 flex-col gap-0.5 border-white/10 pr-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
               >
-                <span className="text-[21px] font-bold leading-none tracking-tight text-[#424FFA] sm:text-[26px]">
+                <span className="text-[21px] font-bold leading-none tracking-tight text-[#70AA26] sm:text-[26px]">
                   500+
                 </span>
                 <span className="text-[11px] font-medium leading-snug text-neutral-400 sm:text-[14px] sm:leading-tight">
@@ -130,7 +130,7 @@ export default function HeroBanner() {
               <div
                 className={`flex min-w-0 flex-col gap-0.5 border-white/10 px-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
               >
-                <span className="text-[21px] font-bold leading-none tracking-tight text-[#424FFA] sm:text-[26px]">
+                <span className="text-[21px] font-bold leading-none tracking-tight text-[#70AA26] sm:text-[26px]">
                   98%
                 </span>
                 <span className="text-[11px] font-medium leading-snug text-neutral-400 sm:text-[14px] sm:leading-tight">
@@ -141,7 +141,7 @@ export default function HeroBanner() {
                 className={`flex min-w-0 flex-col gap-0.5 pl-2 sm:min-w-[132px] sm:gap-1 sm:pl-10 ${styles.statCellLast}`}
               >
                 <span className="inline-flex items-center gap-0.5 text-[21px] sm:gap-1.5 sm:text-[26px]">
-                  <span className="font-bold leading-none tracking-tight text-[#424FFA]">
+                  <span className="font-bold leading-none tracking-tight text-[#70AA26]">
                     4.9
                   </span>
                   <StarIcon className="h-[1em] w-[1em] shrink-0 text-[#eab308]" />

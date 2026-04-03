@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./BlogSection.module.css";
 
-const ACCENT = "#4D5DFB";
+const ACCENT = "#70AA26";
 const BLOG_IMG_BASE = "/assets/images-webp/blogs";
 const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 const SHADOW_WIDTH = 700;

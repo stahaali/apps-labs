@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./PricingSection.module.css";
 
-const PRIMARY = "#4D5DFB";
+const PRIMARY = "#70AA26";
 
 function CheckIcon() {
   return (
@@ -201,7 +201,7 @@ export default function PricingSection() {
       aria-labelledby="pricing-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[2rem] bg-[#E8ECFF] px-4 py-[var(--home-section-py)] sm:rounded-[2.5rem] sm:px-8 md:rounded-[3rem] md:px-10 lg:px-12">
+        <div className="overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#EBFAD7] to-[#ECF0FF] px-4 py-[var(--home-section-py)] sm:rounded-[2.5rem] sm:px-8 md:rounded-[3rem] md:px-10 lg:px-12">
           <div className="mx-auto max-w-6xl text-center">
             <span
               className="inline-flex rounded-full px-5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"

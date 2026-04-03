@@ -54,7 +54,7 @@
   display: inline-flex;
   margin-bottom: 1.25rem;
   border-radius: 9999px;
-  background: #2563eb;
+  background: #70AA26;
   padding: 0.5rem 1rem;
   font-size: 13px;
   font-weight: 600;
@@ -244,7 +244,7 @@
 }
 
 .stepTitle {
-  font-size: var(--site-title-size);
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.12;
@@ -255,7 +255,7 @@
   margin-top: 0.5rem;
   font-size: 14px;
   font-weight: 600;
-  color: #2563eb;
+  color: #70AA26;
 }
 
 @media (min-width: 640px) {

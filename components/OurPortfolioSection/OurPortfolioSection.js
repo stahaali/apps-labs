@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./OurPortfolioSection.module.css";
 
 const PORTFOLIO_IMG = "/assets/images-webp/our-portfolio/portfolio-1.png";
-const SHADOW_IMG = "/assets/images-webp/our-portfolio/shadow-1.webp";
+const SHADOW_IMG = "/assets/images-webp/our-portfolio/shadow-2.png";
 
 function ArrowUpRightIcon({ className }) {
   return (
@@ -43,6 +43,7 @@ export default function OurPortfolioSection() {
             Apps We&apos;ve{" "}
             <span className={styles.headingAccent}>Brought to Life</span>
           </h2>
+          
           <p className={styles.subtitle}>
             From concept to launch, we craft high-performance mobile experiences
             that captivate users and drive real business growth.

@@ -22,7 +22,7 @@ export default function ReadyToTransformSection() {
       </div>
       <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-12 px-4 sm:px-6 min-[768px]:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] min-[768px]:gap-10 min-[768px]:px-6 lg:gap-14 lg:px-8 xl:gap-16">
         <div className="max-w-[560px] min-[768px]:max-w-none">
-          <span className="mb-5 inline-flex rounded-full bg-[#2563eb] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
+          <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Ready To Transform
           </span>
           <h2
@@ -30,7 +30,7 @@ export default function ReadyToTransformSection() {
             className="site-title text-balance text-neutral-900"
           >
             Empower Your Business With Cutting Edge{" "}
-            <span className="text-[#2563eb]">Digital Solutions</span>
+            <span className="text-[#70AA26]">Digital Solutions</span>
           </h2>
           <p className="mt-5 max-w-[520px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
             From ideation to deployment — let&apos;s turn your vision into an
@@ -38,7 +38,7 @@ export default function ReadyToTransformSection() {
           </p>
           <Link
             href="/contact"
-            className="mt-9 inline-flex rounded-full bg-[#2563eb] px-8 py-3.5 text-[15px] font-semibold text-white sm:px-10 sm:py-4 sm:text-[16px]"
+            className="mt-9 inline-flex rounded-full bg-[#70AA26] px-8 py-3.5 text-[15px] font-semibold text-white sm:px-10 sm:py-4 sm:text-[16px]"
           >
             Book Free Consultation
           </Link>

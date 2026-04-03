@@ -84,7 +84,7 @@
   height: 28px;
   padding: 0 14px;
   border-radius: 999px;
-  background: #424FFA;
+  background: #70AA26;
   border: none;
   color: #fff;
   font-size: 12px;
@@ -102,7 +102,7 @@
 }
 
 .accent {
-  color: #424FFA;
+  color: #70AA26;
 }
 
 .lead {
@@ -212,7 +212,7 @@
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  background: #424FFA;
+  background: #70AA26;
   color: white;
   font-weight: 600;
   letter-spacing: 0.01em;

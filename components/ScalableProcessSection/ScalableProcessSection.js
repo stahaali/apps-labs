@@ -54,7 +54,7 @@ export default function ScalableProcessSection() {
               className="site-title text-balance text-neutral-900"
             >
               How We Build Apps in{" "}
-              <span className="text-[#2563eb]">3 Steps</span>
+              <span className="text-[#70AA26]">3 Steps</span>
             </h2>
             <p className={styles.subtitle}>
               We follow a proven, efficient process to design, develop, and
