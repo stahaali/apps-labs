@@ -67,7 +67,7 @@ function ArrowIcon() {
 export default function IndustrySolutionsSection() {
   return (
     <section
-      className={`${styles.industrySolutions} relative z-20 w-full overflow-visible pb-16 pt-0 lg:pb-20`}
+      className={`${styles.industrySolutions} relative z-20 w-full overflow-x-clip pb-16 pt-0 lg:pb-20`}
       aria-labelledby="industry-heading"
     >
       <div
@@ -79,7 +79,7 @@ export default function IndustrySolutionsSection() {
           </span>
           <h2
             id="industry-heading"
-            className="text-balance text-[1.65rem] font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-3xl md:text-[2.15rem] lg:text-[2.35rem]"
+            className="site-title text-balance text-neutral-900"
           >
             App Solutions for{" "}
             <span className="text-[#2563eb]">Every Industry</span>
@@ -107,7 +107,7 @@ export default function IndustrySolutionsSection() {
                 />
               </div>
               <div className="relative flex flex-1 flex-col p-6 pb-[4.25rem] sm:p-7 sm:pb-[4.5rem]">
-                <h3 className="text-lg font-bold tracking-tight text-neutral-900 sm:text-xl">
+                <h3 className="site-title text-neutral-900">
                   {card.title}
                 </h3>
                 <p className="mt-3 text-[14px] leading-[1.65] text-neutral-600 sm:text-[15px]">

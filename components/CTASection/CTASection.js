@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./CTASection.module.css";
 
 const BASE = "/assets/images-webp/cta-section";
-const CHECK_ICON = `${BASE}/check-icon.png`;
+const CHECK_ICON = `${BASE}/check-icon.svg`;
 
 const LEFT_CHECKS = [
   "Food Delivery Solutions",
@@ -95,9 +95,9 @@ export default function CTASection() {
                     <Image
                       src={CHECK_ICON}
                       alt=""
-                      width={16}
-                      height={16}
-                      sizes="16px"
+                      width={10}
+                      height={10}
+                      sizes="10px"
                       className={styles.checkIconImg}
                     />
                   </span>

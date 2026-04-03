@@ -6,7 +6,8 @@ section {
 
 body {
   background-color: #FDF7EC;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 .sections-surface {

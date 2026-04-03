@@ -1,4 +1,50 @@
-section.clientLogos
-{
-    padding:0px;
+section.clientLogos {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+@media (min-width: 640px) {
+  section.clientLogos {
+    overflow: visible;
+  }
+}
+
+/* shadow-1: full section, centered — hidden on mobile via `hidden sm:block` in JS */
+.sectionShadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+}
+
+.sectionShadowImg {
+  display: block;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* iPad / tablet 768–1023px: logo images 70% of card */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .logoImage768 {
+    width: 70% !important;
+    max-width: 70% !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+}
+
+/* iPad Pro ~1024–1199px: logo marks scale to 80% of card */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .logoImageIpad {
+    width: 80% !important;
+    max-width: 80% !important;
+    max-height: none !important;
+    height: auto !important;
+  }
 }

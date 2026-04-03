@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   background: #E8ECFF;
-  padding-bottom: 6rem;
+  padding-top: var(--home-section-py);
+  padding-bottom: var(--home-section-py);
 }
 
 .inner {
@@ -32,7 +33,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .card {
     padding: 3.5rem 3rem 3.75rem;
   }
@@ -43,7 +44,7 @@
   text-align: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .header {
     margin-bottom: 3rem;
   }
@@ -79,6 +80,7 @@
   z-index: 1;
   width: 50%;
   height:50%;
+  opacity: 0.9;
 }
 
 @media (min-width: 640px) {
@@ -158,7 +160,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .iconWrap {
     max-width: 220px;
   }
@@ -184,7 +186,7 @@
   padding-right: 0.25rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .trackRow {
     margin-bottom: 2.25rem;
     max-width: 720px;
@@ -235,23 +237,18 @@
   text-align: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .stepsGrid {
     gap: 2rem;
   }
 }
 
 .stepTitle {
-  font-size: 1.125rem;
+  font-size: var(--site-title-size);
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.12;
   color: #171717;
-}
-
-@media (min-width: 640px) {
-  .stepTitle {
-    font-size: 1.25rem;
-  }
 }
 
 .stepKicker {
@@ -283,7 +280,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .stepBody {
     max-width: none;
   }

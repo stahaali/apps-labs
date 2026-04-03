@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./ScalableProcessSection.module.css";
 
 const IMG_BASE = "/assets/images-webp/scalable-process";
-const SHADOW_IMAGE = `${IMG_BASE}/shadow-1.png`;
+const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 const SHADOW_WIDTH = 700;
 
 const STEPS = [
@@ -37,7 +37,7 @@ export default function ScalableProcessSection() {
   return (
     <section className={styles.section} aria-labelledby="process-heading">
       <div className={styles.inner}>
-      <div className={styles.iconShadowWrap} aria-hidden>
+      <div className={`${styles.iconShadowWrap} hidden sm:block`} aria-hidden>
                 <Image
                   src={SHADOW_IMAGE}
                   alt=""
@@ -51,7 +51,7 @@ export default function ScalableProcessSection() {
             <span className={styles.badge}>Simple &amp; Scalable Process</span>
             <h2
               id="process-heading"
-              className="text-balance text-[1.65rem] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-3xl md:text-[2.05rem] lg:text-[2.35rem]"
+              className="site-title text-balance text-neutral-900"
             >
               How We Build Apps in{" "}
               <span className="text-[#2563eb]">3 Steps</span>

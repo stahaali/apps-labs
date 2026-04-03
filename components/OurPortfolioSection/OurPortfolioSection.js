@@ -38,10 +38,10 @@ export default function OurPortfolioSection() {
           <span className={styles.badge}>Our Portfolio</span>
           <h2
             id="portfolio-heading"
-            className="text-balance text-[1.65rem] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-3xl md:text-[2.05rem] lg:text-[2.35rem]"
+            className="site-title text-balance text-neutral-900"
           >
             Apps We&apos;ve{" "}
-            <span className="text-[#2563eb]">Brought to Life</span>
+            <span className={styles.headingAccent}>Brought to Life</span>
           </h2>
           <p className={styles.subtitle}>
             From concept to launch, we craft high-performance mobile experiences
@@ -55,7 +55,7 @@ export default function OurPortfolioSection() {
               src={SHADOW_IMG}
               alt=""
               fill
-              sizes="(max-width: 1024px) 60vw, 520px"
+              sizes="(max-width: 767px) 60vw, 520px"
               className={styles.shadowImage}
             />
           </div>
@@ -69,7 +69,7 @@ export default function OurPortfolioSection() {
                   width={640}
                   height={520}
                   className="h-auto w-full object-contain object-left"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 767px) 100vw, 50vw"
                 />
               </div>
             </div>

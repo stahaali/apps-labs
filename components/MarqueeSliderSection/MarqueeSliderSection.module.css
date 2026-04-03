@@ -1,8 +1,10 @@
 .outer {
   position: relative;
   width: 100%;
-  padding: 0;
+  max-width: 100%;
   margin-bottom: -15px;
+  /* rotate + scale on .strip extends past the viewport — clip without affecting page scroll */
+  overflow-x: clip;
 }
 
 .strip {
@@ -13,9 +15,21 @@
   margin-top: -15px;
 }
 
+@media (max-width: 639px) {
+  .strip {
+    transform: rotate(-1.25deg) scale(1);
+  }
+}
+
 .swiper {
   width: 100%;
   overflow: visible;
+}
+
+@media (max-width: 639px) {
+  .swiper {
+    overflow: hidden;
+  }
 }
 
 .slide {
@@ -34,7 +48,7 @@
 }
 
 .dot {
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   font-weight: 700;
   color: #ffffff;
   opacity: 0.95;

@@ -3,15 +3,15 @@ import Link from "next/link";
 import styles from "./ReadyToTransformSection.module.css";
 
 const CTA_IMAGE = "/assets/images-webp/ready-to-transform/digitalsolution-3.png";
-const SHADOW_IMAGE = "/assets/images-webp/ready-to-transform/shadow-1.png";
+const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 
 export default function ReadyToTransformSection() {
   return (
     <section
-      className="relative w-full"
+      className={`relative w-full ${styles.section}`}
       aria-labelledby="ready-heading"
     >
-      <div className={styles.shadowLayer} aria-hidden>
+      <div className={`${styles.shadowLayer} hidden sm:block`} aria-hidden>
         <Image
           src={SHADOW_IMAGE}
           alt=""
@@ -20,14 +20,14 @@ export default function ReadyToTransformSection() {
           className="h-auto max-h-[min(70vh,800px)] w-auto max-w-[min(100vw,800px)] object-contain object-top select-none"
         />
       </div>
-      <div className="relative z-10 mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 xl:gap-16">
-        <div className="max-w-[560px] lg:max-w-none">
+      <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-12 px-4 sm:px-6 min-[768px]:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] min-[768px]:gap-10 min-[768px]:px-6 lg:gap-14 lg:px-8 xl:gap-16">
+        <div className="max-w-[560px] min-[768px]:max-w-none">
           <span className="mb-5 inline-flex rounded-full bg-[#2563eb] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Ready To Transform
           </span>
           <h2
             id="ready-heading"
-            className="text-balance text-[1.65rem] font-bold leading-[1.12] tracking-tight text-neutral-900 sm:text-3xl md:text-[2.05rem] lg:text-[2.35rem]"
+            className="site-title text-balance text-neutral-900"
           >
             Empower Your Business With Cutting Edge{" "}
             <span className="text-[#2563eb]">Digital Solutions</span>
@@ -45,7 +45,7 @@ export default function ReadyToTransformSection() {
         </div>
 
         <div
-          className={`relative mx-auto w-full max-w-[540px] p-6 sm:p-8 lg:max-w-none lg:p-10 ${styles.visualCard}`}
+          className={`relative mx-auto w-full max-w-[540px] p-6 sm:p-8 min-[768px]:mx-0 min-[768px]:max-w-none min-[768px]:p-8 lg:p-10 ${styles.visualCard}`}
         >
           <div className="relative mx-auto aspect-[4/5] w-[85%] max-w-[420px] overflow-hidden rounded-2xl bg-neutral-100">
             <Image
@@ -53,7 +53,7 @@ export default function ReadyToTransformSection() {
               alt="Consultation preview on mobile"
               fill
               className="object-cover object-center"
-              sizes="(max-width: 1024px) 42vw, 380px"
+              sizes="(max-width: 767px) 42vw, 380px"
             />
           </div>
         </div>

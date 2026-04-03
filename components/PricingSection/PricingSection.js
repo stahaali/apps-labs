@@ -1,8 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./PricingSection.module.css";
 
 const PRIMARY = "#4D5DFB";
-const CHECK_ICON = "/assets/images-webp/cta-section/check-icon.png";
+
+function CheckIcon() {
+  return (
+    <svg
+      width={14}
+      height={14}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-[14px] w-[14px] shrink-0"
+      style={{ color: PRIMARY }}
+      aria-hidden
+    >
+      <path
+        d="M20 6L9 17l-5-5"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 const PLANS = [
   {
@@ -74,7 +97,7 @@ const TEAM = [
 function TeamPill({ member, className = "" }) {
   return (
     <div
-      className={`relative flex max-w-[min(100%,220px)] items-center gap-2 rounded-full border border-slate-200/80 bg-white px-3 py-1.5 sm:max-w-[min(100%,280px)] sm:gap-3 sm:px-4 sm:py-2 ${className}`}
+      className={`relative flex w-fit max-w-full items-center gap-2 rounded-full border border-slate-200/80 bg-white px-3 py-1.5 sm:max-w-[min(100%,280px)] sm:gap-3 sm:px-4 sm:py-2 ${className}`}
     >
       <Image
         src={member.avatar}
@@ -83,7 +106,7 @@ function TeamPill({ member, className = "" }) {
         height={40}
         className="h-8 w-8 shrink-0 rounded-full object-cover sm:h-10 sm:w-10"
       />
-      <div className="min-w-0 text-left">
+      <div className="w-fit min-w-0 text-left sm:w-auto">
         <p className="whitespace-nowrap text-xs font-bold leading-tight tracking-tight text-neutral-900 sm:text-sm">
           {member.name}
         </p>
@@ -102,13 +125,7 @@ function CheckListItem({ children }) {
         className="mt-0.5 inline-flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-[#dbeafe]"
         aria-hidden
       >
-        <Image
-          src={CHECK_ICON}
-          alt=""
-          width={14}
-          height={14}
-          className="h-[14px] w-[14px] object-contain"
-        />
+        <CheckIcon />
       </span>
       <span className="text-[13px] font-medium leading-snug text-slate-600 sm:text-sm">
         {children}
@@ -126,7 +143,7 @@ function PricingCard({ plan }) {
   const cardInner = (
     <div className="relative flex h-full flex-col rounded-3xl border border-slate-200/90 bg-white p-7 pt-8 text-left sm:p-8">
       <div>
-        <h3 className="text-lg font-bold text-neutral-900 sm:text-xl">
+        <h3 className="site-title text-neutral-900">
           {plan.title}
         </h3>
         <p className="mt-1.5 text-[13px] font-medium leading-snug text-slate-500 sm:text-sm">
@@ -161,10 +178,13 @@ function PricingCard({ plan }) {
   return (
     <div className="relative flex h-full flex-col">
       <div
-        className="absolute left-1/2 top-0 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-1 rounded-md px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-neutral-900 sm:text-[11px]"
+        className={`absolute left-1/2 top-0 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-1 rounded-md px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-neutral-900 sm:text-[11px] ${styles.bestValueBadge}`}
         style={{ backgroundColor: "#FFC107" }}
       >
-        <span className="text-sm leading-none" aria-hidden>
+        <span
+          className={`text-sm leading-none ${styles.bestValueBadgeStar}`}
+          aria-hidden
+        >
           ★
         </span>
         {plan.badge}
@@ -177,11 +197,11 @@ function PricingCard({ plan }) {
 export default function PricingSection() {
   return (
     <section
-      className="relative bg-[#FDF7EC] py-10 md:py-14"
+      className="relative bg-[#FDF7EC] py-[var(--home-section-py)]"
       aria-labelledby="pricing-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[2rem] bg-[#E8ECFF] px-4 py-10 sm:rounded-[2.5rem] sm:px-8 sm:py-12 md:rounded-[3rem] md:px-10 md:py-14 lg:px-12">
+        <div className="overflow-hidden rounded-[2rem] bg-[#E8ECFF] px-4 py-[var(--home-section-py)] sm:rounded-[2.5rem] sm:px-8 md:rounded-[3rem] md:px-10 lg:px-12">
           <div className="mx-auto max-w-6xl text-center">
             <span
               className="inline-flex rounded-full px-5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
@@ -191,7 +211,7 @@ export default function PricingSection() {
             </span>
             <h2
               id="pricing-heading"
-              className="mt-6 text-balance text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl"
+              className="site-title mt-6 text-balance text-neutral-900"
             >
               Choose Your <span style={{ color: PRIMARY }}>Plan</span>
             </h2>
@@ -211,7 +231,7 @@ export default function PricingSection() {
           {/* Expert team: 5 columns — copy | 3 pills | stat — equal gap */}
           <div className="mx-auto max-w-6xl pt-10 lg:pt-12">
             <div
-              className="grid grid-cols-1 gap-6 rounded-2xl lg:grid-cols-5 lg:items-center lg:gap-4 xl:gap-6"
+              className={`grid grid-cols-1 items-start gap-6 rounded-2xl lg:grid-cols-5 lg:items-center lg:gap-4 xl:gap-6 ${styles.expertTeamGrid}`}
               aria-labelledby="expert-team-heading"
             >
               <div className="flex min-w-0 flex-col justify-center text-left">
@@ -242,21 +262,27 @@ export default function PricingSection() {
               {TEAM.map((member) => (
                 <div
                   key={member.name}
-                  className="flex min-w-0 items-center justify-center"
+                  className="flex min-w-0 items-center justify-start sm:justify-center md:justify-start"
                 >
-                  <TeamPill member={member} />
+                  <TeamPill member={member} className={styles.teamPillIpad} />
                 </div>
               ))}
 
-              <div className="flex min-w-0 items-center justify-center">
-                <div className="flex w-full max-w-[280px] items-stretch overflow-hidden rounded-full bg-black text-white lg:max-w-none lg:w-full">
-                  <div className="flex min-w-[4.75rem] shrink-0 items-center justify-center px-3 py-3 sm:min-w-[5rem] sm:px-4">
+              <div
+                className={`flex min-w-0 items-center justify-start sm:justify-center md:justify-start ${styles.expertTeamStat}`}
+              >
+                <div
+                  className={`flex w-fit max-w-full items-stretch overflow-hidden rounded-full bg-black px-3 text-white sm:max-w-[280px] sm:px-0 sm:w-full md:w-fit md:max-w-none ${styles.statPill}`}
+                >
+                  <div className="flex min-w-[4.75rem] shrink-0 items-center justify-center py-3 pr-2.5 sm:min-w-[5rem] sm:px-4 sm:pr-4">
                     <span className="text-[1.3rem] font-bold leading-none tracking-tight">
                       100+
                     </span>
                   </div>
-                  <div className="flex min-w-0 flex-1 flex-col justify-center border-l border-white/20 px-2 py-2.5 sm:px-3">
-                    <p className="text-[9px] font-semibold uppercase leading-tight tracking-wide text-white sm:text-[10px]">
+                  <div className="flex shrink-0 flex-col justify-center border-l border-white/20 py-2.5 pl-2.5 sm:min-w-0 sm:flex-1 sm:px-3 md:flex-none">
+                    <p
+                      className={`text-[9px] font-semibold uppercase leading-tight tracking-wide text-white sm:text-[10px] ${styles.statPillLabel}`}
+                    >
                       <span className="block">APPS DELIVERED</span>
                       <span className="block">ACROSS THE U.S.</span>
                     </p>

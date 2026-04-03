@@ -2,11 +2,12 @@
   width: 100%;
   overflow-x: clip;
   background: #fff9ee;
+  padding: var(--home-section-py) 1.25rem;
 }
 
 @media (min-width: 640px) {
   .section {
-    padding: 7rem 1.5rem 6rem;
+    padding: var(--home-section-py) 1.5rem;
   }
 }
 
@@ -21,19 +22,25 @@
   overflow: visible;
   border-radius: 28px;
   background: #424FFA;
-  padding: 2.75rem 1.5rem 4.5rem;
+  padding: clamp(44px, 6vw, 80px) 1.5rem;
 }
 
 @media (min-width: 640px) {
   .blueCard {
     border-radius: 32px;
-    padding: 3.25rem 2.5rem 5rem;
+    padding: clamp(44px, 6vw, 80px) 2.5rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .blueCard {
-    padding: 3.5rem 3rem 5.5rem;
+    padding: 200px 0 220px;
+  }
+}
+
+@media (min-width: 992px) {
+  .blueCard {
+    padding: clamp(44px, 6vw, 80px) 3rem;
   }
 }
 
@@ -80,9 +87,9 @@
 }
 
 .title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: var(--site-title-size);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   color: #ffffff;
 }
@@ -152,7 +159,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .sideCardLeft {
     bottom: 2.5rem;
     left: -4%;
@@ -175,9 +182,35 @@
 }
 
 /* Tablet+: match design — must come after base so top/right win */
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .sideCardRight {
     top: 20%;
+    right: -4%;
+  }
+}
+
+/*
+ * iPad Pro 12.9" portrait (~1024×1366): special padding + right card flush to top.
+ * min-height avoids 1024-wide short laptop/desktop windows getting top:0 (clipping).
+ */
+@media (min-width: 1024px) and (max-width: 1024px) and (min-height: 1100px) {
+  .blueCard {
+    padding: 200px 0 160px;
+  }
+
+  .sideCardRight {
+    top: 4%;
+  }
+}
+
+/* 1025px+ always desktop CTA (overrides any edge-case overlap with iPad rules) */
+@media (min-width: 1025px) {
+  .blueCard {
+    padding: clamp(44px, 6vw, 80px) 3rem;
+  }
+
+  .sideCardRight {
+    top: 9%;
     right: -4%;
   }
 }
@@ -284,5 +317,57 @@
 
 .checkIconImg {
   width: 10px;
-  height:10px;
+  height: 10px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Mobile: stack content + cards; no overlap / clipped floats */
+@media (max-width: 639px) {
+  .blueCard {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    padding: 1.75rem 1rem 1.5rem;
+    border-radius: 22px;
+  }
+
+  .floatIconTop,
+  .floatIconBottom {
+    display: none;
+  }
+
+  .centerBlock {
+    flex-shrink: 0;
+    padding-bottom: 0.25rem;
+  }
+
+  .sideCard,
+  .sideCardLeft,
+  .sideCardRight {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .sideCardLeft {
+    margin-top: 1.25rem;
+  }
+
+  .sideCardRight {
+    margin-top: 0.75rem;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }

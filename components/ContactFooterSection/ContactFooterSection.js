@@ -4,12 +4,16 @@ import styles from "./ContactFooterSection.module.css";
 
 const FOOTER_BG = "/assets/images-webp/footer/footer-bg.webp";
 const BASE = "/assets/images-webp/contact";
+/* `public/assets/images-webp/shadow-1.png` (or `.webp` — update extension if needed) */
+const SHADOW_IMAGE = "/assets/images-webp/footer/shadow-1.png";
+const SHADOW_WIDTH = 700;
 
 const CONTACT_ITEMS = [
   { icon: `${BASE}/contact1.png`, label: "USA" },
   { icon: `${BASE}/contact2.png`, label: "info@apexlabs.co" },
   { icon: `${BASE}/contact3.png`, label: "+1 (555) 010-2030" },
 ];
+
 
 const FOOTER_COLUMNS = [
   {
@@ -40,6 +44,7 @@ const FOOTER_COLUMNS = [
 export default function ContactFooterSection() {
   return (
     <section className={styles.section} aria-labelledby="contact-footer-title">
+
       <div className={styles.bg} aria-hidden>
         <Image
           src={FOOTER_BG}
@@ -47,6 +52,17 @@ export default function ContactFooterSection() {
           fill
           sizes="100vw"
           className={styles.bgImg}
+        />
+      </div>
+
+      <div className={styles.iconShadowWrap} aria-hidden>
+        <Image
+          src={SHADOW_IMAGE}
+          alt=""
+          width={SHADOW_WIDTH}
+          height={SHADOW_WIDTH}
+          className={styles.iconShadowImage}
+          sizes="(max-width: 768px) 150vw, 900px"
         />
       </div>
 

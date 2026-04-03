@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/mousewheel";
 
 const BASE = "/assets/images-webp/testimonial";
+const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const SHADOW_WIDTH = 700;
 
 const TESTIMONIALS = [
   {
@@ -94,6 +96,16 @@ function TestimonialCard({ item }) {
 export default function TestimonialSection() {
   return (
     <section className={styles.section} aria-labelledby="testimonial-heading">
+      <div className={`${styles.iconShadowWrap} hidden sm:block`} aria-hidden>
+        <Image
+          src={SHADOW_IMAGE}
+          alt=""
+          width={SHADOW_WIDTH}
+          height={SHADOW_WIDTH}
+          className={styles.iconShadowImage}
+        />
+      </div>
+
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.left}>
@@ -141,7 +153,7 @@ export default function TestimonialSection() {
                 breakpoints={{
                   0: { direction: "horizontal", slidesPerView: 1.05 },
                   640: { direction: "horizontal", slidesPerView: 1.2 },
-                  900: { direction: "vertical", slidesPerView: 3 },
+                  768: { direction: "vertical", slidesPerView: 3 },
                 }}
                 className={styles.swiper}
               >

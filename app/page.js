@@ -7,6 +7,7 @@ import OurPortfolioSection from "@/components/OurPortfolioSection/OurPortfolioSe
 import PricingSection from "@/components/PricingSection/PricingSection";
 import ReadyToTransformSection from "@/components/ReadyToTransformSection/ReadyToTransformSection";
 import ScalableProcessSection from "@/components/ScalableProcessSection/ScalableProcessSection";
+import BlogSection from "@/components/BlogSection/BlogSection";
 import ContactFooterSection from "@/components/ContactFooterSection/ContactFooterSection";
 import {
   HomeClientMarquee,
@@ -28,6 +29,7 @@ export default function Home() {
       <ClientLogosSection />
       <PricingSection />
       <HomeClientTestimonial />
+      <BlogSection />
       <ContactFooterSection />
     </>
   );
