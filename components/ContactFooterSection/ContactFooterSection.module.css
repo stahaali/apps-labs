@@ -64,7 +64,8 @@
   z-index: 3;
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--home-section-py) 20px;
+  padding-top: var(--home-section-py) 20px;
+  padding-bottom:15px;
 }
 
 .topGrid {
