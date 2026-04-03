@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./ReadyToTransformSection.module.css";
 
-const CTA_IMAGE = "/assets/images-webp/ready-to-transform/digitalsolution-3.png";
+const CTA_IMAGE = "/assets/images-webp/ready-to-transform/digitalsolution-4.png";
 const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 
 export default function ReadyToTransformSection() {
