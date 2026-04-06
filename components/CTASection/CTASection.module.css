@@ -87,10 +87,6 @@
 }
 
 .title {
-  font-size: var(--site-title-size);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
   color: #ffffff;
 }
 
@@ -114,7 +110,7 @@
   justify-content: center;
   border-radius: 9999px;
   background: #ffffff;
-  padding: 0.85rem 1.75rem;
+  padding: var(--cta-button-pad-y) var(--cta-button-pad-x);
   font-size: 15px;
   font-weight: 700;
   color: #0f172a;
@@ -135,6 +131,10 @@
   border-radius: 16px;
   background: #ffffff;
   padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid #e1e7ef;
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.06),
+    0 12px 24px -4px rgba(15, 23, 42, 0.1);
 }
 
 @media (min-width: 640px) {

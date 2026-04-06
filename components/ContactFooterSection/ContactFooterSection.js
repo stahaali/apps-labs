@@ -79,7 +79,7 @@ export default function ContactFooterSection() {
         <div className={styles.topGrid}>
           <div className={styles.left}>
             <span className={styles.pill}>Contact Us</span>
-            <h2 id="contact-footer-title" className={styles.title}>
+            <h2 id="contact-footer-title" className={`title ${styles.title}`}>
               Let&apos;s Fire Up <span className={styles.accent}>Your Business!</span>
             </h2>
             <p className={styles.lead}>

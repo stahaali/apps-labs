@@ -38,7 +38,7 @@ export default function OurPortfolioSection() {
           <span className={styles.badge}>Our Portfolio</span>
           <h2
             id="portfolio-heading"
-            className="site-title text-balance text-neutral-900"
+            className="title text-balance text-neutral-900"
           >
             Apps We&apos;ve{" "}
             <span className={styles.headingAccent}>Brought to Life</span>

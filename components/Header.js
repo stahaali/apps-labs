@@ -31,7 +31,7 @@ const navLink =
 const MOBILE_NAV_LINKS = [
   { href: "/", label: "Home", chevron: true },
   { href: "/about", label: "About" },
-  { href: "/pages", label: "Pages", chevron: true },
+  { href: "#", label: "Services", chevron: true },
   { href: "/pricing", label: "Pricing" },
   { href: "/reviews", label: "Reviews" },
   { href: "/blog", label: "Blog" },
@@ -131,8 +131,8 @@ export default function Header() {
           <Link href="/about" className={navLink}>
             About
           </Link>
-          <Link href="/pages" className={navLink}>
-            Pages
+          <Link href="#" className={navLink}>
+            Services
             <ChevronDown className="mt-px text-white/70" />
           </Link>
           <Link href="/pricing" className={navLink}>
@@ -170,7 +170,7 @@ export default function Header() {
 
           <Link
             href="/get-started"
-            className="hidden rounded-full bg-white px-[26px] py-[11px] text-[15px] font-semibold leading-none text-[#050505] transition-opacity hover:opacity-90 lg:inline-flex lg:items-center"
+            className="hidden rounded-full bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] transition-opacity hover:opacity-90 lg:inline-flex lg:items-center"
           >
             Get Started
           </Link>
@@ -237,7 +237,7 @@ export default function Header() {
             <div className="mt-4 px-1">
               <Link
                 href="/get-started"
-                className="flex w-full items-center justify-center rounded-full bg-white px-4 py-3 text-[15px] font-semibold text-[#050505] transition-opacity hover:opacity-90"
+                className="flex w-full items-center justify-center rounded-full bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-[#050505] transition-opacity hover:opacity-90"
                 onClick={closeMenu}
               >
                 Get Started

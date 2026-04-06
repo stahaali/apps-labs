@@ -8,17 +8,14 @@ import PricingSection from "@/components/PricingSection/PricingSection";
 import ReadyToTransformSection from "@/components/ReadyToTransformSection/ReadyToTransformSection";
 import ScalableProcessSection from "@/components/ScalableProcessSection/ScalableProcessSection";
 import BlogSection from "@/components/BlogSection/BlogSection";
-import ContactFooterSection from "@/components/ContactFooterSection/ContactFooterSection";
 import {
   HomeClientMarquee,
   HomeClientTestimonial,
 } from "@/components/HomeClientSections";
-import "../styles/style.css";
 
 export default function Home() {
   return (
     <>
-      <Header />
       <HeroBanner />
       <IndustrySolutionsSection />
       <ReadyToTransformSection />
@@ -30,7 +27,6 @@ export default function Home() {
       <PricingSection />
       <HomeClientTestimonial />
       <BlogSection />
-      <ContactFooterSection />
     </>
   );
 }

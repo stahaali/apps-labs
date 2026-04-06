@@ -10,6 +10,9 @@ html {
   --foreground: #fafafa;
   --home-section-py: clamp(2.75rem, 5.5vw, 5rem);
   --site-title-size: clamp(1.65rem, 3.6vw, 2.35rem);
+  /* Primary pill CTAs: same padding as header “Get Started” (wide horizontal, ~12–15px vertical) */
+  --cta-button-pad-y: 14px;
+  --cta-button-pad-x: 40px;
 }
 
 /* Mobile: one vertical rhythm so section padding-top === padding-bottom everywhere using this token */
@@ -21,6 +24,14 @@ html {
 
 .site-title {
   font-size: var(--site-title-size);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+/* Home page section headings (screenshot-aligned) */
+.title {
+  font-size: 54px;
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;

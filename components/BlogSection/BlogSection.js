@@ -52,7 +52,7 @@ export default function BlogSection() {
           <span className={styles.badge} style={{ backgroundColor: ACCENT }}>
             Latest updates
           </span>
-          <h2 id="blog-section-heading" className={styles.title}>
+          <h2 id="blog-section-heading" className={`title ${styles.title}`}>
             Our Latest <span style={{ color: ACCENT }}>Blog Post</span>
           </h2>
         </header>

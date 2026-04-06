@@ -5,15 +5,41 @@
   padding-bottom:0px;
 }
 .lavenderPanel {
-  background: linear-gradient(180deg, #eceaf8 0%, #e4e2f5 100%);
+  background: linear-gradient(180deg, #f5f7fc 0%, #eef1f9 100%);
   border-radius: 28px;
 }
 
+.sectionHeading {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #171717;
+}
+
+.sectionLead {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #525252;
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #525252;
+}
+
 .cardTitle {
+  letter-spacing: -0.02em;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  margin: 0;
+  /* Same as .cardBody padding-top — gap under title matches gap above */
+  margin-bottom: var(--card-body-pad-top);
 }
 
 .card {
@@ -35,9 +61,10 @@
   border-radius: 18px 18px 0 0;
 }
 
-/* No horizontal padding; 20px below image; room for arrow */
+/* No horizontal padding; room below title matches padding-top; room for arrow */
 .cardBody {
-  padding-top: 20px;
+  --card-body-pad-top: 20px;
+  padding-top: var(--card-body-pad-top);
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 4.25rem;

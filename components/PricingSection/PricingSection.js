@@ -127,7 +127,7 @@ function CheckListItem({ children }) {
       >
         <CheckIcon />
       </span>
-      <span className="text-[13px] font-medium leading-snug text-slate-600 sm:text-sm">
+      <span className="text-[16px] font-medium leading-snug text-slate-600">
         {children}
       </span>
     </li>
@@ -143,7 +143,7 @@ function PricingCard({ plan }) {
   const cardInner = (
     <div className="relative flex h-full flex-col rounded-3xl border border-slate-200/90 bg-white p-7 pt-8 text-left sm:p-8">
       <div>
-        <h3 className="site-title text-neutral-900">
+        <h3 className="text-[24px] font-bold leading-tight tracking-tight text-neutral-900">
           {plan.title}
         </h3>
         <p className="mt-1.5 text-[13px] font-medium leading-snug text-slate-500 sm:text-sm">
@@ -152,13 +152,13 @@ function PricingCard({ plan }) {
         <p className="mt-6 text-3xl font-bold tracking-tight text-neutral-900 sm:text-[2rem]">
           {plan.price}
         </p>
-        <p className="mt-1 text-[12px] font-medium text-slate-500 sm:text-[13px]">
+        <p className="mt-1 text-[14px] font-medium text-slate-500">
           {plan.priceNote}
         </p>
       </div>
       <Link
         href="#cta-heading"
-        className={`mt-6 block w-full rounded-full py-3.5 text-center text-sm font-bold transition ${btnClass}`}
+        className={`mt-6 block w-full rounded-full px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-center text-base font-bold transition ${btnClass}`}
         style={isFeatured ? { backgroundColor: PRIMARY } : undefined}
       >
         Get a Quote
@@ -211,7 +211,7 @@ export default function PricingSection() {
             </span>
             <h2
               id="pricing-heading"
-              className="site-title mt-6 text-balance text-neutral-900"
+              className="title mt-6 text-balance text-neutral-900"
             >
               Choose Your <span style={{ color: PRIMARY }}>Plan</span>
             </h2>

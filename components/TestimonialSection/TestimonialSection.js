@@ -110,7 +110,7 @@ export default function TestimonialSection() {
         <div className={styles.grid}>
           <div className={styles.left}>
             <span className={styles.badge}>Reviews</span>
-            <h2 id="testimonial-heading" className={styles.heading}>
+            <h2 id="testimonial-heading" className={`title ${styles.heading}`}>
               <span className={styles.headingAccent}>Positive Reviews</span>
               <br />
               of Our Clients

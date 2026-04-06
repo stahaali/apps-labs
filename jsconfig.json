@@ -1,7 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "allowJs": true,
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./*"]
     }
-  }
+  },
+  "include": ["**/*.js", "**/*.jsx", ".next/types/**/*.ts"]
 }

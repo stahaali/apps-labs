@@ -65,11 +65,7 @@ export default function ClientLogosSection() {
           </span>
           <h2
             id="client-logos-heading"
-            className="site-title mt-4 max-w-4xl text-balance text-neutral-900 sm:mt-6"
-            style={{
-              fontSize:
-                "clamp(1.35rem, 5.2vw + 0.35rem, var(--site-title-size))",
-            }}
+            className="title mt-4 max-w-4xl text-balance text-neutral-900 sm:mt-6"
           >
             We Have Made{" "}
             <span style={{ color: PRIMARY }}>Them Taste Success</span>

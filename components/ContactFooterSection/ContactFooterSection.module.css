@@ -95,10 +95,6 @@
 
 .title {
   margin: 14px 0 10px;
-  font-size: var(--site-title-size);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
 }
 
 .accent {
@@ -226,7 +222,6 @@
 }
 
 .btn {
-  height: 42px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -234,6 +229,7 @@
   color: white;
   font-weight: 600;
   letter-spacing: 0.01em;
+  padding: var(--cta-button-pad-y) var(--cta-button-pad-x);
 }
 
 .btn:hover {

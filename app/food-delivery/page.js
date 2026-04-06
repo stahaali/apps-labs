@@ -1,10 +1,23 @@
+import BlogSection from "@/components/BlogSection/BlogSection";
+import CTASection from "@/components/CTASection/CTASection";
+import FoodDeliveryBanner from "@/components/FoodDeliveryBanner/FoodDeliveryBanner";
+import FoodIndustrySection from "@/components/FoodIndustrySolutionSection/FoodIndustrySection";
+import FoodTechnologySuiteSection from "@/components/FoodTechnologySuiteSection/FoodTechnologySuiteSection";
+import PricingSection from "@/components/PricingSection/PricingSection";
+import TestimonialSection from "@/components/TestimonialSection/TestimonialSection";
+import OurPortfolioSection from "@/components/OurPortfolioSection/OurPortfolioSection";
+
 export default function FoodDeliveryPage() {
   return (
-    <main className="mx-auto min-h-[50vh] max-w-3xl px-6 py-24">
-      <h1 className="site-title text-neutral-900">Food Delivery</h1>
-      <p className="mt-4 text-neutral-600">
-        Page content coming soon.
-      </p>
-    </main>
+    <>
+      <FoodDeliveryBanner />
+      <FoodIndustrySection />
+      <FoodTechnologySuiteSection />
+      <CTASection/>
+      <OurPortfolioSection/>
+      <PricingSection/>
+      <TestimonialSection/>
+      <BlogSection/>
+    </>
   );
 }

@@ -38,7 +38,7 @@ export default function CTASection() {
           </div>
 
           <div className={styles.centerBlock}>
-            <h2 id="cta-heading" className={styles.title}>
+            <h2 id="cta-heading" className={`title ${styles.title}`}>
               Starting a New Project? Let&apos;s Talk.
             </h2>
             <p className={styles.lead}>

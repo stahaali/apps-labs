@@ -1,45 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./IndustrySolutionsSection.module.css";
+import styles from "./FoodIndustrySection.module.css";
 
 const BASE = "/assets/images-webp/industry";
 
 const CARDS = [
   {
-    title: "E-Commerce",
-    image: `${BASE}/industry-1.png`,
+    title: "Build Food Delivery App For Your Restaurant",
+    image: `${BASE}/industry-7.png`,
     description:
-      "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
+      "Empower customers to easily order food through your expertly built restaurant app.",
   },
   {
-    title: "Fitness & Health",
-    image: `${BASE}/industry-2.png`,
+    title: "Food Ordering & Delivery App For Restaurant Chains",
+    image: `${BASE}/industry-8.png`,
     description:
-      "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
+      "Boost ROI for your multi-store food business with custom food delivery app development.",
   },
   {
-    title: "Fintech & Banking",
-    image: `${BASE}/industry-3.png`,
+    title: "On-Demand Food Delivery Built by Experts",
+    image: `${BASE}/industry-9.png`,
     description:
-      "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
-  },
-  {
-    title: "Education & eLearning",
-    image: `${BASE}/industry-4.png`,
-    description:
-      "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
-  },
-  {
-    title: "On-Demand Services",
-    image: `${BASE}/industry-5.png`,
-    description:
-      "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
-  },
-  {
-    title: "Social Media",
-    image: `${BASE}/industry-6.png`,
-    description:
-      "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
+      "Boost your revenue with an on-demand food delivery app, built by our expert development team.",
   },
 ];
 
@@ -64,38 +46,40 @@ function ArrowIcon() {
   );
 }
 
-export default function IndustrySolutionsSection() {
+export default function FoodIndustrySection() {
   return (
     <section
       className={`${styles.industrySolutions} relative z-20 w-full overflow-x-clip pb-16 pt-0 lg:pb-20`}
-      aria-labelledby="industry-heading"
+      aria-labelledby="food-benefits-heading"
     >
       <div
         className={`mx-auto max-w-[1200px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.lavenderPanel}`}
       >
-        <div className="mx-auto max-w-[820px] text-center">
+        <div className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
-            Industries We Serve
+            Benefits
           </span>
+      
+
           <h2
             id="industry-heading"
             className="title text-balance text-neutral-900"
           >
-            App Solutions for{" "}
-            <span className="text-[#70AA26]">Every Industry</span>
+            Benefits Of{" "}
+            <span className="text-[#70AA26]">Food Restaurant App</span> and Start Your Food Marketplace!
           </h2>
+
           <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-            Deep domain expertise across six major verticals. We build tailored
-            mobile experiences that solve real problems and drive measurable
-            growth.
+            Tap into the convenience and efficiency of a food restaurant app to
+            attract and serve more customers.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-[1120px] grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-7">
+        <div className="mx-auto mt-12 grid max-w-[1120px] grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 md:justify-items-stretch lg:mt-16 lg:grid-cols-3 lg:gap-7">
           {CARDS.map((card) => (
             <article
               key={card.title}
-              className={`relative flex min-h-[420px] flex-col overflow-hidden ${styles.card}`}
+              className={`relative flex min-h-[380px] flex-col overflow-hidden ${styles.card}`}
             >
               <div
                 className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia}`}
@@ -114,9 +98,7 @@ export default function IndustrySolutionsSection() {
                 <h3 className={`text-neutral-900 ${styles.cardTitle}`}>
                   {card.title}
                 </h3>
-                <p className="mt-3 text-[14px] leading-[1.65] text-neutral-600 sm:text-[15px]">
-                  {card.description}
-                </p>
+                <p className={styles.cardDesc}>{card.description}</p>
                 <Link
                   href="#"
                   className={`absolute bottom-0 right-0 ${styles.arrowBtn}`}

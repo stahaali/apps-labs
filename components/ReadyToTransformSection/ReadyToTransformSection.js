@@ -27,7 +27,7 @@ export default function ReadyToTransformSection() {
           </span>
           <h2
             id="ready-heading"
-            className="site-title text-balance text-neutral-900"
+            className="title text-balance text-neutral-900"
           >
             Empower Your Business With Cutting Edge{" "}
             <span className="text-[#70AA26]">Digital Solutions</span>
@@ -38,7 +38,7 @@ export default function ReadyToTransformSection() {
           </p>
           <Link
             href="/contact"
-            className="mt-9 inline-flex items-center justify-center rounded-full bg-[#70AA26] px-5 py-2 text-[15px] font-semibold leading-none text-white sm:px-6 sm:py-2.5 sm:text-[16px]"
+            className="mt-9 inline-flex items-center justify-center rounded-full bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white sm:text-[16px]"
           >
             Book Free Consultation
           </Link>

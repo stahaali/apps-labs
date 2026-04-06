@@ -57,10 +57,6 @@
 
 .heading {
   margin: 16px 0 10px;
-  font-size: var(--site-title-size);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
   color: #111827;
 }
 

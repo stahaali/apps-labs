@@ -51,7 +51,7 @@ export default function ScalableProcessSection() {
             <span className={styles.badge}>Simple &amp; Scalable Process</span>
             <h2
               id="process-heading"
-              className="site-title text-balance text-neutral-900"
+              className="title text-balance text-neutral-900"
             >
               How We Build Apps in{" "}
               <span className="text-[#70AA26]">3 Steps</span>

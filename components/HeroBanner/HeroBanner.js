@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroBannerStats from "./HeroBannerStats";
 import styles from "./HeroBanner.module.css";
 
 const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
@@ -64,7 +65,7 @@ export default function HeroBanner() {
           <div className={styles.contentCol}>
             <h1
               id="hero-heading"
-              className="site-title text-balance text-white"
+              className={`${styles.heroHeading} text-white`}
             >
               We Build Apps That{" "}
               <span className="text-[#70AA26]">Dominate Markets</span>
@@ -88,7 +89,7 @@ export default function HeroBanner() {
 
             <form className="mt-8 w-full max-w-[520px]" action="#" method="post" aria-label="Email signup">
               <div
-                className="flex min-h-[56px] w-full flex-nowrap items-stretch gap-2 rounded-full border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] py-1.5 pl-5 pr-2 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))]"
+                className="flex min-h-[56px] w-full flex-nowrap items-center gap-2 rounded-full border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] py-1.5 pl-5 pr-2 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))]"
                 role="group"
               >
                 <Image
@@ -109,48 +110,14 @@ export default function HeroBanner() {
                 />
                 <button
                   type="submit"
-                  className="flex shrink-0 items-center justify-center self-stretch rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-4 text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95"
+                  className="flex shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95"
                 >
                   Get Started
                 </button>
               </div>
             </form>
 
-            <div className="mt-12 grid w-full grid-cols-3 items-stretch gap-x-2 sm:mt-14 sm:flex sm:flex-nowrap sm:gap-x-0">
-              <div
-                className={`flex min-w-0 flex-col gap-0.5 border-white/10 pr-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
-              >
-                <span className="text-[21px] font-bold leading-none tracking-tight text-[#70AA26] sm:text-[26px]">
-                  500+
-                </span>
-                <span className="text-[11px] font-medium leading-snug text-neutral-400 sm:text-[14px] sm:leading-tight">
-                  Apps Shipped
-                </span>
-              </div>
-              <div
-                className={`flex min-w-0 flex-col gap-0.5 border-white/10 px-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
-              >
-                <span className="text-[21px] font-bold leading-none tracking-tight text-[#70AA26] sm:text-[26px]">
-                  98%
-                </span>
-                <span className="text-[11px] font-medium leading-snug text-neutral-400 sm:text-[14px] sm:leading-tight">
-                  Client Retention
-                </span>
-              </div>
-              <div
-                className={`flex min-w-0 flex-col gap-0.5 pl-2 sm:min-w-[132px] sm:gap-1 sm:pl-10 ${styles.statCellLast}`}
-              >
-                <span className="inline-flex items-center gap-0.5 text-[21px] sm:gap-1.5 sm:text-[26px]">
-                  <span className="font-bold leading-none tracking-tight text-[#70AA26]">
-                    4.9
-                  </span>
-                  <StarIcon className="h-[1em] w-[1em] shrink-0 text-[#eab308]" />
-                </span>
-                <span className="text-[11px] font-medium leading-snug text-neutral-400 sm:text-[14px] sm:leading-tight">
-                  Avg Rating
-                </span>
-              </div>
-            </div>
+            <HeroBannerStats />
           </div>
 
           <div className={styles.visualCol}>
