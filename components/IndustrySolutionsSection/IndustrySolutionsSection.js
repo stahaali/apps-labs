@@ -107,7 +107,7 @@ export default function IndustrySolutionsSection() {
                 />
               </div>
               <div className="relative flex flex-1 flex-col p-6 pb-[4.25rem] sm:p-7 sm:pb-[4.5rem]">
-                <h3 className="site-title text-neutral-900">
+                <h3 className={`text-neutral-900 ${styles.cardTitle}`}>
                   {card.title}
                 </h3>
                 <p className="mt-3 text-[14px] leading-[1.65] text-neutral-600 sm:text-[15px]">
