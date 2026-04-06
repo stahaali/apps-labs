@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import styles from "./FoodTechnologySuiteSection.module.css";
 const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
 
 const LEFT_FEATURES = [
@@ -280,11 +280,11 @@ function PhoneMockup() {
 export default function FoodTechnologySuiteSection() {
   return (
     <section
-      className="relative w-full overflow-x-clip bg-[#FCFAF4] py-12 sm:py-14 lg:py-16"
+      className={`relative w-full overflow-x-clip ${styles.paddingtopbottom}`}
       aria-labelledby="food-technology-suite-heading"
     >
 
-      <div className="mx-auto max-w-[820px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="industry-heading" className="title text-balance text-neutral-900">Advanced Technology Suite Boosts <span className="text-[#70AA26]">Food Business Success</span></h2><p class="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">We elevate your food business to new heights with our comprehensive tech suite, including cutting-edge food delivery application development, fueling expansion and exceptional success.</p></div>
+      <div className="mx-auto max-w-[820px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="industry-heading" className="title text-balance text-neutral-900">Advanced Technology Suite Boosts <span className="text-[#70AA26]">Food Business Success</span></h2><p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">We elevate your food business to new heights with our comprehensive tech suite, including cutting-edge food delivery application development, fueling expansion and exceptional success.</p></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">            
