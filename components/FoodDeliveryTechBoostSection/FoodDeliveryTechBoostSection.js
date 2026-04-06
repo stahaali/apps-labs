@@ -50,8 +50,8 @@ function ArrowIcon() {
 
 function TechBoostCard({ title, description, icon }) {
   return (
-    <article className="relative z-[1] flex gap-4 rounded-2xl border border-neutral-200/70 bg-white p-5 shadow-[0_8px_24px_-10px_rgba(15,23,42,0.12)] sm:gap-5 sm:p-6 bg-[#FDF7EC]">
-      <div className="relative h-[72px] w-[72px] shrink-0 sm:h-[88px] sm:w-[88px]">
+    <article className="relative z-[1] flex flex-row max-[576px]:flex-col max-[576px]:items-stretch gap-4 rounded-2xl border border-neutral-200/70 bg-white p-5 shadow-[0_8px_24px_-10px_rgba(15,23,42,0.12)] sm:gap-5 sm:p-6 bg-[#FDF7EC]">
+      <div className="relative h-[72px] w-[72px] shrink-0 max-[576px]:mx-auto sm:mx-0 sm:h-[88px] sm:w-[88px]">
         <Image
           src={icon}
           alt=""
@@ -60,11 +60,11 @@ function TechBoostCard({ title, description, icon }) {
           sizes="88px"
         />
       </div>
-      <div className="min-w-0 flex-1 pr-11 sm:pr-12">
+      <div className="min-w-0 flex-1 pr-11 sm:pr-12 max-[576px]:flex max-[576px]:w-full max-[576px]:flex-col max-[576px]:flex-none max-[576px]:pr-12">
         <h3 className="text-[24px] font-bold leading-snug tracking-tight text-neutral-900">
           {title}
         </h3>
-        <p className="mt-2 min-h-[5.25rem] text-pretty text-sm leading-relaxed text-slate-600 sm:min-h-[6.125rem] sm:text-[15px]">
+        <p className="mt-2 min-h-[5.25rem] text-pretty text-sm leading-relaxed text-slate-600 max-[576px]:min-h-0 sm:min-h-[6.125rem] sm:text-[15px]">
           {description}
         </p>
       </div>
