@@ -30,7 +30,7 @@ function LogoCard({ src, name }) {
         width={220}
         height={100}
         sizes="(max-width: 767px) 40vw, 140px"
-        className={`min-w-0 h-auto w-[80%] max-w-[80%] object-contain object-center min-[768px]:w-auto min-[768px]:max-h-10 min-[768px]:max-w-[min(108px,18vw)] lg:max-w-[120px] ${styles.logoImage768} ${styles.logoImageIpad}`}
+        className="min-w-0 h-auto w-[60%] max-w-[60%] object-contain object-center"
       />
     </div>
   );

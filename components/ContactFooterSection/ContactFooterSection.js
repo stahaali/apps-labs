@@ -115,26 +115,36 @@ export default function ContactFooterSection() {
 
             <form className={styles.form} action="#" method="post">
               <div className={styles.row2}>
-                <label className={styles.field}>
-                  <span className={styles.srOnly}>Full name</span>
+                <label className={`${styles.field} ${styles.nameFieldFirst}`}>
+                  <span className={styles.srOnly}>First name</span>
                   <input
                     className={styles.input}
-                    name="name"
-                    placeholder="Your Name"
-                    autoComplete="name"
+                    name="firstName"
+                    placeholder="First Name"
+                    autoComplete="given-name"
                   />
                 </label>
-                <label className={styles.field}>
-                  <span className={styles.srOnly}>Email</span>
+                <label className={`${styles.field} ${styles.nameFieldLast}`}>
+                  <span className={styles.srOnly}>Last name</span>
                   <input
                     className={styles.input}
-                    name="email"
-                    placeholder="Email"
-                    type="email"
-                    autoComplete="email"
+                    name="lastName"
+                    placeholder="Last Name"
+                    autoComplete="family-name"
                   />
                 </label>
               </div>
+
+              <label className={styles.field}>
+                <span className={styles.srOnly}>Email</span>
+                <input
+                  className={styles.input}
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  autoComplete="email"
+                />
+              </label>
 
               <label className={styles.field}>
                 <span className={styles.srOnly}>Phone number</span>

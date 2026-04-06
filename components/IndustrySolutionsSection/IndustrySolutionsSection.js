@@ -97,7 +97,9 @@ export default function IndustrySolutionsSection() {
               key={card.title}
               className={`relative flex min-h-[420px] flex-col overflow-hidden ${styles.card}`}
             >
-              <div className="relative aspect-[16/10] w-full shrink-0 bg-white">
+              <div
+                className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia}`}
+              >
                 <Image
                   src={card.image}
                   alt=""
@@ -106,7 +108,9 @@ export default function IndustrySolutionsSection() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-              <div className="relative flex flex-1 flex-col p-6 pb-[4.25rem] sm:p-7 sm:pb-[4.5rem]">
+              <div
+                className={`relative flex flex-1 flex-col ${styles.cardBody}`}
+              >
                 <h3 className={`text-neutral-900 ${styles.cardTitle}`}>
                   {card.title}
                 </h3>
@@ -115,7 +119,7 @@ export default function IndustrySolutionsSection() {
                 </p>
                 <Link
                   href="#"
-                  className={`absolute bottom-5 right-5 sm:bottom-6 sm:right-7 ${styles.arrowBtn}`}
+                  className={`absolute bottom-0 right-0 ${styles.arrowBtn}`}
                   aria-label={`Learn more about ${card.title}`}
                 >
                   <ArrowIcon />
