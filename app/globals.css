@@ -45,6 +45,16 @@ html {
   {
     font-size: 40px;
   }
+  .bannerform input
+  {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  .bannerform button
+  {
+    font-size: 12px;
+    padding: 10px 20px;
+  }
 }
 
 /* 768px–992px: section headings */

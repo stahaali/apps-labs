@@ -97,33 +97,45 @@ export default function HeroBannerStats() {
       <div
         className={`flex min-w-0 flex-col gap-0.5 border-white/10 pr-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
       >
-        <span className="text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums">
+        <span
+          className={`text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums ${styles.statCounterValue}`}
+        >
           {apps}+
         </span>
-        <span className="text-[16px] font-medium leading-snug text-neutral-400">
+        <span
+          className={`text-[16px] font-medium leading-snug text-neutral-400 ${styles.statCounterLabel}`}
+        >
           Apps Shipped
         </span>
       </div>
       <div
         className={`flex min-w-0 flex-col gap-0.5 border-white/10 px-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
       >
-        <span className="text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums">
+        <span
+          className={`text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums ${styles.statCounterValue}`}
+        >
           {retention}%
         </span>
-        <span className="text-[16px] font-medium leading-snug text-neutral-400">
+        <span
+          className={`text-[16px] font-medium leading-snug text-neutral-400 ${styles.statCounterLabel}`}
+        >
           Client Retention
         </span>
       </div>
       <div
         className={`flex min-w-0 flex-col gap-0.5 pl-2 sm:min-w-[132px] sm:gap-1 sm:pl-10 ${styles.statCellLast}`}
       >
-        <span className="inline-flex items-center gap-1 text-[40px] max-[639px]:text-[28px] sm:gap-1.5">
+        <span
+          className={`inline-flex items-center gap-1 text-[40px] max-[639px]:text-[28px] sm:gap-1.5 ${styles.statCounterValue}`}
+        >
           <span className="font-bold leading-none tracking-tight text-[#70AA26] tabular-nums">
             {rating.toFixed(1)}
           </span>
           <StarIcon className="h-[0.85em] w-[0.85em] shrink-0 text-[#eab308]" />
         </span>
-        <span className="text-[16px] font-medium leading-snug text-neutral-400">
+        <span
+          className={`text-[16px] font-medium leading-snug text-neutral-400 ${styles.statCounterLabel}`}
+        >
           Avg Rating
         </span>
       </div>

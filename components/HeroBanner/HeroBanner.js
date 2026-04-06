@@ -87,7 +87,7 @@ export default function HeroBanner() {
               </p>
             </div>
 
-            <form className="mt-8 w-full max-w-[520px]" action="#" method="post" aria-label="Email signup">
+            <form className="mt-8 w-full max-w-[520px] bannerform" action="#" method="post" aria-label="Email signup">
               <div
                 className="flex min-h-[56px] w-full flex-nowrap items-center gap-2 rounded-full border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] py-1.5 pl-5 pr-2 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))]"
                 role="group"

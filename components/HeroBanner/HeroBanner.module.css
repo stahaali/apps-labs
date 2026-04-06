@@ -160,3 +160,14 @@
     padding-left: 3rem;
   }
 }
+
+@media (max-width: 576px) {
+  /* Override Tailwind text-[40px] / max-[639px]:text-[28px] and labels */
+  .statCounterValue {
+    font-size: 24px !important;
+  }
+
+  .statCounterLabel {
+    font-size: 12px !important;
+  }
+}
