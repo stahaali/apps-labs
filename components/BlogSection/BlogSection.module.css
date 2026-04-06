@@ -110,10 +110,24 @@
 
 .imageWrap {
   position: relative;
-  aspect-ratio: 570 / 260;
   width: 100%;
+  /* Taller than 570/260 so thumbnails aren’t vertically “squashed” */
+  aspect-ratio: 570 / 380;
+  background: #fff;
+}
+
+.imageInner {
+  position: absolute;
+  inset: clamp(0.75rem, 2.2vw, 1.25rem);
   overflow: hidden;
+  border-radius: 0.625rem;
   background: #f1f5f9;
+}
+
+.image {
+  border-radius: 0.625rem;
+  object-fit: contain;
+  object-position: center;
 }
 
 .cardBody {

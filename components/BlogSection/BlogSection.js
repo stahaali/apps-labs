@@ -66,13 +66,15 @@ export default function BlogSection() {
               aria-label={`Read article: ${post.title}`}
             >
               <div className={styles.imageWrap}>
-                <Image
-                  src={post.image}
-                  alt=""
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 639px) 100vw, (max-width: 991px) 50vw, 33vw"
-                />
+                <div className={styles.imageInner}>
+                  <Image
+                    src={post.image}
+                    alt=""
+                    fill
+                    className={styles.image}
+                    sizes="(max-width: 639px) 100vw, (max-width: 991px) 50vw, 33vw"
+                  />
+                </div>
               </div>
               <div className={styles.cardBody}>
                 <p className={styles.meta}>
