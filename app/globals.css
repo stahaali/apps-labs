@@ -57,7 +57,7 @@ html {
   }
   .statCounterLabel
   {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 
@@ -70,7 +70,7 @@ html {
   {
     font-size: 45px;
   }
-}
+}  
 
 @theme inline {
   --color-background: var(--background);
