@@ -127,7 +127,6 @@ export default function Header() {
         >
           <Link href="/" className={navLink}>
             Home
-            <ChevronDown className="mt-px text-white/70" />
           </Link>
           <Link href="/about" className={navLink}>
             About
@@ -204,7 +203,14 @@ export default function Header() {
           }`}
         >
           <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-            <span className="text-sm font-semibold text-white">Menu</span>
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="shrink-0 text-lg font-bold tracking-tight"
+            >
+              <span className="text-white">Apex </span>
+              <span className="text-[#70AA26]">Labs</span>
+            </Link>
             <button
               type="button"
               className="rounded-lg p-2 text-white/80 transition hover:bg-white/10 hover:text-white"

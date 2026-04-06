@@ -15,6 +15,14 @@ const CONTACT_ITEMS = [
 ];
 
 
+const FOOTER_LINK_HREF = {
+  "Food Delivery": "/food-delivery",
+};
+
+function footerLinkHref(label) {
+  return FOOTER_LINK_HREF[label] ?? "#";
+}
+
 const FOOTER_COLUMNS = [
   {
     title: "Product",
@@ -33,6 +41,7 @@ const FOOTER_COLUMNS = [
       "Fintech Solutions",
       "Health & Fitness",
       "Travel & Tourism",
+      "Food Delivery",
     ],
   },
   {
@@ -162,7 +171,10 @@ export default function ContactFooterSection() {
                 <ul className={styles.colList}>
                   {col.links.map((label) => (
                     <li key={label} className={styles.colItem}>
-                      <Link href="#" className={styles.colLink}>
+                      <Link
+                        href={footerLinkHref(label)}
+                        className={styles.colLink}
+                      >
                         {label}
                       </Link>
                     </li>
