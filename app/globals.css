@@ -37,6 +37,27 @@ html {
   letter-spacing: -0.02em;
 }
 
+@media (max-width: 576px) {
+  .title {
+    font-size: 27px;
+  }
+  .heroHeading
+  {
+    font-size: 40px;
+  }
+}
+
+/* 768px–992px: section headings */
+@media (min-width: 768px) and (max-width: 992px) {
+  .title {
+    font-size: 40px;
+  }
+  .heroHeading
+  {
+    font-size: 45px;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
