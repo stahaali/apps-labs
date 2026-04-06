@@ -55,6 +55,10 @@ html {
     font-size: 12px;
     padding: 10px 20px;
   }
+  .statCounterLabel
+  {
+    font-size: 11px;
+  }
 }
 
 /* 768px–992px: section headings */
