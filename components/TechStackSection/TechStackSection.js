@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./TechStackSection.module.css";
 const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.png";
 const SHADOW_WIDTH = 700;
@@ -152,17 +153,23 @@ export default function TechStackSection() {
     };
   }, [updateScrollState]);
 
-  useEffect(() => {
-    const el = scrollRef.current;
-    const btn = document.getElementById(`tab-${activeId}`);
-    if (el && btn) {
-      btn.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
-  }, [activeId]);
+  /* Only when user picks a tab — never on mount (avoids page scroll/jump on /food-delivery visit) */
+  const alignTabInRail = useCallback((tabId) => {
+    requestAnimationFrame(() => {
+      const container = scrollRef.current;
+      const btn = document.getElementById(`tab-${tabId}`);
+      if (!container || !btn) return;
+
+      const c = container.getBoundingClientRect();
+      const b = btn.getBoundingClientRect();
+      const btnCenter = b.left + b.width / 2;
+      const railCenter = c.left + c.width / 2;
+      const delta = btnCenter - railCenter;
+      if (Math.abs(delta) < 2) return;
+
+      container.scrollBy({ left: delta, behavior: "auto" });
+    });
+  }, []);
 
   const scrollTabs = (dir) => {
     const el = scrollRef.current;
@@ -244,7 +251,10 @@ export default function TechStackSection() {
                         ? `${styles.tabBtn} ${styles.tabBtnActive}`
                         : styles.tabBtn
                     }
-                    onClick={() => setActiveId(tab.id)}
+                    onClick={() => {
+                      setActiveId(tab.id);
+                      alignTabInRail(tab.id);
+                    }}
                   >
                     {tab.label}
                   </button>
@@ -274,12 +284,13 @@ export default function TechStackSection() {
             {activeTab.items.map((item) => (
               <article key={item.title} className={styles.techCard}>
                 <div className={styles.iconWrap}>
-                  <Image
+                  <ImageWithSkeleton
                     src={item.image}
                     alt=""
                     fill
                     className="object-contain object-center"
                     sizes="(max-width: 639px) 120px, 96px"
+                    skeletonClassName="rounded-xl"
                   />
                 </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>

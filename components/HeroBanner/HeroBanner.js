@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import HeroBannerStats from "./HeroBannerStats";
 import styles from "./HeroBanner.module.css";
 
@@ -34,19 +35,24 @@ function HeroBannerVisual() {
             width={900}
             height={900}
             sizes="(max-width: 767px) 90vw, 820px"
-            className={`h-auto w-full select-none object-contain ${styles.shadowGlow}`}
+            className={`select-none object-contain ${styles.shadowGlow}`}
+            style={{ width: "100%", height: "auto" }}
           />
         </div>
 
         <div className={styles.visualFigure}>
-          <Image
+          <ImageWithSkeleton
             src={HERO}
             alt="Apex Labs mobile applications on phone mockups"
             width={680}
             height={740}
             sizes="(max-width: 767px) 90vw, 640px"
-            className="h-auto w-full select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+            className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+            style={{ width: "100%", height: "auto" }}
             priority
+            fetchPriority="high"
+            darkBackground
+            wrapClassName="block w-full"
           />
         </div>
       </div>
@@ -110,7 +116,7 @@ export default function HeroBanner() {
                 />
                 <button
                   type="submit"
-                  className="flex shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95"
+                  className="flex shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 submit"
                 >
                   Get Started
                 </button>

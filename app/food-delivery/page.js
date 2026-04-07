@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import BlogSection from "@/components/BlogSection/BlogSection";
 import CTASection from "@/components/CTASection/CTASection";
 import FoodDeliveryBanner from "@/components/FoodDeliveryBanner/FoodDeliveryBanner";
@@ -6,10 +7,16 @@ import FoodDeliveryTechBoostSection from "@/components/FoodDeliveryTechBoostSect
 import FoodTechnologySuiteSection from "@/components/FoodTechnologySuiteSection/FoodTechnologySuiteSection";
 import FoodDeliveryFeaturesSection from "@/components/FoodDeliveryFeaturesSection/FoodDeliveryFeaturesSection";
 import PricingSection from "@/components/PricingSection/PricingSection";
-import TestimonialSection from "@/components/TestimonialSection/TestimonialSection";
 import OurPortfolioSection from "@/components/OurPortfolioSection/OurPortfolioSection";
-import MarqueeSliderSection from "@/components/MarqueeSliderSection/MarqueeSliderSection";
-import TechStackSection from "@/components/TechStackSection/TechStackSection";
+import {
+  HomeClientMarquee,
+  HomeClientTestimonial,
+} from "@/components/HomeClientSections";
+
+const TechStackSection = dynamic(
+  () => import("@/components/TechStackSection/TechStackSection"),
+  { loading: () => null }
+);
 
 export default function FoodDeliveryPage() {
   return (
@@ -19,12 +26,12 @@ export default function FoodDeliveryPage() {
       <FoodTechnologySuiteSection />
       <FoodDeliveryTechBoostSection />
       <FoodDeliveryFeaturesSection />
-      <MarqueeSliderSection/>
-      <CTASection/>
-      <OurPortfolioSection/>
+      <HomeClientMarquee />
+      <CTASection />
+      <OurPortfolioSection />
       <TechStackSection />
-      <PricingSection/>
-      <TestimonialSection/>
+      <PricingSection />
+      <HomeClientTestimonial />
       <BlogSection/>
     </>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./TestimonialSection.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Mousewheel } from "swiper/modules";
@@ -73,13 +74,15 @@ function TestimonialCard({ item }) {
     <article className={styles.card}>
       <div className={styles.cardHead}>
         <div className={styles.avatarWrap} aria-hidden>
-          <Image
+          <ImageWithSkeleton
             src={item.avatar}
             alt=""
-            width={44}
-            height={44}
-            sizes="44px"
+            width={48}
+            height={48}
+            sizes="48px"
             className={styles.avatar}
+            skeletonClassName="rounded-full"
+            wrapClassName="block h-full w-full"
           />
         </div>
         <div className={styles.person}>
@@ -132,12 +135,13 @@ export default function TestimonialSection() {
             </a>
 
             <div className={styles.smileWrap} aria-hidden>
-              <Image
+              <ImageWithSkeleton
                 src={`${BASE}/smile-icon2.png`}
                 alt=""
                 width={74}
                 height={74}
                 className={styles.smile}
+                wrapClassName="block h-full w-full"
               />
             </div>
           </div>

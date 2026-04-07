@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodDeliveryTechBoostSection.module.css";
 const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.png";
 const BASE = "/assets/images-webp/technology";
@@ -52,12 +53,13 @@ function TechBoostCard({ title, description, icon }) {
   return (
     <article className="relative z-[1] flex flex-row max-[576px]:flex-col max-[576px]:items-stretch gap-4 rounded-2xl border border-neutral-200/70 bg-white p-5 shadow-[0_8px_24px_-10px_rgba(15,23,42,0.12)] sm:gap-5 sm:p-6 bg-[#FDF7EC]">
       <div className="relative h-[72px] w-[72px] shrink-0 max-[576px]:self-start sm:h-[88px] sm:w-[88px]">
-        <Image
+        <ImageWithSkeleton
           src={icon}
           alt=""
           fill
           className="object-contain object-center"
           sizes="88px"
+          skeletonClassName="rounded-lg"
         />
       </div>
       <div className="min-w-0 flex-1 pr-11 sm:pr-12 max-[576px]:flex max-[576px]:w-full max-[576px]:flex-col max-[576px]:flex-none max-[576px]:pr-12">
@@ -128,14 +130,15 @@ export default function FoodDeliveryTechBoostSection() {
 
             <div className="flex w-full justify-center lg:justify-end">
               <div className="relative w-full max-w-[520px]">
-                <Image
+                <ImageWithSkeleton
                   src={PHONES}
                   alt="Food delivery app screens showing discovery and menu browsing"
                   width={520}
                   height={640}
-                  className="h-auto w-full select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.18)]"
+                  className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.18)]"
+                  style={{ width: "100%", height: "auto" }}
                   sizes="(max-width: 1023px) min(92vw, 520px), 520px"
-                  priority={false}
+                  wrapClassName="block w-full"
                 />
               </div>
             </div>

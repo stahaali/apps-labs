@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodTechnologySuiteSection.module.css";
 const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
 
@@ -264,12 +264,13 @@ function PhoneMockup() {
     <div className="flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center">
       <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
           <div className="relative aspect-[10/19] w-full overflow-hidden">
-            <Image
+            <ImageWithSkeleton
               src={PHONE_SCREEN}
               alt="Food delivery app preview on a phone"
               fill
               className="object-contain object-top"
               sizes="(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px"
+              skeletonClassName="rounded-2xl"
             />
           </div>
       </div>

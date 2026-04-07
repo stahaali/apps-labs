@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./BlogSection.module.css";
 
 const ACCENT = "#70AA26";
@@ -67,12 +68,13 @@ export default function BlogSection() {
             >
               <div className={styles.imageWrap}>
                 <div className={styles.imageInner}>
-                  <Image
+                  <ImageWithSkeleton
                     src={post.image}
                     alt=""
                     fill
                     className={styles.image}
                     sizes="(max-width: 639px) 100vw, (max-width: 991px) 50vw, 33vw"
+                    skeletonClassName="rounded-[0.625rem]"
                   />
                 </div>
               </div>

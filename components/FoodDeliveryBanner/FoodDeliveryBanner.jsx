@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodDeliveryBanner.module.css";
 
 // Constants
@@ -100,15 +101,19 @@ export default function FoodDeliveryBanner() {
             <div className={styles.visualRoot}>
               <div className={styles.visualFrame}>
                 <div className={styles.visualFigure}>
-                  <Image
-                    src={HERO}
-                    alt="Food delivery app mockups on phones"
-                    width={400}
-                    height={435}
-                    sizes="(max-width: 767px) min(90vw, 400px), 400px"
-                    className="h-auto w-full max-w-[400px] select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
-                    priority
-                  />
+                <ImageWithSkeleton
+                  src={HERO}
+                  alt="Food delivery app mockups on phones"
+                  width={400}
+                  height={435}
+                  sizes="(max-width: 767px) min(90vw, 400px), 400px"
+                  className="max-w-[400px] select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                  style={{ width: "100%", height: "auto" }}
+                  priority
+                  fetchPriority="high"
+                  darkBackground
+                  wrapClassName="block w-full max-w-[400px]"
+                />
                 </div>
               </div>
             </div>

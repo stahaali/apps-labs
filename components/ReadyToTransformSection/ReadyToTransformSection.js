@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ReadyToTransformSection.module.css";
 
 const CTA_IMAGE = "/assets/images-webp/ready-to-transform/digitalsolution-4.png";
@@ -48,12 +49,13 @@ export default function ReadyToTransformSection() {
           className={`relative mx-auto w-full max-w-[540px] p-6 sm:p-8 min-[768px]:mx-0 min-[768px]:max-w-none min-[768px]:p-8 lg:p-10 ${styles.visualCard}`}
         >
           <div className="relative mx-auto aspect-[4/5] w-[85%] max-w-[420px] overflow-hidden rounded-2xl bg-neutral-100">
-            <Image
+            <ImageWithSkeleton
               src={CTA_IMAGE}
               alt="Consultation preview on mobile"
               fill
               className="object-cover object-center"
               sizes="(max-width: 767px) 42vw, 380px"
+              skeletonClassName="rounded-2xl"
             />
           </div>
         </div>

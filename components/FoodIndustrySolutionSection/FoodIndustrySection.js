@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodIndustrySection.module.css";
 
 const BASE = "/assets/images-webp/industry";
@@ -84,12 +84,13 @@ export default function FoodIndustrySection() {
               <div
                 className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia}`}
               >
-                <Image
+                <ImageWithSkeleton
                   src={card.image}
                   alt=""
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  skeletonClassName="rounded-lg"
                 />
               </div>
               <div

@@ -15,6 +15,14 @@ html {
   --cta-button-pad-x: 40px;
 }
 
+@media(max-width: 768px)
+{
+  .submit
+  {
+    padding:10px 20px;
+  }
+}
+
 /* Mobile: one vertical rhythm so section padding-top === padding-bottom everywhere using this token */
 @media (max-width: 639px) {
   :root {

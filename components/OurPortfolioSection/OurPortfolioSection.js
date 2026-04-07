@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./OurPortfolioSection.module.css";
 
 const PORTFOLIO_IMG = "/assets/images-webp/our-portfolio/portfolio-1.png";
@@ -64,13 +65,15 @@ export default function OurPortfolioSection() {
           <div className={styles.cardInner}>
             <div className={styles.visualCol}>
               <div className={styles.visualFrame}>
-                <Image
+                <ImageWithSkeleton
                   src={PORTFOLIO_IMG}
                   alt="LuxeCart e-commerce app on iPhone mockups"
                   width={640}
                   height={520}
-                  className="h-auto w-full object-contain object-left"
+                  className="object-contain object-left"
+                  style={{ width: "100%", height: "auto" }}
                   sizes="(max-width: 767px) 100vw, 50vw"
+                  wrapClassName="block w-full"
                 />
               </div>
             </div>

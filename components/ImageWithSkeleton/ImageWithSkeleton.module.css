@@ -1,0 +1,75 @@
+.wrap {
+  position: relative;
+}
+
+.wrapFill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapBlock {
+  display: block;
+  width: 100%;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    #e2e8f0 0%,
+    #f8fafc 45%,
+    #e2e8f0 90%
+  );
+  background-size: 200% 100%;
+  animation: imageSkeletonShimmer 1.15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Dark hero banners — no light “white box” behind mockups */
+.skeletonDark {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(
+    110deg,
+    #12141a 0%,
+    #1c2028 42%,
+    #12141a 88%
+  );
+  background-size: 200% 100%;
+  animation: imageSkeletonShimmer 1.15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.imgZ {
+  z-index: 2;
+}
+
+.wrapBlock .imgZ {
+  position: relative;
+  vertical-align: top;
+}
+
+.imgPending {
+  opacity: 0;
+}
+
+.imgReady {
+  opacity: 1;
+  transition: opacity 0.35s ease-out;
+}
+
+@keyframes imageSkeletonShimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
