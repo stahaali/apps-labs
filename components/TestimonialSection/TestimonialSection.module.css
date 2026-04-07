@@ -3,6 +3,7 @@
   width: 100%;
   padding-top: 0;
   padding-bottom: var(--home-section-py);
+  margin-bottom: 30px;
   overflow: hidden;
 }
 
@@ -144,12 +145,20 @@
 
 .slide {
   height: auto;
+  box-sizing: border-box;
+}
+
+/* 3× card height + 2× Swiper spaceBetween (30px) */
+@media (min-width: 768px) {
+  .swiper {
+    height: 620px;
+  }
 }
 
 .card {
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.92);
-  padding: 16px 16px 18px;
+  padding: 20px 20px 24px;
 }
 
 .cardHead {
@@ -181,14 +190,14 @@
 
 .name {
   margin: 0;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   color: #111827;
 }
 
 .role {
   margin: 2px 0 0;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   color: rgba(17, 24, 39, 0.5);
 }
@@ -197,7 +206,7 @@
   display: inline-flex;
   gap: 2px;
   color: #f59e0b;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1;
   white-space: nowrap;
 }
@@ -213,20 +222,24 @@
   color: rgba(17, 24, 39, 0.75);
 }
 
-/* Two-column + vertical slider from 768px: match desktop card stack */
+/* Two-column + vertical slider from 768px */
 @media (min-width: 768px) {
   .card {
-    height: 152px;
+    min-height: 186px;
+    height: 186px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
   }
 
   .text {
+    flex: 1;
+    min-height: 0;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 }
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./BlogSection.module.css";
 
@@ -49,19 +50,24 @@ export default function BlogSection() {
         />
       </div>
       <div className={styles.inner}>
-        <header className={styles.header}>
+        <AnimateOnView as="header" variant="fadeUp" className={styles.header}>
           <span className={styles.badge} style={{ backgroundColor: ACCENT }}>
             Latest updates
           </span>
           <h2 id="blog-section-heading" className={`title ${styles.title}`}>
             Our Latest <span style={{ color: ACCENT }}>Blog Post</span>
           </h2>
-        </header>                    
+        </AnimateOnView>
 
         <div className={styles.grid}>
-          {POSTS.map((post) => (
-            <Link
+          {POSTS.map((post, index) => (
+            <AnimateOnView
               key={post.slug}
+              variant="fadeUp"
+              delayMs={index * 90}
+              className="min-w-0"
+            >
+            <Link
               href="/blog"
               className={styles.cardLink}
               aria-label={`Read article: ${post.title}`}
@@ -91,6 +97,7 @@ export default function BlogSection() {
                 </span>
               </div>
             </Link>
+            </AnimateOnView>
           ))}
         </div>
       </div>

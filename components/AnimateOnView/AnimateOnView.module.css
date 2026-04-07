@@ -1,0 +1,72 @@
+.root {
+  will-change: opacity, transform;
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+}
+
+.fadeUp[data-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fadeIn {
+  opacity: 0;
+}
+
+.fadeIn[data-visible="true"] {
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fadeLeft {
+  opacity: 0;
+  transform: translate3d(28px, 0, 0);
+}
+
+.fadeLeft[data-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.imageEase {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .imageEase:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    will-change: auto;
+  }
+
+  .fadeUp,
+  .fadeLeft,
+  .fadeIn {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fadeUp[data-visible="true"],
+  .fadeLeft[data-visible="true"],
+  .fadeIn[data-visible="true"] {
+    transition: none;
+  }
+
+  .imageEase,
+  .imageEase:hover {
+    transform: none;
+  }
+}

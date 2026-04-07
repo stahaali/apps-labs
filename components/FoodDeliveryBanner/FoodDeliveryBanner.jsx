@@ -1,4 +1,6 @@
 import Image from "next/image";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodDeliveryBanner.module.css";
 
@@ -40,7 +42,7 @@ export default function FoodDeliveryBanner() {
       <div className={styles.inner}>
         <div className={styles.grid}>
           {/* Left Column: Content */}
-          <div className={styles.contentCol}>
+          <AnimateOnView variant="fadeUp" className={styles.contentCol}>
             <h1 id="food-delivery-hero-heading" className={styles.headline}>
               <span className={styles.headlineAccent}>Food Delivery</span>
               <br />
@@ -94,13 +96,19 @@ export default function FoodDeliveryBanner() {
                 </button>
               </div>
             </form>
-          </div>
+          </AnimateOnView>
 
           {/* Right Column: Visuals */}
-          <div className={styles.visualCol}>
+          <AnimateOnView
+            variant="fadeLeft"
+            className={styles.visualCol}
+            delayMs={120}
+          >
             <div className={styles.visualRoot}>
               <div className={styles.visualFrame}>
-                <div className={styles.visualFigure}>
+                <div
+                  className={`${styles.visualFigure} ${animateStyles.imageEase}`}
+                >
                 <ImageWithSkeleton
                   src={HERO}
                   alt="Food delivery app mockups on phones"
@@ -117,7 +125,7 @@ export default function FoodDeliveryBanner() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimateOnView>
         </div>
       </div>
     </section>

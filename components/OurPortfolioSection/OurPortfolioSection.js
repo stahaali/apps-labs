@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./OurPortfolioSection.module.css";
 
@@ -35,7 +37,7 @@ export default function OurPortfolioSection() {
       aria-labelledby="portfolio-heading"
     >
       <div className="mx-auto max-w-[1200px]">
-        <div className={styles.header}>
+        <AnimateOnView variant="fadeUp" className={styles.header}>
           <span className={styles.badge}>Our Portfolio</span>
           <h2
             id="portfolio-heading"
@@ -44,14 +46,14 @@ export default function OurPortfolioSection() {
             Apps We&apos;ve{" "}
             <span className={styles.headingAccent}>Brought to Life</span>
           </h2>
-          
+
           <p className={styles.subtitle}>
             From concept to launch, we craft high-performance mobile experiences
             that captivate users and drive real business growth.
           </p>
-        </div>
+        </AnimateOnView>
 
-        <div className={styles.portfolioCard}>
+        <AnimateOnView variant="fadeUp" delayMs={100} className={styles.portfolioCard}>
           <div className={styles.shadowLayer} aria-hidden>
             <Image
               src={SHADOW_IMG}
@@ -64,7 +66,9 @@ export default function OurPortfolioSection() {
           <div className={styles.cardGrain} aria-hidden />
           <div className={styles.cardInner}>
             <div className={styles.visualCol}>
-              <div className={styles.visualFrame}>
+              <div
+                className={`${styles.visualFrame} ${animateStyles.imageEase}`}
+              >
                 <ImageWithSkeleton
                   src={PORTFOLIO_IMG}
                   alt="LuxeCart e-commerce app on iPhone mockups"
@@ -118,7 +122,7 @@ export default function OurPortfolioSection() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnView>
       </div>
     </section>
   );

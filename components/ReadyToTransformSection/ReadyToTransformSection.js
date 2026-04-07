@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ReadyToTransformSection.module.css";
 
@@ -22,7 +24,7 @@ export default function ReadyToTransformSection() {
         />
       </div>
       <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-12 px-4 sm:px-6 min-[768px]:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] min-[768px]:gap-10 min-[768px]:px-6 lg:gap-14 lg:px-8 xl:gap-16">
-        <div className="max-w-[560px] min-[768px]:max-w-none">
+        <AnimateOnView variant="fadeUp" className="max-w-[560px] min-[768px]:max-w-none">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Ready To Transform
           </span>
@@ -43,12 +45,16 @@ export default function ReadyToTransformSection() {
           >
             Book Free Consultation
           </Link>
-        </div>
+        </AnimateOnView>
 
-        <div
+        <AnimateOnView
+          variant="fadeLeft"
+          delayMs={100}
           className={`relative mx-auto w-full max-w-[540px] p-6 sm:p-8 min-[768px]:mx-0 min-[768px]:max-w-none min-[768px]:p-8 lg:p-10 ${styles.visualCard}`}
         >
-          <div className="relative mx-auto aspect-[4/5] w-[85%] max-w-[420px] overflow-hidden rounded-2xl bg-neutral-100">
+          <div
+            className={`relative mx-auto aspect-[4/5] w-[85%] max-w-[420px] overflow-hidden rounded-2xl bg-neutral-100 ${animateStyles.imageEase}`}
+          >
             <ImageWithSkeleton
               src={CTA_IMAGE}
               alt="Consultation preview on mobile"
@@ -58,7 +64,7 @@ export default function ReadyToTransformSection() {
               skeletonClassName="rounded-2xl"
             />
           </div>
-        </div>
+        </AnimateOnView>
       </div>
     </section>
   );

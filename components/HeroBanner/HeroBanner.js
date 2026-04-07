@@ -1,4 +1,6 @@
 import Image from "next/image";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import HeroBannerStats from "./HeroBannerStats";
 import styles from "./HeroBanner.module.css";
@@ -40,7 +42,9 @@ function HeroBannerVisual() {
           />
         </div>
 
-        <div className={styles.visualFigure}>
+        <div
+          className={`${styles.visualFigure} ${animateStyles.imageEase}`}
+        >
           <ImageWithSkeleton
             src={HERO}
             alt="Apex Labs mobile applications on phone mockups"
@@ -68,7 +72,7 @@ export default function HeroBanner() {
     >
       <div className={styles.inner}>
         <div className={styles.grid}>
-          <div className={styles.contentCol}>
+          <AnimateOnView variant="fadeUp" className={styles.contentCol}>
             <h1
               id="hero-heading"
               className={`${styles.heroHeading} text-white`}
@@ -111,7 +115,7 @@ export default function HeroBanner() {
                   name="email"
                   placeholder="Enter Your E-mail"
                   required
-                  className="min-w-0 flex-1 cursor-text self-center bg-transparent text-[14px] leading-normal text-white caret-white placeholder:text-neutral-500 focus:outline-none focus:ring-0"
+                  className="min-w-0 flex-1 cursor-text self-center bg-transparent text-[14px] leading-normal text-white caret-white placeholder:text-neutral-500 focus:bg-transparent focus:outline-none focus:ring-0"
                   autoComplete="email"
                 />
                 <button
@@ -124,11 +128,15 @@ export default function HeroBanner() {
             </form>
 
             <HeroBannerStats />
-          </div>
+          </AnimateOnView>
 
-          <div className={styles.visualCol}>
+          <AnimateOnView
+            variant="fadeLeft"
+            className={styles.visualCol}
+            delayMs={120}
+          >
             <HeroBannerVisual />
-          </div>
+          </AnimateOnView>
         </div>
       </div>
     </section>

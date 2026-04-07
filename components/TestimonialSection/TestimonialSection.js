@@ -151,7 +151,7 @@ export default function TestimonialSection() {
               <Swiper
                 modules={[Autoplay, Mousewheel]}
                 loop
-                spaceBetween={10}
+                spaceBetween={30}
                 mousewheel={{ forceToAxis: true }}
                 autoplay={{ delay: 2400, disableOnInteraction: false }}
                 breakpoints={{
