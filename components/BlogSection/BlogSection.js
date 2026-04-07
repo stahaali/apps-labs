@@ -55,7 +55,7 @@ export default function BlogSection() {
           <h2 id="blog-section-heading" className={`title ${styles.title}`}>
             Our Latest <span style={{ color: ACCENT }}>Blog Post</span>
           </h2>
-        </header>
+        </header>                    
 
         <div className={styles.grid}>
           {POSTS.map((post) => (

@@ -111,8 +111,8 @@
 .imageWrap {
   position: relative;
   width: 100%;
-  /* Taller than 570/260 so thumbnails aren’t vertically “squashed” */
-  aspect-ratio: 570 / 380;
+  /* Same width as card; taller band than 570/280; uniform frame + cover */
+  aspect-ratio: 570 / 340;
   background: #fff;
 }
 
@@ -126,7 +126,7 @@
 
 .image {
   border-radius: 0.625rem;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
