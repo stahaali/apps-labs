@@ -1,50 +1,40 @@
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
-import styles from "./FoodTechnologySuiteSection.module.css";
+import styles from "./EcommerceTechnologySuiteSection.module.css";
 const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
 
 const LEFT_FEATURES = [
   {
-    title: "User-Friendly",
+    title: "Orders & Checkout",
     description:
-      "Enjoyable customer experiences with a user-friendly interface and intuitive features.",
+      "Enjoy functionalities such as abandoned cart recovery, guest checkout, order tracking, and an in-built store credit system.",
   },
   {
-    title: "Order Booking",
+    title: "Mcommerce Ready",
     description:
-      "Our food app offers a seamless order booking experience, making it quick and hassle-free for customers.",
+      "Gain insights from mobile visitor tracking, deliver timely SMS notifications, and engage users with attention-grabbing mobile push notifications.",
   },
   {
-    title: "Search Filters",
+    title: "Discounts & Coupons",
     description:
-      "Discover precisely what you need by utilizing our comprehensive search filters in the food app.",
-  },
-  {
-    title: "Payment Options",
-    description:
-      "Choose from a variety of trusted payment options to complete your food orders in the app.",
-  },
+      "Offer a variety of discounts, promotions, and loyalty programs to delight customers and keep them coming back for more.",
+  }
 ];
 
 const RIGHT_FEATURES = [
   {
-    title: "Loyalty Programs",
+    title: "Shipping & Logistics",
     description:
-      "Reward customer loyalty with our comprehensive loyalty program features.",
+      "No setup fees, multiple global delivery partners, and shipping label generation and printing through our system",
   },
   {
-    title: "Driver Tracking",
+    title: "Easy Returns & Refunds",
     description:
-      "With our food app's real-time driver tracking capability ensure smooth and efficient food deliveries.",
+      "Provide peace of mind to customers with a transparent return and refund system that is easy to understand and navigate.",
   },
   {
-    title: "Review & Rating",
+    title: "Multiple Payments",
     description:
-      "Make your voice heard by leaving detailed reviews and ratings for your favorite eateries in the app.",
-  },
-  {
-    title: "Push Notifications",
-    description:
-      "Give your food app experience a boost with our timely and informative push notifications.",
+      "Secure your payments with SSL certification and super secure payment gateways.",
   },
 ];
 
@@ -278,17 +268,17 @@ function PhoneMockup() {
   );
 }
 
-export default function FoodTechnologySuiteSection() {
+export default function EcommerceTechnologySuiteSection() {
   return (
     <section
-      className={`relative w-full overflow-x-clip ${styles.paddingtopbottom}`}
-      aria-labelledby="food-technology-suite-heading"
+      className={`relative w-full overflow-x-clip ${styles.ecommerceTechnologySuite}`}
+      aria-labelledby="ecommerce-technology-suite-heading"
     >
 
-      <div className="mx-auto max-w-[820px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="industry-heading" className="title text-balance text-neutral-900">Advanced Technology Suite Boosts <span className="text-[#70AA26]">Food Business Success</span></h2><p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">We elevate your food business to new heights with our comprehensive tech suite, including cutting-edge food delivery application development, fueling expansion and exceptional success.</p></div>
+      <div className="mx-auto max-w-[980px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="ecommerce-technology-suite-heading" className="title text-balance text-neutral-900">Get the most out of your ecommerce business with <span className="text-[#70AA26]">our smart, effective, and economical solutions.</span></h2><p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">We elevate your food business to new heights with our comprehensive tech suite, including cutting-edge food delivery application development, fueling expansion and exceptional success.</p></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">            
+        <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">
 
           <PhoneMockup />
 

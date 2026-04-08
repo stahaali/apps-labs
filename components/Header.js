@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function ChevronDown({ className }) {
   return (
@@ -27,6 +28,114 @@ function ChevronDown({ className }) {
 
 const navLink =
   "flex items-center gap-1 text-[15px] font-medium leading-none text-white/90 transition-colors hover:text-white";
+
+/** Matches footer `FOOTER_LINK_HREF`. */
+const SERVICES_MENU = [
+  {
+    href: "/food-delivery",
+    label: "Food Delivery",
+    tone: "brand",
+    icon: "food",
+  },
+  {
+    href: "/ecommerce-app-development",
+    label: "Ecommerce",
+    tone: "emerald",
+    icon: "cart",
+  },
+  {
+    href: "/fitness-app-development",
+    label: "Fitness App Development",
+    tone: "rose",
+    icon: "fitness",
+  },
+];
+
+const toneClass = {
+  brand: "bg-[#70AA26]/18 text-[#70AA26]",
+  emerald: "bg-emerald-100 text-emerald-700",
+  rose: "bg-rose-100 text-rose-700",
+};
+
+function ServiceMenuGlyph({ name }) {
+  const c = "h-[18px] w-[18px]";
+  switch (name) {
+    case "food":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M4 10c0-3 2.5-5 8-5s8 2 8 5v2H4v-2z"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M6 12v6M10 12v6M14 12v6M18 12v6"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <circle cx="18" cy="7" r="2" fill="currentColor" />
+        </svg>
+      );
+    case "cart":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="9" cy="20" r="1.25" fill="currentColor" />
+          <circle cx="17" cy="20" r="1.25" fill="currentColor" />
+        </svg>
+      );
+    case "fitness":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M5 10v4h2.5V10H5zm11 0v4H18.5V10H16zM7.5 11.25h9"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
+function ServicesMenuLinks({ onNavigate, classNameLink, surface = "light" }) {
+  const labelClass =
+    surface === "dark"
+      ? "text-[15px] font-medium leading-snug text-white/90"
+      : "text-[15px] font-medium leading-snug text-neutral-900";
+  return (
+    <ul className="py-1.5" role="list">
+      {SERVICES_MENU.map((item) => (
+        <li key={item.label}>
+          <Link
+            href={item.href}
+            className={classNameLink}
+            onClick={onNavigate}
+            role="menuitem"
+          >
+            <span
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${toneClass[item.tone]}`}
+            >
+              <ServiceMenuGlyph name={item.icon} />
+            </span>
+            <span className={labelClass}>{item.label}</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 const MOBILE_NAV_LINKS = [
   { href: "/", label: "Home", chevron: true },
@@ -81,9 +190,41 @@ function CloseIcon({ className }) {
 }
 
 export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const servicesWrapRef = useRef(null);
 
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    setMobileServicesOpen(false);
+  }, []);
+
+  const closeServicesMenu = useCallback(() => {
+    setServicesMenuOpen(false);
+  }, []);
+
+  const onServicesBlurCapture = useCallback((e) => {
+    const root = servicesWrapRef.current;
+    const next = e.relatedTarget;
+    if (!root) return;
+    if (next instanceof Node && root.contains(next)) return;
+    setServicesMenuOpen(false);
+  }, []);
+
+  useEffect(() => {
+    setServicesMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!servicesMenuOpen) return undefined;
+    const onKey = (ev) => {
+      if (ev.key === "Escape") setServicesMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [servicesMenuOpen]);
 
   useEffect(() => {
     if (!menuOpen) return undefined;
@@ -131,10 +272,48 @@ export default function Header() {
           <Link href="/about" className={navLink}>
             About
           </Link>
-          <Link href="#" className={navLink}>
-            Services
-            <ChevronDown className="mt-px text-white/70" />
-          </Link>
+          <div
+            ref={servicesWrapRef}
+            className="relative"
+            onMouseEnter={() => setServicesMenuOpen(true)}
+            onMouseLeave={() => setServicesMenuOpen(false)}
+            onFocusCapture={() => setServicesMenuOpen(true)}
+            onBlurCapture={onServicesBlurCapture}
+          >
+            <div
+              tabIndex={0}
+              className={`${navLink} flex cursor-default items-center gap-1 rounded-md outline-none ring-offset-2 ring-offset-transparent focus-visible:ring-2 focus-visible:ring-white/50`}
+              aria-expanded={servicesMenuOpen}
+              aria-haspopup="menu"
+              aria-label="Services menu"
+            >
+              Services
+              <ChevronDown
+                className={`mt-px text-white/70 transition-transform duration-200 ${servicesMenuOpen ? "rotate-180" : ""}`}
+              />
+            </div>
+            <div
+              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-2rem,300px)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+                servicesMenuOpen
+                  ? "pointer-events-auto visible opacity-100"
+                  : "pointer-events-none invisible opacity-0"
+              }`}
+              role="menu"
+              aria-label="Services"
+            >
+              <div className="overflow-hidden rounded-xl border border-neutral-200/90 bg-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.22)]">
+                <div className="border-b border-sky-200/80 bg-sky-100 px-4 py-3">
+                  <p className="text-[15px] font-bold text-neutral-900">
+                    Services
+                  </p>
+                </div>
+                <ServicesMenuLinks
+                  onNavigate={closeServicesMenu}
+                  classNameLink="flex items-center gap-3 px-3 py-2.5 transition-colors hover:bg-neutral-50"
+                />
+              </div>
+            </div>
+          </div>
           <Link href="/pricing" className={navLink}>
             Pricing
           </Link>
@@ -221,19 +400,47 @@ export default function Header() {
             </button>
           </div>
           <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-3" aria-label="Mobile">
-            {MOBILE_NAV_LINKS.map((item) => (
-              <Link
-                key={item.href + item.label}
-                href={item.href}
-                className="flex items-center justify-between rounded-xl px-3 py-3 text-[15px] font-medium text-white/90 hover:bg-white/10"
-                onClick={closeMenu}
-              >
-                <span>{item.label}</span>
-                {item.chevron ? (
-                  <ChevronDown className="-rotate-90 text-white/50" />
-                ) : null}
-              </Link>
-            ))}
+            {MOBILE_NAV_LINKS.map((item) =>
+              item.label === "Services" ? (
+                <div key="services" className="flex flex-col">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
+                    aria-expanded={mobileServicesOpen}
+                    onClick={() => setMobileServicesOpen((o) => !o)}
+                  >
+                    <span>Services</span>
+                    <ChevronDown
+                      className={`text-white/50 transition-transform ${mobileServicesOpen ? "rotate-180" : "-rotate-90"}`}
+                    />
+                  </button>
+                  {mobileServicesOpen ? (
+                    <div className="mb-1 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-2">
+                      <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
+                        Services
+                      </p>
+                      <ServicesMenuLinks
+                        surface="dark"
+                        onNavigate={closeMenu}
+                        classNameLink="flex items-center gap-3 rounded-lg px-2 py-2.5 text-left transition-colors hover:bg-white/10"
+                      />
+                    </div>
+                  ) : null}
+                </div>
+              ) : (
+                <Link
+                  key={item.href + item.label}
+                  href={item.href}
+                  className="flex items-center justify-between rounded-xl px-3 py-3 text-[15px] font-medium text-white/90 hover:bg-white/10"
+                  onClick={closeMenu}
+                >
+                  <span>{item.label}</span>
+                  {item.chevron ? (
+                    <ChevronDown className="-rotate-90 text-white/50" />
+                  ) : null}
+                </Link>
+              ),
+            )}
             <div className="mt-4 px-1">
               <Link
                 href="/get-started"

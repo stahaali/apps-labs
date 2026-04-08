@@ -1,51 +1,52 @@
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
-import styles from "./FoodTechnologySuiteSection.module.css";
+import styles from "./FitnessTechnologySuiteSection.module.css";
+
 const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
 
 const LEFT_FEATURES = [
   {
-    title: "User-Friendly",
+    title: "Expert Consultation",
     description:
-      "Enjoyable customer experiences with a user-friendly interface and intuitive features.",
+      "Promote transparent and effective communication between users and fitness trainers by offering text, audio, and video communication options.",
   },
   {
-    title: "Order Booking",
+    title: "Video & Tutorial",
     description:
-      "Our food app offers a seamless order booking experience, making it quick and hassle-free for customers.",
-  },
-  {
-    title: "Search Filters",
-    description:
-      "Discover precisely what you need by utilizing our comprehensive search filters in the food app.",
-  },
-  {
-    title: "Payment Options",
-    description:
-      "Choose from a variety of trusted payment options to complete your food orders in the app.",
-  },
-];
-
-const RIGHT_FEATURES = [
-  {
-    title: "Loyalty Programs",
-    description:
-      "Reward customer loyalty with our comprehensive loyalty program features.",
-  },
-  {
-    title: "Driver Tracking",
-    description:
-      "With our food app's real-time driver tracking capability ensure smooth and efficient food deliveries.",
-  },
-  {
-    title: "Review & Rating",
-    description:
-      "Make your voice heard by leaving detailed reviews and ratings for your favorite eateries in the app.",
+      "Guide users towards the correct exercise techniques and postures with our extensive library of instructional videos and tutorials.",
   },
   {
     title: "Push Notifications",
     description:
-      "Give your food app experience a boost with our timely and informative push notifications.",
+      "Keep users on track with their exercise routine by sending them real-time alerts and reminders.",
   },
+  {
+    title: "Geolocation",
+    description:
+      "Empower users to create and track their walking, hiking, and cycling routes with our in-app navigation feature, making outdoor activities more enjoyable and convenient.",
+  }
+];
+
+const RIGHT_FEATURES = [
+  {
+    title: "Workout/Diet Plans",
+    description:
+      "Give trainers the tools to curate workout and diet plans that are flexible and adaptable to the user's schedule and specific goals, promoting long-term adherence and overall well-being.",
+  },
+  {
+    title: "Activity Tracking",
+    description:
+      "Track key metrics like distance, calories, and speed to stay on top of your fitness goals.",
+  },
+  {
+    title: "Altimeter",
+    description:
+      "Get a smart feature with our app's integrated altitude tracking, precise location services, and real-time barometric pressure monitoring.",
+  },
+  {
+    title: "Wearable Connection",
+    description:
+      "Track your progress with precision by connecting your trusted smart devices, including watches and armbands.",
+  }
 ];
 
 function CheckIcon() {
@@ -69,11 +70,9 @@ function CheckIcon() {
   );
 }
 
-/** User-Friendly / Loyalty joining line — wider + taller viewBox; right = horizontal mirror. */
 const USER_JOIN_LINE_WIDTH = 960;
 const USER_JOIN_LINE_HEIGHT = 420;
 const USER_JOIN_LINE_VIEWBOX = `0 0 ${USER_JOIN_LINE_WIDTH} ${USER_JOIN_LINE_HEIGHT}`;
-/** S-curve: X vs 400 base ×2.4, Y stretched for ~420 tall viewBox (deeper dip). */
 const USER_JOIN_LINE_PATH = "M5 62C360 62 600 371 952 309";
 const USER_JOIN_LINE_STROKE = "#76B539";
 const USER_JOIN_LINE_STROKE_WIDTH = 12;
@@ -105,7 +104,6 @@ function UserJoinLineSvg({ mirror, verticalFlip }) {
       </g>
     );
   }
-  /** xMin = hug card on left column; xMax = hug card on right column (avoids mid-centered slack). */
   const preserveAspectRatio = mirror
     ? "xMaxYMid meet"
     : "xMinYMid meet";
@@ -123,7 +121,6 @@ function UserJoinLineSvg({ mirror, verticalFlip }) {
   );
 }
 
-/** viewBox 0 0 128 40 — indices 1–2 only; 0 & 3 use UserJoinLineSvg (3 = vertical flip). */
 const LEFT_CONNECTOR_PATHS = [
   "M0 20 L128 31",
   "M0 20 L128 9",
@@ -263,10 +260,10 @@ function PhoneMockup() {
   return (
     <div className="flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center">
       <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
-          <div className="relative aspect-[10/19] w-full overflow-hidden">
+          <div className="relative aspect-[10/20] w-full overflow-hidden">
             <ImageWithSkeleton
               src={PHONE_SCREEN}
-              alt="Food delivery app preview on a phone"
+              alt="Fitness app preview on a phone"
               fill
               className="object-contain object-top"
               sizes="(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px"
@@ -278,17 +275,17 @@ function PhoneMockup() {
   );
 }
 
-export default function FoodTechnologySuiteSection() {
+export default function FitnessTechnologySuiteSection() {
   return (
     <section
-      className={`relative w-full overflow-x-clip ${styles.paddingtopbottom}`}
-      aria-labelledby="food-technology-suite-heading"
+      className={`relative w-full overflow-x-clip ${styles.fitnessTechnologySuite}`}
+      aria-labelledby="fitness-technology-suite-heading"
     >
 
-      <div className="mx-auto max-w-[820px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="industry-heading" className="title text-balance text-neutral-900">Advanced Technology Suite Boosts <span className="text-[#70AA26]">Food Business Success</span></h2><p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">We elevate your food business to new heights with our comprehensive tech suite, including cutting-edge food delivery application development, fueling expansion and exceptional success.</p></div>
+      <div className="mx-auto max-w-[980px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="fitness-technology-suite-heading" className="title text-balance text-neutral-900">Elevate Your Fitness Brand <span className="text-[#70AA26]">with Our Tech Tools</span></h2><p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">Drive the growth of your fitness community and enhance your brand's success by offering an exceptional fitness app developed by our expert fitness app development company. Our app boasts impressive functionalities, engaging features, and a user-friendly interface that will captivate your users, fostering a stronger and more connected fitness community. With our cutting-edge technology, you can revolutionize the way your brand thrives in the fitness industry.</p></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">            
+        <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">
 
           <PhoneMockup />
 

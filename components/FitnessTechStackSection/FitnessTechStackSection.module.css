@@ -1,0 +1,306 @@
+/* Fitness tech stack — scrollable tabs + cards (mirrors EcommerceTechStackSection) */
+
+.fitnessTechStack {
+  position: relative;
+  background-color: #e8ecff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.inner {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.iconShadowWrap 
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 30%;
+  transform: translate(-50%,-50%);
+  opacity: 0.9;
+}
+
+.iconShadowImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.tabBarRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .tabBarRow {
+    gap: 0.75rem;
+  }
+}
+
+.tabRail {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  background-color: #fdf8e9;
+  border-radius: 9999px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
+@media (min-width: 640px) {
+  .tabRail {
+    padding: 0.45rem 0.65rem;
+    gap: 0.625rem;
+  }
+}
+
+.tabScroll {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  padding: 0.125rem 0;
+}
+
+.tabScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.arrowBtnLeft {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  background-color: #e8e4d9;
+  color: #fff;
+}
+
+.arrowBtnLeft:hover:not(:disabled) {
+  background-color: #ddd8cc;
+}
+
+.arrowBtnRight {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  background-color: #70aa26;
+  color: #fff;
+}
+
+.arrowBtnRight:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.arrowBtnLeft:disabled,
+.arrowBtnRight:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.arrowBtnLeft:focus-visible,
+.arrowBtnRight:focus-visible {
+  outline: 2px solid #70aa26;
+  outline-offset: 2px;
+}
+
+.tabBtn {
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: #64748b;
+  background-color: #e8edff;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (min-width: 640px) {
+  .tabBtn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+.tabBtn:hover {
+  color: #475569;
+  background-color: #dce3fb;
+}
+
+.tabBtnActive {
+  background-color: #70aa26;
+  color: #fff;
+  box-shadow: 0 2px 8px -2px rgba(112, 170, 38, 0.45);
+}
+
+.tabBtnActive:hover {
+  color: #fff;
+  background-color: #659a22;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardsGrid {
+    gap: 1.5rem;
+  }
+}
+
+.techCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  background-color: #fff;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 8px 24px -10px rgba(15, 23, 42, 0.1);
+}
+
+@media (min-width: 640px) {
+  .techCard {
+    padding: 1.75rem 1.5rem;
+    border-radius: 1.35rem;
+  }
+}
+
+.iconWrap {
+  position: relative;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .iconWrap {
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1.125rem;
+  }
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #171717;
+}
+
+.ctaWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .ctaWrap {
+    margin-top: 3rem;
+  }
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  min-height: 3rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: #70aa26;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 14px -4px rgba(112, 170, 38, 0.55);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+@media (min-width: 640px) {
+  .ctaBtn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    min-height: 3.25rem;
+  }
+}
+
+.ctaBtn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.ctaBtn:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 3px;
+}

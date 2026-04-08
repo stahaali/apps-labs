@@ -1,0 +1,26 @@
+.ecommerceTechBoostCard {
+  position: relative;
+  background: #0b0c10;
+  border-radius: 2rem;
+  margin-top: 2.5rem;
+  overflow: hidden;
+  padding: 2.5rem 2.5rem 2.75rem 2rem;
+}
+
+.ecommerceTechBoostShadowLayer {
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+  width: min(58%, 520px);
+  min-width: 240px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.ecommerceTechBoostShadowImage {
+  object-fit: cover;
+  object-position: right center;
+}

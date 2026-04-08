@@ -17,6 +17,8 @@ const CONTACT_ITEMS = [
 
 const FOOTER_LINK_HREF = {
   "Food Delivery": "/food-delivery",
+  "Ecommerce": "/ecommerce-app-development",
+  "Fitness App Development": "/fitness-app-development",
 };
 
 function footerLinkHref(label) {
@@ -37,9 +39,10 @@ const FOOTER_COLUMNS = [
     links: [
       "Custom Mobile Apps",
       "Cross Platform Apps",
-      "Ecommerce & Shopify",
+      "Ecommerce",
       "Fintech Solutions",
       "Health & Fitness",
+      "Fitness App Development",
       "Travel & Tourism",
       "Food Delivery",
     ],

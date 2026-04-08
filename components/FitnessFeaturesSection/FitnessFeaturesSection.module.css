@@ -1,0 +1,22 @@
+.fitnessFeaturesSection {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #e8ecff;
+}
+
+@media (min-width: 640px) {
+  .fitnessFeaturesSection {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fitnessFeaturesSection {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
