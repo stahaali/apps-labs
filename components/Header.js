@@ -138,9 +138,9 @@ function ServicesMenuLinks({ onNavigate, classNameLink, surface = "light" }) {
 }
 
 const MOBILE_NAV_LINKS = [
-  { href: "/", label: "Home", chevron: true },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "#", label: "Services", chevron: true },
+  { href: "#", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/reviews", label: "Reviews" },
   { href: "/blog", label: "Blog" },
@@ -365,7 +365,7 @@ export default function Header() {
       >
         <button
           type="button"
-          className={`absolute inset-0 bg-black/55 transition-opacity duration-300 ${
+          className={`absolute inset-0 z-0 bg-black/55 transition-opacity duration-300 ${
             menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
           aria-label="Close menu"
@@ -377,7 +377,7 @@ export default function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className={`absolute inset-y-0 right-0 flex w-[min(88vw,320px)] max-w-full flex-col border-l border-white/12 bg-[#0b0c10]/98 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-300 ease-out ${
+          className={`pointer-events-auto absolute inset-y-0 right-0 z-10 flex w-[min(88vw,320px)] max-w-full flex-col border-l border-white/12 bg-[#0b0c10]/98 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-300 ease-out ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -402,20 +402,30 @@ export default function Header() {
           <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-3" aria-label="Mobile">
             {MOBILE_NAV_LINKS.map((item) =>
               item.label === "Services" ? (
-                <div key="services" className="flex flex-col">
+                <div key="services" className="relative z-20 flex flex-col">
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
+                    className="flex w-full touch-manipulation cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
                     aria-expanded={mobileServicesOpen}
-                    onClick={() => setMobileServicesOpen((o) => !o)}
+                    aria-controls="mobile-services-panel"
+                    id="mobile-services-trigger"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setMobileServicesOpen((o) => !o);
+                    }}
                   >
                     <span>Services</span>
                     <ChevronDown
-                      className={`text-white/50 transition-transform ${mobileServicesOpen ? "rotate-180" : "-rotate-90"}`}
+                      className={`shrink-0 text-white/50 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : "-rotate-90"}`}
                     />
                   </button>
                   {mobileServicesOpen ? (
-                    <div className="mb-1 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-2">
+                    <div
+                      id="mobile-services-panel"
+                      role="region"
+                      aria-labelledby="mobile-services-trigger"
+                      className="mb-1 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-2"
+                    >
                       <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
                         Services
                       </p>
@@ -435,7 +445,7 @@ export default function Header() {
                   onClick={closeMenu}
                 >
                   <span>{item.label}</span>
-                  {item.chevron ? (
+                  {"chevron" in item && item.chevron ? (
                     <ChevronDown className="-rotate-90 text-white/50" />
                   ) : null}
                 </Link>
