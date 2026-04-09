@@ -30,10 +30,10 @@ function ArrowUpRightIcon({ className }) {
   );
 }
 
-export default function OurPortfolioSection() {
+export default function OurPortfolioSection({ noTopPadding = false }) {
   return (
     <section
-      className={styles.portfolioSection}
+      className={`${styles.portfolioSection}${noTopPadding ? ` ${styles.portfolioSectionNoTopPad}` : ""}`}
       aria-labelledby="portfolio-heading"
     >
       <div className="mx-auto max-w-[1200px]">

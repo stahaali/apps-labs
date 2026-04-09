@@ -85,7 +85,7 @@ function TechBoostCard({ title, description, icon }) {
 export default function FitnessTechBoostSection() {
   return (
     <section
-      className="relative w-full overflow-x-clip py-12 sm:py-14 lg:py-16"
+      className={`relative w-full overflow-x-clip ${styles.paddingtopbottom}`}
       aria-labelledby="fitness-tech-boost-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

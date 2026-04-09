@@ -1,8 +1,13 @@
+import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
 import Header from "@/components/Header";
-import ContactFooterSection from "@/components/ContactFooterSection/ContactFooterSection";
 import "./globals.css";
 import "@/styles/style.css";
+
+const ContactFooterSection = dynamic(
+  () => import("@/components/ContactFooterSection/ContactFooterSection"),
+  { loading: () => <div className="min-h-[100px] bg-[#050505]" aria-hidden /> }
+);
 
 const manrope = Manrope({
   subsets: ["latin"],

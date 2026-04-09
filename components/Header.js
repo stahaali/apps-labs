@@ -29,8 +29,8 @@ function ChevronDown({ className }) {
 const navLink =
   "flex items-center gap-1 text-[15px] font-medium leading-none text-white/90 transition-colors hover:text-white";
 
-/** Matches footer `FOOTER_LINK_HREF`. */
-const SERVICES_MENU = [
+/** Column 1 first three labels match footer `FOOTER_LINK_HREF` in ContactFooterSection. */
+const SERVICES_MEGA_COLUMN_1 = [
   {
     href: "/food-delivery",
     label: "Food Delivery",
@@ -49,12 +49,67 @@ const SERVICES_MENU = [
     tone: "rose",
     icon: "fitness",
   },
+  {
+    href: "/get-started",
+    label: "Book an Appointment",
+    tone: "sky",
+    icon: "calendar",
+  },
+];
+
+const SERVICES_MEGA_COLUMN_2 = [
+  {
+    href: "#",
+    label: "Classified Platform",
+    tone: "violet",
+    icon: "classified",
+  },
+  {
+    href: "#",
+    label: "Nutrition Platform",
+    tone: "lime",
+    icon: "nutrition",
+  },
+  {
+    href: "#",
+    label: "Ride Booking App",
+    tone: "amber",
+    icon: "ride",
+  },
+  {
+    href: "#",
+    label: "Chauffeur Service Booking",
+    tone: "slate",
+    icon: "chauffeur",
+  },
+];
+
+const SERVICES_MEGA_COLUMN_3 = [
+  {
+    href: "#",
+    label: "Logistics Transportation",
+    tone: "blue",
+    icon: "logistics",
+  },
+  {
+    href: "#",
+    label: "Auction App",
+    tone: "orange",
+    icon: "auction",
+  },
 ];
 
 const toneClass = {
   brand: "bg-[#70AA26]/18 text-[#70AA26]",
   emerald: "bg-emerald-100 text-emerald-700",
   rose: "bg-rose-100 text-rose-700",
+  sky: "bg-sky-100 text-sky-700",
+  violet: "bg-violet-100 text-violet-700",
+  lime: "bg-lime-100 text-lime-800",
+  amber: "bg-amber-100 text-amber-800",
+  slate: "bg-slate-100 text-slate-700",
+  blue: "bg-blue-100 text-blue-700",
+  orange: "bg-orange-100 text-orange-700",
 };
 
 function ServiceMenuGlyph({ name }) {
@@ -104,6 +159,125 @@ function ServiceMenuGlyph({ name }) {
           />
         </svg>
       );
+    case "calendar":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M8 5V3M16 5V3M5 9h14M6 5h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2z"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9 14h2M13 14h2M9 17h6"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case "classified":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M8 4h10a2 2 0 012 2v14l-4-2-4 2-4-2-4 2V6a2 2 0 012-2z"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9 9h6M9 12h4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case "nutrition":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M12 3c-2 4-6 6-6 11a6 6 0 1012 0c0-5-4-7-6-11z"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M12 14v4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case "ride":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M4 16l1.5-4h13L20 16M6 16h12v2H6v-2zM7 12l1-2h8l1 2"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="8.5" cy="18" r="1.25" fill="currentColor" />
+          <circle cx="15.5" cy="18" r="1.25" fill="currentColor" />
+        </svg>
+      );
+    case "chauffeur":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M4 17h16v1H4v-1zM5 17l2-5h10l2 5"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8 12V9h8v3"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+          />
+          <circle cx="8" cy="18" r="1.25" fill="currentColor" />
+          <circle cx="16" cy="18" r="1.25" fill="currentColor" />
+        </svg>
+      );
+    case "logistics":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M3 7h11v8H3V7zM14 11h3l3 4v3h-4M14 15h5"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="7" cy="18" r="1.5" fill="currentColor" />
+          <circle cx="17" cy="18" r="1.5" fill="currentColor" />
+        </svg>
+      );
+    case "auction":
+      return (
+        <svg className={c} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M4 20h16M8 18l10-10 2 2L10 20"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M14 6l2 2M12 8l1.5-1.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
     default:
       return null;
   }
@@ -114,26 +288,66 @@ function ServicesMenuLinks({ onNavigate, classNameLink, surface = "light" }) {
     surface === "dark"
       ? "text-[15px] font-medium leading-snug text-white/90"
       : "text-[15px] font-medium leading-snug text-neutral-900";
+
+  const labelSpanClass = `${labelClass} min-w-0 flex-1 text-left leading-snug`;
+
+  const linkRow = (item) => (
+    <li key={item.label}>
+      <Link
+        href={item.href}
+        className={classNameLink}
+        onClick={onNavigate}
+        role="menuitem"
+      >
+        <span
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${toneClass[item.tone]}`}
+        >
+          <ServiceMenuGlyph name={item.icon} />
+        </span>
+        <span className={labelSpanClass}>{item.label}</span>
+      </Link>
+    </li>
+  );
+
+  if (surface === "dark") {
+    return (
+      <div className="flex min-w-0 w-full flex-col gap-0">
+        <ul className="m-0 w-full min-w-0 list-none py-1.5" role="list">
+          {SERVICES_MEGA_COLUMN_1.map(linkRow)}
+        </ul>
+        <div
+          className="my-1 border-t border-white/12"
+          aria-hidden
+        />
+        <ul className="m-0 w-full min-w-0 list-none py-1.5" role="list">
+          {SERVICES_MEGA_COLUMN_2.map(linkRow)}
+        </ul>
+        <div
+          className="my-1 border-t border-white/12"
+          aria-hidden
+        />
+        <ul className="m-0 w-full min-w-0 list-none py-1.5" role="list">
+          {SERVICES_MEGA_COLUMN_3.map(linkRow)}
+        </ul>
+      </div>
+    );
+  }
+
   return (
-    <ul className="py-1.5" role="list">
-      {SERVICES_MENU.map((item) => (
-        <li key={item.label}>
-          <Link
-            href={item.href}
-            className={classNameLink}
-            onClick={onNavigate}
-            role="menuitem"
-          >
-            <span
-              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${toneClass[item.tone]}`}
-            >
-              <ServiceMenuGlyph name={item.icon} />
-            </span>
-            <span className={labelClass}>{item.label}</span>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div
+      className="grid w-full grid-cols-3 divide-x divide-neutral-200/90 [grid-template-columns:minmax(14.5rem,1fr)_minmax(14.5rem,1fr)_minmax(14.5rem,1fr)]"
+      role="presentation"
+    >
+      <ul className="m-0 min-w-0 list-none py-2 pl-3 pr-3" role="list">
+        {SERVICES_MEGA_COLUMN_1.map(linkRow)}
+      </ul>
+      <ul className="m-0 min-w-0 list-none px-3 py-2" role="list">
+        {SERVICES_MEGA_COLUMN_2.map(linkRow)}
+      </ul>
+      <ul className="m-0 min-w-0 list-none py-2 pl-3 pr-3" role="list">
+        {SERVICES_MEGA_COLUMN_3.map(linkRow)}
+      </ul>
+    </div>
   );
 }
 
@@ -293,7 +507,7 @@ export default function Header() {
               />
             </div>
             <div
-              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-2rem,300px)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-1.5rem,960px)] max-w-[calc(100vw-1.5rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
                 servicesMenuOpen
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"
@@ -307,10 +521,12 @@ export default function Header() {
                     Services
                   </p>
                 </div>
-                <ServicesMenuLinks
-                  onNavigate={closeServicesMenu}
-                  classNameLink="flex items-center gap-3 px-3 py-2.5 transition-colors hover:bg-neutral-50"
-                />
+                <div className="min-w-0 w-full overflow-x-auto">
+                  <ServicesMenuLinks
+                    onNavigate={closeServicesMenu}
+                    classNameLink="flex items-start gap-3 rounded-lg px-1 py-2.5 transition-colors hover:bg-neutral-50"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -377,7 +593,7 @@ export default function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className={`pointer-events-auto absolute inset-y-0 right-0 z-10 flex w-[min(88vw,320px)] max-w-full flex-col border-l border-white/12 bg-[#0b0c10]/98 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-300 ease-out ${
+          className={`pointer-events-auto absolute inset-y-0 right-0 z-10 flex w-[min(92vw,440px)] max-w-full flex-col border-l border-white/12 bg-[#0b0c10]/98 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-300 ease-out ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -424,7 +640,7 @@ export default function Header() {
                       id="mobile-services-panel"
                       role="region"
                       aria-labelledby="mobile-services-trigger"
-                      className="mb-1 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-2"
+                      className="mb-1 w-full min-w-0 rounded-xl border border-white/10 bg-white/[0.06] px-1.5 py-2"
                     >
                       <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
                         Services
@@ -432,7 +648,7 @@ export default function Header() {
                       <ServicesMenuLinks
                         surface="dark"
                         onNavigate={closeMenu}
-                        classNameLink="flex items-center gap-3 rounded-lg px-2 py-2.5 text-left transition-colors hover:bg-white/10"
+                        classNameLink="flex items-start gap-3 rounded-lg px-2 py-2.5 text-left transition-colors hover:bg-white/10"
                       />
                     </div>
                   ) : null}

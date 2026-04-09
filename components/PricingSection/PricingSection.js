@@ -194,14 +194,23 @@ function PricingCard({ plan }) {
   );
 }
 
-export default function PricingSection() {
+export default function PricingSection({
+  noTopPadding = false,
+  sectionPadding84 = false,
+}) {
+  const sectionVerticalClass = sectionPadding84
+    ? styles.sectionPadding84
+    : `py-[var(--home-section-py)]${noTopPadding ? ` ${styles.paddingNoTopPad}` : ""}`;
+
   return (
     <section
-      className="relative bg-[#FDF7EC] py-[var(--home-section-py)]"
+      className={`relative bg-[#FDF7EC] ${sectionVerticalClass}`}
       aria-labelledby="pricing-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className={`overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#EBFAD7] to-[#ECF0FF] px-4 sm:rounded-[2.5rem] sm:px-8 md:rounded-[3rem] md:px-10 lg:px-12 ${styles.paddingtopbottom}`}>
+        <div
+          className={`overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#EBFAD7] to-[#ECF0FF] px-4 sm:rounded-[2.5rem] sm:px-8 md:rounded-[3rem] md:px-10 lg:px-12 ${styles.paddingtopbottom}`}
+        >
           <div className="mx-auto max-w-6xl text-center">
             <span
               className="inline-flex rounded-full px-5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"

@@ -7,6 +7,10 @@
   --portfolio-accent-soft-hover: #70AA26;
 }
 
+.portfolioSection.portfolioSectionNoTopPad {
+  padding-top: 0;
+}
+
 .header {
   text-align: center;
 }

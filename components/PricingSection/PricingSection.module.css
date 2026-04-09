@@ -3,6 +3,16 @@
   padding-top: 84px;
   padding-bottom: 84px;
 }
+/* Fitness page: reliable padding (avoids Tailwind not emitting py-[84px] from a JS variable) */
+.sectionPadding84 {
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+
+/* Overrides Tailwind `py-[var(--home-section-py)]` on section when food page passes noTopPadding */
+.paddingNoTopPad {
+  padding-top: 0 !important;
+}
 
 /* iPad Pro portrait & similar tablet widths (1024–1199): avoid squeezed 5-across row */
 @media (min-width: 1024px) and (max-width: 1199px) {

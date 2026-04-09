@@ -7,6 +7,8 @@
 .lavenderPanel {
   background: linear-gradient(180deg, #f5f7fc 0%, #eef1f9 100%);
   border-radius: 28px;
+  padding-bottom: 84px;
+  padding-top: 84px;
 }
 
 .sectionHeading {

@@ -1,3 +1,8 @@
+.paddingtopbottom
+{
+  padding-top:0px;
+  padding-bottom:84px;
+}
 .fitnessTechBoostCard {
   position: relative;
   background: #0b0c10;

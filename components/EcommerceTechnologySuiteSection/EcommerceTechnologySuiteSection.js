@@ -256,7 +256,7 @@ function PhoneMockup() {
     <AnimateOnView
       variant="fadeLeft"
       delayMs={120}
-      className="flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center"
+      className="relative z-10 flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center"
     >
       <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
         <div
