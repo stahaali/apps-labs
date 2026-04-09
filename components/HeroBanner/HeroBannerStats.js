@@ -95,7 +95,7 @@ export default function HeroBannerStats() {
       aria-label="Company statistics"
     >
       <div
-        className={`flex min-w-0 flex-col gap-0.5 border-white/10 pr-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
+        className={`flex min-w-0 flex-col gap-0.5 border-[rgba(217,217,217,0.4)] pr-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
       >
         <span
           className={`text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums ${styles.statCounterValue}`}
@@ -109,7 +109,7 @@ export default function HeroBannerStats() {
         </span>
       </div>
       <div
-        className={`flex min-w-0 flex-col gap-0.5 border-white/10 px-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
+        className={`flex min-w-0 flex-col gap-0.5 border-[rgba(217,217,217,0.4)] px-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
       >
         <span
           className={`text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums ${styles.statCounterValue}`}

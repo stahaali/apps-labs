@@ -1,7 +1,7 @@
 /* Section-level styles (not globals.css) — light band + optional texture hooks */
 
 section {
-  padding: clamp(44px, 6vw, 80px) 0;
+  padding: clamp(44px, 6vw, 64px) 0;
 }
 
 body {
