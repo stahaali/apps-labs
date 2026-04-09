@@ -1,4 +1,6 @@
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodIndustrySection.module.css";
 
@@ -55,12 +57,10 @@ export default function FoodIndustrySection() {
       <div
         className={`mx-auto max-w-[1200px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.lavenderPanel}`}
       >
-        <div className="mx-auto max-w-[900px] text-center">
+        <AnimateOnView variant="fadeUp" className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Benefits
           </span>
-      
-
           <h2
             id="industry-heading"
             className="title text-balance text-neutral-900"
@@ -68,21 +68,25 @@ export default function FoodIndustrySection() {
             Benefits Of{" "}
             <span className="text-[#70AA26]">Food Restaurant App</span> and Start Your Food Marketplace!
           </h2>
-
           <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
             Tap into the convenience and efficiency of a food restaurant app to
             attract and serve more customers.
           </p>
-        </div>
+        </AnimateOnView>
 
         <div className="mx-auto mt-12 grid max-w-[1120px] grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 md:justify-items-stretch lg:mt-16 lg:grid-cols-3 lg:gap-7">
-          {CARDS.map((card) => (
-            <article
+          {CARDS.map((card, index) => (
+            <AnimateOnView
               key={card.title}
+              variant="fadeUp"
+              delayMs={index * 75}
+              className="min-w-0"
+            >
+            <article
               className={`relative flex min-h-[380px] flex-col overflow-hidden ${styles.card}`}
             >
               <div
-                className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia}`}
+                className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia} ${animateStyles.imageEase}`}
               >
                 <ImageWithSkeleton
                   src={card.image}
@@ -109,6 +113,7 @@ export default function FoodIndustrySection() {
                 </Link>
               </div>
             </article>
+            </AnimateOnView>
           ))}
         </div>
       </div>

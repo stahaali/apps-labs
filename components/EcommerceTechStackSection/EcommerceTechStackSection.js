@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./EcommerceTechStackSection.module.css";
 
@@ -198,7 +199,7 @@ export default function EcommerceTechStackSection() {
       </div>
 
       <div className={`${styles.inner} relative z-10`}>
-        <header className="mx-auto max-w-[1020px] text-center">
+        <AnimateOnView as="header" variant="fadeUp" className="mx-auto max-w-[1020px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Techstack
           </span>
@@ -210,14 +211,14 @@ export default function EcommerceTechStackSection() {
             <span className="text-[#70AA26]">Latest Technologies</span>
           </h2>
           <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-          Embark on a journey of mobile application innovation with our updated tools and the most recent technological advancements. We're leveraging cutting-edge tools and technologies to enhance your business.
-
-
+          Embark on a journey of mobile application innovation with our updated tools and the most recent technological advancements. We&apos;re leveraging cutting-edge tools and technologies to enhance your business.
           </p>
-        </header>
+        </AnimateOnView>
 
-        <div
-          className="mx-auto mt-10 w-full max-w-4xl sm:mt-12 "
+        <AnimateOnView
+          variant="fadeUp"
+          delayMs={90}
+          className="mx-auto mt-10 w-full max-w-4xl sm:mt-12"
           role="region"
           aria-label="Technology categories"
         >
@@ -275,9 +276,11 @@ export default function EcommerceTechStackSection() {
               </button>
             </div>
           </div>
-        </div>
+        </AnimateOnView>
 
-        <div
+        <AnimateOnView
+          variant="fadeUp"
+          delayMs={120}
           id={`${PANEL_ID_PREFIX}${activeTab.id}`}
           role="tabpanel"
           aria-labelledby={`${TAB_ID_PREFIX}${activeTab.id}`}
@@ -300,13 +303,13 @@ export default function EcommerceTechStackSection() {
               </article>
             ))}
           </div>
-        </div>
+        </AnimateOnView>
 
-        <div className={styles.ctaWrap}>
+        <AnimateOnView variant="fadeUp" delayMs={160} className={styles.ctaWrap}>
           <Link href="#" className={styles.ctaBtn}>
             Book Free Consultation
           </Link>
-        </div>
+        </AnimateOnView>
       </div>
     </section>
   );

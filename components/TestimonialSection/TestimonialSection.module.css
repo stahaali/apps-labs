@@ -1,9 +1,8 @@
 .section {
   position: relative;
   width: 100%;
-  padding-top: 0;
-  padding-bottom: var(--home-section-py);
-  margin-bottom: 30px;
+  padding-top: 14px;
+  padding-bottom: 84px;
   overflow: hidden;
 }
 

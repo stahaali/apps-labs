@@ -2,8 +2,8 @@
   position: relative;
   width: 100%;
   overflow-x: clip;
-  padding-top: var(--home-section-py);
-  padding-bottom: var(--home-section-py);
+  padding-top: 84px;
+  padding-bottom: 84px;
   background: #eef2ff;
 }
 

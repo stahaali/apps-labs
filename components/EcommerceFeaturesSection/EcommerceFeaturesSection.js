@@ -1,4 +1,6 @@
 import Image from "next/image";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import styles from "./EcommerceFeaturesSection.module.css";
 
 const PHONE_SCREEN = "/assets/images-webp/features/1.png";
@@ -85,7 +87,7 @@ export default function EcommerceFeaturesSection() {
     >
       <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-14">
         <div className="sections-surface rounded-[28px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
-          <header className="mx-auto max-w-[1000px] text-center">
+          <AnimateOnView as="header" variant="fadeUp" className="mx-auto max-w-[1000px] text-center">
             <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
               Features
             </span>
@@ -100,23 +102,35 @@ export default function EcommerceFeaturesSection() {
               Explore powerful features that elevate your ecommerce experience as
               we build a storefront and mobile experience beyond expectations.
             </p>
-          </header>
+          </AnimateOnView>
 
           <div className="mx-auto mt-12 w-full sm:mt-14 lg:mt-16">
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 xl:gap-12">
               <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5">
-                {FEATURE_ITEMS.map((item) => (
-                  <FeatureCard
+                {FEATURE_ITEMS.map((item, index) => (
+                  <AnimateOnView
                     key={item.title}
-                    title={item.title}
-                    description={item.description}
-                  />
+                    variant="fadeUp"
+                    delayMs={index * 60}
+                    className="min-w-0"
+                  >
+                    <FeatureCard
+                      title={item.title}
+                      description={item.description}
+                    />
+                  </AnimateOnView>
                 ))}
               </div>
 
-              <div className="flex w-full shrink-0 justify-center lg:w-[280px] lg:max-w-[280px] lg:justify-end lg:pt-2 xl:w-[300px] xl:max-w-[300px]">
+              <AnimateOnView
+                variant="fadeLeft"
+                delayMs={120}
+                className="flex w-full shrink-0 justify-center lg:w-[280px] lg:max-w-[280px] lg:justify-end lg:pt-2 xl:w-[300px] xl:max-w-[300px]"
+              >
                 <div className="w-full max-w-[300px]">
-                  <div className="relative aspect-[10/19] w-full overflow-hidden rounded-[28px] ring-1 ring-white/10">
+                  <div
+                    className={`relative aspect-[10/19] w-full overflow-hidden rounded-[28px] ring-1 ring-white/10 ${animateStyles.imageEase}`}
+                  >
                     <Image
                       src={PHONE_SCREEN}
                       alt="Ecommerce app onboarding and shopping preview on a phone"
@@ -126,7 +140,7 @@ export default function EcommerceFeaturesSection() {
                     />
                   </div>
                 </div>
-              </div>
+              </AnimateOnView>
             </div>
           </div>
         </div>

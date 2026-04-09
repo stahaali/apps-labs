@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./TechStackSection.module.css";
 const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.png";
@@ -195,7 +196,7 @@ export default function TechStackSection() {
       </div>
       
       <div className={`${styles.inner} relative z-10`}>
-        <header className="mx-auto max-w-[900px] text-center">
+        <AnimateOnView as="header" variant="fadeUp" className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Techstack
           </span>
@@ -211,10 +212,12 @@ export default function TechStackSection() {
             and wearable experiences—so your food delivery app stays fast,
             reliable, and ready to scale.
           </p>
-        </header>
+        </AnimateOnView>
 
-        <div
-          className="mx-auto mt-10 w-full max-w-4xl sm:mt-12 "
+        <AnimateOnView
+          variant="fadeUp"
+          delayMs={90}
+          className="mx-auto mt-10 w-full max-w-4xl sm:mt-12"
           role="region"
           aria-label="Technology categories"
         >
@@ -272,9 +275,11 @@ export default function TechStackSection() {
               </button>
             </div>
           </div>
-        </div>
+        </AnimateOnView>
 
-        <div
+        <AnimateOnView
+          variant="fadeUp"
+          delayMs={120}
           id={`techstack-panel-${activeTab.id}`}
           role="tabpanel"
           aria-labelledby={`tab-${activeTab.id}`}
@@ -297,13 +302,13 @@ export default function TechStackSection() {
               </article>
             ))}
           </div>
-        </div>
+        </AnimateOnView>
 
-        <div className={styles.ctaWrap}>
+        <AnimateOnView variant="fadeUp" delayMs={160} className={styles.ctaWrap}>
           <Link href="#" className={styles.ctaBtn}>
             Book Free Consultation
           </Link>
-        </div>
+        </AnimateOnView>
       </div>
     </section>
   );

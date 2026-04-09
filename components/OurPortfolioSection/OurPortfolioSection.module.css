@@ -1,7 +1,7 @@
 .portfolioSection {
   width: 100%;
-  padding-top: 0;
-  padding-bottom: var(--home-section-py);
+  padding-top: 84px;
+  padding-bottom: 84px;
   --portfolio-accent: #70AA26;
   --portfolio-accent-soft: #70AA26;
   --portfolio-accent-soft-hover: #70AA26;

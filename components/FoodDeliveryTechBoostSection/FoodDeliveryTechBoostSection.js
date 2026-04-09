@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodDeliveryTechBoostSection.module.css";
 const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.png";
@@ -88,7 +90,7 @@ export default function FoodDeliveryTechBoostSection() {
       aria-labelledby="food-delivery-tech-boost-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <header className="mx-auto max-w-[900px] text-center">
+        <AnimateOnView as="header" variant="fadeUp" className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Technology
           </span>
@@ -104,7 +106,7 @@ export default function FoodDeliveryTechBoostSection() {
             Elevate your journey with our cutting-edge food delivery app
             development services and solutions.
           </p>
-        </header>
+        </AnimateOnView>
 
         <div className={`mt-12 sm:mt-14 lg:mt-16 ${styles.techboostCard}`}>
         <div className={styles.shadowLayer} aria-hidden>
@@ -118,18 +120,28 @@ export default function FoodDeliveryTechBoostSection() {
           </div>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,520px)] lg:gap-12 xl:gap-14">
             <div className="flex min-w-0 flex-col gap-4 sm:gap-5">
-              {CARDS.map((card) => (
-                <TechBoostCard
+              {CARDS.map((card, index) => (
+                <AnimateOnView
                   key={card.title}
-                  title={card.title}
-                  description={card.description}
-                  icon={card.icon}
-                />
+                  variant="fadeUp"
+                  delayMs={index * 80}
+                  className="min-w-0 w-full"
+                >
+                  <TechBoostCard
+                    title={card.title}
+                    description={card.description}
+                    icon={card.icon}
+                  />
+                </AnimateOnView>
               ))}
             </div>
 
-            <div className="flex w-full justify-center lg:justify-end">
-              <div className="relative w-full max-w-[520px]">
+            <AnimateOnView
+              variant="fadeLeft"
+              delayMs={140}
+              className="flex w-full justify-center lg:justify-end"
+            >
+              <div className={`relative w-full max-w-[520px] ${animateStyles.imageEase}`}>
                 <ImageWithSkeleton
                   src={PHONES}
                   alt="Food delivery app screens showing discovery and menu browsing"
@@ -141,7 +153,7 @@ export default function FoodDeliveryTechBoostSection() {
                   wrapClassName="block w-full"
                 />
               </div>
-            </div>
+            </AnimateOnView>
           </div>
         </div>
       </div>

@@ -1,3 +1,9 @@
+.paddingtopbottom
+{
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+
 /* iPad Pro portrait & similar tablet widths (1024–1199): avoid squeezed 5-across row */
 @media (min-width: 1024px) and (max-width: 1199px) {
   .expertTeamGrid {

@@ -2,12 +2,12 @@
   width: 100%;
   overflow-x: clip;
   background: #fff9ee;
-  padding: var(--home-section-py) 1.25rem;
+  padding: 84px 0 84px;
 }
 
 @media (min-width: 640px) {
   .section {
-    padding: var(--home-section-py) 1.5rem;
+    padding: 119px 0 85px;
   }
 }
 

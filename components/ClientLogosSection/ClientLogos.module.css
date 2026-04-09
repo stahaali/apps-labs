@@ -1,7 +1,7 @@
 section.clientLogos {
   position: relative;
   padding-top: 0;
-  padding-bottom: 0;
+  padding-bottom: 20px;
   overflow-x: clip;
   overflow-y: visible;
 }

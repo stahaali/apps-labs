@@ -2,8 +2,8 @@
   position: relative;
   width: 100%;
   background: #E8ECFF;
-  padding-top: var(--home-section-py);
-  padding-bottom: var(--home-section-py);
+  padding-top: 84px;
+  padding-bottom: 104px;
 }
 
 .inner {
@@ -35,7 +35,7 @@
 
 @media (min-width: 992px) {
   .card {
-    padding: 3.5rem 3rem 3.75rem;
+    padding: 5.3rem 3rem 5.1rem;
   }
 }
 

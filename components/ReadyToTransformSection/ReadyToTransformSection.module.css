@@ -11,8 +11,8 @@
 
 @media (min-width: 768px) {
   .section {
-    padding-top: var(--home-section-py);
-    padding-bottom: var(--home-section-py);
+    padding-top: 84px;
+    padding-bottom: 0;
   }
 }
 

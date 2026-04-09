@@ -1,3 +1,5 @@
+import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./EcommerceTechnologySuiteSection.module.css";
 const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
@@ -251,20 +253,26 @@ function FeatureCard({ title, description, side, index }) {
 
 function PhoneMockup() {
   return (
-    <div className="flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center">
+    <AnimateOnView
+      variant="fadeLeft"
+      delayMs={120}
+      className="flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center"
+    >
       <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
-          <div className="relative aspect-[10/19] w-full overflow-hidden">
-            <ImageWithSkeleton
-              src={PHONE_SCREEN}
-              alt="Food delivery app preview on a phone"
-              fill
-              className="object-contain object-top"
-              sizes="(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px"
-              skeletonClassName="rounded-2xl"
-            />
-          </div>
+        <div
+          className={`relative aspect-[10/19] w-full overflow-hidden ${animateStyles.imageEase}`}
+        >
+          <ImageWithSkeleton
+            src={PHONE_SCREEN}
+            alt="Ecommerce app preview on a phone"
+            fill
+            className="object-contain object-top"
+            sizes="(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px"
+            skeletonClassName="rounded-2xl"
+          />
+        </div>
       </div>
-    </div>
+    </AnimateOnView>
   );
 }
 
@@ -275,7 +283,25 @@ export default function EcommerceTechnologySuiteSection() {
       aria-labelledby="ecommerce-technology-suite-heading"
     >
 
-      <div className="mx-auto max-w-[980px] text-center"><span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">Technology</span><h2 id="ecommerce-technology-suite-heading" className="title text-balance text-neutral-900">Get the most out of your ecommerce business with <span className="text-[#70AA26]">our smart, effective, and economical solutions.</span></h2><p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">We elevate your food business to new heights with our comprehensive tech suite, including cutting-edge food delivery application development, fueling expansion and exceptional success.</p></div>
+      <AnimateOnView variant="fadeUp" className="mx-auto max-w-[980px] text-center">
+        <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
+          Technology
+        </span>
+        <h2
+          id="ecommerce-technology-suite-heading"
+          className="title text-balance text-neutral-900"
+        >
+          Get the most out of your ecommerce business with{" "}
+          <span className="text-[#70AA26]">
+            our smart, effective, and economical solutions.
+          </span>
+        </h2>
+        <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
+          We elevate your food business to new heights with our comprehensive
+          tech suite, including cutting-edge food delivery application
+          development, fueling expansion and exceptional success.
+        </p>
+      </AnimateOnView>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">
@@ -285,24 +311,36 @@ export default function EcommerceTechnologySuiteSection() {
           <div className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-5 lg:contents">
             <div className="flex flex-col gap-3 sm:gap-4 lg:col-start-1 lg:row-start-2">
               {LEFT_FEATURES.map((item, index) => (
-                <FeatureCard
+                <AnimateOnView
                   key={item.title}
-                  index={index}
-                  title={item.title}
-                  description={item.description}
-                  side="left"
-                />
+                  variant="fadeUp"
+                  delayMs={index * 70}
+                  className="min-w-0 w-full"
+                >
+                  <FeatureCard
+                    index={index}
+                    title={item.title}
+                    description={item.description}
+                    side="left"
+                  />
+                </AnimateOnView>
               ))}
             </div>
             <div className="flex flex-col gap-3 sm:gap-4 lg:col-start-3 lg:row-start-2">
               {RIGHT_FEATURES.map((item, index) => (
-                <FeatureCard
+                <AnimateOnView
                   key={item.title}
-                  index={index}
-                  title={item.title}
-                  description={item.description}
-                  side="right"
-                />
+                  variant="fadeUp"
+                  delayMs={210 + index * 70}
+                  className="min-w-0 w-full"
+                >
+                  <FeatureCard
+                    index={index}
+                    title={item.title}
+                    description={item.description}
+                    side="right"
+                  />
+                </AnimateOnView>
               ))}
             </div>
           </div>
