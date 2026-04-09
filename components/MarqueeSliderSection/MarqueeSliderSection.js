@@ -1,8 +1,3 @@
-"use client";
-
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import styles from "./MarqueeSliderSection.module.css";
 
 const SEGMENTS = [
@@ -10,6 +5,21 @@ const SEGMENTS = [
   "User friendly",
   "Advanced analytics",
 ];
+
+function SlideItems({ slides, idPrefix }) {
+  return (
+    <>
+      {slides.map(({ id, text }) => (
+        <div key={`${idPrefix}-${id}`} className={styles.slide}>
+          <span className={styles.segmentText}>{text}</span>
+          <span className={styles.dot} aria-hidden>
+            •
+          </span>
+        </div>
+      ))}
+    </>
+  );
+}
 
 export default function MarqueeSliderSection() {
   const slides = Array.from({ length: 36 }, (_, i) => ({
@@ -20,29 +30,16 @@ export default function MarqueeSliderSection() {
   return (
     <div className={styles.outer}>
       <div className={styles.strip}>
-        <Swiper
-          modules={[Autoplay]}
-          className={styles.swiper}
-          slidesPerView="auto"
-          spaceBetween={28}
-          loop
-          speed={12000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-          }}
-          allowTouchMove={false}
-        >
-          {slides.map(({ id, text }) => (
-            <SwiperSlide key={id} className={styles.slide}>
-              <span className={styles.segmentText}>{text}</span>
-              <span className={styles.dot} aria-hidden>
-                •
-              </span>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className={styles.marqueeViewport}>
+          <div className={styles.marqueeTrack}>
+            <div className={styles.marqueeGroup}>
+              <SlideItems slides={slides} idPrefix="a" />
+            </div>
+            <div className={styles.marqueeGroup} aria-hidden>
+              <SlideItems slides={slides} idPrefix="b" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

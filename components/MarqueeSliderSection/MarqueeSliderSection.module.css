@@ -3,7 +3,6 @@
   width: 100%;
   max-width: 100%;
   margin-bottom: -15px;
-  /* rotate + scale on .strip extends past the viewport — clip without affecting page scroll */
   overflow-x: clip;
 }
 
@@ -21,20 +20,48 @@
   }
 }
 
-.swiper {
+.marqueeViewport {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 55s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marqueeGroup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 28px;
 }
 
 @media (max-width: 639px) {
-  .swiper {
+  .marqueeViewport {
     overflow: hidden;
   }
 }
 
 .slide {
-  display: inline-flex !important;
-  width: auto !important;
+  display: inline-flex;
+  width: auto;
   align-items: center;
   gap: 0.35rem;
   white-space: nowrap;

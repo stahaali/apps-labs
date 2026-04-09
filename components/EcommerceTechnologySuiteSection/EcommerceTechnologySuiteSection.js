@@ -1,8 +1,8 @@
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
-import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
+import { SUITE_PHONE_FRAME, SUITE_PHONE_SLIDES } from "@/lib/suitePhoneCarouselAssets";
 import styles from "./EcommerceTechnologySuiteSection.module.css";
-const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
 
 const LEFT_FEATURES = [
   {
@@ -258,19 +258,15 @@ function PhoneMockup() {
       delayMs={120}
       className="relative z-10 flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center"
     >
-      <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
-        <div
-          className={`relative aspect-[10/19] w-full overflow-hidden ${animateStyles.imageEase}`}
-        >
-          <ImageWithSkeleton
-            src={PHONE_SCREEN}
-            alt="Ecommerce app preview on a phone"
-            fill
-            className="object-contain object-top"
-            sizes="(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px"
-            skeletonClassName="rounded-2xl"
-          />
-        </div>
+      <div
+        className={`w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px] ${animateStyles.imageEase}`}
+      >
+        <SuitePhoneCarousel
+          frameSrc={SUITE_PHONE_FRAME}
+          screenSrcs={SUITE_PHONE_SLIDES}
+          alt="Ecommerce app preview on a phone"
+          aspectClassName="aspect-[10/19]"
+        />
       </div>
     </AnimateOnView>
   );

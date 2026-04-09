@@ -1,7 +1,6 @@
-import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
+import { SUITE_PHONE_FRAME, SUITE_PHONE_SLIDES } from "@/lib/suitePhoneCarouselAssets";
 import styles from "./FitnessTechnologySuiteSection.module.css";
-
-const PHONE_SCREEN = "/assets/images-webp/food-business/1.png";
 
 const LEFT_FEATURES = [
   {
@@ -258,18 +257,13 @@ function FeatureCard({ title, description, side, index }) {
 
 function PhoneMockup() {
   return (
-    <div className="flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center">
+    <div className="relative z-10 flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center">
       <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
-          <div className="relative aspect-[10/20] w-full overflow-hidden">
-            <ImageWithSkeleton
-              src={PHONE_SCREEN}
-              alt="Fitness app preview on a phone"
-              fill
-              className="object-contain object-top"
-              sizes="(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px"
-              skeletonClassName="rounded-2xl"
-            />
-          </div>
+        <SuitePhoneCarousel
+          frameSrc={SUITE_PHONE_FRAME}
+          screenSrcs={SUITE_PHONE_SLIDES}
+          alt="Fitness app preview on a phone"
+        />
       </div>
     </div>
   );

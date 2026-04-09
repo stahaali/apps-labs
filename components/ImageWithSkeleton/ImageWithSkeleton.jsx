@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import styles from "./ImageWithSkeleton.module.css";
 
 /**
- * Next/Image with a shimmer skeleton until `onLoadingComplete`.
+ * Next/Image with a shimmer skeleton until the image loads (`onLoad`).
  * Use `fill` + `wrapClassName` when the parent already establishes size.
  * `darkBackground` — charcoal shimmer for black/dark sections (hero banners).
  */
@@ -22,10 +22,10 @@ export default function ImageWithSkeleton({
 }) {
   const [loaded, setLoaded] = useState(false);
 
-  const handleComplete = useCallback(
-    (img) => {
+  const handleLoad = useCallback(
+    (e) => {
       setLoaded(true);
-      onLoadingComplete?.(img);
+      onLoadingComplete?.(e.currentTarget);
     },
     [onLoadingComplete]
   );
@@ -63,7 +63,7 @@ export default function ImageWithSkeleton({
           fill
           priority={priority}
           className={imgClassName}
-          onLoadingComplete={handleComplete}
+          onLoad={handleLoad}
         />
       </span>
     );
@@ -81,7 +81,7 @@ export default function ImageWithSkeleton({
         alt={alt ?? ""}
         priority={priority}
         className={imgClassName}
-        onLoadingComplete={handleComplete}
+        onLoad={handleLoad}
       />
     </span>
   );

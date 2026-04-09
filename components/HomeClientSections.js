@@ -1,11 +1,7 @@
-'use client';
+"use client";
 
 import dynamic from "next/dynamic";
-
-const MarqueeSliderSection = dynamic(
-  () => import("@/components/MarqueeSliderSection/MarqueeSliderSection"),
-  { loading: () => null }
-);
+import MarqueeSliderSection from "@/components/MarqueeSliderSection/MarqueeSliderSection";
 
 const TestimonialSection = dynamic(
   () => import("@/components/TestimonialSection/TestimonialSection"),
@@ -19,4 +15,3 @@ export function HomeClientMarquee() {
 export function HomeClientTestimonial() {
   return <TestimonialSection />;
 }
-

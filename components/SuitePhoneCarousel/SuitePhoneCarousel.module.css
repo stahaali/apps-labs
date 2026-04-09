@@ -1,0 +1,112 @@
+/* Root: clipping + stacking for frame PNG + inner slides (mobile-image.png mockup). */
+.phoneWrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1;
+  background: transparent;
+}
+
+/* Phone bezel PNG above slides — bezels cover right/left overflow; screen hole must be transparent in the asset. */
+.frameLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.frameImageBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*
+ * Screen opening aligned to inner display (inside black bezel).
+ * Asymmetric bottom slightly larger — common on tall mockups / home indicator.
+ * Adjust --suite-phone-* on :root from one place if you swap assets.
+ */
+.screenSlot {
+  /*
+   * Calibrated to mobile-image.png transparent display: wider slot = less side band;
+   * if UI peeks past bezel, increase --suite-phone-inset-x in ~0.1% steps.
+   */
+  --suite-phone-inset-top: 1.42%;
+  --suite-phone-inset-x: 4.95%;
+  --suite-phone-inset-bottom: 1.72%;
+  --suite-phone-radius: 9.55%;
+
+  position: absolute;
+  z-index: 0;
+  top: var(--suite-phone-inset-top);
+  left: var(--suite-phone-inset-x);
+  right: var(--suite-phone-inset-x);
+  bottom: var(--suite-phone-inset-bottom);
+  border-radius: var(--suite-phone-radius);
+  overflow: hidden;
+  background: #fdf7ec;
+  isolation: isolate;
+  transform: translateZ(0);
+  contain: paint;
+}
+
+.slideViewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.slideTrack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  height: 100%;
+  min-height: 100%;
+  transition: transform 0.55s ease-in-out;
+}
+
+.slideTrackInstant {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideTrack {
+    transition: none;
+  }
+}
+
+.slideCell {
+  position: relative;
+  box-sizing: border-box;
+  align-self: stretch;
+  height: 100%;
+  min-height: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  /* Subpixel seam → cream gap; GPU layer tightens edges between slides. */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Exactly one slide slice: same height as .screenSlot (no vertical bleed — strict 1:1 with glass). */
+.slideCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slideImg {
+  object-fit: fill;
+  object-position: center center;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  max-height: none;
+}

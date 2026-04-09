@@ -39,6 +39,8 @@ function HeroBannerVisual() {
             sizes="(max-width: 767px) 90vw, 820px"
             className={`select-none object-contain ${styles.shadowGlow}`}
             style={{ width: "100%", height: "auto" }}
+            loading="lazy"
+            fetchPriority="low"
           />
         </div>
 
@@ -109,6 +111,8 @@ export default function HeroBanner() {
                   height={20}
                   className="h-4 w-4 shrink-0 self-center object-contain"
                   aria-hidden
+                  loading="lazy"
+                  fetchPriority="low"
                 />
                 <input
                   type="email"
