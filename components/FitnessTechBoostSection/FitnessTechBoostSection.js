@@ -11,19 +11,19 @@ const PHONES = `${BASE}/fitness-technology.png`;
 const CARDS = [
   {
     title: "AI & Machine Learning",
-    icon: `${BASE}/2.png`,
+    icon: `${BASE}/ai-machine-learning.png`,
     description:
       "Our team of fitness app developers uses AI and machine learning to create advanced wellness solutions.",
   },
   {
     title: "Blockchain",
-    icon: `${BASE}/3.png`,
+    icon: `${BASE}/blockchain.png`,
     description:
       "Build secure and transparent fitness apps using blockchain technology to protect user data and ensure privacy.",
   },
   {
     title: "AR/VR",
-    icon: `${BASE}/4.png`,
+    icon: `${BASE}/ar-vr.png`,
     description:
       "Improve your fitness app with AR/VR technology for interactive workout experiences and expert guidance, leading to better results and user engagement.",
   },

@@ -13,19 +13,19 @@ const PHONES = `${BASE}/01.png`;
 const CARDS = [
   {
     title: "Frictionless Shopping",
-    icon: `${BASE}/2.png`,
+    icon: `${BASE}/frictionless-shopping.png`,
     description:
       "Guide shoppers from discovery to purchase with clear catalog navigation, variants, promotions, and checkout flows that feel effortless on every device.",
   },
   {
     title: "Fulfillment & Scale",
-    icon: `${BASE}/3.png`,
+    icon: `${BASE}/fulfillment-scale.png`,
     description:
       "Sync inventory, orders, and carriers so your team can handle peaks, split shipments, and returns without losing visibility or control.",
   },
   {
     title: "Trusted Buyer Journey",
-    icon: `${BASE}/4.png`,
+    icon: `${BASE}/trusted-buyer-journey.png`,
     description:
       "Build confidence with order tracking, notifications, and operational dashboards that keep customers informed and support teams ahead of issues.",
   },
