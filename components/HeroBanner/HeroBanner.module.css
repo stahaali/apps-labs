@@ -66,20 +66,52 @@
 .heroHeading {
   margin: 0;
   font-size: 70px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
-/* Variable-font proximity: weight per letter via font-variation-settings */
-.heroHeadingVariable {
+/* Manrope: per-char JS sets font-weight only — no variation on parent (inheritance was fighting children) */
+.heroVariableHeading {
+  position: relative;
+  font-family: var(--font-manrope), system-ui, sans-serif;
   font-weight: 500;
+  text-wrap: pretty;
   cursor: default;
 }
 
-.heroHeadingVariable span {
+/* Reset inherited variation; weight comes only from inline font-weight (JS) */
+.heroVarChar {
+  display: inline-block;
+  font-variation-settings: normal;
+}
+
+/* Explicit <br /> lines: don’t let balance/pretty reflow over the designed breaks */
+.heroVariableHeadingLines {
+  text-wrap: unset;
+  white-space: normal;
+}
+
+.heroVarWord {
   display: inline;
+}
+
+.heroVarWordSpace {
+  display: inline;
+  white-space: pre;
+}
+
+.heroVarSrOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 @media (max-width: 639px) {

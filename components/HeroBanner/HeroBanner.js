@@ -3,7 +3,7 @@ import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import HeroBannerStats from "./HeroBannerStats";
-import HeroBannerVariableHeading from "./HeroBannerVariableHeading";
+import HeroBannerVariableProximityHeading from "./HeroBannerVariableProximityHeading";
 import styles from "./HeroBanner.module.css";
 
 const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
@@ -76,7 +76,7 @@ export default function HeroBanner() {
       <div className={styles.inner}>
         <div className={styles.grid}>
           <AnimateOnView variant="fadeUp" className={styles.contentCol}>
-            <HeroBannerVariableHeading />
+            <HeroBannerVariableProximityHeading />
             <p className="mt-6 max-w-[540px] text-[17px] leading-[1.65] text-neutral-400">
               From zero to launch — we design, develop, and scale world-class
               mobile apps that users love and investors fund.
