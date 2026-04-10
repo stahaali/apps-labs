@@ -134,7 +134,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 1.25rem;
+  border-radius: 16px;
 }
 
 /* Horizontal slide carousel (multi-slide portfolio visual) */
