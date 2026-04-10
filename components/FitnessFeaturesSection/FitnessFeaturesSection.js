@@ -4,10 +4,6 @@ import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 
 // Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
 const FEATURE_SCREENS = [
-  "/assets/images-webp/fitness-technology/01.png",
-  "/assets/images-webp/fitness-technology/2.png",
-  "/assets/images-webp/fitness-technology/3.png",
-  "/assets/images-webp/fitness-technology/4.png",
   "/assets/images-webp/fitness-technology/5.png",
   "/assets/images-webp/fitness-technology/6.png",
   "/assets/images-webp/fitness-technology/7.png",

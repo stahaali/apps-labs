@@ -6,7 +6,7 @@ import styles from "./EcommerceFeaturesSection.module.css";
 const ECOMMERCE_PHONE_FRAME =
   "/assets/images-webp/ecommerce-technology/mobile-image.png";
 
-const ECOMMERCE_FEATURE_SCREENS = [1, 2, 3, 4, 5, 6, 7, 8].map(
+const ECOMMERCE_FEATURE_SCREENS = [5, 6, 7, 8].map(
   (n) => `/assets/images-webp/ecommerce-technology/${n}.png`
 );
 

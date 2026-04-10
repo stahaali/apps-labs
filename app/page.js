@@ -14,13 +14,21 @@ import {
   HomeClientTestimonial,
 } from "@/components/HomeClientSections";
 
+const HOME_PORTFOLIO_SLIDES = [
+  "/assets/images-webp/our-portfolio/home/1.png",
+  "/assets/images-webp/our-portfolio/home/2.png",
+  "/assets/images-webp/our-portfolio/home/3.png",
+  "/assets/images-webp/our-portfolio/home/4.png",
+  "/assets/images-webp/our-portfolio/home/5.png",
+];
+
 export default function Home() {
   return (
     <>
       <HeroBanner />
       <IndustrySolutionsSection />
       <ReadyToTransformSection />
-      <OurPortfolioSection />
+      <OurPortfolioSection portfolioImageSrcs={HOME_PORTFOLIO_SLIDES} />
       <ScalableProcessSection />
       <HomeClientMarquee />
       <CTASection />

@@ -1,8 +1,18 @@
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
-import { SUITE_PHONE_FRAME, SUITE_PHONE_SLIDES } from "@/lib/suitePhoneCarouselAssets";
 import styles from "./FoodTechnologySuiteSection.module.css";
+
+/** First four screens only — `public/assets/images-webp/food-business/` */
+const FOOD_TECH_PHONE_FRAME =
+  "/assets/images-webp/food-business/mobile-image.png";
+
+const FOOD_TECH_CAROUSEL_SLIDES = [
+  "/assets/images-webp/food-business/01.png",
+  "/assets/images-webp/food-business/2.png",
+  "/assets/images-webp/food-business/3.png",
+  "/assets/images-webp/food-business/4.png",
+];
 
 const LEFT_FEATURES = [
   {
@@ -272,8 +282,8 @@ function PhoneMockup() {
         className={`w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px] ${animateStyles.imageEase}`}
       >
         <SuitePhoneCarousel
-          frameSrc={SUITE_PHONE_FRAME}
-          screenSrcs={SUITE_PHONE_SLIDES}
+          frameSrc={FOOD_TECH_PHONE_FRAME}
+          screenSrcs={FOOD_TECH_CAROUSEL_SLIDES}
           alt="Food delivery app preview on a phone"
         />
       </div>

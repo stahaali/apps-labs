@@ -5,10 +5,6 @@ import styles from "./FoodDeliveryFeatures.module.css";
 
 // Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
 const FEATURE_SCREENS = [
-  "/assets/images-webp/food-business/01.png",
-  "/assets/images-webp/food-business/2.png",
-  "/assets/images-webp/food-business/3.png",
-  "/assets/images-webp/food-business/4.png",
   "/assets/images-webp/food-business/5.png",
   "/assets/images-webp/food-business/6.png",
   "/assets/images-webp/food-business/7.png",

@@ -7,10 +7,6 @@ const FEATURE_SCREENS = [
   "/assets/images-webp/fitness-technology/2.png",
   "/assets/images-webp/fitness-technology/3.png",
   "/assets/images-webp/fitness-technology/4.png",
-  "/assets/images-webp/fitness-technology/5.png",
-  "/assets/images-webp/fitness-technology/6.png",
-  "/assets/images-webp/fitness-technology/7.png",
-  "/assets/images-webp/fitness-technology/8.png",
 ];
 
 const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.png";

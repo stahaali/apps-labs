@@ -1,13 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import styles from "./OurPortfolioSection.module.css";
 
 const AUTO_ADVANCE_MS = 5000;
+
+const STAT_USERS_TARGET = 2.1;
+const STAT_RATING_TARGET = 4.9;
+const STAT_COUNT_MS = 1400;
+
+function easeOutCubic(t) {
+  return 1 - (1 - t) ** 3;
+}
 
 function ArrowUpRightIcon({ className }) {
   return (
@@ -48,6 +56,47 @@ export default function OurPortfolioInteractiveCard({ images, imageAlt }) {
 
   const dotCount = multi ? slides.length : 3;
   const activeDot = multi ? active : 0;
+
+  const statsRef = useRef(null);
+  const statAnimStarted = useRef(false);
+  const [usersValue, setUsersValue] = useState(0);
+  const [ratingValue, setRatingValue] = useState(0);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return undefined;
+
+    const runFinal = () => {
+      setUsersValue(STAT_USERS_TARGET);
+      setRatingValue(STAT_RATING_TARGET);
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      runFinal();
+      return undefined;
+    }
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting || statAnimStarted.current) return;
+        statAnimStarted.current = true;
+        const start = performance.now();
+
+        const frame = (now) => {
+          const t = Math.min(1, (now - start) / STAT_COUNT_MS);
+          const p = easeOutCubic(t);
+          setUsersValue(STAT_USERS_TARGET * p);
+          setRatingValue(STAT_RATING_TARGET * p);
+          if (t < 1) requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      },
+      { threshold: 0.25, rootMargin: "0px 0px -5% 0px" }
+    );
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <div className={styles.portfolioCard}>
@@ -125,14 +174,18 @@ export default function OurPortfolioInteractiveCard({ images, imageAlt }) {
             <span className={styles.tag}>AI/ML</span>
           </div>
 
-          <div className={styles.statsRow}>
+          <div ref={statsRef} className={styles.statsRow}>
             <div className={styles.statBlock}>
-              <span className={styles.statValue}>2.1M</span>
+              <span className={styles.statValue} style={{ fontVariantNumeric: "tabular-nums" }}>
+                {usersValue.toFixed(1)}M
+              </span>
               <span className={styles.statLabel}>Active Users</span>
             </div>
             <div className={styles.statDivider} aria-hidden />
             <div className={styles.statBlock}>
-              <span className={styles.statValue}>4.9 ★</span>
+              <span className={styles.statValue} style={{ fontVariantNumeric: "tabular-nums" }}>
+                {ratingValue.toFixed(1)} ★
+              </span>
               <span className={styles.statLabel}>App Rating</span>
             </div>
           </div>
