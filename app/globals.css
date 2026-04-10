@@ -3,6 +3,9 @@
 html {
   overflow-x: clip;
   max-width: 100%;
+  /* Prevent iOS from inflating small text in landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 :root {
@@ -37,48 +40,36 @@ html {
   letter-spacing: -0.02em;
 }
 
-/* Home page section headings (screenshot-aligned) */
+/* Section / page titles: fluid scale (phones → desktop), no awkward 577–767px jump */
 .title {
-  font-size: 54px;
+  font-size: clamp(1.625rem, 4.2vw + 0.85rem, 3.375rem);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
 }
 
 @media (max-width: 576px) {
-  .title {
-    font-size: 27px;
-  }
-  .heroHeading
-  {
+  .heroHeading {
     font-size: 40px;
   }
-  .bannerform input
-  {
+  .bannerform input {
     font-size: 14px;
     padding: 5px 10px;
   }
-  .bannerform button
-  {
+  .bannerform button {
     font-size: 12px;
     padding: 10px 20px;
   }
-  .statCounterLabel
-  {
+  .statCounterLabel {
     font-size: 10px;
   }
 }
 
-/* 768px–992px: section headings */
 @media (min-width: 768px) and (max-width: 992px) {
-  .title {
-    font-size: 40px;
-  }
-  .heroHeading
-  {
+  .heroHeading {
     font-size: 45px;
   }
-}  
+}
 
 @theme inline {
   --color-background: var(--background);

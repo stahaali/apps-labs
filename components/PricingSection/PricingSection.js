@@ -97,7 +97,7 @@ const TEAM = [
 function TeamPill({ member, className = "" }) {
   return (
     <div
-      className={`relative flex w-fit max-w-full items-center gap-2 rounded-full border border-slate-200/80 bg-white px-3 py-1.5 sm:max-w-[min(100%,280px)] sm:gap-3 sm:px-4 sm:py-2 ${className}`}
+      className={`relative flex w-full max-w-full items-center gap-2 rounded-full border border-slate-200/80 bg-white px-3 py-1.5 min-[480px]:w-fit sm:max-w-[min(100%,280px)] sm:gap-3 sm:px-4 sm:py-2 ${className}`}
     >
       <Image
         src={member.avatar}
@@ -106,11 +106,11 @@ function TeamPill({ member, className = "" }) {
         height={40}
         className="h-8 w-8 shrink-0 rounded-full object-cover sm:h-10 sm:w-10"
       />
-      <div className="w-fit min-w-0 text-left sm:w-auto">
-        <p className="whitespace-nowrap text-xs font-bold leading-tight tracking-tight text-neutral-900 sm:text-sm">
+      <div className="min-w-0 flex-1 text-left sm:w-auto sm:flex-none">
+        <p className="text-xs font-bold leading-tight tracking-tight text-neutral-900 sm:text-sm sm:whitespace-nowrap">
           {member.name}
         </p>
-        <p className="whitespace-nowrap text-[8px] font-semibold uppercase tracking-wide text-slate-400 sm:text-[10px]">
+        <p className="text-[8px] font-semibold uppercase leading-tight tracking-wide text-slate-400 sm:text-[10px] sm:whitespace-nowrap">
           {member.role}
         </p>
       </div>
@@ -134,7 +134,7 @@ function CheckListItem({ children }) {
   );
 }
 
-function PricingCard({ plan }) {
+function PricingCard({ plan, quoteHref }) {
   const isFeatured = plan.featured;
   const btnClass = isFeatured
     ? "text-white hover:opacity-[0.96]"
@@ -157,7 +157,7 @@ function PricingCard({ plan }) {
         </p>
       </div>
       <Link
-        href="#cta-heading"
+        href={quoteHref}
         className={`mt-6 block w-full rounded-full px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-center text-base font-bold transition ${btnClass}`}
         style={isFeatured ? { backgroundColor: PRIMARY } : undefined}
       >
@@ -197,6 +197,8 @@ function PricingCard({ plan }) {
 export default function PricingSection({
   noTopPadding = false,
   sectionPadding84 = false,
+  quoteHref = "#cta-heading",
+  titleAs: TitleTag = "h2",
 }) {
   const sectionVerticalClass = sectionPadding84
     ? styles.sectionPadding84
@@ -218,12 +220,12 @@ export default function PricingSection({
             >
               Pricing
             </span>
-            <h2
+            <TitleTag
               id="pricing-heading"
               className="title mt-6 text-balance text-neutral-900"
             >
               Choose Your <span style={{ color: PRIMARY }}>Plan</span>
-            </h2>
+            </TitleTag>
             <p className="mx-auto mt-4 max-w-xl text-[15px] font-medium leading-relaxed text-slate-600 sm:text-base">
               Get a tailored quote based on your project scope
             </p>
@@ -232,7 +234,7 @@ export default function PricingSection({
           <div className="mx-auto mt-12 flex max-w-6xl flex-col gap-6 lg:mt-14 lg:flex-row lg:items-stretch lg:gap-6 xl:gap-8">
             {PLANS.map((plan) => (
               <div key={plan.id} className="flex min-w-0 flex-1 flex-col">
-                <PricingCard plan={plan} />
+                <PricingCard plan={plan} quoteHref={quoteHref} />
               </div>
             ))}
           </div>

@@ -1,13 +1,16 @@
 /* Section-level styles (not globals.css) — light band + optional texture hooks */
 
 section {
-  padding: clamp(44px, 6vw, 64px) 0;
+  padding: clamp(36px, 5.5vw, 64px) 0;
 }
 
 body {
   background-color: #FDF7EC;
   overflow-x: clip;
   max-width: 100%;
+  min-height: 100dvh;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .sections-surface {

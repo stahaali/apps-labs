@@ -19,6 +19,9 @@ const FOOTER_LINK_HREF = {
   "Food Delivery": "/food-delivery",
   "Ecommerce": "/ecommerce-app-development",
   "Fitness App Development": "/fitness-app-development",
+  "Contact Us": "/contact",
+  Blog: "/blog",
+  Pricing: "/pricing",
 };
 
 function footerLinkHref(label) {
@@ -49,7 +52,15 @@ const FOOTER_COLUMNS = [
   },
   {
     title: "Company",
-    links: ["About", "Pricing", "Careers", "Contact Policy", "Privacy", "CSAI"],
+    links: [
+      "About",
+      "Pricing",
+      "Careers",
+      "Contact Us",
+      "Contact Policy",
+      "Privacy",
+      "CSAI",
+    ],
   },
 ];
 

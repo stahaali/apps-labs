@@ -91,11 +91,11 @@ export default function HeroBannerStats() {
   return (
     <div
       ref={rootRef}
-      className="mt-12 grid w-full grid-cols-3 items-stretch gap-x-2 sm:mt-14 sm:flex sm:flex-nowrap sm:gap-x-0"
+      className="mt-6 grid w-full max-w-xl grid-cols-3 items-stretch justify-items-start gap-x-2 sm:mt-8 sm:flex sm:max-w-none sm:flex-nowrap sm:justify-start sm:gap-x-0"
       aria-label="Company statistics"
     >
       <div
-        className={`flex min-w-0 flex-col gap-0.5 border-[rgba(217,217,217,0.4)] pr-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
+        className={`flex min-w-0 flex-col items-start gap-0.5 text-left border-[rgba(217,217,217,0.4)] pr-2 sm:min-w-[118px] sm:items-stretch sm:gap-1 sm:border-r sm:pr-10 ${styles.statCellFirst}`}
       >
         <span
           className={`text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums ${styles.statCounterValue}`}
@@ -109,7 +109,7 @@ export default function HeroBannerStats() {
         </span>
       </div>
       <div
-        className={`flex min-w-0 flex-col gap-0.5 border-[rgba(217,217,217,0.4)] px-2 sm:min-w-[118px] sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
+        className={`flex min-w-0 flex-col items-start gap-0.5 text-left border-[rgba(217,217,217,0.4)] px-2 sm:min-w-[118px] sm:items-stretch sm:gap-1 sm:border-r sm:px-10 ${styles.statCellMid}`}
       >
         <span
           className={`text-[40px] font-bold leading-none tracking-tight text-[#70AA26] max-[639px]:text-[28px] tabular-nums ${styles.statCounterValue}`}
@@ -123,10 +123,10 @@ export default function HeroBannerStats() {
         </span>
       </div>
       <div
-        className={`flex min-w-0 flex-col gap-0.5 pl-2 sm:min-w-[132px] sm:gap-1 sm:pl-10 ${styles.statCellLast}`}
+        className={`flex min-w-0 flex-col items-start gap-0.5 text-left pl-2 sm:min-w-[132px] sm:items-stretch sm:justify-start sm:gap-1 sm:pl-10 ${styles.statCellLast}`}
       >
         <span
-          className={`inline-flex items-center gap-1 text-[40px] max-[639px]:text-[28px] sm:gap-1.5 ${styles.statCounterValue}`}
+          className={`inline-flex items-center justify-start gap-1 text-[40px] max-[639px]:text-[28px] sm:gap-1.5 ${styles.statCounterValue}`}
         >
           <span className="font-bold leading-none tracking-tight text-[#70AA26] tabular-nums">
             {rating.toFixed(1)}

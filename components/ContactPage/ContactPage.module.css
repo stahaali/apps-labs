@@ -1,0 +1,59 @@
+/* Dark hero: match home banner stack (dash → noise → content) */
+.contactHero {
+  position: relative;
+  background-color: #000000;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.45;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 13px,
+      rgba(255, 255, 255, 0.07) 13px,
+      rgba(255, 255, 255, 0.07) 14px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 13px,
+      rgba(255, 255, 255, 0.07) 13px,
+      rgba(255, 255, 255, 0.07) 14px
+    );
+}
+
+.contactHeroInner {
+  position: relative;
+  z-index: 3;
+}
+
+/* All content below dark banner: light surface (footer in layout stays dark) */
+.contactLight {
+  flex: 1;
+  background-color: #f7f4ef;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.contactFaqBlock {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.contactLightCard {
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 10px 28px -12px rgba(15, 23, 42, 0.1);
+}

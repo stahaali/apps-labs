@@ -73,7 +73,7 @@ export default function IndustrySolutionsSection() {
       aria-labelledby="industry-heading"
     >
       <div
-        className={`mx-auto max-w-[1200px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.lavenderPanel}`}
+        className={`mx-auto max-w-[1200px] px-4 py-12 min-[480px]:px-6 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.lavenderPanel}`}
       >
         <AnimateOnView variant="fadeUp" className="mx-auto max-w-[820px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">

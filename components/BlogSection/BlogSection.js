@@ -2,36 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import { BLOG_POSTS_HOME_PREVIEW } from "@/lib/blogData";
 import styles from "./BlogSection.module.css";
 
 const ACCENT = "#70AA26";
-const BLOG_IMG_BASE = "/assets/images-webp/blogs";
 const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 const SHADOW_WIDTH = 700;
-
-const POSTS = [
-  {
-    slug: "monetize-mobile-apps",
-    image: `${BLOG_IMG_BASE}/1.png`,
-    date: "May 12, 2023",
-    category: "Mobile app",
-    title: "Effective ways to monetize mobile apps for better performance",
-  },
-  {
-    slug: "why-choose-our-app",
-    image: `${BLOG_IMG_BASE}/2.png`,
-    date: "April 28, 2023",
-    category: "Product",
-    title: "Why you’ll love our app: top 5 reasons to choose us",
-  },
-  {
-    slug: "food-ordering-ux",
-    image: `${BLOG_IMG_BASE}/3.png`,
-    date: "March 15, 2023",
-    category: "Design",
-    title: "Designing high-converting food ordering experiences",
-  },
-];
 
 export default function BlogSection() {
   return (
@@ -57,10 +33,18 @@ export default function BlogSection() {
           <h2 id="blog-section-heading" className={`title ${styles.title}`}>
             Our Latest <span style={{ color: ACCENT }}>Blog Post</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-[520px] text-[15px] leading-relaxed text-slate-600">
+            <Link
+              href="/blog"
+              className="font-semibold text-[#70AA26] underline-offset-4 hover:underline"
+            >
+              View all posts
+            </Link>
+          </p>
         </AnimateOnView>
 
         <div className={styles.grid}>
-          {POSTS.map((post, index) => (
+          {BLOG_POSTS_HOME_PREVIEW.map((post, index) => (
             <AnimateOnView
               key={post.slug}
               variant="fadeUp"
@@ -68,7 +52,7 @@ export default function BlogSection() {
               className="min-w-0"
             >
             <Link
-              href="/blog"
+              href={`/blog/${post.slug}`}
               className={styles.cardLink}
               aria-label={`Read article: ${post.title}`}
             >

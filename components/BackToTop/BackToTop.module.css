@@ -1,0 +1,46 @@
+/* Site-wide floating back-to-top — theme green fill, white chevron */
+.backToTop {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 130;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: #70aa26;
+  color: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 8px 24px -8px rgba(15, 23, 42, 0.28);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.backToTop:hover {
+  background: #5c8f20;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 10px 28px -8px rgba(15, 23, 42, 0.3);
+  transform: translateY(-1px);
+}
+
+.backToTop:focus-visible {
+  outline: 2px solid #70aa26;
+  outline-offset: 3px;
+}
+
+.backToTopIcon {
+  width: 22px;
+  height: 22px;
+}

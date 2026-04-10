@@ -29,74 +29,99 @@ function ChevronDown({ className }) {
 const navLink =
   "flex items-center gap-1 text-[15px] font-medium leading-none text-white/90 transition-colors hover:text-white";
 
-/** Column 1 first three labels match footer `FOOTER_LINK_HREF` in ContactFooterSection. */
-const SERVICES_MEGA_COLUMN_1 = [
-  {
-    href: "/food-delivery",
-    label: "Food Delivery",
-    tone: "brand",
-    icon: "food",
-  },
-  {
-    href: "/ecommerce-app-development",
-    label: "Ecommerce",
-    tone: "emerald",
-    icon: "cart",
-  },
-  {
-    href: "/fitness-app-development",
-    label: "Fitness App Development",
-    tone: "rose",
-    icon: "fitness",
-  },
-  {
-    href: "/get-started",
-    label: "Book an Appointment",
-    tone: "sky",
-    icon: "calendar",
-  },
-];
-
-const SERVICES_MEGA_COLUMN_2 = [
-  {
-    href: "#",
-    label: "Classified Platform",
-    tone: "violet",
-    icon: "classified",
-  },
-  {
-    href: "#",
-    label: "Nutrition Platform",
-    tone: "lime",
-    icon: "nutrition",
-  },
-  {
-    href: "#",
-    label: "Ride Booking App",
-    tone: "amber",
-    icon: "ride",
-  },
-  {
-    href: "#",
-    label: "Chauffeur Service Booking",
-    tone: "slate",
-    icon: "chauffeur",
-  },
-];
-
-const SERVICES_MEGA_COLUMN_3 = [
-  {
-    href: "#",
-    label: "Logistics Transportation",
-    tone: "blue",
-    icon: "logistics",
-  },
-  {
-    href: "#",
-    label: "Auction App",
-    tone: "orange",
-    icon: "auction",
-  },
+/**
+ * Services mega menu — three columns, icon + title + short description (weDevs-style).
+ * First column links match footer `FOOTER_LINK_HREF` where applicable.
+ */
+const SERVICES_MEGA_COLUMNS = [
+  [
+    {
+      href: "/food-delivery",
+      label: "Food Delivery",
+      description:
+        "Ordering, delivery tracking, and restaurant dashboards in one product.",
+      tone: "brand",
+      icon: "food",
+    },
+    {
+      href: "/ecommerce-app-development",
+      label: "Ecommerce",
+      description:
+        "Storefronts, checkout, and admin tooling built for scale.",
+      tone: "emerald",
+      icon: "cart",
+      badge: "New",
+    },
+    {
+      href: "/fitness-app-development",
+      label: "Fitness App Development",
+      description:
+        "Training, habits, and wellness experiences your users open daily.",
+      tone: "rose",
+      icon: "fitness",
+    },
+    {
+      href: "/get-started",
+      label: "Book an Appointment",
+      description:
+        "Pick a time with our team to scope timeline, stack, and budget.",
+      tone: "sky",
+      icon: "calendar",
+    },
+  ],
+  [
+    {
+      href: "/contact",
+      label: "Classified Platform",
+      description:
+        "Listings and buyer–seller flows tailored to your niche.",
+      tone: "violet",
+      icon: "classified",
+    },
+    {
+      href: "/contact",
+      label: "Nutrition Platform",
+      description:
+        "Meal plans, macros, and coaching touchpoints around your brand.",
+      tone: "lime",
+      icon: "nutrition",
+      badge: "New",
+    },
+    {
+      href: "/contact",
+      label: "Ride Booking App",
+      description:
+        "Dispatch, live tracking, and payments for mobility products.",
+      tone: "amber",
+      icon: "ride",
+    },
+    {
+      href: "/contact",
+      label: "Chauffeur Service Booking",
+      description:
+        "Premium bookings, fleet tools, and polished rider experiences.",
+      tone: "slate",
+      icon: "chauffeur",
+    },
+  ],
+  [
+    {
+      href: "/contact",
+      label: "Logistics & Transportation",
+      description:
+        "Shipments, routes, and field visibility on mobile and web.",
+      tone: "blue",
+      icon: "logistics",
+    },
+    {
+      href: "/contact",
+      label: "Auction App",
+      description:
+        "Timed bidding, seller tools, and secure payments in one shell.",
+      tone: "orange",
+      icon: "auction",
+    },
+  ],
 ];
 
 const toneClass = {
@@ -112,8 +137,8 @@ const toneClass = {
   orange: "bg-orange-100 text-orange-700",
 };
 
-function ServiceMenuGlyph({ name }) {
-  const c = "h-[18px] w-[18px]";
+function ServiceMenuGlyph({ name, className: iconClass = "h-[18px] w-[18px]" }) {
+  const c = iconClass;
   switch (name) {
     case "food":
       return (
@@ -283,14 +308,91 @@ function ServiceMenuGlyph({ name }) {
   }
 }
 
-function ServicesMenuLinks({ onNavigate, classNameLink, surface = "light" }) {
-  const labelClass =
-    surface === "dark"
-      ? "text-[15px] font-medium leading-snug text-white/90"
-      : "text-[15px] font-medium leading-snug text-neutral-900";
+const megaBadgeClass =
+  "inline-flex shrink-0 items-center rounded-md bg-[#FFD4BF] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#C2410C]";
 
-  const labelSpanClass = `${labelClass} min-w-0 flex-1 text-left leading-snug`;
+function MegaServiceRowDesktop({ item, onNavigate }) {
+  return (
+    <li>
+      <Link
+        href={item.href}
+        className="group flex gap-3 rounded-xl px-2 py-2.5 transition-colors hover:bg-neutral-50"
+        onClick={onNavigate}
+        role="menuitem"
+      >
+        <span
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${toneClass[item.tone]}`}
+        >
+          <ServiceMenuGlyph name={item.icon} className="h-5 w-5" />
+        </span>
+        <span className="min-w-0 flex-1 text-left">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="text-[15px] font-bold leading-tight tracking-tight text-neutral-900">
+              {item.label}
+            </span>
+            {item.badge ? (
+              <span className={megaBadgeClass}>{item.badge}</span>
+            ) : null}
+          </span>
+          <span className="mt-1 block text-[13px] font-normal leading-snug text-neutral-500">
+            {item.description}
+          </span>
+        </span>
+      </Link>
+    </li>
+  );
+}
 
+function ServicesMegaMenuDesktop({ onNavigate }) {
+  const [col1, col2, col3] = SERVICES_MEGA_COLUMNS;
+  return (
+    <div
+      className="grid min-w-0 grid-cols-3 gap-x-8 gap-y-4"
+      role="presentation"
+    >
+      <ul className="m-0 min-w-0 list-none space-y-0.5 p-0" role="list">
+        {col1.map((item) => (
+          <MegaServiceRowDesktop key={item.label} item={item} onNavigate={onNavigate} />
+        ))}
+      </ul>
+      <ul
+        className="m-0 min-w-0 list-none space-y-0.5 border-x border-neutral-100 px-5"
+        role="list"
+      >
+        {col2.map((item) => (
+          <MegaServiceRowDesktop key={item.label} item={item} onNavigate={onNavigate} />
+        ))}
+      </ul>
+      <div className="flex min-w-0 flex-col">
+        <ul className="m-0 min-w-0 flex-1 list-none space-y-0.5 p-0" role="list">
+          {col3.map((item) => (
+            <MegaServiceRowDesktop key={item.label} item={item} onNavigate={onNavigate} />
+          ))}
+        </ul>
+        <Link
+          href="/contact"
+          onClick={onNavigate}
+          className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#70AA26]/22 bg-[rgba(112,170,38,0.09)] px-4 py-3.5 text-left transition-colors hover:bg-[rgba(112,170,38,0.14)]"
+        >
+          <span>
+            <span className="block text-[14px] font-bold text-neutral-900">
+              View all services
+            </span>
+            <span className="mt-0.5 block text-[12px] leading-snug text-neutral-600">
+              Tell us what you&apos;re building — we&apos;ll map the right stack.
+            </span>
+          </span>
+          <span className="shrink-0 text-lg font-semibold text-[#70AA26]" aria-hidden>
+            →
+          </span>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
+  const [c1, c2, c3] = SERVICES_MEGA_COLUMNS;
   const linkRow = (item) => (
     <li key={item.label}>
       <Link
@@ -300,53 +402,52 @@ function ServicesMenuLinks({ onNavigate, classNameLink, surface = "light" }) {
         role="menuitem"
       >
         <span
-          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${toneClass[item.tone]}`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${toneClass[item.tone]}`}
         >
-          <ServiceMenuGlyph name={item.icon} />
+          <ServiceMenuGlyph name={item.icon} className="h-[18px] w-[18px]" />
         </span>
-        <span className={labelSpanClass}>{item.label}</span>
+        <span className="min-w-0 flex-1 text-left">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="text-[14px] font-semibold leading-snug text-white/95">
+              {item.label}
+            </span>
+            {item.badge ? (
+              <span className="inline-flex shrink-0 items-center rounded-md bg-orange-500/25 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-100">
+                {item.badge}
+              </span>
+            ) : null}
+          </span>
+          <span className="mt-0.5 block text-[12px] leading-snug text-white/55">
+            {item.description}
+          </span>
+        </span>
       </Link>
     </li>
   );
 
-  if (surface === "dark") {
-    return (
-      <div className="flex min-w-0 w-full flex-col gap-0">
-        <ul className="m-0 w-full min-w-0 list-none py-1.5" role="list">
-          {SERVICES_MEGA_COLUMN_1.map(linkRow)}
-        </ul>
-        <div
-          className="my-1 border-t border-white/12"
-          aria-hidden
-        />
-        <ul className="m-0 w-full min-w-0 list-none py-1.5" role="list">
-          {SERVICES_MEGA_COLUMN_2.map(linkRow)}
-        </ul>
-        <div
-          className="my-1 border-t border-white/12"
-          aria-hidden
-        />
-        <ul className="m-0 w-full min-w-0 list-none py-1.5" role="list">
-          {SERVICES_MEGA_COLUMN_3.map(linkRow)}
-        </ul>
-      </div>
-    );
-  }
-
   return (
-    <div
-      className="grid w-full grid-cols-3 divide-x divide-neutral-200/90 [grid-template-columns:minmax(14.5rem,1fr)_minmax(14.5rem,1fr)_minmax(14.5rem,1fr)]"
-      role="presentation"
-    >
-      <ul className="m-0 min-w-0 list-none py-2 pl-3 pr-3" role="list">
-        {SERVICES_MEGA_COLUMN_1.map(linkRow)}
+    <div className="flex min-w-0 w-full flex-col gap-0">
+      <ul className="m-0 w-full min-w-0 list-none space-y-0.5 py-1" role="list">
+        {c1.map(linkRow)}
       </ul>
-      <ul className="m-0 min-w-0 list-none px-3 py-2" role="list">
-        {SERVICES_MEGA_COLUMN_2.map(linkRow)}
+      <div className="my-2 border-t border-white/12" aria-hidden />
+      <ul className="m-0 w-full min-w-0 list-none space-y-0.5 py-1" role="list">
+        {c2.map(linkRow)}
       </ul>
-      <ul className="m-0 min-w-0 list-none py-2 pl-3 pr-3" role="list">
-        {SERVICES_MEGA_COLUMN_3.map(linkRow)}
+      <div className="my-2 border-t border-white/12" aria-hidden />
+      <ul className="m-0 w-full min-w-0 list-none space-y-0.5 py-1" role="list">
+        {c3.map(linkRow)}
       </ul>
+      <Link
+        href="/contact"
+        onClick={onNavigate}
+        className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/10 px-3 py-3 text-left text-[13px] font-semibold text-white transition-colors hover:bg-white/[0.14]"
+      >
+        View all services
+        <span className="text-[#70AA26]" aria-hidden>
+          →
+        </span>
+      </Link>
     </div>
   );
 }
@@ -470,8 +571,11 @@ export default function Header() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-[100] w-full border-b border-solid border-b-white/10">
-      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-6 min-[992px]:px-8">
-        <Link href="/" className="shrink-0 text-[22px] font-bold tracking-tight">
+      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-4 min-[480px]:px-6 min-[992px]:px-8">
+        <Link
+          href="/"
+          className="min-w-0 shrink-0 text-lg font-bold tracking-tight min-[400px]:text-[22px]"
+        >
           <span className="text-white">Apex </span>
           <span className="text-[#70AA26]">Labs</span>
         </Link>
@@ -496,18 +600,22 @@ export default function Header() {
           >
             <div
               tabIndex={0}
-              className={`${navLink} flex cursor-default items-center gap-1 rounded-md outline-none ring-offset-2 ring-offset-transparent focus-visible:ring-2 focus-visible:ring-white/50`}
+              className={`flex cursor-default items-center gap-1 rounded-md text-[15px] font-medium leading-none outline-none ring-offset-2 ring-offset-transparent transition-colors focus-visible:ring-2 focus-visible:ring-white/50 ${
+                servicesMenuOpen
+                  ? "text-[#70AA26] hover:text-[#70AA26]"
+                  : "text-white/90 hover:text-white"
+              }`}
               aria-expanded={servicesMenuOpen}
               aria-haspopup="menu"
               aria-label="Services menu"
             >
               Services
               <ChevronDown
-                className={`mt-px text-white/70 transition-transform duration-200 ${servicesMenuOpen ? "rotate-180" : ""}`}
+                className={`mt-px transition-transform duration-200 ${servicesMenuOpen ? "rotate-180 text-[#70AA26]" : "text-white/70"}`}
               />
             </div>
             <div
-              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-1.5rem,960px)] max-w-[calc(100vw-1.5rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
                 servicesMenuOpen
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"
@@ -515,17 +623,17 @@ export default function Header() {
               role="menu"
               aria-label="Services"
             >
-              <div className="overflow-hidden rounded-xl border border-neutral-200/90 bg-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.22)]">
-                <div className="border-b border-sky-200/80 bg-sky-100 px-4 py-3">
-                  <p className="text-[15px] font-bold text-neutral-900">
+              <div className="overflow-hidden rounded-2xl border border-neutral-200/90 bg-white shadow-[0_24px_64px_-16px_rgba(15,23,42,0.28)]">
+                <div className="border-b border-neutral-100 bg-white px-6 py-4">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-500">
                     Services
                   </p>
+                  <p className="mt-1 text-[17px] font-bold tracking-tight text-neutral-900">
+                    Mobile products & platforms
+                  </p>
                 </div>
-                <div className="min-w-0 w-full overflow-x-auto">
-                  <ServicesMenuLinks
-                    onNavigate={closeServicesMenu}
-                    classNameLink="flex items-start gap-3 rounded-lg px-1 py-2.5 transition-colors hover:bg-neutral-50"
-                  />
+                <div className="min-w-0 px-5 py-6 sm:px-6">
+                  <ServicesMegaMenuDesktop onNavigate={closeServicesMenu} />
                 </div>
               </div>
             </div>
@@ -645,8 +753,7 @@ export default function Header() {
                       <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
                         Services
                       </p>
-                      <ServicesMenuLinks
-                        surface="dark"
+                      <ServicesMenuLinksMobile
                         onNavigate={closeMenu}
                         classNameLink="flex items-start gap-3 rounded-lg px-2 py-2.5 text-left transition-colors hover:bg-white/10"
                       />

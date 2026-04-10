@@ -79,12 +79,12 @@ export default function HeroBanner() {
         <div className={styles.grid}>
           <AnimateOnView variant="fadeUp" className={styles.contentCol}>
             <HeroBannerVariableProximityHeading />
-            <p className="mt-6 max-w-[540px] text-[17px] leading-[1.65] text-neutral-400">
+            <p className="mt-3 max-w-[540px] text-left text-[17px] leading-[1.6] text-neutral-400 sm:mt-4">
               From zero to launch — we design, develop, and scale world-class
               mobile apps that users love and investors fund.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-2.5">
+            <div className="mt-4 flex flex-wrap items-center justify-start gap-2.5 sm:mt-5">
               <div className="flex items-center gap-0.5 text-[#EAB308]">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <StarIcon key={i} className="h-[17px] w-[17px]" />
@@ -96,32 +96,34 @@ export default function HeroBanner() {
               </p>
             </div>
 
-            <form className="mt-8 w-full max-w-[520px] bannerform" action="#" method="post" aria-label="Email signup">
+            <form className="mt-4 w-full max-w-[520px] bannerform sm:mt-5" action="#" method="post" aria-label="Email signup">
               <div
-                className="flex min-h-[56px] w-full flex-nowrap items-center gap-2 rounded-full border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] py-1.5 pl-5 pr-2 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))]"
+                className="flex w-full flex-col gap-2 rounded-2xl border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] p-3 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))] min-[480px]:min-h-[56px] min-[480px]:flex-row min-[480px]:flex-nowrap min-[480px]:items-center min-[480px]:gap-2 min-[480px]:rounded-full min-[480px]:p-0 min-[480px]:py-1.5 min-[480px]:pl-5 min-[480px]:pr-2"
                 role="group"
               >
-                <Image
-                  src={PEN_ICON}
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="h-4 w-4 shrink-0 self-center object-contain"
-                  aria-hidden
-                  loading="lazy"
-                  fetchPriority="low"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter Your E-mail"
-                  required
-                  className="min-w-0 flex-1 cursor-text self-center bg-transparent text-[14px] leading-normal text-white caret-white placeholder:text-neutral-500 focus:bg-transparent focus:outline-none focus:ring-0"
-                  autoComplete="email"
-                />
+                <div className="flex min-h-[44px] min-w-0 flex-1 items-center gap-2 min-[480px]:min-h-0">
+                  <Image
+                    src={PEN_ICON}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="h-4 w-4 shrink-0 self-center object-contain"
+                    aria-hidden
+                    loading="lazy"
+                    fetchPriority="low"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Your E-mail"
+                    required
+                    className="min-w-0 flex-1 cursor-text bg-transparent text-[14px] leading-normal text-white caret-white placeholder:text-neutral-500 focus:bg-transparent focus:outline-none focus:ring-0"
+                    autoComplete="email"
+                  />
+                </div>
                 <button
                   type="submit"
-                  className="flex shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[12px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 submit"
+                  className="flex min-h-[48px] w-full shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[13px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 min-[480px]:min-h-0 min-[480px]:w-auto submit"
                 >
                   Get Started
                 </button>

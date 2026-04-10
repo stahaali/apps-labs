@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
+import BackToTop from "@/components/BackToTop/BackToTop";
 import Header from "@/components/Header";
 import "./globals.css";
 import "@/styles/style.css";
@@ -35,6 +36,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#050505",
 };
 
@@ -48,6 +50,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <ContactFooterSection />
+        <BackToTop />
       </body>
     </html>
   );

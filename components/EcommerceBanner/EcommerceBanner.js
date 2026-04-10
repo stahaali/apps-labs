@@ -32,25 +32,27 @@ export default function EcommerceBanner() {
               aria-label="Ecommerce email signup"
             >
               <div
-                className="flex min-h-[56px] w-full flex-nowrap items-stretch gap-2 rounded-full border border-[#353539] bg-[#0a0d12] py-1.5 pl-5 pr-2 shadow-[0_0_0_9px_rgba(253,247,236,0.03)]"
+                className="flex w-full flex-col gap-2 rounded-2xl border border-[#353539] bg-[#0a0d12] p-3 shadow-[0_0_0_9px_rgba(253,247,236,0.03)] min-[480px]:min-h-[56px] min-[480px]:flex-row min-[480px]:flex-nowrap min-[480px]:items-stretch min-[480px]:gap-2 min-[480px]:rounded-full min-[480px]:p-0 min-[480px]:py-1.5 min-[480px]:pl-5 min-[480px]:pr-2"
                 role="group"
               >
-                <Image
-                  src={PEN_ICON}
-                  alt=""
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 shrink-0 self-center object-contain"
-                  aria-hidden="true"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter Your E-mail"
-                  required
-                  className={styles.emailField}
-                  autoComplete="email"
-                />
+                <div className="flex min-h-[44px] min-w-0 flex-1 items-center gap-2 min-[480px]:min-h-0">
+                  <Image
+                    src={PEN_ICON}
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 shrink-0 self-center object-contain"
+                    aria-hidden="true"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Your E-mail"
+                    required
+                    className={styles.emailField}
+                    autoComplete="email"
+                  />
+                </div>
                 <button type="submit" className={styles.ctaButton}>
                   Get Started
                 </button>
