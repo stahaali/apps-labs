@@ -10,7 +10,7 @@ export default function SuitePhoneCarousel({
   screenSrcs,
   alt = "App preview on a phone",
   sizes = "(max-width: 639px) 280px, (max-width: 1023px) 300px, 320px",
-  intervalMs = 3000,
+  intervalMs = 2000,
   aspectClassName = "aspect-[10/20]",
   className = "",
 }) {

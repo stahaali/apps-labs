@@ -1,9 +1,14 @@
-import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
+import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./EcommerceFeaturesSection.module.css";
 
-const PHONE_SCREEN = "/assets/images-webp/features/1.png";
+const ECOMMERCE_PHONE_FRAME =
+  "/assets/images-webp/ecommerce-technology/mobile-image.png";
+
+const ECOMMERCE_FEATURE_SCREENS = [1, 2, 3, 4, 5, 6, 7, 8].map(
+  (n) => `/assets/images-webp/ecommerce-technology/${n}.png`
+);
 
 const FEATURE_ITEMS = [
   {
@@ -129,14 +134,13 @@ export default function EcommerceFeaturesSection() {
               >
                 <div className="w-full max-w-[300px]">
                   <div
-                    className={`relative aspect-[10/19] w-full overflow-hidden rounded-[28px] ring-1 ring-white/10 ${animateStyles.imageEase}`}
+                    className={`${styles.phoneCarouselShell} ring-1 ring-white/10 ${animateStyles.imageEase}`}
                   >
-                    <Image
-                      src={PHONE_SCREEN}
+                    <SuitePhoneCarousel
+                      frameSrc={ECOMMERCE_PHONE_FRAME}
+                      screenSrcs={ECOMMERCE_FEATURE_SCREENS}
+                      intervalMs={3000}
                       alt="Ecommerce app onboarding and shopping preview on a phone"
-                      fill
-                      className="object-contain object-top"
-                      sizes="(max-width: 1023px) min(90vw, 300px), 320px"
                     />
                   </div>
                 </div>

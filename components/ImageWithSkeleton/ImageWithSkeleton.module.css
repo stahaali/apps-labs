@@ -65,6 +65,10 @@
   transition: opacity 0.35s ease-out;
 }
 
+.imgReadyInstant {
+  opacity: 1;
+}
+
 @keyframes imageSkeletonShimmer {
   0% {
     background-position: 100% 0;

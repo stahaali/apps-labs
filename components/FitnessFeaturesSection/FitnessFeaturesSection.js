@@ -1,7 +1,20 @@
 import Image from "next/image";
 import styles from "./FitnessFeaturesSection.module.css";
+import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 
-const PHONE_SCREEN = "/assets/images-webp/features/1.png";
+// Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
+const FEATURE_SCREENS = [
+  "/assets/images-webp/fitness-technology/01.png",
+  "/assets/images-webp/fitness-technology/2.png",
+  "/assets/images-webp/fitness-technology/3.png",
+  "/assets/images-webp/fitness-technology/4.png",
+  "/assets/images-webp/fitness-technology/5.png",
+  "/assets/images-webp/fitness-technology/6.png",
+  "/assets/images-webp/fitness-technology/7.png",
+  "/assets/images-webp/fitness-technology/8.png",
+];
+
+const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.png";
 
 const FEATURE_ITEMS = [
   {
@@ -22,7 +35,7 @@ const FEATURE_ITEMS = [
   {
     title: "Dedicated Support",
     description:
-      "Expert support through launch, feature releases, and busy seasons when your community needs you most.",
+      "Expert support through launch, feature releases, and peak seasons when your community needs you most.",
   },
   {
     title: "100% Customized Solution",
@@ -38,21 +51,8 @@ const FEATURE_ITEMS = [
 
 function CheckIcon() {
   return (
-    <svg
-      width="10"
-      height="8"
-      viewBox="0 0 11 9"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M1 4.5L4 7.5L10 1.5"
-        stroke="white"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="10" height="8" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <path d="M1 4.5L4 7.5L10 1.5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -79,26 +79,19 @@ function FeatureCard({ title, description }) {
 
 export default function FitnessFeaturesSection() {
   return (
-    <section
-      className={styles.fitnessFeaturesSection}
-      aria-labelledby="fitness-features-heading"
-    >
+    <section className={styles.fitnessFeaturesSection} aria-labelledby="fitness-features-heading">
       <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-14">
         <div className={`sections-surface rounded-[28px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.innercontainer}`}>
           <header className="mx-auto max-w-[1000px] text-center">
             <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
               Features
             </span>
-            <h2
-              id="fitness-features-heading"
-              className="title text-balance text-neutral-900"
-            >
-              This Is Just The Start - Delve Into{" "}
-              <span className="text-[#70AA26]">Our Wide Range Of Thrilling Features!</span>
+            <h2 id="fitness-features-heading" className="title text-balance text-neutral-900">
+              This Is Just The Start - Delve Into <span className="text-[#70AA26]">Our Wide Range Of Thrilling Features!</span>
             </h2>
             <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-              Explore capabilities that elevate your fitness product—from
-              coaching workflows to member engagement beyond expectations.
+              Explore capabilities that elevate your fitness product—from coaching workflows to member engagement beyond
+              expectations.
             </p>
           </header>
 
@@ -106,25 +99,19 @@ export default function FitnessFeaturesSection() {
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 xl:gap-12">
               <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5">
                 {FEATURE_ITEMS.map((item) => (
-                  <FeatureCard
-                    key={item.title}
-                    title={item.title}
-                    description={item.description}
-                  />
+                  <FeatureCard key={item.title} title={item.title} description={item.description} />
                 ))}
               </div>
 
+              {/* Carousel Wrapper */}
               <div className="flex w-full shrink-0 justify-center lg:w-[280px] lg:max-w-[280px] lg:justify-end lg:pt-2 xl:w-[300px] xl:max-w-[300px]">
                 <div className="w-full max-w-[300px]">
-                  <div className="relative aspect-[10/19] w-full overflow-hidden rounded-[28px] ring-1 ring-white/10">
-                    <Image
-                      src={PHONE_SCREEN}
-                      alt="Fitness app onboarding and training preview on a phone"
-                      fill
-                      className="object-contain object-top"
-                      sizes="(max-width: 1023px) min(90vw, 300px), 320px"
-                    />
-                  </div>
+                  {/* Props yahan pass kar diye hain taake crash na ho */}
+                  <SuitePhoneCarousel 
+                    frameSrc={PHONE_FRAME} 
+                    screenSrcs={FEATURE_SCREENS} 
+                    intervalMs={3000}
+                  />
                 </div>
               </div>
             </div>

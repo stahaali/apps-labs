@@ -13,6 +13,14 @@ import {
   TestimonialSection,
 } from "@/lib/lazySections";
 
+const ECOMMERCE_PORTFOLIO_SLIDES = [
+  "/assets/images-webp/our-portfolio/ecommerce/1.png",
+  "/assets/images-webp/our-portfolio/ecommerce/2.png",
+  "/assets/images-webp/our-portfolio/ecommerce/3.png",
+  "/assets/images-webp/our-portfolio/ecommerce/4.png",
+  "/assets/images-webp/our-portfolio/ecommerce/5.png",
+];
+
 export default function EcommerceAppDevelopmentPage() {
   return (
     <>
@@ -23,7 +31,7 @@ export default function EcommerceAppDevelopmentPage() {
       <EcommerceFeaturesSection />
       <MarqueeSliderSection />
       <CTASection />
-      <OurPortfolioSection />
+      <OurPortfolioSection portfolioImageSrcs={ECOMMERCE_PORTFOLIO_SLIDES} />
       <EcommerceTechStackSection />
       <PricingSection />
       <TestimonialSection />

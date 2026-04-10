@@ -8,3 +8,17 @@
     padding-top: 84px;
     padding-bottom: 84px;
 }
+
+/* Phone mockup shell — only for this section. Fixes bottom clipping caused by
+   a shorter outer aspect + overflow:hidden vs SuitePhoneCarousel’s aspect-[10/20]. */
+.phoneCarouselShell {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  border-radius: 28px;
+}
+
+/* Slightly extend the screen cutout downward so bottom nav isn’t eaten by the bezel */
+.phoneCarouselShell :global([class*="screenSlot"]) {
+  --suite-phone-inset-bottom: 1.12%;
+}

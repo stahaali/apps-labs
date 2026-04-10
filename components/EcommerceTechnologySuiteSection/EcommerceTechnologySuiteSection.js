@@ -1,8 +1,15 @@
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
-import { SUITE_PHONE_FRAME, SUITE_PHONE_SLIDES } from "@/lib/suitePhoneCarouselAssets";
 import styles from "./EcommerceTechnologySuiteSection.module.css";
+
+/** Frame asset on disk is `Mobile.png` (capital M). */
+const ECOMMERCE_PHONE_FRAME =
+  "/assets/images-webp/ecommerce-technology/mobile-image.png";
+
+const ECOMMERCE_SCREEN_SLIDES = [1, 2, 3, 4, 5, 6, 7, 8].map(
+  (n) => `/assets/images-webp/ecommerce-technology/${n}.png`
+);
 
 const LEFT_FEATURES = [
   {
@@ -262,10 +269,9 @@ function PhoneMockup() {
         className={`w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px] ${animateStyles.imageEase}`}
       >
         <SuitePhoneCarousel
-          frameSrc={SUITE_PHONE_FRAME}
-          screenSrcs={SUITE_PHONE_SLIDES}
+          frameSrc={ECOMMERCE_PHONE_FRAME}
+          screenSrcs={ECOMMERCE_SCREEN_SLIDES}
           alt="Ecommerce app preview on a phone"
-          aspectClassName="aspect-[10/19]"
         />
       </div>
     </AnimateOnView>
@@ -301,7 +307,6 @@ export default function EcommerceTechnologySuiteSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6 lg:mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)_minmax(0,1fr)] lg:gap-x-2 lg:gap-y-6 xl:gap-x-3">
-
           <PhoneMockup />
 
           <div className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-5 lg:contents">

@@ -1,6 +1,19 @@
 import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
-import { SUITE_PHONE_FRAME, SUITE_PHONE_SLIDES } from "@/lib/suitePhoneCarouselAssets";
 import styles from "./FitnessTechnologySuiteSection.module.css";
+
+// Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
+const FEATURE_SCREENS = [
+  "/assets/images-webp/fitness-technology/01.png",
+  "/assets/images-webp/fitness-technology/2.png",
+  "/assets/images-webp/fitness-technology/3.png",
+  "/assets/images-webp/fitness-technology/4.png",
+  "/assets/images-webp/fitness-technology/5.png",
+  "/assets/images-webp/fitness-technology/6.png",
+  "/assets/images-webp/fitness-technology/7.png",
+  "/assets/images-webp/fitness-technology/8.png",
+];
+
+const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.png";
 
 const LEFT_FEATURES = [
   {
@@ -260,8 +273,8 @@ function PhoneMockup() {
     <div className="relative z-10 flex w-full justify-center lg:col-start-2 lg:row-start-2 lg:justify-self-center">
       <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
         <SuitePhoneCarousel
-          frameSrc={SUITE_PHONE_FRAME}
-          screenSrcs={SUITE_PHONE_SLIDES}
+          frameSrc={PHONE_FRAME}
+          screenSrcs={FEATURE_SCREENS}
           alt="Fitness app preview on a phone"
         />
       </div>

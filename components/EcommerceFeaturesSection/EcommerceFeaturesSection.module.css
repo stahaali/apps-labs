@@ -20,3 +20,15 @@
     padding-bottom: 4rem;
   }
 }
+
+/* Phone mockup — avoid shorter aspect + overflow:hidden clipping the carousel */
+.phoneCarouselShell {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  border-radius: 28px;
+}
+
+.phoneCarouselShell :global([class*="screenSlot"]) {
+  --suite-phone-inset-bottom: 1.12%;
+}

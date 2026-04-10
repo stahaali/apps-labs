@@ -13,6 +13,14 @@ import {
   TestimonialSection,
 } from "@/lib/lazySections";
 
+const FITNESS_PORTFOLIO_SLIDES = [
+  "/assets/images-webp/our-portfolio/fitness/1.png",
+  "/assets/images-webp/our-portfolio/fitness/2.png",
+  "/assets/images-webp/our-portfolio/fitness/3.png",
+  "/assets/images-webp/our-portfolio/fitness/4.png",
+  "/assets/images-webp/our-portfolio/fitness/5.png",
+];
+
 export const metadata = {
   title: "Fitness App Development | Apex Labs",
   description:
@@ -29,7 +37,10 @@ export default function FitnessAppDevelopmentPage() {
       <FitnessFeaturesSection />
       <MarqueeSliderSection />
       <CTASection />
-      <OurPortfolioSection noTopPadding />
+      <OurPortfolioSection
+        noTopPadding
+        portfolioImageSrcs={FITNESS_PORTFOLIO_SLIDES}
+      />
       <FitnessTechStackSection />
       <PricingSection sectionPadding84 />
       <TestimonialSection />

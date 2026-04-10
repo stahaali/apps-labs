@@ -1,9 +1,22 @@
-import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
+import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./FoodDeliveryFeatures.module.css";
 
-const PHONE_SCREEN = "/assets/images-webp/features/1.png";
+// Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
+const FEATURE_SCREENS = [
+  "/assets/images-webp/food-business/01.png",
+  "/assets/images-webp/food-business/2.png",
+  "/assets/images-webp/food-business/3.png",
+  "/assets/images-webp/food-business/4.png",
+  "/assets/images-webp/food-business/5.png",
+  "/assets/images-webp/food-business/6.png",
+  "/assets/images-webp/food-business/7.png",
+  "/assets/images-webp/food-business/8.png",
+];
+
+const PHONE_FRAME = "/assets/images-webp/food-business/mobile-image.png";
+
 
 const FEATURE_ITEMS = [
   {
@@ -131,14 +144,12 @@ export default function FoodDeliveryFeaturesSection() {
               >
                 <div className="w-full max-w-[300px]">
                   <div
-                    className={`relative aspect-[10/19] w-full overflow-hidden rounded-[28px] ring-1 ring-white/10 ${animateStyles.imageEase}`}
+                    className={`${styles.phoneCarouselShell} ring-1 ring-white/10 ${animateStyles.imageEase}`}
                   >
-                    <Image
-                      src={PHONE_SCREEN}
-                      alt="Food delivery app onboarding screen with pizza and welcome message"
-                      fill
-                      className="object-contain object-top"
-                      sizes="(max-width: 1023px) min(90vw, 300px), 320px"
+                    <SuitePhoneCarousel
+                      frameSrc={PHONE_FRAME}
+                      screenSrcs={FEATURE_SCREENS}
+                      intervalMs={3000}
                     />
                   </div>
                 </div>

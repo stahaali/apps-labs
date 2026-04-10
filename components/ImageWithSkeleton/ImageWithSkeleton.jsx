@@ -18,6 +18,8 @@ export default function ImageWithSkeleton({
   fill,
   darkBackground = false,
   priority = false,
+  /** Skip opacity fade when the image becomes ready (e.g. carousels that already slide). */
+  noOpacityTransition = false,
   ...rest
 }) {
   const [loaded, setLoaded] = useState(false);
@@ -34,7 +36,11 @@ export default function ImageWithSkeleton({
   const showSkeleton = !priority && !loaded;
   const imgClassName = [
     styles.imgZ,
-    showSkeleton ? styles.imgPending : styles.imgReady,
+    showSkeleton
+      ? styles.imgPending
+      : noOpacityTransition
+        ? styles.imgReadyInstant
+        : styles.imgReady,
     className,
   ]
     .filter(Boolean)
