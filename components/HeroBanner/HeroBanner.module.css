@@ -171,15 +171,15 @@
   }
 
   .grid {
-    grid-template-columns: 1fr;
-    column-gap: 0;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    column-gap: 2.5rem;
     row-gap: 0;
     align-items: center;
   }
 
   .contentCol {
     max-width: none;
-    padding-right: 0;
+    padding-right: 2rem;
   }
 
   .visualCol {
