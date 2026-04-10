@@ -85,8 +85,8 @@ export default function FitnessIndustrySection() {
               className={`relative flex min-h-[420px] flex-col overflow-hidden ${styles.card}`}
             >
               <div
-                className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia} ${animateStyles.imageEase}`}
-              >
+                className={`relative aspect-[16/12] w-full shrink-0 bg-white ${styles.cardMedia} ${animateStyles.imageEase}`}
+                >
                 <Image
                   src={card.image}
                   alt=""

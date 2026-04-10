@@ -85,8 +85,7 @@ export default function FoodIndustrySection() {
             <article
               className={`relative flex min-h-[380px] flex-col overflow-hidden ${styles.card}`}
             >
-              <div
-                className={`relative aspect-[16/10] w-full shrink-0 bg-white ${styles.cardMedia} ${animateStyles.imageEase}`}
+              <div className={`relative aspect-[16/12] w-full shrink-0 bg-white ${styles.cardMedia} ${animateStyles.imageEase}`}
               >
                 <ImageWithSkeleton
                   src={card.image}
