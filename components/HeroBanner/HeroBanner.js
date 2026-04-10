@@ -1,13 +1,12 @@
 import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
-import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
-import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import HeroBannerNoiseOverlay from "./HeroBannerNoiseOverlay";
 import HeroBannerStats from "./HeroBannerStats";
 import HeroBannerVariableProximityHeading from "./HeroBannerVariableProximityHeading";
 import styles from "./HeroBanner.module.css";
 
-const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
-const SHADOW = "/assets/images-webp/hero-banner/shadow-3.png";
+/* const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
+const SHADOW = "/assets/images-webp/hero-banner/shadow-3.png"; */
 const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
 
 function StarIcon({ className }) {
@@ -23,6 +22,12 @@ function StarIcon({ className }) {
     </svg>
   );
 }
+
+/* Right column hero visual (phones) — restore with AnimateOnView block below
+import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
+import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
+const SHADOW = "/assets/images-webp/hero-banner/shadow-3.png";
 
 function HeroBannerVisual() {
   return (
@@ -44,10 +49,7 @@ function HeroBannerVisual() {
             fetchPriority="low"
           />
         </div>
-
-        <div
-          className={`${styles.visualFigure} ${animateStyles.imageEase}`}
-        >
+        <div className={`${styles.visualFigure} ${animateStyles.imageEase}`}>
           <ImageWithSkeleton
             src={HERO}
             alt="Apex Labs mobile applications on phone mockups"
@@ -66,6 +68,7 @@ function HeroBannerVisual() {
     </div>
   );
 }
+*/
 
 export default function HeroBanner() {
   return (
@@ -73,6 +76,7 @@ export default function HeroBanner() {
       className={`${styles.homebanner} relative z-0 w-full overflow-hidden`}
       aria-labelledby="hero-heading"
     >
+      <HeroBannerNoiseOverlay />
       <div className={styles.inner}>
         <div className={styles.grid}>
           <AnimateOnView variant="fadeUp" className={styles.contentCol}>
@@ -129,13 +133,13 @@ export default function HeroBanner() {
             <HeroBannerStats />
           </AnimateOnView>
 
-          <AnimateOnView
+          {/* <AnimateOnView
             variant="fadeLeft"
             className={styles.visualCol}
             delayMs={120}
           >
             <HeroBannerVisual />
-          </AnimateOnView>
+          </AnimateOnView> */}
         </div>
       </div>
     </section>
