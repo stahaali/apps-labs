@@ -134,7 +134,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 1.25rem;
 }
 
 /* Horizontal slide carousel (multi-slide portfolio visual) */
@@ -167,6 +167,8 @@
   box-sizing: border-box;
   flex-shrink: 0;
   min-width: 0;
+  border-radius: 1.35rem;
+  overflow: hidden;
 }
 
 .detailCol {
