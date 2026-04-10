@@ -4,7 +4,7 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./EcommerceBanner.module.css";
 
-const HERO = "/assets/images-webp/banners/1.png";
+const HERO = "/assets/images-webp/banners/ecommerce-banner.png";
 const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
 
 export default function EcommerceBanner() {

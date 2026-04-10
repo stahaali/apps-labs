@@ -4,24 +4,24 @@ import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import styles from "./EcommerceIndustrySection.module.css";
 
-const BASE = "/assets/images-webp/industry";
+const BASE = "/assets/images-webp/industry/ecommerce";
 
 const CARDS = [
   {
     title: "Customer App & Website",
-    image: `${BASE}/industry-1.png`,
+    image: `${BASE}/customer-app-website.png`,
     description:
       "Browse through a wide range of products, enjoy hassle-free checkout, and track your orders with ease.",
   },
   {
     title: "E-commerce App",
-    image: `${BASE}/industry-2.png`,
+    image: `${BASE}/e-commerce-app.png`,
     description:
       "Enjoy quick and secure checkout, track your orders in real-time, and receive personalized recommendations based on your preferences.",
   },
   {
     title: "Admin Dashboard",
-    image: `${BASE}/industry-3.png`,
+    image: `${BASE}/admin-dashboard.png`,
     description:
       "From product inventory and order management to customer analytics and marketing campaigns, our dashboard empowers you with comprehensive control and valuable insights.",
   },

@@ -6,7 +6,7 @@ import styles from "./FitnessTechBoostSection.module.css";
 const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.png";
 const BASE = "/assets/images-webp/technology";
 
-const PHONES = `${BASE}/1.png`;
+const PHONES = `${BASE}/fitness-technology.png`;
 
 const CARDS = [
   {

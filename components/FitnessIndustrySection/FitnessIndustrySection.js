@@ -4,24 +4,24 @@ import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import styles from "./FitnessIndustrySection.module.css";
 
-const BASE = "/assets/images-webp/industry";
+const BASE = "/assets/images-webp/industry/fitness";
 
 const CARDS = [
   {
     title: "Customer App & Website",
-    image: `${BASE}/industry-1.png`,
+    image: `${BASE}/customer-app-website.png`,
     description:
       "Connect users with health experts, trainers, and gym instructors through your own fitness app.",
   },
   {
     title: "Fitness Trainer App",
-    image: `${BASE}/industry-2.png`,
+    image: `${BASE}/fitness-trainer-app.png`,
     description:
       "Connect fitness trainers and clients through an app where trainers can share workout instructions, diet plans, and advice.",
   },
   {
     title: "Admin Dashboard",
-    image: `${BASE}/industry-3.png`,
+    image: `${BASE}/admin-dashboard.png`,
     description:
       "Take control of your online fitness business with a comprehensive panel equipped with advanced analytics capabilities.",
   },
