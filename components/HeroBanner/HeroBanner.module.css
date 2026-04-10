@@ -72,6 +72,16 @@
   text-wrap: balance;
 }
 
+/* Variable-font proximity: weight per letter via font-variation-settings */
+.heroHeadingVariable {
+  font-weight: 500;
+  cursor: default;
+}
+
+.heroHeadingVariable span {
+  display: inline;
+}
+
 @media (max-width: 639px) {
   .heroHeading {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
