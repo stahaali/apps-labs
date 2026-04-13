@@ -7,6 +7,12 @@
   background: #eef2ff;
 }
 
+/* Blog listing: dark inner-page banner above — less top padding */
+.sectionWithTopBanner {
+  padding-top: clamp(2rem, 4vw, 3rem);
+  flex: 1;
+}
+
 .shadowLayer {
   position: absolute;
   top: 50%;
@@ -85,6 +91,26 @@
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
+  }
+}
+
+/* Two-up layout for food delivery v1 “recent blogs” (UpMenu-style pair). */
+.gridTwoPosts {
+  composes: grid;
+}
+
+@media (min-width: 640px) {
+  .gridTwoPosts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .gridTwoPosts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

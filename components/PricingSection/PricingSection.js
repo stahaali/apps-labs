@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PRICING_EXPERT_TEAM } from "@/lib/clientTestimonials";
 import styles from "./PricingSection.module.css";
 
 const PRIMARY = "#70AA26";
@@ -76,23 +77,10 @@ const PLANS = [
   },
 ];
 
-const TEAM = [
-  {
-    name: "Michael Carter",
-    role: "LEAD MOBILE ENGINEER",
-    avatar: "/assets/images/testimonial/testi-image1.png",
-  },
-  {
-    name: "Emily Johnson",
-    role: "SENIOR UI/UX DESIGNER",
-    avatar: "/assets/images/testimonial/testi-image2.png",
-  },
-  {
-    name: "David Thompson",
-    role: "PRODUCT MANAGER",
-    avatar: "/assets/images/testimonial/testi-image3.png",
-  },
-];
+const TEAM = PRICING_EXPERT_TEAM.map((m) => ({
+  ...m,
+  role: m.role.toUpperCase(),
+}));
 
 function TeamPill({ member, className = "" }) {
   return (
@@ -199,6 +187,8 @@ export default function PricingSection({
   sectionPadding84 = false,
   quoteHref = "#cta-heading",
   titleAs: TitleTag = "h2",
+  /** Hide green “Pricing” pill when a page-level banner already shows it */
+  hideSectionEyebrow = false,
 }) {
   const sectionVerticalClass = sectionPadding84
     ? styles.sectionPadding84
@@ -214,15 +204,17 @@ export default function PricingSection({
           className={`overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#EBFAD7] to-[#ECF0FF] px-4 sm:rounded-[2.5rem] sm:px-8 md:rounded-[3rem] md:px-10 lg:px-12 ${styles.paddingtopbottom}`}
         >
           <div className="mx-auto max-w-6xl text-center">
-            <span
-              className="inline-flex rounded-full px-5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
-              style={{ backgroundColor: PRIMARY }}
-            >
-              Pricing
-            </span>
+            {!hideSectionEyebrow ? (
+              <span
+                className="inline-flex rounded-full px-5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
+                style={{ backgroundColor: PRIMARY }}
+              >
+                Pricing
+              </span>
+            ) : null}
             <TitleTag
               id="pricing-heading"
-              className="title mt-6 text-balance text-neutral-900"
+              className={`title text-balance text-neutral-900 ${hideSectionEyebrow ? "mt-0" : "mt-6"}`}
             >
               Choose Your <span style={{ color: PRIMARY }}>Plan</span>
             </TitleTag>

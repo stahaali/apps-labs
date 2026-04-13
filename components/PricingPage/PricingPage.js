@@ -1,4 +1,5 @@
 import ContactFaq from "@/components/ContactPage/ContactFaq";
+import PricingPageBanner from "@/components/PricingPageBanner/PricingPageBanner";
 import PricingSection from "@/components/PricingSection/PricingSection";
 import { PRICING_FAQ_ITEMS } from "@/lib/pricingFaq";
 
@@ -6,11 +7,13 @@ const PRIMARY = "#70AA26";
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-[#FDF7EC] pt-[calc(72px+1.25rem)] sm:pt-[calc(72px+1.5rem)]">
+    <main className="flex min-h-screen flex-col bg-[#FDF7EC]">
+      <PricingPageBanner />
       <PricingSection
         noTopPadding
+        hideSectionEyebrow
         quoteHref="/contact"
-        titleAs="h1"
+        titleAs="h2"
       />
 
       <section

@@ -13,9 +13,14 @@ const LEFT_CHECKS = [
 
 const RIGHT_CHECKS = ["iOS and Android", "React Native", "Flutter"];
 
-export default function CTASection() {
+export default function CTASection({ sectionPadding84 = false }) {
   return (
-    <section className={styles.section} aria-labelledby="cta-heading">
+    <section
+      className={[styles.section, sectionPadding84 && styles.sectionPadding84]
+        .filter(Boolean)
+        .join(" ")}
+      aria-labelledby="cta-heading"
+    >
       <div className={styles.inner}>
         <div className={styles.blueCard}>
           <div className={styles.floatIconTop} aria-hidden>

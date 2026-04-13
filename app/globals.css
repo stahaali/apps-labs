@@ -8,6 +8,11 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Site-wide: avoid accidental horizontal scroll from min-content flex/grid children */
+body {
+  min-width: 0;
+}
+
 :root {
   --background: #050505;
   --foreground: #fafafa;

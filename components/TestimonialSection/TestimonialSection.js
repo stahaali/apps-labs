@@ -9,40 +9,11 @@ import { Autoplay, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/mousewheel";
 
+import { TESTIMONIAL_SLIDER_ITEMS } from "@/lib/clientTestimonials";
+
 const BASE = "/assets/images-webp/testimonial";
 const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 const SHADOW_WIDTH = 700;
-
-const TESTIMONIALS = [
-  {
-    name: "William Joy",
-    role: "Smartvision Tech",
-    avatar: `${BASE}/testi-image1.png`,
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatum non pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, in rerum distinctio sunt.",
-  },
-  {
-    name: "John Due",
-    role: "Corporate Agency",
-    avatar: `${BASE}/testi-image2.png`,
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatum non pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, et nam distinctio sunt omnis quam!",
-  },
-  {
-    name: "Maria",
-    role: "Company Inc",
-    avatar: `${BASE}/testi-image3.png`,
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatum non pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, in rerum distinctio sunt animi quam!",
-  },
-  {
-    name: "Emily Johnson",
-    role: "Studio North",
-    avatar: `${BASE}/testi-image1.png`,
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatum non pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, in rerum distinctio sunt.",
-  },
-];
 
 function Stars({ count = 5 }) {
   return (
@@ -122,13 +93,13 @@ export default function TestimonialSection() {
             <div className={styles.metaRow}>
               <Stars count={5} />
               <span className={styles.metaText}>
-                <span className={styles.metaStrong}>4.5/5.0</span> Rated on{" "}
+                <span className={styles.metaStrong}>4.9/5.0</span> Rated on{" "}
                 <GoogleWordmark />
               </span>
             </div>
 
             <a className={styles.totalLink} href="#">
-              <span className={styles.totalNum}>1399</span> Total user reviews{" "}
+              <span className={styles.totalNum}>180+</span> Total user reviews{" "}
               <span className={styles.arrow} aria-hidden>
                 →
               </span>
@@ -161,7 +132,7 @@ export default function TestimonialSection() {
                 }}
                 className={styles.swiper}
               >
-                {TESTIMONIALS.map((item, idx) => (
+                {TESTIMONIAL_SLIDER_ITEMS.map((item, idx) => (
                   <SwiperSlide key={`${item.name}-${idx}`} className={styles.slide}>
                     <TestimonialCard item={item} />
                   </SwiperSlide>

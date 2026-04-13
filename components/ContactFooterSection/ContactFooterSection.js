@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./ContactFooterSection.module.css";
 
 const FOOTER_BG = "/assets/images-webp/footer/footer-bg.webp";
@@ -17,11 +20,14 @@ const CONTACT_ITEMS = [
 
 const FOOTER_LINK_HREF = {
   "Food Delivery": "/food-delivery",
+  "Restaurant ordering (v1)": "/food-delivery/v1",
   "Ecommerce": "/ecommerce-app-development",
   "Fitness App Development": "/fitness-app-development",
   "Contact Us": "/contact",
   Blog: "/blog",
   Pricing: "/pricing",
+  About: "/about",
+  Testimonials: "/testimonials",
 };
 
 function footerLinkHref(label) {
@@ -48,12 +54,14 @@ const FOOTER_COLUMNS = [
       "Fitness App Development",
       "Travel & Tourism",
       "Food Delivery",
+      "Restaurant ordering (v1)",
     ],
   },
   {
     title: "Company",
     links: [
       "About",
+      "Testimonials",
       "Pricing",
       "Careers",
       "Contact Us",
@@ -65,9 +73,15 @@ const FOOTER_COLUMNS = [
 ];
 
 export default function ContactFooterSection() {
-  return (
-    <section className={styles.section} aria-labelledby="contact-footer-title">
+  const pathname = usePathname();
+  const isContactPage = pathname === "/contact";
 
+  return (
+    <section
+      className={styles.section}
+      aria-labelledby={isContactPage ? undefined : "contact-footer-title"}
+      aria-label={isContactPage ? "Site footer" : undefined}
+    >
       <div className={styles.bg} aria-hidden>
         <Image
           src={FOOTER_BG}
@@ -90,102 +104,104 @@ export default function ContactFooterSection() {
       </div>
 
       <div className={styles.inner}>
-        <div className={styles.topGrid}>
-          <div className={styles.left}>
-            <span className={styles.pill}>Contact Us</span>
-            <h2 id="contact-footer-title" className={`title ${styles.title}`}>
-              Let&apos;s Fire Up <span className={styles.accent}>Your Business!</span>
-            </h2>
-            <p className={styles.lead}>
-              Ready to start? Tell us about your project and we&apos;ll get back to
-              you with a tailored plan.
-            </p>
+        {!isContactPage ? (
+          <div className={styles.topGrid}>
+            <div className={styles.left}>
+              <span className={styles.pill}>Contact Us</span>
+              <h2 id="contact-footer-title" className={`title ${styles.title}`}>
+                Let&apos;s Fire Up <span className={styles.accent}>Your Business!</span>
+              </h2>
+              <p className={styles.lead}>
+                Ready to start? Tell us about your project and we&apos;ll get back to
+                you with a tailored plan.
+              </p>
 
-            <ul className={styles.contactList}>
-              {CONTACT_ITEMS.map((item) => (
-                <li key={item.label} className={styles.contactItem}>
-                  <span className={styles.contactIcon} aria-hidden>
-                    <Image
-                      src={item.icon}
-                      alt=""
-                      width={20}
-                      height={20}
-                      sizes="20px"
-                      className={styles.contactIconImg}
+              <ul className={styles.contactList}>
+                {CONTACT_ITEMS.map((item) => (
+                  <li key={item.label} className={styles.contactItem}>
+                    <span className={styles.contactIcon} aria-hidden>
+                      <Image
+                        src={item.icon}
+                        alt=""
+                        width={20}
+                        height={20}
+                        sizes="20px"
+                        className={styles.contactIconImg}
+                      />
+                    </span>
+                    <span className={styles.contactText}>{item.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.card} aria-label="Start your project form">
+              <h3 className={styles.cardTitle}>Start Your Project</h3>
+              <p className={styles.cardSub}>
+                Let&apos;s shape your idea into a polished product. Share a few
+                details and we&apos;ll reply shortly.
+              </p>
+
+              <form className={styles.form} action="#" method="post">
+                <div className={styles.row2}>
+                  <label className={`${styles.field} ${styles.nameFieldFirst}`}>
+                    <span className={styles.srOnly}>First name</span>
+                    <input
+                      className={styles.input}
+                      name="firstName"
+                      placeholder="First Name"
+                      autoComplete="given-name"
                     />
-                  </span>
-                  <span className={styles.contactText}>{item.label}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  </label>
+                  <label className={`${styles.field} ${styles.nameFieldLast}`}>
+                    <span className={styles.srOnly}>Last name</span>
+                    <input
+                      className={styles.input}
+                      name="lastName"
+                      placeholder="Last Name"
+                      autoComplete="family-name"
+                    />
+                  </label>
+                </div>
 
-          <div className={styles.card} aria-label="Start your project form">
-            <h3 className={styles.cardTitle}>Start Your Project</h3>
-            <p className={styles.cardSub}>
-              Let&apos;s shape your idea into a polished product. Share a few
-              details and we&apos;ll reply shortly.
-            </p>
-
-            <form className={styles.form} action="#" method="post">
-              <div className={styles.row2}>
-                <label className={`${styles.field} ${styles.nameFieldFirst}`}>
-                  <span className={styles.srOnly}>First name</span>
+                <label className={styles.field}>
+                  <span className={styles.srOnly}>Email</span>
                   <input
                     className={styles.input}
-                    name="firstName"
-                    placeholder="First Name"
-                    autoComplete="given-name"
+                    name="email"
+                    placeholder="Email"
+                    type="email"
+                    autoComplete="email"
                   />
                 </label>
-                <label className={`${styles.field} ${styles.nameFieldLast}`}>
-                  <span className={styles.srOnly}>Last name</span>
+
+                <label className={styles.field}>
+                  <span className={styles.srOnly}>Phone number</span>
                   <input
                     className={styles.input}
-                    name="lastName"
-                    placeholder="Last Name"
-                    autoComplete="family-name"
+                    name="phone"
+                    placeholder="Phone Number"
+                    autoComplete="tel"
                   />
                 </label>
-              </div>
 
-              <label className={styles.field}>
-                <span className={styles.srOnly}>Email</span>
-                <input
-                  className={styles.input}
-                  name="email"
-                  placeholder="Email"
-                  type="email"
-                  autoComplete="email"
-                />
-              </label>
+                <label className={styles.field}>
+                  <span className={styles.srOnly}>Message</span>
+                  <textarea
+                    className={styles.textarea}
+                    name="message"
+                    placeholder="Message"
+                    rows={4}
+                  />
+                </label>
 
-              <label className={styles.field}>
-                <span className={styles.srOnly}>Phone number</span>
-                <input
-                  className={styles.input}
-                  name="phone"
-                  placeholder="Phone Number"
-                  autoComplete="tel"
-                />
-              </label>
-
-              <label className={styles.field}>
-                <span className={styles.srOnly}>Message</span>
-                <textarea
-                  className={styles.textarea}
-                  name="message"
-                  placeholder="Message"
-                  rows={4}
-                />
-              </label>
-
-              <button className={styles.btn} type="submit">
-                Send Message
-              </button>
-            </form>
+                <button className={styles.btn} type="submit">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <div className={styles.footer}>
           <div className={styles.footerGrid}>

@@ -42,12 +42,9 @@
   z-index: 2;
   width: 100%;
   height: 100%;
-  max-width: none;
-  pointer-events: none;
-  object-fit: contain;
-  object-position: center;
-  image-rendering: pixelated;
+  object-fit: repeat;
 }
+
 
 @media (min-width: 768px) {
   .homebanner {

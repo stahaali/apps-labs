@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
 import BackToTop from "@/components/BackToTop/BackToTop";
 import Header from "@/components/Header";
+import { LeadFormModalProvider } from "@/components/LeadFormModal/LeadFormModalProvider";
 import "./globals.css";
 import "@/styles/style.css";
 
@@ -47,10 +48,12 @@ export default function RootLayout({ children }) {
       className={`${manrope.variable} h-full antialiased`}
     >
       <body className="font-sans">
-        <Header />
-        {children}
-        <ContactFooterSection />
-        <BackToTop />
+        <LeadFormModalProvider>
+          <Header />
+          {children}
+          <ContactFooterSection />
+          <BackToTop />
+        </LeadFormModalProvider>
       </body>
     </html>
   );

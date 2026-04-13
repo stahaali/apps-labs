@@ -371,3 +371,9 @@
     box-sizing: border-box;
   }
 }
+
+/* 84px vertical rhythm (e.g. /food-delivery/v1) — overrides default sm+ CTA padding. */
+.section.sectionPadding84 {
+  padding-top: 84px;
+  padding-bottom: 84px;
+}

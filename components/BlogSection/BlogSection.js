@@ -9,11 +9,18 @@ const ACCENT = "#70AA26";
 const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
 const SHADOW_WIDTH = 700;
 
-export default function BlogSection() {
+export default function BlogSection({
+  badge = "Latest updates",
+  title,
+  posts,
+  gridClassName,
+  headingId = "blog-section-heading",
+}) {
+  const list = posts ?? BLOG_POSTS_HOME_PREVIEW;
   return (
     <section
       className={styles.section}
-      aria-labelledby="blog-section-heading"
+      aria-labelledby={headingId}
     >
       <div className={styles.shadowLayer} aria-hidden>
         <Image
@@ -28,10 +35,14 @@ export default function BlogSection() {
       <div className={styles.inner}>
         <AnimateOnView as="header" variant="fadeUp" className={styles.header}>
           <span className={styles.badge} style={{ backgroundColor: ACCENT }}>
-            Latest updates
+            {badge}
           </span>
-          <h2 id="blog-section-heading" className={`title ${styles.title}`}>
-            Our Latest <span style={{ color: ACCENT }}>Blog Post</span>
+          <h2 id={headingId} className={`title ${styles.title}`}>
+            {title ?? (
+              <>
+                Our Latest <span style={{ color: ACCENT }}>Blog Post</span>
+              </>
+            )}
           </h2>
           <p className="mx-auto mt-4 max-w-[520px] text-[15px] leading-relaxed text-slate-600">
             <Link
@@ -43,8 +54,8 @@ export default function BlogSection() {
           </p>
         </AnimateOnView>
 
-        <div className={styles.grid}>
-          {BLOG_POSTS_HOME_PREVIEW.map((post, index) => (
+        <div className={[styles.grid, gridClassName].filter(Boolean).join(" ")}>
+          {list.map((post, index) => (
             <AnimateOnView
               key={post.slug}
               variant="fadeUp"

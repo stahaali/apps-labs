@@ -1,6 +1,13 @@
-/* Dark hero: match home banner stack (dash → noise → content) */
+/* Dark hero: match home banner stack (dash → noise → content).
+   Fixed 500px band — shared by Contact + Blog inner banners. */
 .contactHero {
   position: relative;
+  box-sizing: border-box;
+  height: 500px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #000000;
   isolation: isolate;
   overflow: hidden;

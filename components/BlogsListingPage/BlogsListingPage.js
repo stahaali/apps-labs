@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import BlogPageBanner from "@/components/BlogPageBanner/BlogPageBanner";
 import ContactFaq from "@/components/ContactPage/ContactFaq";
 import blogStyles from "@/components/BlogSection/BlogSection.module.css";
 import { BLOG_FAQ_ITEMS } from "@/lib/blogFaq";
@@ -13,10 +14,12 @@ const SHADOW_WIDTH = 700;
 
 export default function BlogsListingPage() {
   return (
-    <main>
+    <main className="flex min-h-screen flex-col">
+      <BlogPageBanner />
+
       <section
-        className={blogStyles.section}
-        aria-labelledby="blogs-page-heading"
+        className={`${blogStyles.section} ${blogStyles.sectionWithTopBanner}`}
+        aria-label="Blog articles and FAQ"
       >
         <div className={blogStyles.shadowLayer} aria-hidden>
           <Image
@@ -29,25 +32,6 @@ export default function BlogsListingPage() {
           />
         </div>
         <div className={blogStyles.inner}>
-          <AnimateOnView as="header" variant="fadeUp" className={blogStyles.header}>
-            <span
-              className={blogStyles.badge}
-              style={{ backgroundColor: ACCENT }}
-            >
-              Latest updates
-            </span>
-            <h1
-              id="blogs-page-heading"
-              className={`title ${blogStyles.title}`}
-            >
-              Our Latest <span style={{ color: ACCENT }}>Blog Posts</span>
-            </h1>
-            <p className="mx-auto mt-4 max-w-[640px] text-[15px] leading-relaxed text-slate-600">
-              Insights on mobile apps, product design, and growing digital
-              businesses—same style as our homepage, with the full archive below.
-            </p>
-          </AnimateOnView>
-
           <div className={blogStyles.grid}>
             {BLOG_POSTS.map((post, index) => (
               <AnimateOnView

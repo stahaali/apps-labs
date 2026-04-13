@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -44,6 +45,15 @@ const SERVICES_MEGA_COLUMNS = [
       icon: "food",
     },
     {
+      href: "/food-delivery/v1",
+      label: "Restaurant ordering (v1)",
+      description:
+        "Full landing: operations, web & apps, fulfillment, integrations, FAQ, and blogs.",
+      tone: "brand",
+      icon: "food",
+      badge: "New",
+    },
+    {
       href: "/ecommerce-app-development",
       label: "Ecommerce",
       description:
@@ -61,7 +71,7 @@ const SERVICES_MEGA_COLUMNS = [
       icon: "fitness",
     },
     {
-      href: "/get-started",
+      href: "/book-appointment",
       label: "Book an Appointment",
       description:
         "Pick a time with our team to scope timeline, stack, and budget.",
@@ -457,7 +467,7 @@ const MOBILE_NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "#", label: "Services" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/reviews", label: "Reviews" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -506,6 +516,7 @@ function CloseIcon({ className }) {
 
 export default function Header() {
   const pathname = usePathname();
+  const { openModal } = useLeadFormModal();
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
@@ -641,8 +652,8 @@ export default function Header() {
           <Link href="/pricing" className={navLink}>
             Pricing
           </Link>
-          <Link href="/reviews" className={navLink}>
-            Reviews
+          <Link href="/testimonials" className={navLink}>
+            Testimonials
           </Link>
           <Link href="/blog" className={navLink}>
             Blog
@@ -671,12 +682,13 @@ export default function Header() {
             </button>
           </div>
 
-          <Link
-            href="/get-started"
-            className="hidden rounded-full bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] transition-opacity hover:opacity-90 lg:inline-flex lg:items-center"
+          <button
+            type="button"
+            className="hidden cursor-pointer rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] transition-opacity hover:opacity-90 lg:inline-flex lg:items-center"
+            onClick={openModal}
           >
             Get Started
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -775,13 +787,16 @@ export default function Header() {
               ),
             )}
             <div className="mt-4 px-1">
-              <Link
-                href="/get-started"
-                className="flex w-full items-center justify-center rounded-full bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-[#050505] transition-opacity hover:opacity-90"
-                onClick={closeMenu}
+              <button
+                type="button"
+                className="flex w-full cursor-pointer items-center justify-center rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-[#050505] transition-opacity hover:opacity-90"
+                onClick={() => {
+                  closeMenu();
+                  openModal();
+                }}
               >
                 Get Started
-              </Link>
+              </button>
             </div>
           </nav>
         </div>
