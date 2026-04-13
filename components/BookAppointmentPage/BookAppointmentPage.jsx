@@ -19,6 +19,10 @@ const AFTER_HEAD = "mt-12 sm:mt-14 lg:mt-16";
 const SECTION_LIGHT =
   "px-4 py-12 min-[480px]:px-6 sm:px-10 sm:py-16 lg:py-20";
 
+/** Light band with no top padding (e.g. flush under section above). */
+const SECTION_LIGHT_FLUSH_TOP =
+  "px-4 pb-12 pt-0 min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-0 lg:pb-20 lg:pt-0";
+
 const STEPS = [
   {
     n: "01",
@@ -193,7 +197,7 @@ export default function BookAppointmentPage() {
         className={`${contactStyles.contactHero} ${styles.heroFullViewport} relative px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
         aria-labelledby="book-appointment-heading"
       >
-        <HeroBannerNoiseOverlay />
+        {/* <HeroBannerNoiseOverlay /> */}
         <div className={styles.heroGlow} aria-hidden />
         <div className={`${styles.heroInner} mx-auto max-w-[1200px] text-center`}>
           <AnimateOnView variant="fadeIn">
@@ -358,9 +362,12 @@ export default function BookAppointmentPage() {
         </div>
       </section>
 
-      <section className={`${contactStyles.contactLight} ${SECTION_LIGHT}`} aria-label="Prepare for your call">
+      <section
+        className={`${contactStyles.contactLight} ${SECTION_LIGHT_FLUSH_TOP}`}
+        aria-label="Prepare for your call"
+      >
         <div className="mx-auto max-w-[1200px]">
-          <div className="mx-auto pt-16 sm:pt-20 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-14 lg:pt-24">
+          <div className="mx-auto lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-14">
             <AnimateOnView variant="fadeLeft" className="relative order-2 lg:order-1">
               <div className={styles.prepVisual}>
                 <div className={`${styles.imageFrame} ${styles.imageFrameInset} aspect-[4/3] w-full min-h-[220px]`}>

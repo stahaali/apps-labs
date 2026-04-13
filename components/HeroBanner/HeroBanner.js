@@ -74,7 +74,7 @@ export default function HeroBanner() {
       className={`${styles.homebanner} relative z-0 w-full overflow-hidden`}
       aria-labelledby="hero-heading"
     >
-      <HeroBannerNoiseOverlay />
+      {/* <HeroBannerNoiseOverlay /> */}
       <div className={styles.inner}>
         <div className={styles.grid}>
           <AnimateOnView variant="fadeUp" className={styles.contentCol}>

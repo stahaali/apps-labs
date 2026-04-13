@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
         className={`${contactStyles.contactHero} px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
         aria-labelledby="testimonials-page-title"
       >
-        <HeroBannerNoiseOverlay />
+        {/* <HeroBannerNoiseOverlay /> */}
         <div className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] text-center`}>
           <span
             className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
@@ -73,8 +73,9 @@ export default function TestimonialsPage() {
             <span style={{ color: PRIMARY }}>from teams we&apos;ve shipped with</span>
           </h1>
           <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-400 sm:text-[16px]">
-            Fourteen voices across product, ops, and engineering—organized in three
-            columns so longer stories can breathe next to shorter ones.
+            Fourteen voices across product, ops, and engineering—balanced across three
+            columns so longer stories sit beside shorter ones without one side running
+            much longer.
           </p>
           <p className="mx-auto mt-4 max-w-[520px] text-[14px] leading-relaxed text-neutral-500">
             Ready for your own build?{" "}

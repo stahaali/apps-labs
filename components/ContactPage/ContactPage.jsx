@@ -54,7 +54,7 @@ export default function ContactPage() {
         className={`${styles.contactHero} px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
         aria-labelledby="contact-page-title"
       >
-        <HeroBannerNoiseOverlay />
+        {/* <HeroBannerNoiseOverlay /> */}
         <div className={`${styles.contactHeroInner} mx-auto max-w-[1200px] text-center`}>
           <span
             className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"

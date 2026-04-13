@@ -9,7 +9,7 @@ export default function PricingPageBanner() {
       className={`${contactStyles.contactHero} px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-16 lg:pt-[calc(72px+4rem)]`}
       aria-labelledby="pricing-page-heading"
     >
-      <HeroBannerNoiseOverlay />
+      {/* <HeroBannerNoiseOverlay /> */}
       <div
         className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] text-center`}
       >

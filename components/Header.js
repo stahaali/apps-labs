@@ -81,7 +81,7 @@ const SERVICES_MEGA_COLUMNS = [
   ],
   [
     {
-      href: "/contact",
+      href: "/classified-platform",
       label: "Classified Platform",
       description:
         "Listings and buyer–seller flows tailored to your niche.",
@@ -89,7 +89,7 @@ const SERVICES_MEGA_COLUMNS = [
       icon: "classified",
     },
     {
-      href: "/contact",
+      href: "/nutrition-platform",
       label: "Nutrition Platform",
       description:
         "Meal plans, macros, and coaching touchpoints around your brand.",
@@ -98,7 +98,7 @@ const SERVICES_MEGA_COLUMNS = [
       badge: "New",
     },
     {
-      href: "/contact",
+      href: "/ride-booking-app",
       label: "Ride Booking App",
       description:
         "Dispatch, live tracking, and payments for mobility products.",
@@ -106,7 +106,7 @@ const SERVICES_MEGA_COLUMNS = [
       icon: "ride",
     },
     {
-      href: "/contact",
+      href: "/chauffeur-service-booking",
       label: "Chauffeur Service Booking",
       description:
         "Premium bookings, fleet tools, and polished rider experiences.",
@@ -116,7 +116,7 @@ const SERVICES_MEGA_COLUMNS = [
   ],
   [
     {
-      href: "/contact",
+      href: "/logistics-transportation",
       label: "Logistics & Transportation",
       description:
         "Shipments, routes, and field visibility on mobile and web.",
@@ -124,7 +124,7 @@ const SERVICES_MEGA_COLUMNS = [
       icon: "logistics",
     },
     {
-      href: "/contact",
+      href: "/auction-app",
       label: "Auction App",
       description:
         "Timed bidding, seller tools, and secure payments in one shell.",
@@ -134,18 +134,9 @@ const SERVICES_MEGA_COLUMNS = [
   ],
 ];
 
-const toneClass = {
-  brand: "bg-[#70AA26]/18 text-[#70AA26]",
-  emerald: "bg-emerald-100 text-emerald-700",
-  rose: "bg-rose-100 text-rose-700",
-  sky: "bg-sky-100 text-sky-700",
-  violet: "bg-violet-100 text-violet-700",
-  lime: "bg-lime-100 text-lime-800",
-  amber: "bg-amber-100 text-amber-800",
-  slate: "bg-slate-100 text-slate-700",
-  blue: "bg-blue-100 text-blue-700",
-  orange: "bg-orange-100 text-orange-700",
-};
+/** Services mega-menu: soft mint pill + saturated lime strokes (all items match). */
+const SERVICE_MENU_ICON_WRAP =
+  "bg-[#E8F5E1] text-[#5EC00A]";
 
 function ServiceMenuGlyph({ name, className: iconClass = "h-[18px] w-[18px]" }) {
   const c = iconClass;
@@ -331,7 +322,7 @@ function MegaServiceRowDesktop({ item, onNavigate }) {
         role="menuitem"
       >
         <span
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${toneClass[item.tone]}`}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${SERVICE_MENU_ICON_WRAP}`}
         >
           <ServiceMenuGlyph name={item.icon} className="h-5 w-5" />
         </span>
@@ -412,7 +403,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
         role="menuitem"
       >
         <span
-          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${toneClass[item.tone]}`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${SERVICE_MENU_ICON_WRAP}`}
         >
           <ServiceMenuGlyph name={item.icon} className="h-[18px] w-[18px]" />
         </span>
