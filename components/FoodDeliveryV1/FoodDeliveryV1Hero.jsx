@@ -8,7 +8,7 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import { FOOD_DELIVERY_V1_HERO } from "@/lib/foodDeliveryV1Content";
 import bannerStyles from "@/components/FoodDeliveryBanner/FoodDeliveryBanner.module.css";
 
-const HERO_IMG = "/assets/images-webp/food-business/food-v2.webp";
+const HERO_IMG = "/assets/images-webp/v1/2.webp";
 
 function CheckGlyph() {
   return (
@@ -30,7 +30,7 @@ export default function FoodDeliveryV1Hero() {
 
   return (
     <section
-      className={`${bannerStyles.foodDeliveryBanner} relative z-[1] w-full overflow-hidden`}
+      className={`${bannerStyles.foodDeliveryBanner} ${bannerStyles.heroVisualFull} relative z-[1] w-full overflow-hidden`}
       aria-labelledby="fd-v1-hero-heading"
     >
       <div className={bannerStyles.inner}>
@@ -57,14 +57,14 @@ export default function FoodDeliveryV1Hero() {
             <div className="mt-8 flex w-full max-w-[520px] flex-col gap-3 min-[480px]:flex-row min-[480px]:items-stretch">
               <button
                 type="button"
-                className={`${bannerStyles.ctaButton} w-full min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0 min-[480px]:w-full`}
+                className={`${bannerStyles.ctaButton} ${bannerStyles.heroCtaText} w-full min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0 min-[480px]:w-full`}
                 onClick={openModal}
               >
-                Get started
+                Start Selling Food online
               </button>
               <Link
                 href="#fd-v1-integrations"
-                className="flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-[15px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0"
+                className={`${bannerStyles.heroCtaText} flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-white backdrop-blur-sm transition-colors hover:bg-white/15 min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0`}
               >
                 Explore integrations
               </Link>
@@ -77,16 +77,16 @@ export default function FoodDeliveryV1Hero() {
                 <div className={`${bannerStyles.visualFigure} ${animateStyles.imageEase}`}>
                   <ImageWithSkeleton
                     src={HERO_IMG}
-                    alt="Restaurant teams and guests using branded online food ordering"
+                    alt="Branded food ordering app on mobile — menu browse and product detail"
                     width={960}
                     height={420}
-                    sizes="(max-width: 767px) min(90vw, 400px), 400px"
-                    className="max-w-[400px] select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 45vw, min(50vw, 640px)"
+                    className="w-full select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
                     style={{ width: "100%", height: "auto" }}
                     priority
                     fetchPriority="high"
                     darkBackground
-                    wrapClassName="block w-full max-w-[400px]"
+                    wrapClassName="block w-full"
                   />
                 </div>
               </div>

@@ -5,6 +5,8 @@ import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvid
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import headerStyles from "@/components/Header.module.css";
+
 function ChevronDown({ className }) {
   return (
     <svg
@@ -27,8 +29,8 @@ function ChevronDown({ className }) {
   );
 }
 
-const navLink =
-  "flex items-center gap-1 text-[15px] font-medium leading-none text-white/90 transition-colors hover:text-white";
+const navLinkBase =
+  "flex items-center gap-1 font-medium leading-none text-white/90 transition-colors duration-200 hover:text-white";
 
 /**
  * Services mega menu — three columns, icon + title + short description (weDevs-style).
@@ -311,7 +313,7 @@ function ServiceMenuGlyph({ name, className: iconClass = "h-[18px] w-[18px]" }) 
 
 /** Match `SERVICE_MENU_ICON_WRAP` (mint pill + lime label). */
 const megaBadgeClass =
-  "inline-flex shrink-0 items-center rounded-md bg-[#E8F5E1] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#5EC00A]";
+  "inline-flex shrink-0 items-center rounded-md bg-[#E8F5E1] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-neutral-900";
 
 function MegaServiceRowDesktop({ item, onNavigate }) {
   return (
@@ -414,7 +416,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
               {item.label}
             </span>
             {item.badge ? (
-              <span className="inline-flex shrink-0 items-center rounded-md border border-[#E8F5E1]/35 bg-[#E8F5E1]/18 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#BEF264]">
+              <span className="inline-flex shrink-0 items-center rounded-md bg-[#E8F5E1] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-neutral-900">
                 {item.badge}
               </span>
             ) : null}
@@ -515,6 +517,8 @@ export default function Header() {
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const servicesWrapRef = useRef(null);
 
+  const navLink = `${navLinkBase} text-[15px]`;
+
   const closeMenu = useCallback(() => {
     setMenuOpen(false);
     setMobileServicesOpen(false);
@@ -595,22 +599,33 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[100] w-full translate-y-0 overflow-visible border-b border-solid motion-reduce:transition-none ${
+      className={`fixed z-[100] overflow-visible ${
         headerScrolled
-          ? "border-b-white/[0.08] shadow-[0_12px_40px_-14px_rgba(0,0,0,0.55)]"
-          : "border-b-white/10 shadow-none"
-      } transition-[border-color,box-shadow] duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0`}
+          ? "left-1/2 top-[10px] w-[min(100%-2rem,1200px)] -translate-x-1/2 rounded-2xl border border-solid border-white/[0.1] shadow-[0_12px_40px_-14px_rgba(0,0,0,0.55)]"
+          : "inset-x-0 top-0 w-full border-b border-solid border-white/10 shadow-none"
+      }`}
     >
-      {/* Blur + tint animate smoothly (including from page top); separate layer avoids backdrop jump in some browsers. */}
       <div
-        aria-hidden
-        className={`pointer-events-none absolute inset-0 -z-10 ${
-          headerScrolled
-            ? "bg-[#050505]/85 backdrop-blur-xl backdrop-saturate-150"
-            : "bg-[#050505]/24 backdrop-blur-md backdrop-saturate-125 supports-[backdrop-filter]:bg-[#050505]/16"
-        } transition-[background-color,backdrop-filter,-webkit-backdrop-filter] duration-[480ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none motion-reduce:duration-0`}
-      />
-      <div className="relative mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-4 min-[480px]:px-6 min-[992px]:px-8">
+        className={`relative min-h-[72px] w-full ${
+          headerScrolled ? headerStyles.verticalDockIn : ""
+        }`}
+      >
+        {/* Blur + tint; separate layer avoids backdrop jump in some browsers. */}
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute inset-0 -z-10 ${
+            headerScrolled ? "rounded-2xl" : ""
+          } ${
+            headerScrolled
+              ? "bg-[#050505]/85 backdrop-blur-xl backdrop-saturate-150"
+              : "bg-[#050505]/24 backdrop-blur-md backdrop-saturate-125 supports-[backdrop-filter]:bg-[#050505]/16"
+          }`}
+        />
+        <div
+          className={`relative mx-auto flex h-[72px] min-h-[72px] w-full items-center justify-between px-4 min-[480px]:px-6 min-[992px]:px-8 ${
+            headerScrolled ? "max-w-none" : "max-w-[1280px]"
+          }`}
+        >
         <Link
           href="/"
           className="min-w-0 shrink-0 text-lg font-bold tracking-tight min-[400px]:text-[22px]"
@@ -619,10 +634,7 @@ export default function Header() {
           <span className="text-[#70AA26]">Labs</span>
         </Link>
 
-        <nav
-          className="hidden items-center gap-[34px] lg:flex"
-          aria-label="Main navigation"
-        >
+        <nav className="hidden items-center gap-[34px] lg:flex" aria-label="Main navigation">
           <Link href="/" className={navLink}>
             Home
           </Link>
@@ -639,7 +651,7 @@ export default function Header() {
           >
             <div
               tabIndex={0}
-              className={`flex cursor-default items-center gap-1 rounded-md text-[15px] font-medium leading-none outline-none ring-offset-2 ring-offset-transparent transition-colors focus-visible:ring-2 focus-visible:ring-white/50 ${
+              className={`flex cursor-default items-center gap-1 rounded-md text-[15px] font-medium leading-none outline-none ring-offset-2 ring-offset-transparent transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-white/50 ${
                 servicesMenuOpen
                   ? "text-[#70AA26] hover:text-[#70AA26]"
                   : "text-white/90 hover:text-white"
@@ -654,7 +666,11 @@ export default function Header() {
               />
             </div>
             <div
-              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+              className={`fixed left-1/2 z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+                headerScrolled
+                  ? "top-[calc(10px+72px+0.75rem)]"
+                  : "top-[calc(72px+0.75rem)]"
+              } ${
                 servicesMenuOpen
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"
@@ -696,7 +712,7 @@ export default function Header() {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="rounded-full border border-white/15 bg-white/10 p-2 text-white/90 backdrop-blur-md transition hover:bg-white/15"
+              className="rounded-full border border-white/15 bg-white/10 p-2 text-white/90 backdrop-blur-md transition-colors hover:bg-white/15"
               aria-expanded={menuOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -717,6 +733,7 @@ export default function Header() {
           >
             Get Started
           </button>
+        </div>
         </div>
       </div>
 

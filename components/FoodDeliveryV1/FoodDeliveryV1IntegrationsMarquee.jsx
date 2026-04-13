@@ -51,7 +51,7 @@ function IntegrationMarqueeRow({ items, reverse }) {
       >
         {slides.map((item) => (
           <SwiperSlide key={item._k} className="!w-auto">
-            <div className="flex items-center gap-2.5 rounded-xl border border-neutral-200/90 bg-white px-4 py-2.5 shadow-[0_4px_14px_-8px_rgba(15,23,42,0.12)] sm:gap-3 sm:px-4 sm:py-3">
+            <div className="flex items-center gap-2.5 rounded-xl border border-neutral-200/90 bg-white px-4 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
               <FoodDeliveryV1IntegrationIcon id={item.id} className="h-6 w-6 sm:h-7 sm:w-7" />
               <span className="whitespace-nowrap text-[15px] font-semibold text-neutral-800 sm:text-[16px]">
                 {item.label}

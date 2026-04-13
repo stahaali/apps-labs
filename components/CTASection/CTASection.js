@@ -13,7 +13,13 @@ const LEFT_CHECKS = [
 
 const RIGHT_CHECKS = ["iOS and Android", "React Native", "Flutter"];
 
-export default function CTASection({ sectionPadding84 = false }) {
+export default function CTASection({
+  sectionPadding84 = false,
+  ctaLabel,
+  /** Match /food-delivery/v1 hero & green pill CTAs: 15px, font-weight 600 */
+  matchFoodDeliveryV1Typography = false,
+}) {
+  const label = ctaLabel ?? "Book Free Consultation";
   return (
     <section
       className={[styles.section, sectionPadding84 && styles.sectionPadding84]
@@ -51,8 +57,13 @@ export default function CTASection({ sectionPadding84 = false }) {
               and project estimate. Ready to launch your app? Contact us today for
               a free consultation and project estimate.
             </p>
-            <Link href="/contact" className={styles.ctaBtn}>
-              Book Free Consultation
+            <Link
+              href="/contact"
+              className={[styles.ctaBtn, matchFoodDeliveryV1Typography && styles.ctaBtnFoodDeliveryV1]
+                .filter(Boolean)
+                .join(" ")}
+            >
+              {label}
             </Link>
           </div>
 

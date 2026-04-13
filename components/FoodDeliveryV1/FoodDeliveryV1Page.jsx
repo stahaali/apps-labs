@@ -1,25 +1,29 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import ContactFaq from "@/components/ContactPage/ContactFaq";
 import BlogSection from "@/components/BlogSection/BlogSection";
 import CTASection from "@/components/CTASection/CTASection";
-import FoodDeliveryV1CenterSlider from "@/components/FoodDeliveryV1/FoodDeliveryV1CenterSlider";
+
+const TestimonialSection = dynamic(
+  () => import("@/components/TestimonialSection/TestimonialSection"),
+  { loading: () => null }
+);
+// import FoodDeliveryV1CenterSlider from "@/components/FoodDeliveryV1/FoodDeliveryV1CenterSlider";
 import FoodDeliveryV1ExcitingFeaturesSection from "@/components/FoodDeliveryV1/FoodDeliveryV1ExcitingFeaturesSection";
-import FoodDeliveryV1HappyClients from "@/components/FoodDeliveryV1/FoodDeliveryV1HappyClients";
+// import FoodDeliveryV1HappyClients from "@/components/FoodDeliveryV1/FoodDeliveryV1HappyClients";
 import FoodDeliveryV1Hero from "@/components/FoodDeliveryV1/FoodDeliveryV1Hero";
 import FoodDeliveryV1IntegrationsMarquee from "@/components/FoodDeliveryV1/FoodDeliveryV1IntegrationsMarquee";
 import FoodDeliveryV1TechSuiteSection from "@/components/FoodDeliveryV1/FoodDeliveryV1TechSuiteSection";
 import {
   FOOD_DELIVERY_V1_FAQ_HEADLINE,
-  FOOD_DELIVERY_V1_FEATURED,
   FOOD_DELIVERY_V1_FULFILLMENT,
   FOOD_DELIVERY_V1_EXCITING_FEATURES,
-  FOOD_DELIVERY_V1_GALLERY_SLIDER,
-  FOOD_DELIVERY_V1_HAPPY_CLIENTS,
+  // FOOD_DELIVERY_V1_GALLERY_SLIDER,
+  // FOOD_DELIVERY_V1_HAPPY_CLIENTS,
   FOOD_DELIVERY_V1_MARKETING,
   FOOD_DELIVERY_V1_OUTCOMES_HEADLINE,
-  FOOD_DELIVERY_V1_QUOTES,
   FOOD_DELIVERY_V1_SECTIONS,
   FOOD_DELIVERY_V1_STATS,
   FOOD_DELIVERY_V1_TECH_SUITE,
@@ -60,7 +64,18 @@ function CheckBullet() {
 }
 
 function SplitFeature({ section, cream, noPaddingTop }) {
-  const { eyebrow, headline, body, bullets, cta, image, imageLeft, compact } = section;
+  const {
+    eyebrow,
+    headline,
+    body,
+    bullets,
+    cta,
+    image,
+    imageLeft,
+    compact,
+    knockoutWhiteBackground,
+    narrowSplitImage,
+  } = section;
   const panel = cream ? styles.sectionCream : styles.sectionLavender;
   const headingId = `fd-v1-${section.id}-heading`;
   const sectionClass = [panel, noPaddingTop && styles.sectionNoPaddingTop]
@@ -92,14 +107,22 @@ function SplitFeature({ section, cream, noPaddingTop }) {
     <div
       className={`${styles.imageCard} ${compact ? styles.imageCardCompact : ""}`}
     >
-      <div className="relative aspect-[4/3] w-full min-h-[220px]">
+      <div
+        className={`relative w-full min-h-[200px] bg-transparent${narrowSplitImage ? ` ${styles.splitImageNarrow}` : ""}`}
+      >
         <ImageWithSkeleton
           src={image}
           alt=""
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 1023px) 100vw, 50vw"
+          width={1600}
+          height={1000}
+          className={`h-auto w-full object-contain object-center${knockoutWhiteBackground ? " mix-blend-multiply" : ""}`}
+          sizes={
+            narrowSplitImage
+              ? "(max-width: 1023px) min(90vw, 380px), 380px"
+              : "(max-width: 1023px) 100vw, 50vw"
+          }
           skeletonClassName="rounded-[1.25rem]"
+          wrapClassName="block min-h-[200px] w-full"
         />
       </div>
     </div>
@@ -130,13 +153,6 @@ function SplitFeature({ section, cream, noPaddingTop }) {
   );
 }
 
-function initials(name) {
-  const parts = name.split(/\s+/).filter(Boolean);
-  const a = parts[0]?.[0] ?? "";
-  const b = parts[1]?.[0] ?? "";
-  return (a + b).toUpperCase() || "?";
-}
-
 export default function FoodDeliveryV1Page() {
   const [ops, platform, setup] = FOOD_DELIVERY_V1_SECTIONS;
 
@@ -148,7 +164,7 @@ export default function FoodDeliveryV1Page() {
       <SplitFeature section={platform} cream={false} />
       <SplitFeature section={setup} cream noPaddingTop />
 
-      <FoodDeliveryV1CenterSlider content={FOOD_DELIVERY_V1_GALLERY_SLIDER} />
+      {/* <FoodDeliveryV1CenterSlider content={FOOD_DELIVERY_V1_GALLERY_SLIDER} /> */}
 
       <FoodDeliveryV1ExcitingFeaturesSection content={FOOD_DELIVERY_V1_EXCITING_FEATURES} />
 
@@ -172,7 +188,7 @@ export default function FoodDeliveryV1Page() {
 
       <FoodDeliveryV1IntegrationsMarquee />
 
-      <FoodDeliveryV1HappyClients content={FOOD_DELIVERY_V1_HAPPY_CLIENTS} />
+      {/* <FoodDeliveryV1HappyClients content={FOOD_DELIVERY_V1_HAPPY_CLIENTS} /> */}
 
       <section className={styles.sectionLavender} aria-labelledby="fd-v1-stats-heading">
         <div className={styles.inner}>
@@ -194,53 +210,8 @@ export default function FoodDeliveryV1Page() {
         </div>
       </section>
 
-      <section
-        className={`${styles.sectionCream} ${styles.sectionNoPaddingTop}`}
-        aria-labelledby="fd-v1-quotes-heading"
-      >
-        <div className={styles.inner}>
-          <AnimateOnView variant="fadeUp" className={SECTION_HEAD}>
-            <span className={THEME_PILL}>Client voices</span>
-            <h2 id="fd-v1-quotes-heading" className={THEME_H2}>
-              Why operators choose <span className={HEADING_ACCENT}>Apex Labs</span>
-            </h2>
-          </AnimateOnView>
-          <div className={`${styles.quotesRow} ${THEME_AFTER_HEAD}`}>
-            {FOOD_DELIVERY_V1_QUOTES.map((q, i) => (
-              <AnimateOnView key={q.name} variant="fadeUp" delayMs={i * 50}>
-                <blockquote className={styles.quoteCard}>
-                  <p className={styles.quoteText}>&ldquo;{q.quote}&rdquo;</p>
-                  <footer>
-                    <div className={styles.quoteName}>{q.name}</div>
-                    <div className={styles.quoteRole}>{q.role}</div>
-                  </footer>
-                </blockquote>
-              </AnimateOnView>
-            ))}
-          </div>
-          <AnimateOnView variant="fadeUp">
-            <div className={styles.featured}>
-              <div className={styles.featuredAvatar} aria-hidden>
-                {initials(FOOD_DELIVERY_V1_FEATURED.name)}
-              </div>
-              <div>
-                <p className={styles.featuredQuote}>
-                  &ldquo;{FOOD_DELIVERY_V1_FEATURED.quote}&rdquo;
-                </p>
-                <p className={styles.featuredMeta}>
-                  {FOOD_DELIVERY_V1_FEATURED.name} — {FOOD_DELIVERY_V1_FEATURED.role}
-                </p>
-                <Link
-                  href="/testimonials"
-                  className="mt-3 inline-block text-[14px] font-semibold text-[#70AA26] underline decoration-[#70AA26]/35 underline-offset-4 hover:brightness-110"
-                >
-                  Read more stories
-                </Link>
-              </div>
-            </div>
-          </AnimateOnView>
-        </div>
-      </section>
+      {/* Same reviews block as homepage (`HomeClientTestimonial` → TestimonialSection) */}
+      <TestimonialSection />
 
       <section className={styles.sectionLavender} aria-labelledby="fd-v1-faq-heading">
         <div className={styles.inner}>
@@ -260,7 +231,11 @@ export default function FoodDeliveryV1Page() {
 
       <BlogSection headingId="fd-v1-blog-heading" />
 
-      <CTASection sectionPadding84 />
+      <CTASection
+        sectionPadding84
+        ctaLabel="Start Selling Food online"
+        matchFoodDeliveryV1Typography
+      />
     </div>
   );
 }

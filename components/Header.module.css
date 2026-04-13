@@ -1,0 +1,19 @@
+/* Scroll dock: vertical axis only (no width/left/right animation). */
+@keyframes headerFromTop {
+  from {
+    transform: translate3d(0, -28px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.verticalDockIn {
+  animation: headerFromTop 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verticalDockIn {
+    animation: none;
+  }
+}

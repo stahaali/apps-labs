@@ -113,11 +113,17 @@
   padding: var(--cta-button-pad-y) var(--cta-button-pad-x);
   font-size: 15px;
   font-weight: 700;
+  line-height: 1;
   color: #0f172a;
   text-decoration: none;
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease;
+}
+
+/* /food-delivery/v1 — match hero & section pill CTAs (15px / semibold) */
+.ctaBtnFoodDeliveryV1 {
+  font-weight: 600;
 }
 
 .ctaBtn:hover {
