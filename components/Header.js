@@ -666,11 +666,7 @@ export default function Header() {
               />
             </div>
             <div
-              className={`fixed left-1/2 z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
-                headerScrolled
-                  ? "top-[calc(10px+72px+0.75rem)]"
-                  : "top-[calc(72px+0.75rem)]"
-              } ${
+              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
                 servicesMenuOpen
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"

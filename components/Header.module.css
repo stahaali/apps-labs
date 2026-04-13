@@ -1,7 +1,7 @@
 /* Scroll dock: vertical axis only (no width/left/right animation). */
 @keyframes headerFromTop {
   from {
-    transform: translate3d(0, -28px, 0);
+    transform: translate3d(0, -18px, 0);
   }
   to {
     transform: translate3d(0, 0, 0);
