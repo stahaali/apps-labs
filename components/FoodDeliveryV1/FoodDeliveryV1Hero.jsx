@@ -8,7 +8,7 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import { FOOD_DELIVERY_V1_HERO } from "@/lib/foodDeliveryV1Content";
 import bannerStyles from "@/components/FoodDeliveryBanner/FoodDeliveryBanner.module.css";
 
-const HERO_IMG = "/assets/images-webp/banners/1.png";
+const HERO_IMG = "/assets/images-webp/food-business/food-v2.webp";
 
 function CheckGlyph() {
   return (
@@ -54,17 +54,17 @@ export default function FoodDeliveryV1Hero() {
               ))}
             </div>
 
-            <div className="mt-8 flex w-full max-w-[520px] flex-col gap-3 min-[480px]:flex-row min-[480px]:items-center">
+            <div className="mt-8 flex w-full max-w-[520px] flex-col gap-3 min-[480px]:flex-row min-[480px]:items-stretch">
               <button
                 type="button"
-                className={`${bannerStyles.ctaButton} w-full min-[480px]:w-auto min-[480px]:shrink-0`}
+                className={`${bannerStyles.ctaButton} w-full min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0 min-[480px]:w-full`}
                 onClick={openModal}
               >
                 Get started
               </button>
               <Link
                 href="#fd-v1-integrations"
-                className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-[15px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 min-[480px]:w-auto"
+                className="flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-[15px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0"
               >
                 Explore integrations
               </Link>
@@ -77,9 +77,9 @@ export default function FoodDeliveryV1Hero() {
                 <div className={`${bannerStyles.visualFigure} ${animateStyles.imageEase}`}>
                   <ImageWithSkeleton
                     src={HERO_IMG}
-                    alt="Restaurant ordering and delivery app interfaces"
-                    width={400}
-                    height={435}
+                    alt="Restaurant teams and guests using branded online food ordering"
+                    width={960}
+                    height={420}
                     sizes="(max-width: 767px) min(90vw, 400px), 400px"
                     className="max-w-[400px] select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
                     style={{ width: "100%", height: "auto" }}

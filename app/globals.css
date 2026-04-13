@@ -10,6 +10,8 @@ html {
 }
 
 :root {
+  /* Matches Tailwind spacing scale: e.g. `pl-5` → calc(var(--spacing) * 5) */
+  --spacing: 0.25rem;
   --background: #050505;
   --foreground: #fafafa;
   --home-section-py: clamp(2.75rem, 5.5vw, 5rem);
@@ -34,6 +36,21 @@ html {
   }
 }
 
+/* Email + CTA pill: inner bar right inset (matches DevTools `pr` on role="group" row) */
+@media (min-width: 480px) {
+  .bannerEmailShell[role="group"] {
+    padding-right: calc(var(--spacing) * 1.5);
+  }
+}
+
+/* Home hero email field: left inset uses spacing scale (see DevTools `pl-5`) */
+.bannerform input {
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: calc(var(--spacing) * 5);
+}
+
 .site-title {
   font-size: var(--site-title-size);
   font-weight: 700;
@@ -47,6 +64,7 @@ html {
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
+  text-transform: capitalize;
 }
 
 @media (max-width: 576px) {
@@ -55,7 +73,6 @@ html {
   }
   .bannerform input {
     font-size: 14px;
-    padding: 5px 10px;
   }
   .bannerform button {
     font-size: 12px;

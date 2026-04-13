@@ -29,11 +29,11 @@ section.clientLogos {
   object-fit: contain;
 }
 
-/* Mobile: % width. Desktop (768+): same bounding box as PayPal row — max height + max width + contain */
+/* Mobile: % width. Desktop (768+): medium logo box — larger than before, still contained */
 .logoImg {
   min-width: 0;
-  width: 60%;
-  max-width: 60%;
+  width: 78%;
+  max-width: 78%;
   height: auto;
   object-fit: contain;
   object-position: center;
@@ -42,8 +42,8 @@ section.clientLogos {
 @media (min-width: 768px) {
   .logoImg {
     width: auto;
-    max-width: 140px;
-    max-height: 40px;
+    max-width: 188px;
+    max-height: 52px;
     height: auto;
   }
 }

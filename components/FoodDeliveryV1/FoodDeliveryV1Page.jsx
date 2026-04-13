@@ -4,18 +4,25 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import ContactFaq from "@/components/ContactPage/ContactFaq";
 import BlogSection from "@/components/BlogSection/BlogSection";
 import CTASection from "@/components/CTASection/CTASection";
+import FoodDeliveryV1CenterSlider from "@/components/FoodDeliveryV1/FoodDeliveryV1CenterSlider";
+import FoodDeliveryV1ExcitingFeaturesSection from "@/components/FoodDeliveryV1/FoodDeliveryV1ExcitingFeaturesSection";
+import FoodDeliveryV1HappyClients from "@/components/FoodDeliveryV1/FoodDeliveryV1HappyClients";
 import FoodDeliveryV1Hero from "@/components/FoodDeliveryV1/FoodDeliveryV1Hero";
 import FoodDeliveryV1IntegrationsMarquee from "@/components/FoodDeliveryV1/FoodDeliveryV1IntegrationsMarquee";
+import FoodDeliveryV1TechSuiteSection from "@/components/FoodDeliveryV1/FoodDeliveryV1TechSuiteSection";
 import {
   FOOD_DELIVERY_V1_FAQ_HEADLINE,
   FOOD_DELIVERY_V1_FEATURED,
   FOOD_DELIVERY_V1_FULFILLMENT,
+  FOOD_DELIVERY_V1_EXCITING_FEATURES,
+  FOOD_DELIVERY_V1_GALLERY_SLIDER,
+  FOOD_DELIVERY_V1_HAPPY_CLIENTS,
   FOOD_DELIVERY_V1_MARKETING,
   FOOD_DELIVERY_V1_OUTCOMES_HEADLINE,
   FOOD_DELIVERY_V1_QUOTES,
   FOOD_DELIVERY_V1_SECTIONS,
-  FOOD_DELIVERY_V1_SHOWCASE,
   FOOD_DELIVERY_V1_STATS,
+  FOOD_DELIVERY_V1_TECH_SUITE,
 } from "@/lib/foodDeliveryV1Content";
 import { FOOD_DELIVERY_V1_FAQ } from "@/lib/foodDeliveryV1Faq";
 import styles from "./FoodDeliveryV1.module.css";
@@ -134,49 +141,18 @@ export default function FoodDeliveryV1Page() {
   const [ops, platform, setup] = FOOD_DELIVERY_V1_SECTIONS;
 
   return (
-    <>
+    <div className={styles.v1PageShell}>
       <FoodDeliveryV1Hero />
 
       <SplitFeature section={ops} cream />
       <SplitFeature section={platform} cream={false} />
       <SplitFeature section={setup} cream noPaddingTop />
 
-      <section className={styles.sectionLavender} aria-labelledby="fd-v1-showcase-heading">
-        <div className={styles.inner}>
-          <AnimateOnView variant="fadeUp" className={SECTION_HEAD}>
-            <span className={THEME_PILL}>{FOOD_DELIVERY_V1_SHOWCASE.eyebrow}</span>
-            <SectionHeading
-              id="fd-v1-showcase-heading"
-              headline={FOOD_DELIVERY_V1_SHOWCASE.headline}
-            />
-            <p className={THEME_LEAD_CENTER}>{FOOD_DELIVERY_V1_SHOWCASE.subtitle}</p>
-          </AnimateOnView>
-          <div className={`${styles.showcaseGrid} ${THEME_AFTER_HEAD}`}>
-            {FOOD_DELIVERY_V1_SHOWCASE.cards.map((card, i) => (
-              <AnimateOnView key={card.title} variant="fadeUp" delayMs={i * 70}>
-                <article className={styles.showcaseCard}>
-                  <div className={styles.showcaseImg}>
-                    <ImageWithSkeleton
-                      src={card.image}
-                      alt=""
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 767px) 100vw, 33vw"
-                      skeletonClassName="rounded-none"
-                    />
-                  </div>
-                  <p className={styles.showcaseCap}>{card.title}</p>
-                </article>
-              </AnimateOnView>
-            ))}
-          </div>
-          <AnimateOnView variant="fadeUp" className="mt-10 text-center sm:mt-12">
-            <Link href="/contact" className={styles.cta}>
-              Request a tailored quote
-            </Link>
-          </AnimateOnView>
-        </div>
-      </section>
+      <FoodDeliveryV1CenterSlider content={FOOD_DELIVERY_V1_GALLERY_SLIDER} />
+
+      <FoodDeliveryV1ExcitingFeaturesSection content={FOOD_DELIVERY_V1_EXCITING_FEATURES} />
+
+      <FoodDeliveryV1TechSuiteSection content={FOOD_DELIVERY_V1_TECH_SUITE} />
 
       <SplitFeature
         section={{
@@ -195,6 +171,8 @@ export default function FoodDeliveryV1Page() {
       />
 
       <FoodDeliveryV1IntegrationsMarquee />
+
+      <FoodDeliveryV1HappyClients content={FOOD_DELIVERY_V1_HAPPY_CLIENTS} />
 
       <section className={styles.sectionLavender} aria-labelledby="fd-v1-stats-heading">
         <div className={styles.inner}>
@@ -283,6 +261,6 @@ export default function FoodDeliveryV1Page() {
       <BlogSection headingId="fd-v1-blog-heading" />
 
       <CTASection sectionPadding84 />
-    </>
+    </div>
   );
 }

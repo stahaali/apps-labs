@@ -23,13 +23,13 @@ const ALL_LOGOS = [...TOP_ROW, ...BOTTOM_ROW];
 
 function LogoCard({ src, name }) {
   return (
-    <div className="relative flex h-[76px] w-full min-w-0 items-center justify-center overflow-hidden rounded-xl bg-white px-0 min-[768px]:overflow-visible min-[768px]:rounded-2xl">
+    <div className="relative flex h-[84px] w-full min-w-0 items-center justify-center overflow-hidden rounded-xl bg-white px-0 min-[768px]:h-[92px] min-[768px]:overflow-visible min-[768px]:rounded-2xl">
       <Image
         src={src}
         alt={name}
-        width={220}
-        height={100}
-        sizes="(max-width: 767px) 40vw, 140px"
+        width={280}
+        height={120}
+        sizes="(max-width: 767px) 42vw, 188px"
         className={styles.logoImg}
       />
     </div>
@@ -83,7 +83,7 @@ export default function ClientLogosSection() {
                 <LogoCard key={logo.name} {...logo} />
               ))}
             </div>
-            <div className="grid w-full max-w-[min(100%,22.5rem)] grid-cols-3 gap-2 sm:gap-2.5 lg:max-w-[26rem] lg:gap-4">
+            <div className="grid w-full max-w-[min(100%,28rem)] grid-cols-3 gap-2 sm:gap-2.5 lg:max-w-[36rem] lg:gap-4">
               {BOTTOM_ROW.map((logo) => (
                 <LogoCard key={logo.name} {...logo} />
               ))}

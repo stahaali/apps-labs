@@ -186,7 +186,10 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  padding: 0.25rem 0.35rem;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: calc(var(--spacing) * 5);
   font-size: 14px;
   line-height: normal;
   color: #ffffff;

@@ -35,7 +35,7 @@ export default function FoodDeliveryPage() {
       <CTASection />
       <OurPortfolioSection noTopPadding portfolioImageSrcs={FOOD_PORTFOLIO_SLIDES} />
       <TechStackSection />
-      <PricingSection noTopPadding />
+      <PricingSection sectionPadding84 />
       <HomeClientTestimonial />
       <BlogSection />
     </>

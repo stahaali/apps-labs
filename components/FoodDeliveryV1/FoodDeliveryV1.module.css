@@ -1,3 +1,8 @@
+/* V1 route only: title-case section headings (global `.title` lives in globals.css). */
+.v1PageShell :global(.title) {
+  text-transform: capitalize;
+}
+
 .sectionBase {
   position: relative;
   width: 100%;
@@ -18,9 +23,18 @@
   padding-bottom: 84px;
 }
 
+/* Clean white band (e.g. client story cards) — same vertical rhythm as cream/lavender. */
+.sectionWhite {
+  composes: sectionBase;
+  background: #ffffff;
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+
 /* Selected v1 sections: flush to section above; keep 84px bottom padding. */
 .sectionCream.sectionNoPaddingTop,
-.sectionLavender.sectionNoPaddingTop {
+.sectionLavender.sectionNoPaddingTop,
+.sectionWhite.sectionNoPaddingTop {
   padding-top: 0;
 }
 
@@ -61,7 +75,6 @@
 
 .split > *,
 .statsGrid > *,
-.showcaseGrid > *,
 .quotesRow > * {
   min-width: 0;
 }
@@ -209,46 +222,6 @@
 @media (min-width: 640px) {
   .statDetail {
     font-size: 15px;
-  }
-}
-
-.showcaseGrid {
-  display: grid;
-  gap: 1.25rem;
-}
-
-@media (min-width: 768px) {
-  .showcaseGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.showcaseCard {
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  background: #fff;
-  box-shadow: 0 12px 36px -20px rgba(15, 23, 42, 0.18);
-}
-
-.showcaseImg {
-  aspect-ratio: 4/3;
-  position: relative;
-  background: #f1f5f9;
-}
-
-.showcaseCap {
-  padding: 1rem 1.1rem 1.15rem;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.45;
-  color: #0f172a;
-  overflow-wrap: anywhere;
-}
-
-@media (min-width: 640px) {
-  .showcaseCap {
-    font-size: 16px;
   }
 }
 

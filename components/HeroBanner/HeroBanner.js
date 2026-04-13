@@ -98,7 +98,7 @@ export default function HeroBanner() {
 
             <form className="mt-4 w-full max-w-[520px] bannerform sm:mt-5" action="#" method="post" aria-label="Email signup">
               <div
-                className="flex w-full flex-col gap-2 rounded-2xl border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] p-3 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))] min-[480px]:min-h-[56px] min-[480px]:flex-row min-[480px]:flex-nowrap min-[480px]:items-center min-[480px]:gap-2 min-[480px]:rounded-full min-[480px]:p-0 min-[480px]:py-1.5 min-[480px]:pl-5 min-[480px]:pr-2"
+                className="bannerEmailShell flex w-full flex-col gap-2 rounded-2xl border stroke-[#F5F5F5] stroke-opacity-50 stroke-2 border-[#353539] bg-[#0a0d12] p-3 shadow-[0_0_0_9px_var(--tw-shadow-color,rgba(253,247,236,0.03))] min-[480px]:min-h-[56px] min-[480px]:flex-row min-[480px]:flex-nowrap min-[480px]:items-center min-[480px]:gap-2 min-[480px]:rounded-full min-[480px]:p-0 min-[480px]:py-1.5 min-[480px]:pl-5"
                 role="group"
               >
                 <div className="flex min-h-[44px] min-w-0 flex-1 items-center gap-2 min-[480px]:min-h-0">
@@ -115,7 +115,7 @@ export default function HeroBanner() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Enter Your E-mail"
+                    placeholder="Enter Your Business Name"
                     required
                     className="min-w-0 flex-1 cursor-text bg-transparent text-[14px] leading-normal text-white caret-white placeholder:text-neutral-500 focus:bg-transparent focus:outline-none focus:ring-0"
                     autoComplete="email"
@@ -123,7 +123,7 @@ export default function HeroBanner() {
                 </div>
                 <button
                   type="submit"
-                  className="flex min-h-[48px] w-full shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[13px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 min-[480px]:min-h-0 min-[480px]:w-auto submit"
+                  className="flex min-h-[48px] w-full shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-[filter,box-shadow] hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 min-[480px]:min-h-0 min-[480px]:w-auto submit"
                 >
                   Get Started
                 </button>

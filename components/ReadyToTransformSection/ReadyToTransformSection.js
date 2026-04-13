@@ -35,9 +35,14 @@ export default function ReadyToTransformSection() {
             Empower Your Business With Cutting Edge{" "}
             <span className="text-[#70AA26]">Digital Solutions</span>
           </h2>
-          <p className="mt-5 max-w-[520px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
+          <p className="mt-5 max-w-[560px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
             From ideation to deployment — let&apos;s turn your vision into an
-            app that disrupts your industry.
+            app that disrupts your industry. We partner with you through product
+            strategy, UX design, and robust engineering so your users get a
+            polished experience on day one. Whether you are validating an MVP
+            or scaling an established product, our team helps you ship faster,
+            reduce risk, and stay focused on outcomes that move your business
+            forward.
           </p>
           <Link
             href="/contact"

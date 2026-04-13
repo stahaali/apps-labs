@@ -62,31 +62,42 @@ export default function ScalableProcessSection() {
             </p>
           </header>
 
-          {/* Desktop / tablet: icons → timeline → copy */}
+          {/* Desktop / tablet: icons + timeline share one grid so each icon sits above its number */}
           <div className={styles.desktopFlow}>
-            <div className={styles.iconsBlock}>              
-              <div className={styles.iconsRow}>
-                {STEPS.map((step) => (
-                  <div key={step.num} className={styles.iconWrap}>
+            <div className={styles.processTrackGrid} aria-hidden>
+              {STEPS.map((step, i) => (
+                <div
+                  key={`icon-${step.num}`}
+                  className={styles.trackIconCell}
+                  style={{ gridColumn: i * 2 + 1, gridRow: 1 }}
+                >
+                  <div className={styles.iconWrap}>
                     <Image
                       src={step.image}
                       alt=""
                       width={80}
                       height={80}
-                    sizes="80px"
+                      sizes="80px"
                       className={styles.iconImage}
                     />
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.trackRow} aria-hidden>
-              {STEPS.map((step, index) => (
-                <Fragment key={step.num}>
-                  <span className={styles.marker}>{step.num}</span>
-                  {index < STEPS.length - 1 ? (
-                    <div className={styles.trackSegment} />
+                </div>
+              ))}
+              {STEPS.map((step, i) => (
+                <Fragment key={`mark-${step.num}`}>
+                  <span
+                    className={styles.marker}
+                    style={{ gridColumn: i * 2 + 1, gridRow: 2 }}
+                  >
+                    {step.num}
+                  </span>
+                  {i < STEPS.length - 1 ? (
+                    <div
+                      className={styles.trackSegmentCell}
+                      style={{ gridColumn: i * 2 + 2, gridRow: 2 }}
+                    >
+                      <div className={styles.trackSegment} />
+                    </div>
                   ) : null}
                 </Fragment>
               ))}

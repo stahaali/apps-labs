@@ -309,8 +309,9 @@ function ServiceMenuGlyph({ name, className: iconClass = "h-[18px] w-[18px]" }) 
   }
 }
 
+/** Match `SERVICE_MENU_ICON_WRAP` (mint pill + lime label). */
 const megaBadgeClass =
-  "inline-flex shrink-0 items-center rounded-md bg-[#FFD4BF] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#C2410C]";
+  "inline-flex shrink-0 items-center rounded-md bg-[#E8F5E1] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#5EC00A]";
 
 function MegaServiceRowDesktop({ item, onNavigate }) {
   return (
@@ -413,7 +414,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
               {item.label}
             </span>
             {item.badge ? (
-              <span className="inline-flex shrink-0 items-center rounded-md bg-orange-500/25 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-100">
+              <span className="inline-flex shrink-0 items-center rounded-md border border-[#E8F5E1]/35 bg-[#E8F5E1]/18 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#BEF264]">
                 {item.badge}
               </span>
             ) : null}
@@ -511,6 +512,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const [headerScrolled, setHeaderScrolled] = useState(false);
   const servicesWrapRef = useRef(null);
 
   const closeMenu = useCallback(() => {
@@ -532,6 +534,26 @@ export default function Header() {
 
   useEffect(() => {
     setServicesMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    let rafId = 0;
+
+    const applyScroll = () => {
+      rafId = 0;
+      setHeaderScrolled(window.scrollY > 8);
+    };
+
+    const onScroll = () => {
+      if (!rafId) rafId = requestAnimationFrame(applyScroll);
+    };
+
+    applyScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [pathname]);
 
   useEffect(() => {
@@ -572,8 +594,23 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-[100] w-full border-b border-solid border-b-white/10">
-      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-4 min-[480px]:px-6 min-[992px]:px-8">
+    <header
+      className={`fixed inset-x-0 top-0 z-[100] w-full translate-y-0 overflow-visible border-b border-solid motion-reduce:transition-none ${
+        headerScrolled
+          ? "border-b-white/[0.08] shadow-[0_12px_40px_-14px_rgba(0,0,0,0.55)]"
+          : "border-b-white/10 shadow-none"
+      } transition-[border-color,box-shadow] duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0`}
+    >
+      {/* Blur + tint animate smoothly (including from page top); separate layer avoids backdrop jump in some browsers. */}
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute inset-0 -z-10 ${
+          headerScrolled
+            ? "bg-[#050505]/85 backdrop-blur-xl backdrop-saturate-150"
+            : "bg-[#050505]/24 backdrop-blur-md backdrop-saturate-125 supports-[backdrop-filter]:bg-[#050505]/16"
+        } transition-[background-color,backdrop-filter,-webkit-backdrop-filter] duration-[480ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none motion-reduce:duration-0`}
+      />
+      <div className="relative mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-4 min-[480px]:px-6 min-[992px]:px-8">
         <Link
           href="/"
           className="min-w-0 shrink-0 text-lg font-bold tracking-tight min-[400px]:text-[22px]"

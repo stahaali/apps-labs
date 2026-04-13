@@ -1,0 +1,82 @@
+/* Full-bleed track: cancel `.inner` horizontal padding — row is edge-to-edge inside section; only safe-area insets on sides. */
+.swiperOuter {
+  margin-top: 2.5rem;
+  margin-left: calc(-1 * max(1rem, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(1rem, env(safe-area-inset-right, 0px)));
+  width: calc(
+    100% + max(1rem, env(safe-area-inset-left, 0px)) +
+      max(1rem, env(safe-area-inset-right, 0px))
+  );
+  padding: 1.25rem env(safe-area-inset-left, 0px) 2rem env(safe-area-inset-right, 0px);
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .swiperOuter {
+    margin-top: 3rem;
+    margin-left: calc(-1 * max(1.5rem, env(safe-area-inset-left, 0px)));
+    margin-right: calc(-1 * max(1.5rem, env(safe-area-inset-right, 0px)));
+    width: calc(
+      100% + max(1.5rem, env(safe-area-inset-left, 0px)) +
+        max(1.5rem, env(safe-area-inset-right, 0px))
+    );
+    padding: 1.5rem env(safe-area-inset-left, 0px) 2.25rem env(safe-area-inset-right, 0px);
+  }
+}
+
+.swiper {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+}
+
+/*
+ * Swiper’s default `.swiper-slide { height: 100% }` fights `aspect-ratio` on children and
+ * causes distorted / stretched mockups after refresh. Force content-sized slides.
+ */
+.swiperGallery {
+  height: auto;
+}
+
+.swiperGallery :global(.swiper-wrapper) {
+  align-items: flex-start;
+}
+
+.swiperGallery :global(.swiper-slide) {
+  height: auto !important;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Fixed aspect frame: width comes from Swiper; height from ratio — no flex stretch. */
+.slideFrame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  aspect-ratio: 3 / 4;
+  border-radius: 1.125rem;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #f1f5f9;
+}
+
+@media (min-width: 640px) {
+  .slideFrame {
+    border-radius: 1.25rem;
+  }
+}
+
+/* Next/Image `fill`: never stretch bitmap — cover + top crop inside the frame only. */
+.slideImage {
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+  height: 100%;
+}

@@ -51,17 +51,25 @@
   width: 100%;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .fitnessBanner .grid {
+    gap: 3rem;
+  }
 }
 
 .contentCol {
   max-width: 600px;
+  min-width: 0;
 }
 
 .visualCol {
   position: relative;
   display: flex;
   min-height: 300px;
+  min-width: 0;
   justify-content: center;
 }
 
@@ -136,7 +144,10 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  padding: 0.25rem 0.35rem;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: calc(var(--spacing) * 5);
   font-size: 14px;
   line-height: normal;
   color: #ffffff;
