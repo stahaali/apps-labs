@@ -190,7 +190,7 @@ export default function BookAppointmentPage() {
   return (
     <main className="flex min-h-screen flex-col">
       <section
-        className={`${contactStyles.contactHero} relative px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
+        className={`${contactStyles.contactHero} ${styles.heroFullViewport} relative px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
         aria-labelledby="book-appointment-heading"
       >
         <HeroBannerNoiseOverlay />
@@ -284,38 +284,41 @@ export default function BookAppointmentPage() {
             </AnimateOnView>
           </div>
 
-          <AnimateOnView variant="fadeUp" className="mx-auto max-w-[900px] text-center">
-            <span className={THEME_PILL}>How it works</span>
-            <h2 className="title text-balance text-neutral-900">
-              From calendar invite to{" "}
-              <span className="text-[#70AA26]">a clear plan</span>
-            </h2>
-            <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-              A focused session with product and engineering leads—no pressure, no jargon-only decks.
-            </p>
-          </AnimateOnView>
+          <div className={styles.howItWorksBundle}>
+            <AnimateOnView variant="fadeUp" className="mx-auto max-w-[900px] text-center">
+              <span className={THEME_PILL}>How it works</span>
+              <h2 className="title mt-0 text-balance text-neutral-900">
+                From calendar invite to{" "}
+                <span className="text-[#70AA26]">a clear plan</span>
+              </h2>
+              <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
+                A focused session with product and engineering leads—no pressure, no jargon-only
+                decks.
+              </p>
+            </AnimateOnView>
 
-          <div className={`${styles.stepsTrack} ${AFTER_HEAD} grid gap-6 md:grid-cols-3 lg:gap-8`}>
-            {STEPS.map((s, i) => (
-              <AnimateOnView key={s.n} variant="fadeUp" delayMs={i * 80}>
-                <article
-                  className={`${contactStyles.contactLightCard} ${styles.stepCard} flex h-full flex-col p-6 sm:p-7`}
-                >
-                  <div className={styles.stepIconWrap}>
-                    <StepGlyph name={s.icon} />
-                  </div>
-                  <span className="text-[12px] font-extrabold tracking-[0.2em] text-[#70AA26]">
-                    {s.n}
-                  </span>
-                  <h3 className="mt-2 text-lg font-bold tracking-tight text-neutral-900 sm:text-xl">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-                    {s.body}
-                  </p>
-                </article>
-              </AnimateOnView>
-            ))}
+            <div className={`${styles.stepsTrack} ${AFTER_HEAD} grid gap-6 md:grid-cols-3 lg:gap-8`}>
+              {STEPS.map((s, i) => (
+                <AnimateOnView key={s.n} variant="fadeUp" delayMs={i * 80}>
+                  <article
+                    className={`${contactStyles.contactLightCard} ${styles.stepCard} flex h-full flex-col p-6 sm:p-7`}
+                  >
+                    <div className={styles.stepIconWrap}>
+                      <StepGlyph name={s.icon} />
+                    </div>
+                    <span className="text-[12px] font-extrabold tracking-[0.2em] text-[#70AA26]">
+                      {s.n}
+                    </span>
+                    <h3 className="mt-2 text-lg font-bold tracking-tight text-neutral-900 sm:text-xl">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
+                      {s.body}
+                    </p>
+                  </article>
+                </AnimateOnView>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -357,31 +360,33 @@ export default function BookAppointmentPage() {
 
       <section className={`${contactStyles.contactLight} ${SECTION_LIGHT}`} aria-label="Prepare for your call">
         <div className="mx-auto max-w-[1200px]">
-          <div className="mx-auto border-t border-neutral-200/90 pt-16 sm:pt-20 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-14 lg:pt-24">
+          <div className="mx-auto pt-16 sm:pt-20 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-14 lg:pt-24">
             <AnimateOnView variant="fadeLeft" className="relative order-2 lg:order-1">
-              <div className={`${styles.imageFrame} aspect-[4/3] w-full min-h-[220px]`}>
-                <ImageWithSkeleton
-                  src="/assets/images-webp/our-portfolio/food-delivery/1.png"
-                  alt=""
-                  fill
-                  className={`object-cover object-center ${styles.imageHover}`}
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                  skeletonClassName="rounded-2xl"
-                />
+              <div className={styles.prepVisual}>
+                <div className={`${styles.imageFrame} ${styles.imageFrameInset} aspect-[4/3] w-full min-h-[220px]`}>
+                  <ImageWithSkeleton
+                    src="/assets/images-webp/our-portfolio/food-delivery/1.png"
+                    alt=""
+                    fill
+                    className={`object-cover object-center ${styles.imageHover}`}
+                    sizes="(max-width: 1023px) 100vw, 50vw"
+                    skeletonClassName="rounded-xl"
+                  />
+                </div>
               </div>
             </AnimateOnView>
             <AnimateOnView variant="fadeUp" delayMs={100} className="order-1 mb-10 lg:order-2 lg:mb-0">
               <span className={THEME_PILL}>Before we meet</span>
-              <h2 className="title text-balance text-neutral-900">
+              <h2 className="title mt-0 text-balance text-neutral-900">
                 Bring a few details so we can{" "}
                 <span className="text-[#70AA26]">move faster</span>
               </h2>
               <p className="mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
                 You don’t need a full spec—just enough context for a productive conversation.
               </p>
-              <ul className="mt-6 space-y-3.5 text-[15px] leading-relaxed text-neutral-700 sm:text-[16px]">
+              <ul className={`${styles.prepList} mt-7`}>
                 {PREP_ITEMS.map((line) => (
-                  <li key={line} className="flex gap-3">
+                  <li key={line} className={styles.prepListItem}>
                     <CheckBullet />
                     <span>{line}</span>
                   </li>
@@ -390,7 +395,7 @@ export default function BookAppointmentPage() {
               <button
                 type="button"
                 onClick={openModal}
-                className="mt-8 inline-flex items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white transition-[filter] hover:brightness-105"
+                className="mt-8 inline-flex items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-md shadow-[#70aa26]/25 transition-[filter,box-shadow] hover:brightness-105 hover:shadow-lg hover:shadow-[#70aa26]/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70AA26]"
               >
                 Open scheduling form
               </button>

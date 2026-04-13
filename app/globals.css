@@ -3,14 +3,10 @@
 html {
   overflow-x: clip;
   max-width: 100%;
+  min-width: 0;
   /* Prevent iOS from inflating small text in landscape */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-}
-
-/* Site-wide: avoid accidental horizontal scroll from min-content flex/grid children */
-body {
-  min-width: 0;
 }
 
 :root {

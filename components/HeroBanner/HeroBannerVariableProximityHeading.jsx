@@ -180,7 +180,10 @@ export default function HeroBannerVariableProximityHeading() {
 
   if (reducedMotion) {
     return (
-      <h1 id="hero-heading" className={`${styles.heroHeading} text-white`}>
+      <h1
+        id="hero-heading"
+        className={`${styles.heroHeading} ${styles.heroVariableHeading} ${styles.heroVariableHeadingLines} text-white`}
+      >
         We Build Apps
         <br />
         That <span className="text-[#70AA26]">Dominate</span>

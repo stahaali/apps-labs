@@ -134,8 +134,11 @@
   font-variation-settings: normal;
 }
 
-/* Explicit <br /> lines: don’t let balance/pretty reflow over the designed breaks */
-.heroVariableHeadingLines {
+/*
+ * Explicit <br /> lines: don’t let balance/pretty reflow over the designed breaks.
+ * Double class bumps specificity so this wins over `.heroVariableHeading`’s text-wrap: pretty.
+ */
+.heroVariableHeading.heroVariableHeadingLines {
   text-wrap: unset;
   white-space: normal;
 }

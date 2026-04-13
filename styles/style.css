@@ -8,6 +8,7 @@ body {
   background-color: #FDF7EC;
   overflow-x: clip;
   max-width: 100%;
+  min-width: 0;
   min-height: 100dvh;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;

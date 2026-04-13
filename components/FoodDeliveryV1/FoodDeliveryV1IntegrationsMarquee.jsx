@@ -15,6 +15,9 @@ import {
 import pageStyles from "@/components/FoodDeliveryV1/FoodDeliveryV1.module.css";
 import marqueeStyles from "./FoodDeliveryV1IntegrationsMarquee.module.css";
 
+/** Keep in sync with `spaceBetween` on Swiper (px between badge columns). */
+const MARQUEE_GAP_PX = 12;
+
 function repeatSlides(items, times = 3) {
   const out = [];
   for (let t = 0; t < times; t += 1) {
@@ -29,13 +32,11 @@ function IntegrationMarqueeRow({ items, reverse }) {
   const slides = useMemo(() => repeatSlides(items, 3), [items]);
 
   return (
-    <div
-      className={`relative w-full overflow-hidden py-2 sm:py-2.5 ${marqueeStyles.rowMask}`}
-    >
+    <div className={`relative w-full overflow-hidden py-0 ${marqueeStyles.rowMask}`}>
       <Swiper
         modules={[Autoplay]}
         slidesPerView="auto"
-        spaceBetween={12}
+        spaceBetween={MARQUEE_GAP_PX}
         loop
         loopAdditionalSlides={items.length * 2}
         speed={11000}
@@ -92,7 +93,10 @@ export default function FoodDeliveryV1IntegrationsMarquee() {
       </div>
 
       <div className={pageStyles.integrationsMarqueeBleed}>
-        <div className="mt-12 space-y-4 sm:mt-14 sm:space-y-5 lg:mt-16">
+        <div
+          className="mt-12 flex flex-col sm:mt-14 lg:mt-16"
+          style={{ gap: MARQUEE_GAP_PX }}
+        >
           {/* Row 1: motion right → left (default autoplay forward in LTR) */}
           <IntegrationMarqueeRow items={FD_V1_INTEGRATION_ROW1} reverse={false} />
           {/* Row 2: opposite direction (left → right visual) */}

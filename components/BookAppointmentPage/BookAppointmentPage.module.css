@@ -1,3 +1,12 @@
+/* Full-screen hero: overrides shared ContactPage `.contactHero` (500px fixed). */
+.heroFullViewport {
+  height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
 /* Decorative hero glow — behind headline, no layout shift */
 .heroGlow {
   pointer-events: none;
@@ -83,6 +92,23 @@
   }
 }
 
+/* “How it works” — contained panel so steps read as one professional block */
+.howItWorksBundle {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 3vw, 2rem);
+  border-radius: 1.35rem;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.55) 42%,
+    rgba(112, 170, 38, 0.07) 100%
+  );
+  border: 1px solid rgba(15, 23, 42, 0.065);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 20px 48px -28px rgba(15, 23, 42, 0.12);
+}
+
 .imageFrame {
   position: relative;
   border-radius: 1rem;
@@ -90,6 +116,16 @@
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
     0 20px 50px -22px rgba(15, 23, 42, 0.22);
+}
+
+/* Nested inside dark prep frame */
+.imageFrameInset {
+  border-radius: 0.875rem;
+  box-shadow: none;
+}
+
+.imageFrameInset::before {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
 }
 
 .imageFrame::before {
@@ -120,17 +156,20 @@
   .stepsTrack::before {
     content: "";
     position: absolute;
-    top: 2.25rem;
-    left: 12%;
-    right: 12%;
-    height: 2px;
+    top: 2.35rem;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    border-radius: 999px;
     background: linear-gradient(
       90deg,
-      transparent,
-      rgba(112, 170, 38, 0.35) 15%,
-      rgba(112, 170, 38, 0.35) 85%,
-      transparent
+      transparent 0%,
+      rgba(112, 170, 38, 0.2) 12%,
+      rgba(112, 170, 38, 0.45) 50%,
+      rgba(112, 170, 38, 0.2) 88%,
+      transparent 100%
     );
+    box-shadow: 0 0 12px rgba(112, 170, 38, 0.2);
     z-index: 0;
     pointer-events: none;
   }
@@ -140,30 +179,92 @@
   position: relative;
   z-index: 1;
   height: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.055);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.98) inset,
+    0 14px 36px -22px rgba(15, 23, 42, 0.14);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .stepCard:hover {
     transform: translateY(-6px);
+    border-color: rgba(112, 170, 38, 0.22);
     box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.9) inset,
-      0 20px 44px -18px rgba(15, 23, 42, 0.18);
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 22px 48px -20px rgba(15, 23, 42, 0.2),
+      0 0 0 1px rgba(112, 170, 38, 0.08);
   }
 }
 
 .stepIconWrap {
   display: flex;
-  height: 3rem;
-  width: 3rem;
+  height: 3.25rem;
+  width: 3.25rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.875rem;
-  background: rgba(112, 170, 38, 0.12);
+  border-radius: 0.9rem;
+  background: linear-gradient(
+    145deg,
+    rgba(112, 170, 38, 0.18) 0%,
+    rgba(112, 170, 38, 0.08) 100%
+  );
+  border: 1px solid rgba(112, 170, 38, 0.2);
   color: #5a8a22;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 2px 10px -4px rgba(112, 170, 38, 0.35);
+}
+
+/* “Before we meet” — device-style frame + checklist cards */
+.prepVisual {
+  padding: 0.45rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(160deg, #292524 0%, #0c0a09 55%, #1a1816 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 28px 56px -22px rgba(0, 0, 0, 0.38),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+@media (min-width: 640px) {
+  .prepVisual {
+    padding: 0.55rem;
+    border-radius: 1.3rem;
+  }
+}
+
+.prepList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.prepListItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.75rem;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 2px 12px -6px rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 640px) {
+  .prepListItem {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0.85rem 1rem;
+  }
 }
 
 .topicCard {
