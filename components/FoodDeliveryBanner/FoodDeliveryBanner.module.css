@@ -307,3 +307,25 @@
   max-width: none;
   width: 100%;
 }
+
+/* /food-delivery/v1 hero — vertically center the block in the min-height band */
+.heroVisualFull .inner {
+  display: grid;
+  align-content: center;
+}
+
+@media (min-width: 768px) {
+  .heroVisualFull .inner {
+    padding-top: clamp(1.75rem, 3.5vw, 4rem);
+    padding-bottom: clamp(1.75rem, 3.5vw, 4rem);
+  }
+
+  /* Let row height follow the image; avoids a fixed 440px cell fighting alignment */
+  .heroVisualFull .visualCol {
+    min-height: 0;
+  }
+
+  .heroVisualFull .grid {
+    align-items: center;
+  }
+}

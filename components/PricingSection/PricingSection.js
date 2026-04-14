@@ -85,7 +85,7 @@ const TEAM = PRICING_EXPERT_TEAM.map((m) => ({
 function TeamPill({ member, className = "" }) {
   return (
     <div
-      className={`relative flex w-full max-w-full items-center gap-2 rounded-full border border-slate-200/80 bg-white px-3 py-1.5 min-[480px]:w-fit sm:max-w-[min(100%,280px)] sm:gap-3 sm:px-4 sm:py-2 ${className}`}
+      className={`relative flex w-full max-w-full items-center gap-2 rounded-full border border-slate-200/80 bg-white py-1.5 pl-[8px] pr-3 min-[480px]:w-fit sm:max-w-[min(100%,280px)] sm:gap-3 sm:py-2 sm:pl-[8px] sm:pr-4 ${className}`}
     >
       <Image
         src={member.avatar}

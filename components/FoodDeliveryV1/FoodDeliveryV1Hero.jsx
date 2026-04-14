@@ -8,7 +8,7 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import { FOOD_DELIVERY_V1_HERO } from "@/lib/foodDeliveryV1Content";
 import bannerStyles from "@/components/FoodDeliveryBanner/FoodDeliveryBanner.module.css";
 
-const HERO_IMG = "/assets/images-webp/v1/2.webp";
+const HERO_IMG = "/assets/images-webp/v1/1.webp";
 
 function CheckGlyph() {
   return (
