@@ -125,7 +125,7 @@ function CheckListItem({ children }) {
 
 /** Same touch target + padding for featured (green) and standard (black) quote CTAs */
 const PRICING_GET_QUOTE_LAYOUT =
-  "mt-6 flex min-h-[48px] w-full shrink-0 items-center justify-center px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-base font-bold leading-none min-[480px]:min-h-[48px]";
+  "mt-6 inline-flex min-h-[48px] w-full shrink-0 items-center justify-center px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-base font-bold leading-none min-[480px]:min-h-[48px]";
 
 function PricingCard({ plan, quoteHref }) {
   const isFeatured = plan.featured;

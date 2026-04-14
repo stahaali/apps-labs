@@ -5,7 +5,7 @@ import Link from "next/link";
  * (`.btn` + `.site-btn-motion` + `.btn-dark`).
  */
 const motionBase =
-  "btn btn-dark site-btn-motion flex shrink-0 items-center justify-center rounded-full border-0 text-[15px] font-semibold leading-none text-white focus:outline-none active:brightness-95";
+  "btn btn-dark site-btn-motion inline-flex shrink-0 items-center justify-center rounded-full border-0 text-[15px] font-semibold leading-none text-white focus:outline-none active:brightness-95";
 
 const FOCUS_ON = {
   dark: "focus-visible:ring-2 focus-visible:ring-white/35",

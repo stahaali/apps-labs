@@ -5,7 +5,7 @@ import Link from "next/link";
  * (`.btn.btn-banner` + `.site-btn-motion`).
  */
 const motionBase =
-  "btn btn-banner site-btn-motion flex shrink-0 items-center justify-center rounded-full border-0 text-[15px] font-semibold leading-none text-white hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none active:brightness-95";
+  "btn btn-banner site-btn-motion inline-flex shrink-0 items-center justify-center rounded-full border-0 text-[15px] font-semibold leading-none text-white hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none active:brightness-95";
 
 const FOCUS_ON = {
   dark: "focus-visible:ring-2 focus-visible:ring-white/35",
