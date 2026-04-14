@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
-import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import BlogPostCard from "@/components/BlogSection/BlogPostCard";
 import { BLOG_POSTS_HOME_PREVIEW } from "@/lib/blogData";
 import styles from "./BlogSection.module.css";
 
@@ -62,36 +62,7 @@ export default function BlogSection({
               delayMs={index * 90}
               className="min-w-0"
             >
-            <Link
-              href={`/blog/${post.slug}`}
-              className={styles.cardLink}
-              aria-label={`Read article: ${post.title}`}
-            >
-              <div className={styles.imageWrap}>
-                <div className={styles.imageInner}>
-                  <ImageWithSkeleton
-                    src={post.image}
-                    alt=""
-                    fill
-                    className={styles.image}
-                    sizes="(max-width: 639px) 100vw, (max-width: 991px) 50vw, 33vw"
-                    skeletonClassName="rounded-[0.625rem]"
-                  />
-                </div>
-              </div>
-              <div className={styles.cardBody}>
-                <p className={styles.meta}>
-                  {post.date}
-                  <span aria-hidden> | </span>
-                  {post.category}
-                </p>
-                <h3 className={styles.cardTitle}>{post.title}</h3>
-                <span className={styles.readMore} style={{ color: ACCENT }}>
-                  Read more
-                  <span aria-hidden> →</span>
-                </span>
-              </div>
-            </Link>
+            <BlogPostCard post={post} priority={index === 0} />
             </AnimateOnView>
           ))}
         </div>

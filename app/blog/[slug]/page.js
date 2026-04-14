@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   if (!post) return { title: "Post | Apex Labs" };
   return {
     title: `${post.title} | Apex Labs Blog`,
-    description: post.title,
+    description: post.excerpt,
   };
 }
 

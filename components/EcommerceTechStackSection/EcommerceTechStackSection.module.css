@@ -113,7 +113,11 @@
   border: none;
   border-radius: 9999px;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition:
+    opacity var(--site-btn-duration) var(--site-btn-ease),
+    filter var(--site-btn-duration) var(--site-btn-ease),
+    box-shadow var(--site-btn-duration) var(--site-btn-ease),
+    background-color var(--site-btn-duration) var(--site-btn-ease);
   background-color: #e8e4d9;
   color: #fff;
 }
@@ -132,13 +136,18 @@
   border: none;
   border-radius: 9999px;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition:
+    opacity var(--site-btn-duration) var(--site-btn-ease),
+    filter var(--site-btn-duration) var(--site-btn-ease),
+    box-shadow var(--site-btn-duration) var(--site-btn-ease),
+    background-color var(--site-btn-duration) var(--site-btn-ease);
   background-color: #70aa26;
   color: #fff;
 }
 
 .arrowBtnRight:hover:not(:disabled) {
   filter: brightness(1.05);
+  box-shadow: 0 8px 20px -10px rgba(112, 170, 38, 0.55);
 }
 
 .arrowBtnLeft:disabled,
@@ -165,7 +174,11 @@
   white-space: nowrap;
   color: #64748b;
   background-color: #e8edff;
-  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background-color var(--site-btn-duration) var(--site-btn-ease),
+    color var(--site-btn-duration) var(--site-btn-ease),
+    box-shadow var(--site-btn-duration) var(--site-btn-ease),
+    transform var(--site-btn-duration) var(--site-btn-ease);
 }
 
 @media (min-width: 640px) {
@@ -178,6 +191,7 @@
 .tabBtn:hover {
   color: #475569;
   background-color: #dce3fb;
+  transform: translateY(-1px);
 }
 
 .tabBtnActive {
@@ -287,7 +301,9 @@
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 4px 14px -4px rgba(112, 170, 38, 0.55);
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition:
+    filter var(--site-btn-duration) var(--site-btn-ease),
+    box-shadow var(--site-btn-duration) var(--site-btn-ease);
 }
 
 @media (min-width: 640px) {
@@ -300,7 +316,7 @@
 
 .ctaBtn:hover {
   filter: brightness(1.06);
-  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -12px rgba(112, 170, 38, 0.5);
 }
 
 .ctaBtn:focus-visible {

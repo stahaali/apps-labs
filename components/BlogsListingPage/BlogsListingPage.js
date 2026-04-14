@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
-import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import BlogPostCard from "@/components/BlogSection/BlogPostCard";
 import BlogPageBanner from "@/components/BlogPageBanner/BlogPageBanner";
 import ContactFaq from "@/components/ContactPage/ContactFaq";
 import blogStyles from "@/components/BlogSection/BlogSection.module.css";
@@ -40,39 +39,7 @@ export default function BlogsListingPage() {
                 delayMs={index * 70}
                 className="min-w-0"
               >
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className={blogStyles.cardLink}
-                  aria-label={`Read article: ${post.title}`}
-                >
-                  <div className={blogStyles.imageWrap}>
-                    <div className={blogStyles.imageInner}>
-                      <ImageWithSkeleton
-                        src={post.image}
-                        alt=""
-                        fill
-                        className={blogStyles.image}
-                        sizes="(max-width: 639px) 100vw, (max-width: 991px) 50vw, 33vw"
-                        skeletonClassName="rounded-[0.625rem]"
-                      />
-                    </div>
-                  </div>
-                  <div className={blogStyles.cardBody}>
-                    <p className={blogStyles.meta}>
-                      {post.date}
-                      <span aria-hidden> | </span>
-                      {post.category}
-                    </p>
-                    <h3 className={blogStyles.cardTitle}>{post.title}</h3>
-                    <span
-                      className={blogStyles.readMore}
-                      style={{ color: ACCENT }}
-                    >
-                      Read more
-                      <span aria-hidden> →</span>
-                    </span>
-                  </div>
-                </Link>
+                <BlogPostCard post={post} priority={index < 3} />
               </AnimateOnView>
             ))}
           </div>

@@ -19,6 +19,104 @@ html {
   /* Primary pill CTAs: same padding as header “Get Started” (wide horizontal, ~12–15px vertical) */
   --cta-button-pad-y: 14px;
   --cta-button-pad-x: 40px;
+  /* Buttons / icon controls: shared hover timing (respects reduced motion below) */
+  --site-btn-duration: 0.2s;
+  --site-btn-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --site-btn-duration: 0.01ms;
+    --site-btn-ease: linear;
+  }
+}
+
+/**
+ * Pair with Tailwind `hover:` utilities on `<button>` / links for smooth, consistent motion.
+ */
+.site-btn-motion {
+  transition-property: filter, box-shadow, background-color, border-color, color, opacity;
+  transition-duration: var(--site-btn-duration);
+  transition-timing-function: var(--site-btn-ease);
+}
+
+/**
+ * Optional ripple (::after) + :active nudge. Use as extra class alongside
+ * `.site-btn-motion` + Tailwind — do not replace utility classes.
+ */
+.site-btn-motion.btn {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  cursor: pointer;
+  transition-property: transform, filter, box-shadow, background-color, border-color, color, opacity;
+  transition-duration: var(--site-btn-duration);
+  transition-timing-function: var(--site-btn-ease);
+}
+
+/*
+ * Ripple: ::after with z-index:-1 sits UNDER the element’s own background, so Tailwind
+ * bg-white hid it completely. White fill moves to ::before; button bg is transparent
+ * so the scaling ::after shows past the pill edge against the header.
+ */
+button.site-btn-motion.btn {
+  background-color: transparent;
+}
+
+.site-btn-motion.btn::before,
+.site-btn-motion.btn::after {
+  pointer-events: none;
+}
+
+.site-btn-motion.btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background-color: #fff;
+  z-index: 0;
+}
+
+.site-btn-motion.btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  z-index: -1;
+  background-color: #fff;
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-btn-motion.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.site-btn-motion.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-btn-motion.btn::after {
+    transition-duration: 0.01ms;
+  }
+
+  .site-btn-motion.btn:hover::after {
+    transform: none;
+    opacity: 1;
+  }
+
+  .site-btn-motion.btn:active {
+    transform: none;
+  }
 }
 
 @media(max-width: 768px)

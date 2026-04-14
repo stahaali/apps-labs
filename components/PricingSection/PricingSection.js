@@ -146,7 +146,7 @@ function PricingCard({ plan, quoteHref }) {
       </div>
       <Link
         href={quoteHref}
-        className={`mt-6 block w-full rounded-full px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-center text-base font-bold transition ${btnClass}`}
+        className={`site-btn-motion mt-6 block w-full rounded-full px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-center text-base font-bold shadow-[0_4px_14px_-4px_rgba(0,0,0,0.12)] hover:shadow-[0_14px_28px_-12px_rgba(0,0,0,0.18)] ${btnClass}`}
         style={isFeatured ? { backgroundColor: PRIMARY } : undefined}
       >
         Get a Quote

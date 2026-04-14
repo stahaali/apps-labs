@@ -183,11 +183,16 @@
   background: linear-gradient(180deg, #70aa26 0%, #5f9420 100%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   cursor: pointer;
-  transition: filter 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    filter var(--site-btn-duration) var(--site-btn-ease),
+    box-shadow var(--site-btn-duration) var(--site-btn-ease);
 }
 
 .ctaButton:hover {
   filter: brightness(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 12px 28px -12px rgba(112, 170, 38, 0.4);
 }
 
 .ctaButton:focus-visible {

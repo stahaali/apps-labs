@@ -19,11 +19,10 @@
     0 8px 24px -8px rgba(15, 23, 42, 0.28);
   cursor: pointer;
   transition:
-    background-color 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease,
-    transform 0.15s ease,
-    filter 0.15s ease;
+    background-color var(--site-btn-duration) var(--site-btn-ease),
+    border-color var(--site-btn-duration) var(--site-btn-ease),
+    box-shadow var(--site-btn-duration) var(--site-btn-ease),
+    filter var(--site-btn-duration) var(--site-btn-ease);
 }
 
 .backToTop:hover {
@@ -32,7 +31,6 @@
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.25) inset,
     0 10px 28px -8px rgba(15, 23, 42, 0.3);
-  transform: translateY(-1px);
 }
 
 .backToTop:focus-visible {

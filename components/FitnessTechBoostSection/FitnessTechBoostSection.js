@@ -73,7 +73,7 @@ function TechBoostCard({ title, description, icon }) {
       </div>
       <Link
         href="#"
-        className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#70AA26] transition-transform hover:scale-105 sm:right-5 sm:top-5"
+        className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#70AA26] hover:brightness-105 sm:right-5 sm:top-5"
         aria-label={`Learn more about ${title}`}
       >
         <ArrowIcon />

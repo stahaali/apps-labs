@@ -227,7 +227,7 @@ export default function BookAppointmentPage() {
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex w-full min-w-[200px] items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white transition-[filter] hover:brightness-105 min-[480px]:w-auto"
+                className="site-btn-motion inline-flex w-full min-w-[200px] items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.5)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] min-[480px]:w-auto"
               >
                 Schedule consultation
               </button>
@@ -402,7 +402,7 @@ export default function BookAppointmentPage() {
               <button
                 type="button"
                 onClick={openModal}
-                className="mt-8 inline-flex items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-md shadow-[#70aa26]/25 transition-[filter,box-shadow] hover:brightness-105 hover:shadow-lg hover:shadow-[#70aa26]/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70AA26]"
+                className="site-btn-motion mt-8 inline-flex items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-md shadow-[#70aa26]/25 hover:brightness-105 hover:shadow-lg hover:shadow-[#70aa26]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70AA26]"
               >
                 Open scheduling form
               </button>
@@ -425,7 +425,7 @@ export default function BookAppointmentPage() {
                 <button
                   type="button"
                   onClick={openModal}
-                  className="inline-flex items-center justify-center rounded-full border border-[#70AA26]/35 bg-white px-6 py-2.5 text-[14px] font-semibold text-[#5a8a22] shadow-sm transition-[background,box-shadow] hover:bg-[rgba(112,170,38,0.08)]"
+                  className="site-btn-motion inline-flex items-center justify-center rounded-full border border-[#70AA26]/35 bg-white px-6 py-2.5 text-[14px] font-semibold text-[#5a8a22] shadow-sm hover:bg-[rgba(112,170,38,0.08)] hover:shadow-md"
                 >
                   Or open the lead form
                 </button>

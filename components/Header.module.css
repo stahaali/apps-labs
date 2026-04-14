@@ -1,19 +1,20 @@
-/* Scroll dock: vertical axis only (no width/left/right animation). */
-@keyframes headerFromTop {
-  from {
-    transform: translate3d(0, -18px, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+/* Floating header shell: animate margin, radius, shadow — not width (width tween reflows
+   flex + makes the right-side CTA “shake” during scroll). Width snaps; feels steadier. */
+.headerShell {
+  transition:
+    margin-top 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.verticalDockIn {
-  animation: headerFromTop 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+.headerShellBackdrop {
+  transition: border-radius 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .verticalDockIn {
-    animation: none;
+  .headerShell,
+  .headerShellBackdrop {
+    transition: none;
   }
 }

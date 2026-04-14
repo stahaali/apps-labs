@@ -20,7 +20,6 @@ const CONTACT_ITEMS = [
 
 const FOOTER_LINK_HREF = {
   "Food Delivery": "/food-delivery",
-  "Restaurant ordering (v1)": "/food-delivery/v1",
   "Ecommerce": "/ecommerce-app-development",
   "Fitness App Development": "/fitness-app-development",
   "Classified Platform": "/classified-platform",
@@ -66,7 +65,6 @@ const FOOTER_COLUMNS = [
       "Auction App",
       "Travel & Tourism",
       "Food Delivery",
-      "Restaurant ordering (v1)",
     ],
   },
   {

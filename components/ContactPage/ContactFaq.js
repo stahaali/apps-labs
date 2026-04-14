@@ -39,7 +39,7 @@ export default function ContactFaq({ items }) {
             <button
               id={btnId}
               type="button"
-              className="flex w-full cursor-pointer touch-manipulation items-center justify-between gap-4 px-5 py-4 text-left text-[15px] font-semibold leading-snug text-neutral-900 transition-colors hover:bg-neutral-50 sm:px-6 sm:py-[1.125rem] sm:text-base"
+              className="site-btn-motion flex w-full cursor-pointer touch-manipulation items-center justify-between gap-4 px-5 py-4 text-left text-[15px] font-semibold leading-snug text-neutral-900 hover:bg-neutral-50 sm:px-6 sm:py-[1.125rem] sm:text-base"
               aria-expanded={open}
               aria-controls={panelId}
               onClick={() => setOpenIndex(open ? -1 : i)}

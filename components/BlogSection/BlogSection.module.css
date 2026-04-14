@@ -114,16 +114,22 @@
   }
 }
 
+/* Match IndustrySolutionsSection card shell (padding, radius, shadow) */
 .cardLink {
+  --card-radius: 18px;
+  --card-pad: 20px;
   display: flex;
   height: 100%;
   flex-direction: column;
-  border-radius: 1.25rem;
+  padding: var(--card-pad);
+  border-radius: var(--card-radius);
   background: #fff;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 12px 40px -18px rgba(15, 23, 42, 0.18);
   overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 10px 28px -12px rgba(15, 23, 42, 0.1);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -131,14 +137,39 @@
 
 .cardLink:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 48px -16px rgba(15, 23, 42, 0.22);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 14px 32px -14px rgba(15, 23, 42, 0.14);
 }
 
+/* Same idea as industry .cardMedia — top-rounded strip inside padded card */
+.imageWrapCard {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  background: #f1f5f9;
+}
+
+.imageWrapCard .imageInner {
+  inset: 0;
+  border-radius: 0;
+  background: #f1f5f9;
+}
+
+.imageWrapCard .image {
+  border-radius: 0;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Single article hero — wider band */
 .imageWrap {
   position: relative;
   width: 100%;
-  /* Same width as card; taller band than 570/280; uniform frame + cover */
-  aspect-ratio: 570 / 340;
+  aspect-ratio: 16 / 9;
   background: #fff;
 }
 
@@ -146,27 +177,22 @@
   position: absolute;
   inset: clamp(0.75rem, 2.2vw, 1.25rem);
   overflow: hidden;
-  border-radius: 0.625rem;
+  border-radius: 0.875rem;
   background: #f1f5f9;
 }
 
 .image {
-  border-radius: 0.625rem;
+  border-radius: 0.875rem;
   object-fit: cover;
   object-position: center;
 }
 
+/* Match industry .cardBody — only top padding; sides from card padding */
 .cardBody {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1.25rem 1.25rem 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .cardBody {
-    padding: 1.35rem 1.35rem 1.6rem;
-  }
+  padding: 20px 0 0;
 }
 
 .meta {
@@ -177,33 +203,68 @@
   color: #64748b;
 }
 
+/* Blog cards: date | category (article detail header still uses .meta) */
+.cardMeta {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0;
+}
+
+/* Match industry .cardTitle */
 .cardTitle {
-  margin: 0.65rem 0 0;
+  margin: 0;
   flex: 1;
-  font-size: 1rem;
+  min-width: 0;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   color: #0f172a;
 }
 
-@media (min-width: 640px) {
-  .cardTitle {
-    font-size: 1.05rem;
-  }
+/* Match industry .arrowBtn */
+.cardArrow {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #70aa26;
+  color: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
-.readMore {
-  margin-top: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+.cardArrowIcon {
+  display: block;
+}
+
+.cardLink:hover .cardArrow {
+  transform: translate(1px, -1px);
+  filter: brightness(1.05);
+}
+
+/* Match industry description rhythm */
+.cardExcerpt {
+  margin: 12px 0 0;
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #64748b;
 }
 
-.cardLink:hover .readMore {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+@media (min-width: 640px) {
+  .cardExcerpt {
+    font-size: 15px;
+  }
 }

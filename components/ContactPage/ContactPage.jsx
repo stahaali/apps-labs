@@ -146,7 +146,7 @@ export default function ContactPage() {
               </label>
               <button
                 type="submit"
-                className="mt-1 w-full rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white transition-[filter] hover:brightness-105 sm:w-auto sm:justify-self-start"
+                className="site-btn-motion mt-1 w-full rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.5)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] sm:w-auto sm:justify-self-start"
               >
                 Send message
               </button>

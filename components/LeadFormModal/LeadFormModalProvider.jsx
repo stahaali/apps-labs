@@ -10,7 +10,6 @@ import {
   useState,
 } from "react";
 import {
-  getLeadFieldError,
   sanitizeAndValidateLeadForm,
   sanitizeEmail,
   sanitizeEmailInput,
@@ -25,6 +24,8 @@ const LeadFormContext = createContext(null);
 
 const PRIMARY = "#70AA26";
 const PRIMARY_SOFT = "rgba(112, 170, 38, 0.12)";
+
+const FIELD_ORDER = ["name", "email", "phone", "message"];
 
 const initialValues = () => ({
   name: "",
@@ -182,6 +183,7 @@ function LeadFormModal({ open, onClose }) {
     });
   }, []);
 
+  /** Trim/sanitize on blur only — errors show after “Send message”, not on focus/leave */
   const handleBlur = useCallback(
     (key) => {
       const merged = { ...values };
@@ -195,20 +197,6 @@ function LeadFormModal({ open, onClose }) {
         email: sanitizeEmail(sanitizeEmailInput(merged.email)),
         phone: sanitizePhone(merged.phone),
         message: sanitizeMessage(sanitizeMessageInput(merged.message)),
-      });
-
-      const sanitized = {
-        name: sanitizeName(merged.name),
-        email: sanitizeEmail(sanitizeEmailInput(merged.email)),
-        phone: sanitizePhone(merged.phone),
-        message: sanitizeMessage(sanitizeMessageInput(merged.message)),
-      };
-      const err = getLeadFieldError(key, sanitized);
-      setErrors((prev) => {
-        const next = { ...prev };
-        if (err) next[key] = err;
-        else delete next[key];
-        return next;
       });
     },
     [values],
@@ -227,10 +215,15 @@ function LeadFormModal({ open, onClose }) {
       message: data.message,
     });
     if (!valid) {
-      setErrors(nextErrors);
-      const firstKey = Object.keys(nextErrors)[0];
-      const el = panelRef.current?.querySelector(`[name="${firstKey}"]`);
-      el?.focus();
+      const firstKey = FIELD_ORDER.find((k) => nextErrors[k]);
+      setErrors(firstKey ? { [firstKey]: nextErrors[firstKey] } : nextErrors);
+      window.requestAnimationFrame(() => {
+        const root = panelRef.current;
+        if (!firstKey || !root) return;
+        const el = root.querySelector(`[name="${firstKey}"]`);
+        el?.focus({ preventScroll: true });
+        el?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
       return;
     }
     setErrors({});
@@ -256,7 +249,7 @@ function LeadFormModal({ open, onClose }) {
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descId}
-        className="relative z-10 h-fit max-h-[min(92vh,880px)] w-full max-w-[460px] overflow-x-hidden overflow-y-auto rounded-[1.35rem] border border-white/80 bg-white shadow-[0_8px_0_rgba(112,170,38,0.14),0_32px_64px_-20px_rgba(15,23,42,0.45)] ring-1 ring-black/[0.04]"
+        className="relative z-10 h-fit max-h-[min(92vh,880px)] w-full max-w-[min(92vw,540px)] overflow-x-hidden overflow-y-auto rounded-[1.35rem] border border-white/80 bg-white shadow-[0_8px_0_rgba(112,170,38,0.14),0_32px_64px_-20px_rgba(15,23,42,0.45)] ring-1 ring-black/[0.04]"
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div
@@ -292,12 +285,12 @@ function LeadFormModal({ open, onClose }) {
                 className="mt-2 max-w-[32rem] text-[14px] leading-relaxed text-neutral-600 sm:text-[15px]"
               >
                 Share a few details—we&apos;ll follow up with scope options, timeline, and
-                next steps. All fields are validated and secured on your device before send.
+                next steps.
               </p>
             </div>
             <button
               type="button"
-              className="shrink-0 rounded-full border border-neutral-200/80 bg-white/90 p-2 text-neutral-500 shadow-sm transition-[color,box-shadow] hover:text-neutral-900 hover:shadow-md"
+              className="shrink-0 rounded-full border border-neutral-200/80 bg-white/90 p-2 text-neutral-500 shadow-sm hover:bg-neutral-50 hover:text-neutral-900"
               aria-label="Close"
               onClick={onClose}
             >
@@ -350,7 +343,7 @@ function LeadFormModal({ open, onClose }) {
               </p>
               <button
                 type="button"
-                className="mt-8 rounded-full border-0 bg-[#70AA26] px-8 py-3 text-[15px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.65)] transition-[filter,transform] hover:brightness-105 active:scale-[0.98]"
+                className="mt-8 rounded-full border-0 bg-[#70AA26] px-8 py-3 text-[15px] font-semibold text-white shadow-sm hover:bg-[#639622]"
                 onClick={onClose}
               >
                 Close
@@ -421,8 +414,7 @@ function LeadFormModal({ open, onClose }) {
 
               <button
                 type="submit"
-                className="mt-1 w-full rounded-full border-0 bg-gradient-to-b from-[#7eb832] to-[#5f8a1f] py-3.5 text-[15px] font-bold text-white shadow-[0_4px_16px_-4px_rgba(112,170,38,0.55)] transition-[filter,transform] hover:brightness-105 active:scale-[0.99] sm:py-3"
-                style={{ textShadow: "0 1px 0 rgba(0,0,0,0.08)" }}
+                className="mt-1 w-full rounded-full border-0 bg-gradient-to-b from-[#7eb832] to-[#5f8a1f] py-3.5 text-[15px] font-bold text-white shadow-sm hover:from-[#76ae2e] hover:to-[#57801c] sm:py-3"
               >
                 Send message
               </button>

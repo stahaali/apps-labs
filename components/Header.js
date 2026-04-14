@@ -42,14 +42,6 @@ const SERVICES_MEGA_COLUMNS = [
       href: "/food-delivery",
       label: "Food Delivery",
       description:
-        "Ordering, delivery tracking, and restaurant dashboards in one product.",
-      tone: "brand",
-      icon: "food",
-    },
-    {
-      href: "/food-delivery/v1",
-      label: "Restaurant ordering (v1)",
-      description:
         "Full landing: operations, web & apps, fulfillment, integrations, FAQ, and blogs.",
       tone: "brand",
       icon: "food",
@@ -311,9 +303,9 @@ function ServiceMenuGlyph({ name, className: iconClass = "h-[18px] w-[18px]" }) 
   }
 }
 
-/** Match `SERVICE_MENU_ICON_WRAP` (mint pill + lime label). */
+/** NEW — same base as header bar (`#050505`), white label */
 const megaBadgeClass =
-  "inline-flex shrink-0 items-center rounded-md bg-[#E8F5E1] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-neutral-900";
+  "inline-flex shrink-0 items-center rounded-md bg-[#050505] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white";
 
 function MegaServiceRowDesktop({ item, onNavigate }) {
   return (
@@ -416,9 +408,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
               {item.label}
             </span>
             {item.badge ? (
-              <span className="inline-flex shrink-0 items-center rounded-md bg-[#E8F5E1] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-neutral-900">
-                {item.badge}
-              </span>
+              <span className={megaBadgeClass}>{item.badge}</span>
             ) : null}
           </span>
           <span className="mt-0.5 block text-[12px] leading-snug text-white/55">
@@ -560,7 +550,12 @@ export default function Header() {
 
     const applyScroll = () => {
       rafId = 0;
-      setHeaderScrolled(window.scrollY > 8);
+      const y = window.scrollY;
+      /* Hysteresis: avoids flicker / jerk at the threshold */
+      setHeaderScrolled((prev) => {
+        if (prev) return y < 10 ? false : true;
+        return y > 28 ? true : false;
+      });
     };
 
     const onScroll = () => {
@@ -626,34 +621,26 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed z-[100] overflow-visible ${
-        headerScrolled
-          ? "left-1/2 top-[10px] w-[min(100%-2rem,1200px)] -translate-x-1/2 rounded-2xl border border-solid border-white/[0.1] shadow-[0_12px_40px_-14px_rgba(0,0,0,0.55)]"
-          : "inset-x-0 top-0 w-full border-b border-solid border-white/10 shadow-none"
-      }`}
-    >
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-[100] flex justify-center overflow-visible">
       <div
-        className={`relative min-h-[72px] w-full ${
-          headerScrolled ? headerStyles.verticalDockIn : ""
+        className={`pointer-events-auto relative min-h-[72px] min-w-0 overflow-visible ${headerStyles.headerShell} ${
+          headerScrolled
+            ? "mt-[10px] w-[min(100%-2rem,1200px)] max-w-[1200px] rounded-2xl border border-solid border-white/[0.1] shadow-[0_12px_40px_-14px_rgba(0,0,0,0.55)]"
+            : "mt-0 w-full max-w-none rounded-none border-0 border-b border-solid border-white/10 shadow-none"
         }`}
       >
         {/* Blur + tint; separate layer avoids backdrop jump in some browsers. */}
         <div
           aria-hidden
-          className={`pointer-events-none absolute inset-0 -z-10 ${
-            headerScrolled ? "rounded-2xl" : ""
+          className={`pointer-events-none absolute inset-0 -z-10 ${headerStyles.headerShellBackdrop} ${
+            headerScrolled ? "rounded-2xl" : "rounded-none"
           } ${
             headerScrolled
               ? "bg-[#050505]/85 backdrop-blur-xl backdrop-saturate-150"
               : "bg-[#050505]/24 backdrop-blur-md backdrop-saturate-125 supports-[backdrop-filter]:bg-[#050505]/16"
           }`}
         />
-        <div
-          className={`relative mx-auto flex h-[72px] min-h-[72px] w-full items-center justify-between overflow-visible px-4 min-[480px]:px-6 min-[992px]:px-8 ${
-            headerScrolled ? "max-w-none" : "max-w-[1280px]"
-          }`}
-        >
+        <div className="relative mx-auto flex h-[72px] min-h-[72px] w-full max-w-[1280px] items-center justify-between overflow-visible px-4 min-[480px]:px-6 min-[992px]:px-8">
         <Link
           href="/"
           className="min-w-0 shrink-0 text-lg font-bold tracking-tight min-[400px]:text-[22px]"
@@ -741,7 +728,7 @@ export default function Header() {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="rounded-full border border-white/15 bg-white/10 p-2 text-white/90 backdrop-blur-md transition-colors hover:bg-white/15"
+              className="site-btn-motion rounded-full border border-white/15 bg-white/10 p-2 text-white/90 backdrop-blur-md hover:border-white/25 hover:bg-white/18"
               aria-expanded={menuOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -757,10 +744,10 @@ export default function Header() {
 
           <button
             type="button"
-            className="hidden cursor-pointer rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] transition-opacity hover:opacity-90 lg:inline-flex lg:items-center"
+            className="btn site-btn-motion hidden shrink-0 cursor-pointer rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.35)] lg:inline-flex lg:items-center"
             onClick={openModal}
           >
-            Get Started
+            <span className="relative z-[1] text-[#050505]">Get Started</span>
           </button>
         </div>
         </div>
@@ -802,7 +789,7 @@ export default function Header() {
             </Link>
             <button
               type="button"
-              className="rounded-lg p-2 text-white/80 transition hover:bg-white/10 hover:text-white"
+              className="site-btn-motion rounded-lg p-2 text-white/80 hover:bg-white/10 hover:text-white"
               aria-label="Close menu"
               onClick={closeMenu}
             >
@@ -815,7 +802,7 @@ export default function Header() {
                 <div key="services" className="relative z-20 flex flex-col">
                   <button
                     type="button"
-                    className="flex w-full touch-manipulation cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
+                    className="site-btn-motion flex w-full touch-manipulation cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
                     aria-expanded={mobileServicesOpen}
                     aria-controls="mobile-services-panel"
                     id="mobile-services-trigger"
@@ -863,13 +850,13 @@ export default function Header() {
             <div className="mt-4 px-1">
               <button
                 type="button"
-                className="flex w-full cursor-pointer items-center justify-center rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-[#050505] transition-opacity hover:opacity-90"
+                className="btn site-btn-motion flex w-full cursor-pointer items-center justify-center rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.35)]"
                 onClick={() => {
                   closeMenu();
                   openModal();
                 }}
               >
-                Get Started
+                <span className="relative z-[1] text-[#050505]">Get Started</span>
               </button>
             </div>
           </nav>

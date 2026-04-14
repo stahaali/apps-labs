@@ -105,13 +105,13 @@ export default function IndustrySolutionsSection() {
               className={`relative flex min-h-[420px] flex-col overflow-hidden ${styles.card}`}
             >
               <div
-                className={`relative aspect-[16/12] w-full shrink-0 bg-white ${styles.cardMedia} ${animateStyles.imageEase}`}
-                >
+                className={`relative h-[200px] w-full shrink-0 bg-white sm:h-[228px] lg:h-[240px] ${styles.cardMedia} ${animateStyles.imageEase}`}
+              >
                 <Image
                   src={card.image}
                   alt=""
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   {...(index < 3
                     ? { priority: true }
