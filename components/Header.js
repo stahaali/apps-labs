@@ -622,7 +622,7 @@ export default function Header() {
           }`}
         />
         <div
-          className={`relative mx-auto flex h-[72px] min-h-[72px] w-full items-center justify-between px-4 min-[480px]:px-6 min-[992px]:px-8 ${
+          className={`relative mx-auto flex h-[72px] min-h-[72px] w-full items-center justify-between overflow-visible px-4 min-[480px]:px-6 min-[992px]:px-8 ${
             headerScrolled ? "max-w-none" : "max-w-[1280px]"
           }`}
         >
@@ -634,7 +634,10 @@ export default function Header() {
           <span className="text-[#70AA26]">Labs</span>
         </Link>
 
-        <nav className="hidden items-center gap-[34px] lg:flex" aria-label="Main navigation">
+        <nav
+          className="hidden items-center gap-[34px] overflow-visible lg:flex"
+          aria-label="Main navigation"
+        >
           <Link href="/" className={navLink}>
             Home
           </Link>
@@ -643,7 +646,7 @@ export default function Header() {
           </Link>
           <div
             ref={servicesWrapRef}
-            className="relative"
+            className="relative z-[110]"
             onMouseEnter={() => setServicesMenuOpen(true)}
             onMouseLeave={() => setServicesMenuOpen(false)}
             onFocusCapture={() => setServicesMenuOpen(true)}
@@ -666,7 +669,7 @@ export default function Header() {
               />
             </div>
             <div
-              className={`absolute left-1/2 top-full z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+              className={`absolute left-1/2 top-[calc(100%-10px)] z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
                 servicesMenuOpen
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"

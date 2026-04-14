@@ -121,19 +121,23 @@ export default function IndustrySolutionsSection() {
               <div
                 className={`relative flex flex-1 flex-col ${styles.cardBody}`}
               >
-                <h3 className={`text-neutral-900 ${styles.cardTitle}`}>
-                  {card.title}
-                </h3>
+                <div className="flex items-center justify-between gap-3">
+                  <h3
+                    className={`min-w-0 flex-1 text-neutral-900 ${styles.cardTitle}`}
+                  >
+                    {card.title}
+                  </h3>
+                  <Link
+                    href="#"
+                    className={`shrink-0 ${styles.arrowBtn}`}
+                    aria-label={`Learn more about ${card.title}`}
+                  >
+                    <ArrowIcon />
+                  </Link>
+                </div>
                 <p className="mt-3 text-[14px] leading-[1.65] text-neutral-600 sm:text-[15px]">
                   {card.description}
                 </p>
-                <Link
-                  href="#"
-                  className={`absolute bottom-0 right-0 ${styles.arrowBtn}`}
-                  aria-label={`Learn more about ${card.title}`}
-                >
-                  <ArrowIcon />
-                </Link>
               </div>
             </article>
             </AnimateOnView>

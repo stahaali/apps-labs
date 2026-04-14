@@ -37,18 +37,12 @@
   border-radius: 18px 18px 0 0;
 }
 
-/* No horizontal padding; 20px below image; room for arrow */
+/* No horizontal padding; 20px below image; arrow sits on title row */
 .cardBody {
   padding-top: 20px;
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 4.25rem;
-}
-
-@media (min-width: 640px) {
-  .cardBody {
-    padding-bottom: 4.5rem;
-  }
+  padding-bottom: 0;
 }
 
 .arrowBtn {
