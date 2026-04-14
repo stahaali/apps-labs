@@ -151,7 +151,6 @@ function FieldShell({
 
 const MODAL_COPY = {
   lead: {
-    badge: "Get in touch",
     titleBefore: "Start your ",
     titleAccent: "project",
     titleAfter: "",
@@ -576,7 +575,7 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
 export function LeadFormModalProvider({ children }) {
   const [drawer, setDrawer] = useState({ open: false, variant: "lead" });
 
-  /** Heroes / banners / inner pages — “Get in touch”, slides in from the right (header uses centered dialog). */
+  /** Heroes / banners / inner pages — lead form slides in from the right (header uses centered dialog). */
   const openModal = useCallback(() => setDrawer({ open: true, variant: "lead" }), []);
   const closeModal = useCallback(() => setDrawer((s) => ({ ...s, open: false })), []);
   /** Fixed edge tab only — separate copy (“Free consultation”) */

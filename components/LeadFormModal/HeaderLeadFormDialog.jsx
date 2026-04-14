@@ -27,7 +27,6 @@ const initialValues = () => ({
 });
 
 const COPY = {
-  badge: "Get in touch",
   titleBefore: "Start your ",
   titleAccent: "project",
   description:
@@ -103,29 +102,27 @@ function MessageIcon({ className }) {
 
 function FieldShell({ icon: Icon, children, error, fieldId, iconTop, errorIdPrefix }) {
   const errId = `${errorIdPrefix}-${fieldId}`;
-  const iconPosition = iconTop
-    ? "left-2 top-2.5 translate-y-0 sm:left-2.5 sm:top-3"
-    : "left-2 top-1/2 -translate-y-1/2 sm:left-2.5";
+  const rowAlign = iconTop ? "items-start" : "items-center";
 
   return (
     <div className="grid gap-1.5">
       <div
-        className={`relative h-fit rounded-2xl border bg-white/95 py-1 pl-1 pr-2 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] transition-[border-color,box-shadow] ${
+        className={`relative flex h-fit ${rowAlign} gap-2 rounded-2xl border bg-white/95 p-2 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] transition-[border-color,box-shadow] ${
           error
             ? "border-red-300 ring-2 ring-red-100"
             : "border-neutral-200/95 focus-within:border-[#70AA26]/45 focus-within:ring-2 focus-within:ring-[#70AA26]/18"
         }`}
       >
         <span
-          className={`pointer-events-none absolute z-[1] flex h-fit w-11 flex-none items-center justify-center rounded-xl py-2.5 sm:w-12 ${
+          className={`pointer-events-none z-[1] flex min-h-[2.75rem] w-11 shrink-0 items-center justify-center rounded-lg sm:min-h-[3rem] sm:w-12 ${
             error ? "bg-red-50 text-red-500" : "text-[#5a8a22]"
-          } ${iconPosition}`}
+          }`}
           style={!error ? { backgroundColor: PRIMARY_SOFT } : undefined}
           aria-hidden
         >
           <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
         </span>
-        <div className="min-w-0 pl-[3.875rem] pr-1 pt-0.5 pb-0.5 sm:pl-[4.25rem] sm:pr-2">
+        <div className="min-w-0 flex-1 self-stretch [&_input]:py-0 [&_textarea]:py-1">
           {children}
         </div>
       </div>
@@ -296,15 +293,9 @@ export default function HeaderLeadFormDialog({ open, onClose }) {
         >
           <div className="relative flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <span
-                className="inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm sm:text-[11px]"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                {COPY.badge}
-              </span>
               <h2
                 id={titleId}
-                className="mt-2.5 text-[1.25rem] font-bold leading-tight tracking-tight text-neutral-900 sm:text-[1.4rem]"
+                className="text-[1.25rem] font-bold leading-tight tracking-tight text-neutral-900 sm:text-[1.4rem]"
               >
                 {COPY.titleBefore}
                 <span style={{ color: PRIMARY }}>{COPY.titleAccent}</span>
