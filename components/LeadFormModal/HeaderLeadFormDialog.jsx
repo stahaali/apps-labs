@@ -125,7 +125,7 @@ function FieldShell({ icon: Icon, children, error, fieldId, iconTop, errorIdPref
         >
           <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
         </span>
-        <div className="min-w-0 pl-[3.25rem] pr-1 pt-0.5 pb-0.5 sm:pl-[3.65rem] sm:pr-2">
+        <div className="min-w-0 pl-[3.875rem] pr-1 pt-0.5 pb-0.5 sm:pl-[4.25rem] sm:pr-2">
           {children}
         </div>
       </div>

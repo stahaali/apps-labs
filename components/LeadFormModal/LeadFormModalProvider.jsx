@@ -102,31 +102,53 @@ function MessageIcon({ className }) {
   );
 }
 
-function FieldShell({ icon: Icon, children, error, fieldId, iconTop, errorIdPrefix = "lead-err" }) {
+function FieldShell({
+  icon: Icon,
+  children,
+  error,
+  fieldId,
+  iconTop,
+  errorIdPrefix = "lead-err",
+  compact = false,
+}) {
   const errId = `${errorIdPrefix}-${fieldId}`;
-  const iconPosition = iconTop
-    ? "left-2 top-2.5 translate-y-0 sm:left-2.5 sm:top-3"
-    : "left-2 top-1/2 -translate-y-1/2 sm:left-2.5";
+  const iconPosition = compact
+    ? iconTop
+      ? "left-1.5 top-2 translate-y-0 sm:left-2 sm:top-2.5"
+      : "left-1.5 top-1/2 -translate-y-1/2 sm:left-2"
+    : iconTop
+      ? "left-2 top-2.5 translate-y-0 sm:left-2.5 sm:top-3"
+      : "left-2 top-1/2 -translate-y-1/2 sm:left-2.5";
 
   return (
-    <div className="grid gap-1.5">
+    <div className={compact ? "grid gap-1" : "grid gap-1.5"}>
       <div
-        className={`relative h-fit rounded-2xl border bg-white/95 py-1 pl-1 pr-2 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] transition-[border-color,box-shadow] ${
+        className={`relative h-fit border bg-white/95 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] transition-[border-color,box-shadow] ${
+          compact ? "rounded-xl py-0.5 pl-0.5 pr-1.5" : "rounded-2xl py-1 pl-1 pr-2"
+        } ${
           error
             ? "border-red-300 ring-2 ring-red-100"
             : "border-neutral-200/95 focus-within:border-[#70AA26]/45 focus-within:ring-2 focus-within:ring-[#70AA26]/18"
         }`}
       >
         <span
-          className={`pointer-events-none absolute z-[1] flex h-fit w-11 flex-none items-center justify-center rounded-xl py-2.5 sm:w-12 ${
-            error ? "bg-red-50 text-red-500" : "text-[#5a8a22]"
-          } ${iconPosition}`}
+          className={`pointer-events-none absolute z-[1] flex h-fit flex-none items-center justify-center rounded-lg ${
+            compact
+              ? "w-9 py-1.5 sm:w-10 sm:py-2"
+              : "w-11 rounded-xl py-2.5 sm:w-12"
+          } ${error ? "bg-red-50 text-red-500" : "text-[#5a8a22]"} ${iconPosition}`}
           style={!error ? { backgroundColor: PRIMARY_SOFT } : undefined}
           aria-hidden
         >
-          <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
+          <Icon className={`${compact ? "h-4 w-4" : "h-[18px] w-[18px]"} shrink-0 opacity-90`} />
         </span>
-        <div className="min-w-0 pl-[3.25rem] pr-1 pt-0.5 pb-0.5 sm:pl-[3.65rem] sm:pr-2">
+        <div
+          className={
+            compact
+              ? "min-w-0 pl-[3rem] pr-0.5 pb-0 pt-0 sm:pl-[3.5rem] sm:pr-1"
+              : "min-w-0 pl-[3.875rem] pr-1 pt-0.5 pb-0.5 sm:pl-[4.25rem] sm:pr-2"
+          }
+        >
           {children}
         </div>
       </div>
@@ -153,12 +175,9 @@ const MODAL_COPY = {
     successEmailIntro: "We'll reach out shortly. You can also email",
   },
   consultation: {
-    badge: "Free consultation",
-    titleBefore: "Book your ",
-    titleAccent: "free consultation",
+    titleBefore: "Book Your ",
+    titleAccent: "Free Consultation",
     titleAfter: "",
-    description:
-      "Tell us about your product or idea—we'll suggest a time and outline next steps.",
     messagePlaceholder: "What would you like to discuss? (product, timeline, team size…)",
     submitLabel: "Request consultation",
     successTitle: "Thanks — we'll follow up to schedule.",
@@ -169,7 +188,8 @@ const MODAL_COPY = {
 
 function LeadFormModal({ open, onClose, variant = "lead" }) {
   const copy = MODAL_COPY[variant] ?? MODAL_COPY.lead;
-  const errorIdPrefix = variant === "consultation" ? "consult-err" : "lead-err";
+  const isConsultation = variant === "consultation";
+  const errorIdPrefix = isConsultation ? "consult-err" : "lead-err";
   const titleId = useId();
   const descId = useId();
   const panelRef = useRef(null);
@@ -266,8 +286,9 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
     [values],
   );
 
-  const inputInner =
-    "w-full border-0 bg-transparent py-2.5 text-[14px] text-neutral-900 outline-none ring-0 placeholder:text-neutral-400 sm:text-[15px]";
+  const inputInner = isConsultation
+    ? "w-full border-0 bg-transparent py-1.5 text-[13px] text-neutral-900 outline-none ring-0 placeholder:text-neutral-400 sm:py-2 sm:text-[14px]"
+    : "w-full border-0 bg-transparent py-2.5 text-[14px] text-neutral-900 outline-none ring-0 placeholder:text-neutral-400 sm:text-[15px]";
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -312,36 +333,46 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descId}
-        className={`absolute right-0 top-0 z-10 flex h-full max-h-[100dvh] w-[min(92vw,480px)] max-w-full flex-col overflow-hidden rounded-l-[1.35rem] border-l border-t border-b border-neutral-200/80 bg-[#fdfcfa] shadow-[-16px_0_48px_-12px_rgba(15,23,42,0.32)] ring-1 ring-black/[0.04] transition-transform duration-300 ease-out ${
-          panelVisible ? "translate-x-0" : "translate-x-full"
+        className={`absolute right-0 z-10 flex max-w-full flex-col overflow-hidden bg-[#fdfcfa] transition-transform duration-300 ease-out ${
+          isConsultation
+            ? `top-1/2 max-h-[min(450px,92dvh)] w-[min(88vw,360px)] rounded-l-2xl border-2 border-solid border-[#70AA26]/45 border-r-0 shadow-[-12px_0_28px_-10px_rgba(112,170,38,0.28),0_0_20px_-8px_rgba(112,170,38,0.12)] ${
+                panelVisible ? "translate-x-0 -translate-y-1/2" : "translate-x-full -translate-y-1/2"
+              }`
+            : `top-0 h-full max-h-[100dvh] w-[min(92vw,480px)] rounded-l-[1.35rem] border-l border-t border-b border-neutral-200/80 shadow-[-16px_0_48px_-12px_rgba(15,23,42,0.32)] ring-1 ring-black/[0.04] ${
+                panelVisible ? "translate-x-0" : "translate-x-full"
+              }`
         }`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div
-          className="relative shrink-0 border-b border-[#70AA26]/18 bg-gradient-to-br from-[#fff8f2] via-white to-[#f5f3ef] px-5 pb-5 pt-6 sm:px-7 sm:pb-6 sm:pt-7"
+          className={
+            isConsultation
+              ? "relative shrink-0 border-b border-[#70AA26]/18 bg-gradient-to-br from-[#fff8f2] via-white to-[#f5f3ef] px-4 pb-3 pt-4 sm:px-5 sm:pb-3.5 sm:pt-4"
+              : "relative shrink-0 border-b border-[#70AA26]/18 bg-gradient-to-br from-[#fff8f2] via-white to-[#f5f3ef] px-5 pb-5 pt-6 sm:px-7 sm:pb-6 sm:pt-7"
+          }
           style={{
             backgroundImage: `radial-gradient(circle at 100% 0%, ${PRIMARY_SOFT} 0%, transparent 45%)`,
           }}
         >
           <div
-            className="pointer-events-none absolute right-6 top-5 h-16 w-16 rounded-full opacity-[0.35]"
+            className={`pointer-events-none absolute rounded-full opacity-[0.35] ${
+              isConsultation ? "right-4 top-3 h-12 w-12" : "right-6 top-5 h-16 w-16"
+            }`}
             style={{
               background: `radial-gradient(circle, ${PRIMARY} 0%, transparent 70%)`,
               filter: "blur(12px)",
             }}
             aria-hidden
           />
-          <div className="relative flex items-start justify-between gap-4">
-            <div className="min-w-0">
-              <span
-                className="inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm sm:text-[11px]"
-                style={{ backgroundColor: PRIMARY }}
-              >
-                {copy.badge}
-              </span>
+          <div className={`relative flex items-start justify-between ${isConsultation ? "gap-2" : "gap-4"}`}>
+            <div className="min-w-0">       
               <h2
                 id={titleId}
-                className="mt-3 text-[1.35rem] font-bold leading-tight tracking-tight text-neutral-900 sm:text-[1.5rem]"
+                className={`font-bold leading-tight tracking-tight text-neutral-900 ${
+                  isConsultation
+                    ? "mt-0 text-[1.2rem] leading-snug sm:text-[1.4rem]"
+                    : "mt-3 text-[1.35rem] sm:text-[1.5rem]"
+                }`}
               >
                 {copy.titleBefore}
                 <span style={{ color: PRIMARY }}>{copy.titleAccent}</span>
@@ -349,20 +380,26 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
               </h2>
               <p
                 id={descId}
-                className="mt-2 max-w-[32rem] text-[14px] leading-relaxed text-neutral-600 sm:text-[15px]"
+                className={`max-w-[32rem] text-neutral-600 ${
+                  isConsultation
+                    ? "mt-1.5 text-[12px] leading-snug sm:text-[13px]"
+                    : "mt-2 text-[14px] leading-relaxed sm:text-[15px]"
+                }`}
               >
                 {copy.description}
               </p>
             </div>
             <button
               type="button"
-              className="site-btn-motion shrink-0 rounded-full border border-neutral-200/80 bg-white/90 p-2 text-neutral-500 shadow-sm hover:bg-neutral-50 hover:text-neutral-900 active:brightness-95"
+              className={`site-btn-motion shrink-0 rounded-full border border-neutral-200/80 bg-white/90 text-neutral-500 shadow-sm hover:bg-neutral-50 hover:text-neutral-900 active:brightness-95 ${
+                isConsultation ? "p-1.5" : "p-2"
+              }`}
               aria-label="Close"
               onClick={onClose}
             >
               <svg
-                width="20"
-                height="20"
+                width={isConsultation ? 18 : 20}
+                height={isConsultation ? 18 : 20}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -376,15 +413,29 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
           </div>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden bg-gradient-to-b from-[#faf9f6] to-white px-5 py-6 sm:px-7 sm:py-7">
+        <div
+          className={
+            isConsultation
+              ? "min-h-0 flex-1 bg-gradient-to-b from-[#faf9f6] to-white px-4 py-3 sm:px-5 sm:py-3.5"
+              : "min-h-0 flex-1 overflow-y-auto overflow-x-hidden bg-gradient-to-b from-[#faf9f6] to-white px-5 py-6 sm:px-7 sm:py-7"
+          }
+        >
           {sent ? (
-            <div className="py-4 text-center">
+            <div className={isConsultation ? "py-2 text-center" : "py-4 text-center"}>
               <div
-                className="mx-auto flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_8px_24px_-8px_rgba(112,170,38,0.65)]"
+                className={`mx-auto flex items-center justify-center rounded-full text-white shadow-[0_8px_24px_-8px_rgba(112,170,38,0.65)] ${
+                  isConsultation ? "h-11 w-11" : "h-14 w-14"
+                }`}
                 style={{ backgroundColor: PRIMARY }}
                 aria-hidden
               >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <svg
+                  width={isConsultation ? 22 : 28}
+                  height={isConsultation ? 22 : 28}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden
+                >
                   <path
                     d="M20 6L9 17l-5-5"
                     stroke="currentColor"
@@ -394,8 +445,14 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
                   />
                 </svg>
               </div>
-              <p className="mt-5 text-[16px] font-semibold text-neutral-900">{copy.successTitle}</p>
-              <p className="mx-auto mt-2 max-w-[320px] text-[14px] leading-relaxed text-neutral-600">
+              <p
+                className={`font-semibold text-neutral-900 ${isConsultation ? "mt-3 text-[14px]" : "mt-5 text-[16px]"}`}
+              >
+                {copy.successTitle}
+              </p>
+              <p
+                className={`mx-auto max-w-[320px] text-neutral-600 ${isConsultation ? "mt-1.5 text-[12px] leading-relaxed" : "mt-2 text-[14px] leading-relaxed"}`}
+              >
                 {copy.successEmailIntro}{" "}
                 <a
                   href="mailto:info@apexlabs.co"
@@ -409,19 +466,20 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
                 type="button"
                 size="modal"
                 focusOn="light"
-                className="mt-8 shadow-sm"
+                className={isConsultation ? "mt-4 shadow-sm" : "mt-8 shadow-sm"}
                 onClick={onClose}
               >
                 Close
               </GreenButton>
             </div>
           ) : (
-            <form className="grid gap-4" onSubmit={handleSubmit} noValidate>
+            <form className={`grid ${isConsultation ? "gap-2.5" : "gap-4"}`} onSubmit={handleSubmit} noValidate>
               <FieldShell
                 icon={UserIcon}
                 fieldId="name"
                 error={errors.name}
                 errorIdPrefix={errorIdPrefix}
+                compact={isConsultation}
               >
                 <input
                   name="name"
@@ -442,6 +500,7 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
                 fieldId="email"
                 error={errors.email}
                 errorIdPrefix={errorIdPrefix}
+                compact={isConsultation}
               >
                 <input
                   name="email"
@@ -463,6 +522,7 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
                 fieldId="phone"
                 error={errors.phone}
                 errorIdPrefix={errorIdPrefix}
+                compact={isConsultation}
               >
                 <input
                   name="phone"
@@ -485,12 +545,17 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
                 error={errors.message}
                 iconTop
                 errorIdPrefix={errorIdPrefix}
+                compact={isConsultation}
               >
                 <textarea
                   name="message"
                   placeholder={copy.messagePlaceholder}
-                  rows={4}
-                  className={`${inputInner} min-h-[108px] resize-y py-2`}
+                  rows={isConsultation ? 2 : 4}
+                  className={
+                    isConsultation
+                      ? `${inputInner} min-h-[56px] resize-y py-1 sm:min-h-[64px]`
+                      : `${inputInner} min-h-[108px] resize-y py-2`
+                  }
                   value={values.message}
                   onChange={(e) => updateField("message", sanitizeMessageInput(e.target.value))}
                   onBlur={() => handleBlur("message")}
@@ -503,7 +568,11 @@ function LeadFormModal({ open, onClose, variant = "lead" }) {
                 type="submit"
                 size="md"
                 focusOn="light"
-                className="mt-1 w-full py-3.5 text-[15px] font-bold shadow-sm sm:py-3"
+                className={
+                  isConsultation
+                    ? "mt-0.5 w-full py-2.5 text-[13px] font-bold shadow-sm sm:py-2.5 sm:text-[14px]"
+                    : "mt-1 w-full py-3.5 text-[15px] font-bold shadow-sm sm:py-3"
+                }
               >
                 {copy.submitLabel}
               </GreenButton>
