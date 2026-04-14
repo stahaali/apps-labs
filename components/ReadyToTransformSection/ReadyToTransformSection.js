@@ -46,9 +46,9 @@ export default function ReadyToTransformSection() {
           </p>
           <Link
             href="/contact"
-            className="site-btn-motion mt-9 inline-flex items-center justify-center rounded-full bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.55)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] sm:text-[16px]"
+            className="btn btn-banner site-btn-motion mt-9 inline-flex items-center justify-center rounded-full border-0 px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.55)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] sm:text-[16px]"
           >
-            Book Free Consultation
+            <span className="relative z-[1] text-white">Book Free Consultation</span>
           </Link>
         </AnimateOnView>
 

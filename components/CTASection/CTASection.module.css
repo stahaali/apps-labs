@@ -109,26 +109,18 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: #ffffff;
+  background: transparent;
   padding: var(--cta-button-pad-y) var(--cta-button-pad-x);
   font-size: 15px;
   font-weight: 700;
   line-height: 1;
   color: #0f172a;
   text-decoration: none;
-  transition:
-    box-shadow var(--site-btn-duration) var(--site-btn-ease),
-    filter var(--site-btn-duration) var(--site-btn-ease);
 }
 
 /* /food-delivery/v1 — match hero & section pill CTAs (15px / semibold) */
 .ctaBtnFoodDeliveryV1 {
   font-weight: 600;
-}
-
-.ctaBtn:hover {
-  box-shadow: 0 14px 32px -14px rgba(15, 23, 42, 0.12);
-  filter: brightness(1.02);
 }
 
 .sideCard {

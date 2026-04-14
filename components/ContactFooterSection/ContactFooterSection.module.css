@@ -233,23 +233,9 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* Full-width pill; padding matches HeroBanner via Tailwind px/py + min-h */
 .btn {
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: #70AA26;
-  color: white;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: var(--cta-button-pad-y) var(--cta-button-pad-x);
-  transition:
-    filter var(--site-btn-duration) var(--site-btn-ease),
-    box-shadow var(--site-btn-duration) var(--site-btn-ease);
-}
-
-.btn:hover {
-  filter: brightness(1.05);
-  box-shadow: 0 12px 28px -12px rgba(112, 170, 38, 0.4);
+  width: 100%;
 }
 
 .footer {
