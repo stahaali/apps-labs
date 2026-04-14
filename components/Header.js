@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import headerStyles from "@/components/Header.module.css";
 
@@ -515,7 +515,9 @@ export default function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [megaMenuTop, setMegaMenuTop] = useState(null);
   const servicesWrapRef = useRef(null);
+  const servicesTriggerRef = useRef(null);
 
   const navLink = `${navLinkBase} text-[15px]`;
 
@@ -526,6 +528,19 @@ export default function Header() {
 
   const closeServicesMenu = useCallback(() => {
     setServicesMenuOpen(false);
+  }, []);
+
+  /** Match absolute `top-[calc(100%-10px)]` on trigger: mega top = trigger bottom − 10px (viewport px). */
+  const syncMegaMenuTop = useCallback(() => {
+    const el = servicesTriggerRef.current;
+    if (!el) return;
+    setMegaMenuTop(el.getBoundingClientRect().bottom - 10);
+  }, []);
+
+  const openServicesMenu = useCallback(() => {
+    const el = servicesTriggerRef.current;
+    if (el) setMegaMenuTop(el.getBoundingClientRect().bottom - 10);
+    setServicesMenuOpen(true);
   }, []);
 
   const onServicesBlurCapture = useCallback((e) => {
@@ -568,6 +583,19 @@ export default function Header() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [servicesMenuOpen]);
+
+  useLayoutEffect(() => {
+    if (!servicesMenuOpen) return undefined;
+    syncMegaMenuTop();
+    const onScroll = () => syncMegaMenuTop();
+    const onResize = () => syncMegaMenuTop();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [servicesMenuOpen, headerScrolled, pathname, syncMegaMenuTop]);
 
   useEffect(() => {
     if (!menuOpen) return undefined;
@@ -647,12 +675,13 @@ export default function Header() {
           <div
             ref={servicesWrapRef}
             className="relative z-[110]"
-            onMouseEnter={() => setServicesMenuOpen(true)}
+            onMouseEnter={openServicesMenu}
             onMouseLeave={() => setServicesMenuOpen(false)}
-            onFocusCapture={() => setServicesMenuOpen(true)}
+            onFocusCapture={openServicesMenu}
             onBlurCapture={onServicesBlurCapture}
           >
             <div
+              ref={servicesTriggerRef}
               tabIndex={0}
               className={`flex cursor-default items-center gap-1 rounded-md text-[15px] font-medium leading-none outline-none ring-offset-2 ring-offset-transparent transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-white/50 ${
                 servicesMenuOpen
@@ -669,11 +698,12 @@ export default function Header() {
               />
             </div>
             <div
-              className={`absolute left-1/2 top-[calc(100%-10px)] z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+              className={`fixed left-1/2 z-[120] w-[min(100vw-1.25rem,1000px)] max-w-[calc(100vw-1.25rem)] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
                 servicesMenuOpen
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"
               }`}
+              style={megaMenuTop != null ? { top: megaMenuTop } : undefined}
               role="menu"
               aria-label="Services"
             >

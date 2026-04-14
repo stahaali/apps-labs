@@ -115,7 +115,9 @@ export default function ContactFooterSection() {
         />
       </div>
 
-      <div className={styles.inner}>
+      <div
+        className={`${styles.inner} ${isContactPage ? styles.innerContact : ""}`}
+      >
         {!isContactPage ? (
           <div className={styles.topGrid}>
             <div className={styles.left}>
@@ -215,28 +217,38 @@ export default function ContactFooterSection() {
           </div>
         ) : null}
 
-        <div className={styles.footer}>
-          <div className={styles.footerGrid}>
-            {FOOTER_COLUMNS.map((col) => (
-              <div key={col.title} className={styles.col}>
-                <h4 className={styles.colTitle}>{col.title}</h4>
-                <ul className={styles.colList}>
-                  {col.links.map((label) => (
-                    <li key={label} className={styles.colItem}>
-                      <Link
-                        href={footerLinkHref(label)}
-                        className={styles.colLink}
-                      >
-                        {label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <div
+          className={`${styles.footer} ${isContactPage ? styles.footerOnContact : ""}`}
+        >
+          <div
+            className={
+              isContactPage ? styles.footerLinkColumnsContact : ""
+            }
+          >
+            <div className={styles.footerGrid}>
+              {FOOTER_COLUMNS.map((col) => (
+                <div key={col.title} className={styles.col}>
+                  <h4 className={styles.colTitle}>{col.title}</h4>
+                  <ul className={styles.colList}>
+                    {col.links.map((label) => (
+                      <li key={label} className={styles.colItem}>
+                        <Link
+                          href={footerLinkHref(label)}
+                          className={styles.colLink}
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className={styles.bottomBar}>
+          <div
+            className={`${styles.bottomBar} ${isContactPage ? styles.bottomBarOnContact : ""}`}
+          >
             <p className={styles.copy}>
               © {new Date().getFullYear()} Apex Labs. All rights reserved.
             </p>
