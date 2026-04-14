@@ -1,0 +1,59 @@
+/* Gradient on <section>; vertical rhythm on inner div only */
+.sectionShell {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: linear-gradient(to bottom, #e8ecff, #fdf7ec);
+  padding: 0;
+}
+
+.rowsWrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Top-align copy + image so “Free Setup” badge lines up with image top; rowsWrap pt-80 applies evenly */
+.splitTopAlign {
+  align-items: start;
+}
+
+.splitCol {
+  min-width: 0;
+}
+
+.imageCol {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .imageCol {
+    justify-content: flex-start;
+  }
+}
+
+/* Override global `.title` scale for this section headings only */
+.heading:global(.title) {
+  font-size: 47px;
+}
+
+.imageWrap {
+  width: 100%;
+  max-width: min(100%, 360px);
+}
+
+@media (min-width: 640px) {
+  .imageWrap {
+    max-width: min(100%, 440px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .imageWrap {
+    max-width: min(100%, 500px);
+  }
+}
+

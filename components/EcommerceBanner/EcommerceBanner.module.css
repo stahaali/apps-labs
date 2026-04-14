@@ -68,7 +68,7 @@
 .visualCol {
   position: relative;
   display: flex;
-  min-height: 300px;
+  min-height: 320px;
   min-width: 0;
   justify-content: center;
 }
@@ -86,7 +86,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 400px;
+  max-width: min(100%, 460px);
   align-items: center;
   justify-content: center;
 }
@@ -95,7 +95,7 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 400px;
+  max-width: min(100%, 460px);
 }
 
 .headline {
@@ -234,7 +234,7 @@
   }
 
   .visualCol {
-    min-height: 440px;
+    min-height: 520px;
     justify-content: center;
   }
 
@@ -243,11 +243,25 @@
   }
 
   .visualFrame {
-    max-width: 400px;
+    max-width: min(100%, 540px);
     padding-right: 0;
   }
 
   .visualFigure {
-    max-width: 400px;
+    max-width: min(100%, 540px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ecommerceBanner .visualFrame {
+    max-width: min(100%, 580px);
+  }
+
+  .ecommerceBanner .visualFigure {
+    max-width: min(100%, 580px);
+  }
+
+  .ecommerceBanner .visualCol {
+    min-height: 560px;
   }
 }

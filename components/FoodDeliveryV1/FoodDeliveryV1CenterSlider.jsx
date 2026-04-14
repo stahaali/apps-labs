@@ -17,18 +17,21 @@ const THEME_LEAD_CENTER =
   "mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]";
 const SECTION_HEAD = "mx-auto max-w-[900px] text-center";
 
-export default function FoodDeliveryV1CenterSlider({ content }) {
+export default function FoodDeliveryV1CenterSlider({
+  content,
+  headingId = "fd-v1-gallery-slider-heading",
+}) {
   const { eyebrow, headline, subtitle, slides } = content;
 
   return (
     <section
       className={pageStyles.sectionLavender}
-      aria-labelledby="fd-v1-gallery-slider-heading"
+      aria-labelledby={headingId}
     >
       <div className={pageStyles.inner}>
         <header className={SECTION_HEAD}>
           <span className={THEME_PILL}>{eyebrow}</span>
-          <h2 id="fd-v1-gallery-slider-heading" className={THEME_H2}>
+          <h2 id={headingId} className={THEME_H2}>
             {headline.before}
             <span className={HEADING_ACCENT}>{headline.highlight}</span>
             {headline.after}

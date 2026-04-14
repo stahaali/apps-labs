@@ -1,5 +1,6 @@
 "use client";
 
+import { createPortal } from "react-dom";
 import {
   createContext,
   useCallback,
@@ -27,6 +28,9 @@ const PRIMARY = "#70AA26";
 const PRIMARY_SOFT = "rgba(112, 170, 38, 0.12)";
 
 const FIELD_ORDER = ["name", "email", "phone", "message"];
+
+/** Right slide-drawer open/close — matches CSS transition duration below */
+const DRAWER_TRANSITION_MS = 300;
 
 const initialValues = () => ({
   name: "",
@@ -98,8 +102,8 @@ function MessageIcon({ className }) {
   );
 }
 
-function FieldShell({ icon: Icon, children, error, fieldId, iconTop }) {
-  const errId = `lead-err-${fieldId}`;
+function FieldShell({ icon: Icon, children, error, fieldId, iconTop, errorIdPrefix = "lead-err" }) {
+  const errId = `${errorIdPrefix}-${fieldId}`;
   const iconPosition = iconTop
     ? "left-2 top-2.5 translate-y-0 sm:left-2.5 sm:top-3"
     : "left-2 top-1/2 -translate-y-1/2 sm:left-2.5";
@@ -135,44 +139,103 @@ function FieldShell({ icon: Icon, children, error, fieldId, iconTop }) {
   );
 }
 
-function LeadFormModal({ open, onClose }) {
+const MODAL_COPY = {
+  lead: {
+    badge: "Get in touch",
+    titleBefore: "Start your ",
+    titleAccent: "project",
+    titleAfter: "",
+    description:
+      "Share a few details—we'll follow up with scope options, timeline, and next steps.",
+    messagePlaceholder: "How can we help? (goals, timeline, platforms…)",
+    submitLabel: "Send message",
+    successTitle: "Thanks — we've got your details.",
+    successEmailIntro: "We'll reach out shortly. You can also email",
+  },
+  consultation: {
+    badge: "Free consultation",
+    titleBefore: "Book your ",
+    titleAccent: "free consultation",
+    titleAfter: "",
+    description:
+      "Tell us about your product or idea—we'll suggest a time and outline next steps.",
+    messagePlaceholder: "What would you like to discuss? (product, timeline, team size…)",
+    submitLabel: "Request consultation",
+    successTitle: "Thanks — we'll follow up to schedule.",
+    successEmailIntro:
+      "We'll reach out shortly to arrange your consultation. You can also email",
+  },
+};
+
+function LeadFormModal({ open, onClose, variant = "lead" }) {
+  const copy = MODAL_COPY[variant] ?? MODAL_COPY.lead;
+  const errorIdPrefix = variant === "consultation" ? "consult-err" : "lead-err";
   const titleId = useId();
   const descId = useId();
   const panelRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
+  const [panelVisible, setPanelVisible] = useState(false);
   const [sent, setSent] = useState(false);
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
+    if (!open) return;
+    // Reset fields when opening or switching variant (lead vs consultation) while drawer stays open
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional form reset on variant/open
+    setSent(false);
+    setValues(initialValues());
+    setErrors({});
+  }, [variant, open]);
+
+  useEffect(() => {
     if (!open) {
-      setSent(false);
-      setValues(initialValues());
-      setErrors({});
-      return;
+      const closeId = window.setTimeout(() => {
+        setPanelVisible(false);
+        setSent(false);
+        setValues(initialValues());
+        setErrors({});
+      }, 0);
+      const unmountId = window.setTimeout(() => setMounted(false), DRAWER_TRANSITION_MS);
+      return () => {
+        window.clearTimeout(closeId);
+        window.clearTimeout(unmountId);
+      };
     }
+    // First paint off-screen, then slide in from the right (needs sync mount)
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- drawer shell must mount before rAF transition
+    setMounted(true);
+    const rafId = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setPanelVisible(true));
+    });
+    return () => cancelAnimationFrame(rafId);
+  }, [open]);
+
+  useEffect(() => {
+    if (!mounted) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [open]);
+  }, [mounted]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!mounted) return;
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
+  }, [mounted, onClose]);
 
   useEffect(() => {
-    if (!open || sent) return;
+    if (!panelVisible || sent) return;
     const t = window.setTimeout(() => {
       panelRef.current?.querySelector("input")?.focus();
-    }, 0);
+    }, DRAWER_TRANSITION_MS + 20);
     return () => window.clearTimeout(t);
-  }, [open, sent]);
+  }, [panelVisible, sent]);
 
   const updateField = useCallback((key, v) => {
     setValues((prev) => ({ ...prev, [key]: v }));
@@ -231,16 +294,15 @@ function LeadFormModal({ open, onClose }) {
     setSent(true);
   }
 
-  if (!open) return null;
+  if (!mounted || typeof document === "undefined") return null;
 
-  return (
-    <div
-      className="fixed inset-0 z-[320] flex items-end justify-center p-3 sm:items-center sm:p-6"
-      role="presentation"
-    >
+  return createPortal(
+    <div className="fixed inset-0 z-[9999]" role="presentation">
       <button
         type="button"
-        className="absolute inset-0 bg-black/65 backdrop-blur-[3px] transition-opacity"
+        className={`absolute inset-0 bg-black/65 backdrop-blur-[3px] transition-opacity duration-300 ease-out ${
+          panelVisible ? "opacity-100" : "opacity-0"
+        }`}
         aria-label="Close dialog"
         onClick={onClose}
       />
@@ -250,11 +312,13 @@ function LeadFormModal({ open, onClose }) {
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descId}
-        className="relative z-10 h-fit max-h-[min(92vh,880px)] w-full max-w-[min(92vw,540px)] overflow-x-hidden overflow-y-auto rounded-[1.35rem] border border-white/80 bg-white shadow-[0_8px_0_rgba(112,170,38,0.14),0_32px_64px_-20px_rgba(15,23,42,0.45)] ring-1 ring-black/[0.04]"
+        className={`absolute right-0 top-0 z-10 flex h-full max-h-[100dvh] w-[min(92vw,480px)] max-w-full flex-col overflow-hidden rounded-l-[1.35rem] border-l border-t border-b border-neutral-200/80 bg-[#fdfcfa] shadow-[-16px_0_48px_-12px_rgba(15,23,42,0.32)] ring-1 ring-black/[0.04] transition-transform duration-300 ease-out ${
+          panelVisible ? "translate-x-0" : "translate-x-full"
+        }`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div
-          className="relative border-b border-[#70AA26]/15 bg-gradient-to-br from-[#f3f9ec] via-white to-[#f0f4ff] px-5 pb-5 pt-6 sm:px-7 sm:pb-6 sm:pt-7"
+          className="relative shrink-0 border-b border-[#70AA26]/18 bg-gradient-to-br from-[#fff8f2] via-white to-[#f5f3ef] px-5 pb-5 pt-6 sm:px-7 sm:pb-6 sm:pt-7"
           style={{
             backgroundImage: `radial-gradient(circle at 100% 0%, ${PRIMARY_SOFT} 0%, transparent 45%)`,
           }}
@@ -273,20 +337,21 @@ function LeadFormModal({ open, onClose }) {
                 className="inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm sm:text-[11px]"
                 style={{ backgroundColor: PRIMARY }}
               >
-                Get in touch
+                {copy.badge}
               </span>
               <h2
                 id={titleId}
                 className="mt-3 text-[1.35rem] font-bold leading-tight tracking-tight text-neutral-900 sm:text-[1.5rem]"
               >
-                Start your <span style={{ color: PRIMARY }}>project</span>
+                {copy.titleBefore}
+                <span style={{ color: PRIMARY }}>{copy.titleAccent}</span>
+                {copy.titleAfter}
               </h2>
               <p
                 id={descId}
                 className="mt-2 max-w-[32rem] text-[14px] leading-relaxed text-neutral-600 sm:text-[15px]"
               >
-                Share a few details—we&apos;ll follow up with scope options, timeline, and
-                next steps.
+                {copy.description}
               </p>
             </div>
             <button
@@ -311,7 +376,7 @@ function LeadFormModal({ open, onClose }) {
           </div>
         </div>
 
-        <div className="bg-gradient-to-b from-neutral-50/80 to-white px-5 py-6 sm:px-7 sm:py-7">
+        <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden bg-gradient-to-b from-[#faf9f6] to-white px-5 py-6 sm:px-7 sm:py-7">
           {sent ? (
             <div className="py-4 text-center">
               <div
@@ -329,11 +394,9 @@ function LeadFormModal({ open, onClose }) {
                   />
                 </svg>
               </div>
-              <p className="mt-5 text-[16px] font-semibold text-neutral-900">
-                Thanks — we&apos;ve got your details.
-              </p>
+              <p className="mt-5 text-[16px] font-semibold text-neutral-900">{copy.successTitle}</p>
               <p className="mx-auto mt-2 max-w-[320px] text-[14px] leading-relaxed text-neutral-600">
-                We&apos;ll reach out shortly. You can also email{" "}
+                {copy.successEmailIntro}{" "}
                 <a
                   href="mailto:info@apexlabs.co"
                   className="font-semibold text-[#70AA26] underline decoration-[#70AA26]/35 underline-offset-2"
@@ -354,7 +417,12 @@ function LeadFormModal({ open, onClose }) {
             </div>
           ) : (
             <form className="grid gap-4" onSubmit={handleSubmit} noValidate>
-              <FieldShell icon={UserIcon} fieldId="name" error={errors.name}>
+              <FieldShell
+                icon={UserIcon}
+                fieldId="name"
+                error={errors.name}
+                errorIdPrefix={errorIdPrefix}
+              >
                 <input
                   name="name"
                   type="text"
@@ -365,11 +433,16 @@ function LeadFormModal({ open, onClose }) {
                   onChange={(e) => updateField("name", sanitizeNameInput(e.target.value))}
                   onBlur={() => handleBlur("name")}
                   aria-invalid={Boolean(errors.name)}
-                  aria-describedby={errors.name ? "lead-err-name" : undefined}
+                  aria-describedby={errors.name ? `${errorIdPrefix}-name` : undefined}
                 />
               </FieldShell>
 
-              <FieldShell icon={MailIcon} fieldId="email" error={errors.email}>
+              <FieldShell
+                icon={MailIcon}
+                fieldId="email"
+                error={errors.email}
+                errorIdPrefix={errorIdPrefix}
+              >
                 <input
                   name="email"
                   type="email"
@@ -381,11 +454,16 @@ function LeadFormModal({ open, onClose }) {
                   onChange={(e) => updateField("email", sanitizeEmailInput(e.target.value))}
                   onBlur={() => handleBlur("email")}
                   aria-invalid={Boolean(errors.email)}
-                  aria-describedby={errors.email ? "lead-err-email" : undefined}
+                  aria-describedby={errors.email ? `${errorIdPrefix}-email` : undefined}
                 />
               </FieldShell>
 
-              <FieldShell icon={PhoneIcon} fieldId="phone" error={errors.phone}>
+              <FieldShell
+                icon={PhoneIcon}
+                fieldId="phone"
+                error={errors.phone}
+                errorIdPrefix={errorIdPrefix}
+              >
                 <input
                   name="phone"
                   type="tel"
@@ -397,47 +475,71 @@ function LeadFormModal({ open, onClose }) {
                   onChange={(e) => updateField("phone", sanitizePhone(e.target.value))}
                   onBlur={() => handleBlur("phone")}
                   aria-invalid={Boolean(errors.phone)}
-                  aria-describedby={errors.phone ? "lead-err-phone" : undefined}
+                  aria-describedby={errors.phone ? `${errorIdPrefix}-phone` : undefined}
                 />
               </FieldShell>
 
-              <FieldShell icon={MessageIcon} fieldId="message" error={errors.message} iconTop>
+              <FieldShell
+                icon={MessageIcon}
+                fieldId="message"
+                error={errors.message}
+                iconTop
+                errorIdPrefix={errorIdPrefix}
+              >
                 <textarea
                   name="message"
-                  placeholder="How can we help? (goals, timeline, platforms…)"
+                  placeholder={copy.messagePlaceholder}
                   rows={4}
                   className={`${inputInner} min-h-[108px] resize-y py-2`}
                   value={values.message}
                   onChange={(e) => updateField("message", sanitizeMessageInput(e.target.value))}
                   onBlur={() => handleBlur("message")}
                   aria-invalid={Boolean(errors.message)}
-                  aria-describedby={errors.message ? "lead-err-message" : undefined}
+                  aria-describedby={errors.message ? `${errorIdPrefix}-message` : undefined}
                 />
               </FieldShell>
 
-              <button
+              <GreenButton
                 type="submit"
-                className="site-btn-motion mt-1 w-full rounded-full border-0 bg-gradient-to-b from-[#7eb832] to-[#5f8a1f] py-3.5 text-[15px] font-bold text-white shadow-sm hover:from-[#76ae2e] hover:to-[#57801c] hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#70AA26]/35 active:brightness-95 sm:py-3"
+                size="md"
+                focusOn="light"
+                className="mt-1 w-full py-3.5 text-[15px] font-bold shadow-sm sm:py-3"
               >
-                Send message
-              </button>
+                {copy.submitLabel}
+              </GreenButton>
             </form>
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
 export function LeadFormModalProvider({ children }) {
-  const [open, setOpen] = useState(false);
-  const openModal = useCallback(() => setOpen(true), []);
-  const closeModal = useCallback(() => setOpen(false), []);
+  const [drawer, setDrawer] = useState({ open: false, variant: "lead" });
+
+  /** Heroes / banners / inner pages — “Get in touch”, slides in from the right (header uses centered dialog). */
+  const openModal = useCallback(() => setDrawer({ open: true, variant: "lead" }), []);
+  const closeModal = useCallback(() => setDrawer((s) => ({ ...s, open: false })), []);
+  /** Fixed edge tab only — separate copy (“Free consultation”) */
+  const openConsultationDrawer = useCallback(
+    () => setDrawer({ open: true, variant: "consultation" }),
+    [],
+  );
+  const closeConsultationDrawer = closeModal;
 
   return (
-    <LeadFormContext.Provider value={{ openModal, closeModal }}>
+    <LeadFormContext.Provider
+      value={{
+        openModal,
+        closeModal,
+        openConsultationDrawer,
+        closeConsultationDrawer,
+      }}
+    >
       {children}
-      <LeadFormModal open={open} onClose={closeModal} />
+      <LeadFormModal open={drawer.open} variant={drawer.variant} onClose={closeModal} />
     </LeadFormContext.Provider>
   );
 }

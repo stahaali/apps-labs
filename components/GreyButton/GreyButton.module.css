@@ -1,0 +1,51 @@
+.greyBtn {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: #2d2d2d;
+  /* Match prior hero secondary CTA: px-6 py-3 */
+  padding: 0.75rem 1.5rem;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--site-btn-duration, 0.2s) var(--site-btn-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    border-color var(--site-btn-duration, 0.2s) var(--site-btn-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    filter var(--site-btn-duration, 0.2s) var(--site-btn-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    transform var(--site-btn-duration, 0.2s) var(--site-btn-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.greyBtn:hover {
+  background-color: #3a3a3a;
+  border-color: rgba(255, 255, 255, 0.4);
+  filter: brightness(1.06);
+}
+
+.greyBtn:focus {
+  outline: none;
+}
+
+.greyBtn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.greyBtn:active {
+  filter: brightness(0.92);
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .greyBtn,
+  .greyBtn:hover,
+  .greyBtn:active {
+    transition-duration: 0.01ms;
+    transform: none;
+  }
+}

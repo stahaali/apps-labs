@@ -1,0 +1,6 @@
+.shell {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: linear-gradient(to bottom, #e8ecff, #fdf7ec);
+}

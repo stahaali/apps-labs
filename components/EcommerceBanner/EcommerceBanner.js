@@ -1,27 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import GreenButton from "@/components/GreenButton/GreenButton";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
 import styles from "./EcommerceBanner.module.css";
 
-const HERO = "/assets/images-webp/banners/ecommerce-banner.png";
+const HERO = "/assets/images-webp/banners/ecommerce-banner1.png";
 const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
 
 export default function EcommerceBanner() {
+  const { openModal } = useLeadFormModal();
+
   return (
     <section
       className={`${styles.ecommerceBanner} relative z-[1] w-full overflow-hidden`}
-      aria-labelledby="ecommerce-hero-heading"
+      aria-labelledby="ecommerce-banner-heading"
     >
       <div className={styles.inner}>
         <div className={styles.grid}>
           <AnimateOnView variant="fadeUp" className={styles.contentCol}>
-            <h1 id="ecommerce-hero-heading" className={styles.headline}>
+            <h2 id="ecommerce-banner-heading" className={styles.headline}>
               <span className={styles.headlineAccent}>Ecommerce</span>
               <br />
               <span className={styles.headlinePlain}>App Development</span>
-            </h1>
+            </h2>
             <p className={styles.lead}>
               Expand your business globally and increase your revenue tenfold on your own eCommerce marketplace.
             </p>
@@ -31,6 +36,10 @@ export default function EcommerceBanner() {
               action="#"
               method="post"
               aria-label="Ecommerce email signup"
+              onSubmit={(e) => {
+                e.preventDefault();
+                openModal();
+              }}
             >
               <div
                 className="bannerEmailShell flex w-full flex-col gap-2 rounded-2xl border border-[#353539] bg-[#0a0d12] p-3 shadow-[0_0_0_9px_rgba(253,247,236,0.03)] min-[480px]:min-h-[56px] min-[480px]:flex-row min-[480px]:flex-nowrap min-[480px]:items-stretch min-[480px]:gap-2 min-[480px]:rounded-full min-[480px]:p-0 min-[480px]:py-1.5 min-[480px]:pl-5"
@@ -77,15 +86,15 @@ export default function EcommerceBanner() {
                   <ImageWithSkeleton
                     src={HERO}
                     alt="Ecommerce app mockups on phones"
-                    width={400}
-                    height={435}
-                    sizes="(max-width: 767px) min(90vw, 400px), 400px"
-                    className="max-w-[400px] select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                    width={580}
+                    height={631}
+                    sizes="(max-width: 767px) min(92vw, 460px), (max-width: 1023px) 50vw, 580px"
+                    className="w-full max-w-full select-none object-contain drop-shadow-[0_28px_70px_rgba(0,0,0,0.5)]"
                     style={{ width: "100%", height: "auto" }}
                     priority
                     fetchPriority="high"
                     darkBackground
-                    wrapClassName="block w-full max-w-[400px]"
+                    wrapClassName="block w-full max-w-full"
                   />
                 </div>
               </div>

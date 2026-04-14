@@ -1,8 +1,17 @@
+import EcommerceAppDevelopmentSplitHero from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentSplitHero";
+import {
+  ECOMMERCE_SPLIT_HERO_SECOND,
+  ECOMMERCE_WEBSITE_MOBILE_PLATFORM,
+} from "@/lib/ecommerceAppDevelopmentFreeSetup";
 import EcommerceBanner from "@/components/EcommerceBanner/EcommerceBanner";
 import EcommerceIndustrySection from "@/components/EcommerceIndustrySection/EcommerceIndustrySection";
-import EcommerceFeaturesSection from "@/components/EcommerceFeaturesSection/EcommerceFeaturesSection";
 import EcommerceTechBoostSection from "@/components/EcommerceTechBoostSection/EcommerceTechBoostSection";
-import EcommerceTechnologySuiteSection from "@/components/EcommerceTechnologySuiteSection/EcommerceTechnologySuiteSection";
+import EcommerceTechFeaturesShell from "@/components/EcommerceAppDevelopment/EcommerceTechFeaturesShell";
+import EcommerceAppDevelopmentFaqSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentFaqSection";
+import EcommerceAppDevelopmentIntegrationsSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentIntegrationsSection";
+import EcommerceAppDevelopmentMarketingSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentMarketingSection";
+import EcommerceAppDevelopmentFulfillmentSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentFulfillmentSection";
+import EcommerceAppDevelopmentFreeSetupSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentFreeSetupSection";
 import {
   BlogSection,
   CTASection,
@@ -13,29 +22,38 @@ import {
   TestimonialSection,
 } from "@/lib/lazySections";
 
-const ECOMMERCE_PORTFOLIO_SLIDES = [
-  "/assets/images-webp/our-portfolio/ecommerce/1.png",
-  "/assets/images-webp/our-portfolio/ecommerce/2.png",
-  "/assets/images-webp/our-portfolio/ecommerce/3.png",
-  "/assets/images-webp/our-portfolio/ecommerce/4.png",
-  "/assets/images-webp/our-portfolio/ecommerce/5.png",
-];
-
 export default function EcommerceAppDevelopmentPage() {
   return (
     <>
       <EcommerceBanner />
-      <EcommerceIndustrySection />
-      <EcommerceTechnologySuiteSection />
-      <EcommerceTechBoostSection />
-      <EcommerceFeaturesSection />
-      <MarqueeSliderSection />
-      <CTASection />
-      <OurPortfolioSection portfolioImageSrcs={ECOMMERCE_PORTFOLIO_SLIDES} />
-      <EcommerceTechStackSection />
-      <PricingSection />
+      <EcommerceAppDevelopmentSplitHero
+        content={ECOMMERCE_SPLIT_HERO_SECOND}
+        headingId="ecommerce-split-hero-secondary"
+        headingLevel="h2"
+        sectionVariant="alt"
+        reverseColumns
+      />
+      <EcommerceAppDevelopmentSplitHero
+        content={ECOMMERCE_WEBSITE_MOBILE_PLATFORM}
+        headingId="ecommerce-split-hero-primary"
+        headingLevel="h1"
+        priorityImage
+      />
+      <EcommerceAppDevelopmentFreeSetupSection />
+      {/* <EcommerceIndustrySection /> */}
+      <EcommerceTechFeaturesShell />
+      {/* <EcommerceTechBoostSection /> */}
+      <EcommerceAppDevelopmentFulfillmentSection />
+      <EcommerceAppDevelopmentMarketingSection />
+      <EcommerceAppDevelopmentIntegrationsSection />
+      {/* <MarqueeSliderSection /> */}
       <TestimonialSection />
+      <EcommerceAppDevelopmentFaqSection />
       <BlogSection />
+      <CTASection />
+      {/* <OurPortfolioSection /> */}
+      {/* <EcommerceTechStackSection /> */}
+      {/* <PricingSection /> */}
     </>
   );
 }

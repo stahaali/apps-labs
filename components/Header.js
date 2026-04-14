@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
+import HeaderLeadFormDialog from "@/components/LeadFormModal/HeaderLeadFormDialog";
 import WhiteButton from "@/components/WhiteButton/WhiteButton";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -34,7 +34,7 @@ const navLinkBase =
   "flex items-center gap-1 font-medium leading-none text-white/90 transition-colors duration-200 hover:text-white";
 
 /**
- * Services mega menu — three columns, icon + title + short description (weDevs-style).
+ * Industries mega menu — three columns, icon + title + short description (weDevs-style).
  * First column links match footer `FOOTER_LINK_HREF` where applicable.
  */
 const SERVICES_MEGA_COLUMNS = [
@@ -129,7 +129,7 @@ const SERVICES_MEGA_COLUMNS = [
   ],
 ];
 
-/** Services mega-menu: soft mint pill + saturated lime strokes (all items match). */
+/** Industries mega-menu: soft mint pill + saturated lime strokes (all items match). */
 const SERVICE_MENU_ICON_WRAP =
   "bg-[#E8F5E1] text-[#5EC00A]";
 
@@ -373,7 +373,7 @@ function ServicesMegaMenuDesktop({ onNavigate }) {
         >
           <span>
             <span className="block text-[14px] font-bold text-neutral-900">
-              View all services
+              View all industries
             </span>
             <span className="mt-0.5 block text-[12px] leading-snug text-neutral-600">
               Tell us what you&apos;re building — we&apos;ll map the right stack.
@@ -438,7 +438,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
         onClick={onNavigate}
         className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/10 px-3 py-3 text-left text-[13px] font-semibold text-white transition-colors hover:bg-white/[0.14]"
       >
-        View all services
+        View all industries
         <span className="text-[#70AA26]" aria-hidden>
           →
         </span>
@@ -450,7 +450,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
 const MOBILE_NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "#", label: "Services" },
+  { href: "#", label: "Industries" },
   { href: "/pricing", label: "Pricing" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
@@ -501,7 +501,7 @@ function CloseIcon({ className }) {
 
 export default function Header() {
   const pathname = usePathname();
-  const { openModal } = useLeadFormModal();
+  const [headerLeadOpen, setHeaderLeadOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
@@ -678,9 +678,9 @@ export default function Header() {
               }`}
               aria-expanded={servicesMenuOpen}
               aria-haspopup="menu"
-              aria-label="Services menu"
+              aria-label="Industries menu"
             >
-              Services
+              Industries
               <ChevronDown
                 className={`mt-px transition-transform duration-200 ${servicesMenuOpen ? "rotate-180 text-[#70AA26]" : "text-white/70"}`}
               />
@@ -693,12 +693,12 @@ export default function Header() {
               }`}
               style={megaMenuTop != null ? { top: megaMenuTop } : undefined}
               role="menu"
-              aria-label="Services"
+              aria-label="Industries"
             >
               <div className="overflow-hidden rounded-2xl border border-neutral-200/90 bg-white shadow-[0_24px_64px_-16px_rgba(15,23,42,0.28)]">
                 <div className="border-b border-neutral-100 bg-white px-6 py-4">
                   <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-neutral-500">
-                    Services
+                    Industries
                   </p>
                   <p className="mt-1 text-[17px] font-bold tracking-tight text-neutral-900">
                     Mobile products & platforms
@@ -748,7 +748,7 @@ export default function Header() {
               type="button"
               surface="onDark"
               className="font-semibold"
-              onClick={openModal}
+              onClick={() => setHeaderLeadOpen(true)}
             >
               Get Started
             </WhiteButton>
@@ -802,33 +802,33 @@ export default function Header() {
           </div>
           <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-3" aria-label="Mobile">
             {MOBILE_NAV_LINKS.map((item) =>
-              item.label === "Services" ? (
-                <div key="services" className="relative z-20 flex flex-col">
+              item.label === "Industries" ? (
+                <div key="industries" className="relative z-20 flex flex-col">
                   <button
                     type="button"
                     className="site-btn-motion flex w-full touch-manipulation cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
                     aria-expanded={mobileServicesOpen}
-                    aria-controls="mobile-services-panel"
-                    id="mobile-services-trigger"
+                    aria-controls="mobile-industries-panel"
+                    id="mobile-industries-trigger"
                     onClick={(e) => {
                       e.stopPropagation();
                       setMobileServicesOpen((o) => !o);
                     }}
                   >
-                    <span>Services</span>
+                    <span>Industries</span>
                     <ChevronDown
                       className={`shrink-0 text-white/50 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : "-rotate-90"}`}
                     />
                   </button>
                   {mobileServicesOpen ? (
                     <div
-                      id="mobile-services-panel"
+                      id="mobile-industries-panel"
                       role="region"
-                      aria-labelledby="mobile-services-trigger"
+                      aria-labelledby="mobile-industries-trigger"
                       className="mb-1 w-full min-w-0 rounded-xl border border-white/10 bg-white/[0.06] px-1.5 py-2"
                     >
                       <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
-                        Services
+                        Industries
                       </p>
                       <ServicesMenuLinksMobile
                         onNavigate={closeMenu}
@@ -858,7 +858,7 @@ export default function Header() {
                 className="flex w-full items-center justify-center font-semibold"
                 onClick={() => {
                   closeMenu();
-                  openModal();
+                  window.setTimeout(() => setHeaderLeadOpen(true), 0);
                 }}
               >
                 Get Started
@@ -867,6 +867,8 @@ export default function Header() {
           </nav>
         </div>
       </div>
+
+      <HeaderLeadFormDialog open={headerLeadOpen} onClose={() => setHeaderLeadOpen(false)} />
     </header>
   );
 }
