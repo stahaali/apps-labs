@@ -19,6 +19,7 @@ import {
   sanitizeNameInput,
   sanitizePhone,
 } from "@/lib/leadFormValidation";
+import GreenButton from "@/components/GreenButton/GreenButton";
 
 const LeadFormContext = createContext(null);
 
@@ -290,7 +291,7 @@ function LeadFormModal({ open, onClose }) {
             </div>
             <button
               type="button"
-              className="shrink-0 rounded-full border border-neutral-200/80 bg-white/90 p-2 text-neutral-500 shadow-sm hover:bg-neutral-50 hover:text-neutral-900"
+              className="site-btn-motion shrink-0 rounded-full border border-neutral-200/80 bg-white/90 p-2 text-neutral-500 shadow-sm hover:bg-neutral-50 hover:text-neutral-900 active:brightness-95"
               aria-label="Close"
               onClick={onClose}
             >
@@ -341,13 +342,15 @@ function LeadFormModal({ open, onClose }) {
                 </a>
                 .
               </p>
-              <button
+              <GreenButton
                 type="button"
-                className="mt-8 rounded-full border-0 bg-[#70AA26] px-8 py-3 text-[15px] font-semibold text-white shadow-sm hover:bg-[#639622]"
+                size="modal"
+                focusOn="light"
+                className="mt-8 shadow-sm"
                 onClick={onClose}
               >
                 Close
-              </button>
+              </GreenButton>
             </div>
           ) : (
             <form className="grid gap-4" onSubmit={handleSubmit} noValidate>
@@ -414,7 +417,7 @@ function LeadFormModal({ open, onClose }) {
 
               <button
                 type="submit"
-                className="mt-1 w-full rounded-full border-0 bg-gradient-to-b from-[#7eb832] to-[#5f8a1f] py-3.5 text-[15px] font-bold text-white shadow-sm hover:from-[#76ae2e] hover:to-[#57801c] sm:py-3"
+                className="site-btn-motion mt-1 w-full rounded-full border-0 bg-gradient-to-b from-[#7eb832] to-[#5f8a1f] py-3.5 text-[15px] font-bold text-white shadow-sm hover:from-[#76ae2e] hover:to-[#57801c] hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#70AA26]/35 active:brightness-95 sm:py-3"
               >
                 Send message
               </button>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import HeroBannerNoiseOverlay from "./HeroBannerNoiseOverlay";
@@ -121,12 +122,12 @@ export default function HeroBanner() {
                     autoComplete="email"
                   />
                 </div>
-                <button
+                <GreenButton
                   type="submit"
-                  className="btn btn-banner site-btn-motion flex min-h-[48px] w-full shrink-0 items-center justify-center rounded-full border-0 px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 min-[480px]:min-h-0 min-[480px]:w-auto submit"
+                  className="w-full shrink-0 min-[480px]:w-auto submit"
                 >
-                  <span className="relative z-[1] text-white">Get Started</span>
-                </button>
+                  Get Started
+                </GreenButton>
               </div>
             </form>
 

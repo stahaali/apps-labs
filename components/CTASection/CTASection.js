@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import WhiteButton from "@/components/WhiteButton/WhiteButton";
 import styles from "./CTASection.module.css";
 
 const BASE = "/assets/images-webp/cta-section";
@@ -57,18 +57,18 @@ export default function CTASection({
               and project estimate. Ready to launch your app? Contact us today for
               a free consultation and project estimate.
             </p>
-            <Link
+            <WhiteButton
               href="/contact"
+              surface="onBlue"
               className={[
-                "btn site-btn-motion rounded-full border-0 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_28px_-10px_rgba(0,0,0,0.4)] hover:brightness-[1.02]",
                 styles.ctaBtn,
                 matchFoodDeliveryV1Typography && styles.ctaBtnFoodDeliveryV1,
               ]
                 .filter(Boolean)
                 .join(" ")}
             >
-              <span className="relative z-[1] text-[#0f172a]">{label}</span>
-            </Link>
+              {label}
+            </WhiteButton>
           </div>
 
           <div className={`${styles.sideCard} ${styles.sideCardLeft}`}>

@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import styles from "./FitnessTechStackSection.module.css";
 
 const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.png";
@@ -301,9 +301,13 @@ export default function FitnessTechStackSection() {
         </div>
 
         <div className={styles.ctaWrap}>
-          <Link href="#" className={styles.ctaBtn}>
+          <GreenButton
+            href="/contact"
+            focusOn="light"
+            className="font-bold tracking-[0.02em] text-[15px] shadow-[0_4px_14px_-4px_rgba(112,170,38,0.55)] sm:text-base"
+          >
             Book Free Consultation
-          </Link>
+          </GreenButton>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import ContactFaq from "@/components/ContactPage/ContactFaq";
 import BlogSection from "@/components/BlogSection/BlogSection";
@@ -97,9 +97,9 @@ function SplitFeature({ section, cream, noPaddingTop }) {
           ))}
         </ul>
       ) : null}
-      <Link href="/contact" className={styles.cta}>
+      <GreenButton href="/contact" focusOn="light" className="mt-6 max-[479px]:w-full">
         {cta}
-      </Link>
+      </GreenButton>
     </div>
   );
 

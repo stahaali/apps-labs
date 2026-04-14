@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import HeroBannerNoiseOverlay from "@/components/HeroBanner/HeroBannerNoiseOverlay";
 import ContactFaq from "./ContactFaq";
 import styles from "./ContactPage.module.css";
@@ -144,12 +145,13 @@ export default function ContactPage() {
                   required
                 />
               </label>
-              <button
+              <GreenButton
                 type="submit"
-                className="btn btn-banner site-btn-motion mt-1 flex w-full items-center justify-center rounded-full border-0 px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.5)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#70AA26]/35 active:brightness-95 sm:w-auto sm:justify-self-start"
+                focusOn="light"
+                className="mt-1 w-full shadow-[0_4px_14px_-4px_rgba(112,170,38,0.5)] sm:w-auto sm:justify-self-start"
               >
-                <span className="relative z-[1] text-white">Send message</span>
-              </button>
+                Send message
+              </GreenButton>
             </form>
           </div>
 

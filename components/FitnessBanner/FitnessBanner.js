@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FitnessBanner.module.css";
@@ -52,12 +53,12 @@ export default function FitnessBanner() {
                     autoComplete="email"
                   />
                 </div>
-                <button
+                <GreenButton
                   type="submit"
-                  className="flex min-h-[48px] w-full shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#70AA26] to-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] site-btn-motion hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 min-[480px]:min-h-0 min-[480px]:w-auto submit"
+                  className="w-full shrink-0 min-[480px]:w-auto submit"
                 >
                   Get Started
-                </button>
+                </GreenButton>
               </div>
             </form>
           </AnimateOnView>

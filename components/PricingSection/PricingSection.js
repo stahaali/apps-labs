@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import BlackButton from "@/components/BlackButton/BlackButton";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import { PRICING_EXPERT_TEAM } from "@/lib/clientTestimonials";
 import styles from "./PricingSection.module.css";
 
@@ -122,11 +123,12 @@ function CheckListItem({ children }) {
   );
 }
 
+/** Same touch target + padding for featured (green) and standard (black) quote CTAs */
+const PRICING_GET_QUOTE_LAYOUT =
+  "mt-6 flex min-h-[48px] w-full shrink-0 items-center justify-center px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-base font-bold leading-none min-[480px]:min-h-[48px]";
+
 function PricingCard({ plan, quoteHref }) {
   const isFeatured = plan.featured;
-  const btnClass = isFeatured
-    ? "text-white hover:opacity-[0.96]"
-    : "bg-neutral-900 text-white hover:bg-neutral-800";
 
   const cardInner = (
     <div className="relative flex h-full flex-col rounded-3xl border border-slate-200/90 bg-white p-7 pt-8 text-left sm:p-8">
@@ -144,13 +146,25 @@ function PricingCard({ plan, quoteHref }) {
           {plan.priceNote}
         </p>
       </div>
-      <Link
-        href={quoteHref}
-        className={`site-btn-motion mt-6 block w-full rounded-full px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-center text-base font-bold shadow-[0_4px_14px_-4px_rgba(0,0,0,0.12)] hover:shadow-[0_14px_28px_-12px_rgba(0,0,0,0.18)] ${btnClass}`}
-        style={isFeatured ? { backgroundColor: PRIMARY } : undefined}
-      >
-        Get a Quote
-      </Link>
+      {isFeatured ? (
+        <GreenButton
+          href={quoteHref}
+          focusOn="light"
+          size="none"
+          className={`${PRICING_GET_QUOTE_LAYOUT} rounded-full shadow-[0_4px_14px_-4px_rgba(0,0,0,0.12)] hover:shadow-[0_14px_28px_-12px_rgba(0,0,0,0.18)] hover:opacity-[0.96]`}
+        >
+          Get a Quote
+        </GreenButton>
+      ) : (
+        <BlackButton
+          href={quoteHref}
+          focusOn="light"
+          size="none"
+          className={`${PRICING_GET_QUOTE_LAYOUT} text-center shadow-[0_4px_14px_-4px_rgba(0,0,0,0.12)] hover:shadow-[0_14px_28px_-12px_rgba(0,0,0,0.18)] hover:opacity-[0.96]`}
+        >
+          Get a Quote
+        </BlackButton>
+      )}
       <ul className="mt-8 flex flex-1 flex-col gap-3.5 text-left">
         {plan.features.map((line) => (
           <CheckListItem key={line}>{line}</CheckListItem>

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import {
   BlogSection,
@@ -75,9 +75,9 @@ export default function VerticalServicePage({ content }) {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact" className={styles.cta}>
+              <GreenButton href="/contact" focusOn="light" className="mt-6">
                 Discuss your build
-              </Link>
+              </GreenButton>
             </AnimateOnView>
             <AnimateOnView variant="fadeUp" delayMs={80}>
               <div className={styles.imageCard}>

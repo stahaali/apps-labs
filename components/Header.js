@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
+import WhiteButton from "@/components/WhiteButton/WhiteButton";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
@@ -742,13 +743,14 @@ export default function Header() {
             </button>
           </div>
 
-          <button
+          <WhiteButton
             type="button"
-            className="btn site-btn-motion hidden shrink-0 cursor-pointer rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.35)] lg:inline-flex lg:items-center"
+            surface="onDark"
+            className="hidden shrink-0 font-semibold lg:inline-flex lg:items-center"
             onClick={openModal}
           >
-            <span className="relative z-[1] text-[#050505]">Get Started</span>
-          </button>
+            Get Started
+          </WhiteButton>
         </div>
         </div>
       </div>
@@ -848,16 +850,17 @@ export default function Header() {
               ),
             )}
             <div className="mt-4 px-1">
-              <button
+              <WhiteButton
                 type="button"
-                className="btn site-btn-motion flex w-full cursor-pointer items-center justify-center rounded-full border-0 bg-white px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-[#050505] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.35)]"
+                surface="onDark"
+                className="flex w-full items-center justify-center font-semibold"
                 onClick={() => {
                   closeMenu();
                   openModal();
                 }}
               >
-                <span className="relative z-[1] text-[#050505]">Get Started</span>
-              </button>
+                Get Started
+              </WhiteButton>
             </div>
           </nav>
         </div>

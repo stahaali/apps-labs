@@ -27,7 +27,7 @@ export default function BackToTop() {
   return (
     <button
       type="button"
-      className={styles.backToTop}
+      className={`site-btn-motion ${styles.backToTop}`}
       onClick={scrollToTop}
       aria-label="Back to top"
     >

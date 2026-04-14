@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./EcommerceTechStackSection.module.css";
 
@@ -306,9 +306,13 @@ export default function EcommerceTechStackSection() {
         </AnimateOnView>
 
         <AnimateOnView variant="fadeUp" delayMs={160} className={styles.ctaWrap}>
-          <Link href="#" className={styles.ctaBtn}>
+          <GreenButton
+            href="/contact"
+            focusOn="light"
+            className="font-bold tracking-[0.02em] text-[15px] shadow-[0_4px_14px_-4px_rgba(112,170,38,0.55)] sm:text-base"
+          >
             Book Free Consultation
-          </Link>
+          </GreenButton>
         </AnimateOnView>
       </div>
     </section>

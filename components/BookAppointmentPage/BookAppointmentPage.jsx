@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import HeroBannerNoiseOverlay from "@/components/HeroBanner/HeroBannerNoiseOverlay";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
@@ -224,13 +225,13 @@ export default function BookAppointmentPage() {
           </AnimateOnView>
           <AnimateOnView variant="fadeUp" delayMs={230}>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 min-[480px]:flex-row min-[480px]:flex-wrap">
-              <button
+              <GreenButton
                 type="button"
                 onClick={openModal}
-                className="site-btn-motion inline-flex w-full min-w-[200px] items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.5)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] min-[480px]:w-auto"
+                className="w-full min-w-[200px] shadow-[0_4px_14px_-4px_rgba(112,170,38,0.5)] min-[480px]:w-auto"
               >
                 Schedule consultation
-              </button>
+              </GreenButton>
               <Link
                 href="/contact"
                 className="inline-flex w-full min-w-[200px] items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-[15px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 min-[480px]:w-auto"
@@ -399,13 +400,14 @@ export default function BookAppointmentPage() {
                   </li>
                 ))}
               </ul>
-              <button
+              <GreenButton
                 type="button"
                 onClick={openModal}
-                className="site-btn-motion mt-8 inline-flex items-center justify-center rounded-full border-0 bg-[#70AA26] px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold text-white shadow-md shadow-[#70aa26]/25 hover:brightness-105 hover:shadow-lg hover:shadow-[#70aa26]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#70AA26]"
+                focusOn="light"
+                className="mt-8 shadow-md shadow-[#70aa26]/25 hover:shadow-lg hover:shadow-[#70aa26]/35"
               >
                 Open scheduling form
-              </button>
+              </GreenButton>
             </AnimateOnView>
           </div>
 
@@ -425,7 +427,7 @@ export default function BookAppointmentPage() {
                 <button
                   type="button"
                   onClick={openModal}
-                  className="site-btn-motion inline-flex items-center justify-center rounded-full border border-[#70AA26]/35 bg-white px-6 py-2.5 text-[14px] font-semibold text-[#5a8a22] shadow-sm hover:bg-[rgba(112,170,38,0.08)] hover:shadow-md"
+                  className="site-btn-motion inline-flex items-center justify-center rounded-full border border-[#70AA26]/35 bg-white px-6 py-2.5 text-[14px] font-semibold text-[#5a8a22] shadow-sm hover:bg-[rgba(112,170,38,0.08)] hover:shadow-md hover:shadow-[#70aa26]/12 active:brightness-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#70AA26]/30"
                 >
                   Or open the lead form
                 </button>

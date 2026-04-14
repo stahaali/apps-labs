@@ -18,11 +18,7 @@
     0 1px 0 rgba(255, 255, 255, 0.22) inset,
     0 8px 24px -8px rgba(15, 23, 42, 0.28);
   cursor: pointer;
-  transition:
-    background-color var(--site-btn-duration) var(--site-btn-ease),
-    border-color var(--site-btn-duration) var(--site-btn-ease),
-    box-shadow var(--site-btn-duration) var(--site-btn-ease),
-    filter var(--site-btn-duration) var(--site-btn-ease);
+  /* Timing: pair with `site-btn-motion` on the element in BackToTop.js */
 }
 
 .backToTop:hover {

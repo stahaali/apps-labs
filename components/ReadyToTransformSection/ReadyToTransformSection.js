@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ReadyToTransformSection.module.css";
@@ -44,12 +44,12 @@ export default function ReadyToTransformSection() {
             reduce risk, and stay focused on outcomes that move your business
             forward.
           </p>
-          <Link
+          <GreenButton
             href="/contact"
-            className="btn btn-banner site-btn-motion mt-9 inline-flex items-center justify-center rounded-full border-0 px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white shadow-[0_4px_14px_-4px_rgba(112,170,38,0.55)] hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] sm:text-[16px]"
+            className="mt-9 shadow-[0_4px_14px_-4px_rgba(112,170,38,0.55)] sm:text-[16px]"
           >
-            <span className="relative z-[1] text-white">Book Free Consultation</span>
-          </Link>
+            Book Free Consultation
+          </GreenButton>
         </AnimateOnView>
 
         <AnimateOnView

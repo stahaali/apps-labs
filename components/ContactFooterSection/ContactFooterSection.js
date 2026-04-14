@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import { usePathname } from "next/navigation";
 import styles from "./ContactFooterSection.module.css";
 
@@ -207,12 +208,9 @@ export default function ContactFooterSection() {
                   />
                 </label>
 
-                <button
-                  type="submit"
-                  className={`btn btn-banner site-btn-motion flex min-h-[48px] w-full shrink-0 items-center justify-center rounded-full border-0 px-[var(--cta-button-pad-x)] py-[var(--cta-button-pad-y)] text-[15px] font-semibold leading-none text-white hover:brightness-105 hover:shadow-[0_14px_32px_-14px_rgba(112,170,38,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/35 active:brightness-95 ${styles.btn}`}
-                >
-                  <span className="relative z-[1] text-white">Send Message</span>
-                </button>
+                <GreenButton type="submit" className={styles.btn}>
+                  Send Message
+                </GreenButton>
               </form>
             </div>
           </div>

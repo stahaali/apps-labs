@@ -142,38 +142,6 @@
   font-size: 0.65rem;
 }
 
-.cta {
-  display: inline-flex;
-  margin-top: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  border: none;
-  background: #70aa26;
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  transition:
-    filter var(--site-btn-duration) var(--site-btn-ease),
-    box-shadow var(--site-btn-duration) var(--site-btn-ease);
-}
-
-.cta:hover {
-  filter: brightness(1.06);
-  box-shadow: 0 12px 28px -12px rgba(112, 170, 38, 0.4);
-}
-
-@media (max-width: 479px) {
-  .cta {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
-
 .statsGrid {
   display: grid;
   gap: 1rem;

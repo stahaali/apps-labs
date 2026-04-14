@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import { FOOD_DELIVERY_V1_HERO } from "@/lib/foodDeliveryV1Content";
@@ -55,13 +56,14 @@ export default function FoodDeliveryV1Hero() {
             </div>
 
             <div className="mt-8 flex w-full max-w-[520px] flex-col gap-3 min-[480px]:flex-row min-[480px]:items-stretch">
-              <button
+              <GreenButton
                 type="button"
-                className={`${bannerStyles.ctaButton} ${bannerStyles.heroCtaText} w-full min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0 min-[480px]:w-full`}
+                size="compact"
+                className="w-full min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0 min-[480px]:w-full"
                 onClick={openModal}
               >
                 Start Selling Food online
-              </button>
+              </GreenButton>
               <Link
                 href="#fd-v1-integrations"
                 className={`${bannerStyles.heroCtaText} flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-white backdrop-blur-sm transition-colors hover:bg-white/15 min-[480px]:min-w-0 min-[480px]:flex-1 min-[480px]:basis-0`}

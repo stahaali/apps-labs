@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
+import GreenButton from "@/components/GreenButton/GreenButton";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./AboutBanner.module.css";
@@ -56,9 +57,12 @@ export default function AboutBanner() {
                     autoComplete="email"
                   />
                 </div>
-                <button type="submit" className={styles.ctaButton}>
+                <GreenButton
+                  type="submit"
+                  className="w-full shrink-0 text-[12px] min-[480px]:w-auto min-[480px]:text-[15px] submit"
+                >
                   Get Started
-                </button>
+                </GreenButton>
               </div>
             </form>
           </AnimateOnView>
