@@ -743,14 +743,16 @@ export default function Header() {
             </button>
           </div>
 
-          <WhiteButton
-            type="button"
-            surface="onDark"
-            className="hidden shrink-0 font-semibold lg:inline-flex lg:items-center"
-            onClick={openModal}
-          >
-            Get Started
-          </WhiteButton>
+          <div className="header-bar-get-started-wrap">
+            <WhiteButton
+              type="button"
+              surface="onDark"
+              className="font-semibold"
+              onClick={openModal}
+            >
+              Get Started
+            </WhiteButton>
+          </div>
         </div>
         </div>
       </div>

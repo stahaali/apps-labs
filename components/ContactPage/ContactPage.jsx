@@ -213,7 +213,7 @@ export default function ContactPage() {
         </div>
 
         <div
-          className={`${styles.contactFaqBlock} mx-auto max-w-[720px]`}
+          className={`${styles.contactFaqBlock} mx-auto max-w-[720px] max-[576px]:mx-[15px]`}
           aria-labelledby="contact-faq-heading"
         >
           <h2

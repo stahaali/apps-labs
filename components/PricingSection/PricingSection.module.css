@@ -14,6 +14,11 @@
   padding-top: 0 !important;
 }
 
+/* /pricing only: space below page banner before “Choose Your Plan” */
+.pricingPageTopPad {
+  padding-top: 80px !important;
+}
+
 /* iPad Pro portrait & similar tablet widths (1024–1199): avoid squeezed 5-across row */
 @media (min-width: 1024px) and (max-width: 1199px) {
   .expertTeamGrid {

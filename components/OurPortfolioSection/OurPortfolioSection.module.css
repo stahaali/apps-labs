@@ -326,3 +326,11 @@
   transform: translate(2px, -2px);
   box-shadow: 0 12px 24px -8px var(--portfolio-accent-soft-hover);
 }
+
+@media(max-width: 576px)
+{
+  .shadowLayer
+  {
+    display: none;
+  }
+}

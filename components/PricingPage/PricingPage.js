@@ -10,7 +10,7 @@ export default function PricingPage() {
     <main className="flex min-h-screen flex-col bg-[#FDF7EC]">
       <PricingPageBanner />
       <PricingSection
-        noTopPadding
+        pricingPageTopPadding
         hideSectionEyebrow
         quoteHref="/contact"
         titleAs="h2"
@@ -20,7 +20,7 @@ export default function PricingPage() {
         className="border-t border-slate-300/40 bg-[#FDF7EC] px-4 pb-16 pt-[clamp(2.5rem,5vw,4rem)] min-[480px]:px-6 lg:px-8"
         aria-labelledby="pricing-faq-heading"
       >
-        <div className="mx-auto max-w-[720px]">
+        <div className="mx-auto max-w-[720px] max-[576px]:mx-[15px]">
           <h2
             id="pricing-faq-heading"
             className="title text-center text-balance text-neutral-900 sm:mb-2"

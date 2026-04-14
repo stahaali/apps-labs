@@ -86,7 +86,7 @@ const TEAM = PRICING_EXPERT_TEAM.map((m) => ({
 function TeamPill({ member, className = "" }) {
   return (
     <div
-      className={`relative flex w-full max-w-full items-center gap-2 rounded-full border border-slate-200/80 bg-white py-1.5 pl-[8px] pr-3 min-[480px]:w-fit sm:max-w-[min(100%,280px)] sm:gap-3 sm:py-2 sm:pl-[8px] sm:pr-4 ${className}`}
+      className={`relative flex w-full max-w-full max-[576px]:w-fit items-center gap-2 rounded-full border border-slate-200/80 bg-white py-1.5 pl-[8px] pr-3 min-[480px]:w-fit sm:max-w-[min(100%,280px)] sm:gap-3 sm:py-2 sm:pl-[8px] sm:pr-4 ${className}`}
     >
       <Image
         src={member.avatar}
@@ -95,7 +95,7 @@ function TeamPill({ member, className = "" }) {
         height={40}
         className="h-8 w-8 shrink-0 rounded-full object-cover sm:h-10 sm:w-10"
       />
-      <div className="min-w-0 flex-1 text-left sm:w-auto sm:flex-none">
+      <div className="min-w-0 max-[576px]:grow-0 max-[576px]:basis-auto flex-1 text-left sm:w-auto sm:flex-none">
         <p className="text-xs font-bold leading-tight tracking-tight text-neutral-900 sm:text-sm sm:whitespace-nowrap">
           {member.name}
         </p>
@@ -198,15 +198,22 @@ function PricingCard({ plan, quoteHref }) {
 
 export default function PricingSection({
   noTopPadding = false,
+  /** `/pricing` route: fixed top inset below dark banner (wins over `noTopPadding`) */
+  pricingPageTopPadding = false,
   sectionPadding84 = false,
   quoteHref = "#cta-heading",
   titleAs: TitleTag = "h2",
   /** Hide green “Pricing” pill when a page-level banner already shows it */
   hideSectionEyebrow = false,
 }) {
+  const topPadClass = pricingPageTopPadding
+    ? styles.pricingPageTopPad
+    : noTopPadding
+      ? styles.paddingNoTopPad
+      : "";
   const sectionVerticalClass = sectionPadding84
     ? styles.sectionPadding84
-    : `py-[var(--home-section-py)]${noTopPadding ? ` ${styles.paddingNoTopPad}` : ""}`;
+    : `py-[var(--home-section-py)]${topPadClass ? ` ${topPadClass}` : ""}`;
 
   return (
     <section

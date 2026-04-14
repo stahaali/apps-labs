@@ -38,6 +38,13 @@
   padding-top: 0;
 }
 
+/* Tech suite block on /food-delivery/v1 — no top gap on narrow viewports */
+@media (max-width: 576px) {
+  .sectionCream.sectionCreamTechSuiteMobileFlushTop {
+    padding-top: 0;
+  }
+}
+
 /* Horizontal gutter only — vertical rhythm lives on .sectionCream / .sectionLavender (84px). */
 .inner {
   margin-left: auto;
@@ -64,6 +71,24 @@
   display: grid;
   gap: 2rem;
   align-items: center;
+}
+
+/* ≤576px: when markup is image-then-copy, show copy first (matches blog-style mobile priority) */
+@media (max-width: 576px) {
+  .splitStackFlipSm > :first-child {
+    order: 2;
+  }
+
+  .splitStackFlipSm > :nth-child(2) {
+    order: 1;
+  }
+}
+
+@media (min-width: 577px) {
+  .splitStackFlipSm > :first-child,
+  .splitStackFlipSm > :nth-child(2) {
+    order: 0;
+  }
 }
 
 @media (min-width: 1024px) {

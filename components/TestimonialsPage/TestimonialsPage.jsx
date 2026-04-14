@@ -58,7 +58,9 @@ export default function TestimonialsPage() {
         aria-labelledby="testimonials-page-title"
       >
         {/* <HeroBannerNoiseOverlay /> */}
-        <div className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] text-center`}>
+        <div
+          className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
+        >
           <span
             className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
             style={{ backgroundColor: PRIMARY }}
@@ -107,7 +109,7 @@ export default function TestimonialsPage() {
         </div>
 
         <div
-          className={`${styles.faqBlock} mx-auto max-w-[720px] px-4 min-[480px]:px-6 sm:px-10`}
+          className={`${styles.faqBlock} mx-auto max-w-[720px] max-[576px]:mx-[15px] px-4 min-[480px]:px-6 sm:px-10`}
           aria-labelledby="testimonials-faq-heading"
         >
           <h2

@@ -32,6 +32,22 @@ html {
 }
 
 /**
+ * Header bar “Get Started” — hide on viewports below site `lg` (992px / 62rem).
+ * Global + !important so Tailwind utilities on inner `.btn` cannot override the wrapper.
+ */
+.header-bar-get-started-wrap {
+  display: none !important;
+}
+
+@media (min-width: 992px) {
+  .header-bar-get-started-wrap {
+    display: inline-flex !important;
+    align-items: center;
+    flex-shrink: 0;
+  }
+}
+
+/**
  * Pair with Tailwind `hover:` utilities on `<button>` / links for smooth, consistent motion.
  */
 .site-btn-motion {
@@ -231,6 +247,14 @@ a.site-btn-motion.btn.btn-dark {
   }
   .statCounterLabel {
     font-size: 10px;
+  }
+  .title 
+  {
+    font-size: 24px;
+  }
+  .subtitle
+  {
+    font-size: 14px;
   }
 }
 

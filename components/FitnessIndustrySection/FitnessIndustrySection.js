@@ -39,7 +39,7 @@ function ArrowIcon() {
     >
       <path
         d="M7 17L17 7M17 7H8M17 7V16"
-        stroke="white"
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -98,19 +98,21 @@ export default function FitnessIndustrySection() {
               <div
                 className={`relative flex flex-1 flex-col ${styles.cardBody}`}
               >
-                <h3 className={`text-neutral-900 ${styles.cardTitle}`}>
-                  {card.title}
-                </h3>
+                <div className={styles.titleRow}>
+                  <h3 className={`text-neutral-900 ${styles.cardTitle}`}>
+                    {card.title}
+                  </h3>
+                  <Link
+                    href="#"
+                    className={styles.arrowBtn}
+                    aria-label={`Learn more about ${card.title}`}
+                  >
+                    <ArrowIcon />
+                  </Link>
+                </div>
                 <p className="mt-3 text-[14px] leading-[1.65] text-neutral-600 sm:text-[15px]">
                   {card.description}
                 </p>
-                <Link
-                  href="#"
-                  className={`absolute bottom-0 right-0 ${styles.arrowBtn}`}
-                  aria-label={`Learn more about ${card.title}`}
-                >
-                  <ArrowIcon />
-                </Link>
               </div>
             </article>
             </AnimateOnView>

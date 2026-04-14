@@ -45,7 +45,7 @@ export default function BlogsListingPage() {
           </div>
 
           <div
-            className="mx-auto mt-[clamp(2.5rem,5vw,4rem)] max-w-[720px] border-t border-slate-300/50 pt-[clamp(2.5rem,5vw,4rem)]"
+            className="mx-auto mt-[clamp(2.5rem,5vw,4rem)] max-w-[720px] max-[576px]:mx-[15px] border-t border-slate-300/50 pt-[clamp(2.5rem,5vw,4rem)]"
             aria-labelledby="blog-faq-heading"
           >
             <h2

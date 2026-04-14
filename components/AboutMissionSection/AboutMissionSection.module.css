@@ -9,7 +9,18 @@
   border-radius: 28px;
 }
 
+/* Match BlogSection `.titleRow` — heading + arrow on one line */
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
 .cardTitle {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.12;
@@ -38,16 +49,11 @@
   padding-top: 20px;
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 4.25rem;
-}
-
-@media (min-width: 640px) {
-  .cardBody {
-    padding-bottom: 4.5rem;
-  }
+  padding-bottom: 0;
 }
 
 .arrowBtn {
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   border-radius: 9999px;
@@ -55,5 +61,12 @@
   align-items: center;
   justify-content: center;
   background: #70aa26;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.card:hover .arrowBtn {
+  transform: translate(1px, -1px);
+  filter: brightness(1.05);
 }

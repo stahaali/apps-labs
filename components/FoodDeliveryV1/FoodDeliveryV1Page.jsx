@@ -97,7 +97,11 @@ function SplitFeature({ section, cream, noPaddingTop }) {
           ))}
         </ul>
       ) : null}
-      <GreenButton href="/contact" focusOn="light" className="mt-6 max-[479px]:w-full">
+      <GreenButton
+        href="/contact"
+        focusOn="light"
+        className="mt-6 max-[576px]:w-fit"
+      >
         {cta}
       </GreenButton>
     </div>
@@ -131,7 +135,11 @@ function SplitFeature({ section, cream, noPaddingTop }) {
   return (
     <section className={sectionClass} aria-labelledby={headingId}>
       <div className={styles.inner}>
-        <div className={styles.split}>
+        <div
+          className={[styles.split, imageLeft && styles.splitStackFlipSm]
+            .filter(Boolean)
+            .join(" ")}
+        >
           {imageLeft ? (
             <>
               <AnimateOnView variant="fadeUp">{imageBlock}</AnimateOnView>
@@ -215,7 +223,10 @@ export default function FoodDeliveryV1Page() {
 
       <section className={styles.sectionLavender} aria-labelledby="fd-v1-faq-heading">
         <div className={styles.inner}>
-          <AnimateOnView variant="fadeUp" className={SECTION_HEAD}>
+          <AnimateOnView
+            variant="fadeUp"
+            className={`${SECTION_HEAD} max-[576px]:mx-[15px]`}
+          >
             <span className={THEME_PILL}>FAQ</span>
             <SectionHeading id="fd-v1-faq-heading" headline={FOOD_DELIVERY_V1_FAQ_HEADLINE} />
             <p className={THEME_LEAD_CENTER}>
@@ -223,7 +234,9 @@ export default function FoodDeliveryV1Page() {
               ordering stack.
             </p>
           </AnimateOnView>
-          <div className={`${styles.faqBlock} ${THEME_AFTER_HEAD}`}>
+          <div
+            className={`${styles.faqBlock} ${THEME_AFTER_HEAD} max-[576px]:mx-[15px]`}
+          >
             <ContactFaq items={FOOD_DELIVERY_V1_FAQ} />
           </div>
         </div>

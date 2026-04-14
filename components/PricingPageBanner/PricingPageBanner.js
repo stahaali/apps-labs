@@ -11,7 +11,7 @@ export default function PricingPageBanner() {
     >
       {/* <HeroBannerNoiseOverlay /> */}
       <div
-        className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] text-center`}
+        className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
       >
         <span
           className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
