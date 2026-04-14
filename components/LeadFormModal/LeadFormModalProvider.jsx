@@ -112,19 +112,13 @@ function FieldShell({
   compact = false,
 }) {
   const errId = `${errorIdPrefix}-${fieldId}`;
-  const iconPosition = compact
-    ? iconTop
-      ? "left-1.5 top-2 translate-y-0 sm:left-2 sm:top-2.5"
-      : "left-1.5 top-1/2 -translate-y-1/2 sm:left-2"
-    : iconTop
-      ? "left-2 top-2.5 translate-y-0 sm:left-2.5 sm:top-3"
-      : "left-2 top-1/2 -translate-y-1/2 sm:left-2.5";
+  const rowAlign = iconTop ? "items-start" : "items-center";
 
   return (
     <div className={compact ? "grid gap-1" : "grid gap-1.5"}>
       <div
-        className={`relative h-fit border bg-white/95 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] transition-[border-color,box-shadow] ${
-          compact ? "rounded-xl py-0.5 pl-0.5 pr-1.5" : "rounded-2xl py-1 pl-1 pr-2"
+        className={`relative flex h-fit ${rowAlign} border bg-white/95 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset] transition-[border-color,box-shadow] ${
+          compact ? "gap-1.5 rounded-xl p-1.5" : "gap-2 rounded-2xl p-2"
         } ${
           error
             ? "border-red-300 ring-2 ring-red-100"
@@ -132,23 +126,17 @@ function FieldShell({
         }`}
       >
         <span
-          className={`pointer-events-none absolute z-[1] flex h-fit flex-none items-center justify-center rounded-lg ${
+          className={`pointer-events-none z-[1] flex shrink-0 items-center justify-center rounded-lg ${
             compact
-              ? "w-9 py-1.5 sm:w-10 sm:py-2"
-              : "w-11 rounded-xl py-2.5 sm:w-12"
-          } ${error ? "bg-red-50 text-red-500" : "text-[#5a8a22]"} ${iconPosition}`}
+              ? "h-9 w-9 sm:h-10 sm:w-10"
+              : "min-h-[2.75rem] w-11 sm:min-h-[3rem] sm:w-12"
+          } ${error ? "bg-red-50 text-red-500" : "text-[#5a8a22]"}`}
           style={!error ? { backgroundColor: PRIMARY_SOFT } : undefined}
           aria-hidden
         >
           <Icon className={`${compact ? "h-4 w-4" : "h-[18px] w-[18px]"} shrink-0 opacity-90`} />
         </span>
-        <div
-          className={
-            compact
-              ? "min-w-0 pl-[3rem] pr-0.5 pb-0 pt-0 sm:pl-[3.5rem] sm:pr-1"
-              : "min-w-0 pl-[3.875rem] pr-1 pt-0.5 pb-0.5 sm:pl-[4.25rem] sm:pr-2"
-          }
-        >
+        <div className="min-w-0 flex-1 self-stretch [&_input]:py-0 [&_textarea]:py-1">
           {children}
         </div>
       </div>
@@ -598,6 +586,8 @@ export function LeadFormModalProvider({ children }) {
   );
   const closeConsultationDrawer = closeModal;
 
+  const consultationDrawerOpen = drawer.open && drawer.variant === "consultation";
+
   return (
     <LeadFormContext.Provider
       value={{
@@ -605,6 +595,7 @@ export function LeadFormModalProvider({ children }) {
         closeModal,
         openConsultationDrawer,
         closeConsultationDrawer,
+        consultationDrawerOpen,
       }}
     >
       {children}
