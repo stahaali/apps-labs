@@ -241,9 +241,11 @@ a.site-btn-motion.btn.btn-dark {
   .bannerform input {
     font-size: 14px;
   }
-  .bannerform button {
+  /* Hero banner CTA: Tailwind `px/py/min-h` on GreenButton otherwise wins — tighten pill on small phones */
+  .bannerform button.btn {
     font-size: 12px;
-    padding: 10px 20px;
+    padding: 7px 14px !important;
+    min-height: 40px !important;
   }
   .statCounterLabel {
     font-size: 10px;
