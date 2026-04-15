@@ -255,6 +255,15 @@
 }
 
 @media (max-width: 576px) {
+  /* Right-column hero image: fluid width, cap at 576px (no fixed 700px bleed) */
+  .visualFrame {
+    max-width: min(576px, 100%);
+  }
+
+  .visualFigure {
+    max-width: min(576px, 100%);
+  }
+
   /* Override Tailwind text-[40px] / max-[639px]:text-[28px] and labels */
   .statCounterValue {
     font-size: 24px !important;

@@ -79,6 +79,12 @@
   }
 }
 
+@media (max-width: 576px) {
+  .tab {
+    left: -28px;
+  }
+}
+
 @media (max-width: 380px) {
   .tab {
     padding: 1.35rem 0.45rem;

@@ -99,8 +99,8 @@ export default function AboutBanner() {
                     alt="Apex Labs team and mobile app work"
                     width={680}
                     height={740}
-                    sizes="(max-width: 767px) 90vw, 840px"
-                    className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)] min-w-[700px] max-w-[700px]"
+                    sizes="(max-width: 576px) 100vw, (max-width: 767px) 90vw, 840px"
+                    className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)] w-full min-w-0 max-w-full min-[577px]:min-w-[700px] min-[577px]:max-w-[700px]"
                     style={{ width: "100%", height: "auto" }}
                     priority
                     fetchPriority="high"

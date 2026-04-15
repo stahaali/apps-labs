@@ -4,6 +4,7 @@ import Link from "next/link";
 import HeaderLeadFormDialog from "@/components/LeadFormModal/HeaderLeadFormDialog";
 import WhiteButton from "@/components/WhiteButton/WhiteButton";
 import { usePathname } from "next/navigation";
+import { createPortal } from "react-dom";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import headerStyles from "@/components/Header.module.css";
@@ -507,6 +508,7 @@ export default function Header() {
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [megaMenuTop, setMegaMenuTop] = useState(null);
+  const [mobileNavPortalReady, setMobileNavPortalReady] = useState(false);
   const servicesWrapRef = useRef(null);
   const servicesTriggerRef = useRef(null);
 
@@ -621,7 +623,12 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  useEffect(() => {
+    setMobileNavPortalReady(true);
+  }, []);
+
   return (
+    <>
     <header className="pointer-events-none fixed inset-x-0 top-0 z-[100] flex justify-center overflow-visible">
       <div
         className={`pointer-events-auto relative min-h-[72px] min-w-0 overflow-visible ${headerStyles.headerShell} ${
@@ -757,118 +764,122 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Slide-in panel: same UI on phone + iPad; hidden from lg (992px) up */}
-      <div
-        className={`pointer-events-none fixed inset-0 z-[200] lg:hidden ${
-          menuOpen ? "pointer-events-auto" : ""
-        }`}
-        aria-hidden={!menuOpen}
-      >
-        <button
-          type="button"
-          className={`absolute inset-0 z-0 bg-black/55 transition-opacity duration-300 ${
-            menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          aria-label="Close menu"
-          tabIndex={menuOpen ? 0 : -1}
-          onClick={closeMenu}
-        />
-        <div
-          id="mobile-nav-drawer"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
-          className={`pointer-events-auto absolute inset-y-0 right-0 z-10 flex w-[min(92vw,440px)] max-w-full flex-col border-l border-white/12 bg-[#0b0c10]/98 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-300 ease-out ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-            <Link
-              href="/"
-              onClick={closeMenu}
-              className="shrink-0 text-lg font-bold tracking-tight"
-            >
-              <span className="text-white">Apex </span>
-              <span className="text-[#70AA26]">Labs</span>
-            </Link>
-            <button
-              type="button"
-              className="site-btn-motion rounded-lg p-2 text-white/80 hover:bg-white/10 hover:text-white"
-              aria-label="Close menu"
-              onClick={closeMenu}
-            >
-              <CloseIcon className="h-5 w-5" />
-            </button>
-          </div>
-          <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-3" aria-label="Mobile">
-            {MOBILE_NAV_LINKS.map((item) =>
-              item.label === "Industries" ? (
-                <div key="industries" className="relative z-20 flex flex-col">
-                  <button
-                    type="button"
-                    className="site-btn-motion flex w-full touch-manipulation cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
-                    aria-expanded={mobileServicesOpen}
-                    aria-controls="mobile-industries-panel"
-                    id="mobile-industries-trigger"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setMobileServicesOpen((o) => !o);
-                    }}
-                  >
-                    <span>Industries</span>
-                    <ChevronDown
-                      className={`shrink-0 text-white/50 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : "-rotate-90"}`}
-                    />
-                  </button>
-                  {mobileServicesOpen ? (
-                    <div
-                      id="mobile-industries-panel"
-                      role="region"
-                      aria-labelledby="mobile-industries-trigger"
-                      className="mb-1 w-full min-w-0 rounded-xl border border-white/10 bg-white/[0.06] px-1.5 py-2"
-                    >
-                      <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
-                        Industries
-                      </p>
-                      <ServicesMenuLinksMobile
-                        onNavigate={closeMenu}
-                        classNameLink="flex items-start gap-3 rounded-lg px-2 py-2.5 text-left transition-colors hover:bg-white/10"
-                      />
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <Link
-                  key={item.href + item.label}
-                  href={item.href}
-                  className="flex items-center justify-between rounded-xl px-3 py-3 text-[15px] font-medium text-white/90 hover:bg-white/10"
-                  onClick={closeMenu}
-                >
-                  <span>{item.label}</span>
-                  {"chevron" in item && item.chevron ? (
-                    <ChevronDown className="-rotate-90 text-white/50" />
-                  ) : null}
-                </Link>
-              ),
-            )}
-            <div className="mt-4 px-1">
-              <WhiteButton
-                type="button"
-                surface="onDark"
-                className="flex w-full items-center justify-center font-semibold"
-                onClick={() => {
-                  closeMenu();
-                  window.setTimeout(() => setHeaderLeadOpen(true), 0);
-                }}
-              >
-                Get Started
-              </WhiteButton>
-            </div>
-          </nav>
-        </div>
-      </div>
-
       <HeaderLeadFormDialog open={headerLeadOpen} onClose={() => setHeaderLeadOpen(false)} />
     </header>
+    {mobileNavPortalReady
+      ? createPortal(
+          <div
+            className={`pointer-events-none fixed inset-0 z-[10045] lg:hidden ${
+              menuOpen ? "pointer-events-auto" : ""
+            }`}
+            aria-hidden={!menuOpen}
+          >
+            <button
+              type="button"
+              className={`absolute inset-0 z-0 bg-black/55 transition-opacity duration-300 ${
+                menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+              aria-label="Close menu"
+              tabIndex={menuOpen ? 0 : -1}
+              onClick={closeMenu}
+            />
+            <div
+              id="mobile-nav-drawer"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
+              className={`pointer-events-auto absolute inset-y-0 right-0 z-10 flex w-[min(92vw,440px)] max-w-full flex-col border-l border-white/12 bg-[#0b0c10]/98 shadow-[-12px_0_40px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-300 ease-out ${
+                menuOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+            >
+              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                <Link
+                  href="/"
+                  onClick={closeMenu}
+                  className="shrink-0 text-lg font-bold tracking-tight"
+                >
+                  <span className="text-white">Apex </span>
+                  <span className="text-[#70AA26]">Labs</span>
+                </Link>
+                <button
+                  type="button"
+                  className="site-btn-motion rounded-lg p-2 text-white/80 hover:bg-white/10 hover:text-white"
+                  aria-label="Close menu"
+                  onClick={closeMenu}
+                >
+                  <CloseIcon className="h-5 w-5" />
+                </button>
+              </div>
+              <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-3" aria-label="Mobile">
+                {MOBILE_NAV_LINKS.map((item) =>
+                  item.label === "Industries" ? (
+                    <div key="industries" className="relative z-20 flex flex-col">
+                      <button
+                        type="button"
+                        className="site-btn-motion flex w-full touch-manipulation cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-left text-[15px] font-medium text-white/90 hover:bg-white/10"
+                        aria-expanded={mobileServicesOpen}
+                        aria-controls="mobile-industries-panel"
+                        id="mobile-industries-trigger"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setMobileServicesOpen((o) => !o);
+                        }}
+                      >
+                        <span>Industries</span>
+                        <ChevronDown
+                          className={`shrink-0 text-white/50 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : "-rotate-90"}`}
+                        />
+                      </button>
+                      {mobileServicesOpen ? (
+                        <div
+                          id="mobile-industries-panel"
+                          role="region"
+                          aria-labelledby="mobile-industries-trigger"
+                          className="mb-1 w-full min-w-0 rounded-xl border border-white/10 bg-white/[0.06] px-1.5 py-2"
+                        >
+                          <p className="px-2 pb-2 text-[12px] font-bold uppercase tracking-wide text-white/55">
+                            Industries
+                          </p>
+                          <ServicesMenuLinksMobile
+                            onNavigate={closeMenu}
+                            classNameLink="flex items-start gap-3 rounded-lg px-2 py-2.5 text-left transition-colors hover:bg-white/10"
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.href + item.label}
+                      href={item.href}
+                      className="flex items-center justify-between rounded-xl px-3 py-3 text-[15px] font-medium text-white/90 hover:bg-white/10"
+                      onClick={closeMenu}
+                    >
+                      <span>{item.label}</span>
+                      {"chevron" in item && item.chevron ? (
+                        <ChevronDown className="-rotate-90 text-white/50" />
+                      ) : null}
+                    </Link>
+                  ),
+                )}
+                <div className="mt-4 px-1">
+                  <WhiteButton
+                    type="button"
+                    surface="onDark"
+                    className="flex w-full items-center justify-center font-semibold"
+                    onClick={() => {
+                      closeMenu();
+                      window.setTimeout(() => setHeaderLeadOpen(true), 0);
+                    }}
+                  >
+                    Get Started
+                  </WhiteButton>
+                </div>
+              </nav>
+            </div>
+          </div>,
+          document.body,
+        )
+      : null}
+    </>
   );
 }

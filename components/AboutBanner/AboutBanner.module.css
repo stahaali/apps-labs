@@ -121,6 +121,17 @@
   }
 }
 
+@media (max-width: 576px) {
+  /* Match home hero: right-column image scales within 576px */
+  .visualFrame {
+    max-width: min(576px, 100%);
+  }
+
+  .visualFigure {
+    max-width: min(576px, 100%);
+  }
+}
+
 .headlineAccent {
   color: #70aa26;
 }
