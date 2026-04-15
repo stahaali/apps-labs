@@ -2,8 +2,18 @@
   position: relative;
   width: 100%;
   padding-top: 14px;
-  padding-bottom: 84px;
+  padding-bottom: 80px;
   overflow: hidden;
+}
+
+.section.sectionPadding80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* e.g. /fitness-app-development — flush to band above, keep 80px bottom */
+.section.sectionPadding80.sectionPaddingTopZero {
+  padding-top: 0;
 }
 
 .iconShadowWrap {
@@ -256,3 +266,27 @@
   }
 }
 
+@media(max-width:576px)
+{
+  .section {
+    padding-top:0px;
+    padding-bottom:30px;
+  }
+  .section.sectionPadding80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .section.sectionPadding80.sectionPaddingTopZero {
+    padding-top: 0;
+    padding-bottom: 80px;
+  }
+  .grid
+  {
+    gap:0px;
+  }
+  .smileWrap
+  {
+    height:auto;
+    margin-bottom:23px;
+  }
+}

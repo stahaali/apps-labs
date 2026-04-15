@@ -15,6 +15,7 @@ const RIGHT_CHECKS = ["iOS and Android", "React Native", "Flutter"];
 
 export default function CTASection({
   sectionPadding84 = false,
+  sectionPadding80 = false,
   ctaLabel,
   /** Match /food-delivery/v1 hero & green pill CTAs: 15px, font-weight 600 */
   matchFoodDeliveryV1Typography = false,
@@ -22,7 +23,11 @@ export default function CTASection({
   const label = ctaLabel ?? "Book Free Consultation";
   return (
     <section
-      className={[styles.section, sectionPadding84 && styles.sectionPadding84]
+      className={[
+        styles.section,
+        sectionPadding84 && styles.sectionPadding84,
+        sectionPadding80 && styles.sectionPadding80,
+      ]
         .filter(Boolean)
         .join(" ")}
       aria-labelledby="cta-heading"

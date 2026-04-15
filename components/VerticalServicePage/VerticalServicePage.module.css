@@ -7,15 +7,15 @@
 .sectionCream {
   composes: sectionBase;
   background: #fdf7ec;
-  padding-top: clamp(3rem, 6vw, 5.25rem);
-  padding-bottom: clamp(3rem, 6vw, 5.25rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .sectionLavender {
   composes: sectionBase;
   background: linear-gradient(180deg, #f4f6ff 0%, #fdf7ec 100%);
-  padding-top: clamp(3rem, 6vw, 5.25rem);
-  padding-bottom: clamp(3rem, 6vw, 5.25rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 /* Optional: process section sits flush under previous band (e.g. Classified Platform). */

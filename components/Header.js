@@ -633,7 +633,7 @@ export default function Header() {
       <div
         className={`pointer-events-auto relative min-h-[72px] min-w-0 overflow-visible ${headerStyles.headerShell} ${
           headerScrolled
-            ? "mt-[10px] w-[min(100%-2rem,1200px)] max-w-[1200px] rounded-2xl border border-solid border-white/[0.1] shadow-[0_12px_40px_-14px_rgba(0,0,0,0.55)]"
+            ? "mt-[10px] w-[min(100%-2rem,1200px)] max-w-[1200px] rounded-[100px] border border-solid border-white/[0.1]"
             : "mt-0 w-full max-w-none rounded-none border-0 border-b border-solid border-white/10 shadow-none"
         }`}
       >
@@ -641,7 +641,7 @@ export default function Header() {
         <div
           aria-hidden
           className={`pointer-events-none absolute inset-0 -z-10 ${headerStyles.headerShellBackdrop} ${
-            headerScrolled ? "rounded-2xl" : "rounded-none"
+            headerScrolled ? "rounded-[100px]" : "rounded-none"
           } ${
             headerScrolled
               ? "bg-[#050505]/85 backdrop-blur-xl backdrop-saturate-150"

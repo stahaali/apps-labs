@@ -1,12 +1,12 @@
 .paddingtopbottom1
 {
-    padding-top: 84px;
+    padding-top: 80px;
     padding-bottom: 102px;    
 }
 .paddingtopbottom
 {
-    padding-top: 84px;
-    padding-bottom: 84px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 /* Phone mockup shell — only for this section. Fixes bottom clipping caused by

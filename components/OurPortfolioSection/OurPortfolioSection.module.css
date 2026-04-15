@@ -1,7 +1,7 @@
 .portfolioSection {
   width: 100%;
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   --portfolio-accent: #70AA26;
   --portfolio-accent-soft: #70AA26;
   --portfolio-accent-soft-hover: #70AA26;
@@ -332,5 +332,10 @@
   .shadowLayer
   {
     display: none;
+  }
+  .portfolioSection
+  {
+    padding-top:0px;
+    padding-bottom:40px;
   }
 }

@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   background: #E8ECFF;
-  padding-top: 84px;
+  padding-top: 80px;
   padding-bottom: 104px;
 }
 
@@ -301,4 +301,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media(max-width:576px)
+{
+  .section {
+    padding-top:40px;
+    padding-bottom:40px;
+  }
 }

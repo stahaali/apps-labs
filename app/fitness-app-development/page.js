@@ -1,25 +1,20 @@
+import FitnessAppDevelopmentFulfillmentSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentFulfillmentSection";
+import FitnessAppDevelopmentIntegrationsSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentIntegrationsSection";
+import FitnessAppDevelopmentMarketingSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentMarketingSection";
+import FitnessAppDevelopmentOperationsSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentOperationsSection";
+import FitnessAppDevelopmentOutcomesSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentOutcomesSection";
+import FitnessAppDevelopmentPlatformSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentPlatformSection";
+import FitnessAppDevelopmentSetupSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentSetupSection";
+import FitnessAppDevelopmentFaqSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentFaqSection";
 import FitnessBanner from "@/components/FitnessBanner/FitnessBanner";
-import FitnessFeaturesSection from "@/components/FitnessFeaturesSection/FitnessFeaturesSection";
-import FitnessIndustrySection from "@/components/FitnessIndustrySection/FitnessIndustrySection";
-import FitnessTechBoostSection from "@/components/FitnessTechBoostSection/FitnessTechBoostSection";
 import FitnessTechnologySuiteSection from "@/components/FitnessTechnologySuiteSection/FitnessTechnologySuiteSection";
 import {
   BlogSection,
   CTASection,
-  FitnessTechStackSection,
   MarqueeSliderSection,
-  OurPortfolioSection,
-  PricingSection,
   TestimonialSection,
 } from "@/lib/lazySections";
-
-const FITNESS_PORTFOLIO_SLIDES = [
-  "/assets/images-webp/our-portfolio/fitness/1.png",
-  "/assets/images-webp/our-portfolio/fitness/2.png",
-  "/assets/images-webp/our-portfolio/fitness/3.png",
-  "/assets/images-webp/our-portfolio/fitness/4.png",
-  "/assets/images-webp/our-portfolio/fitness/5.png",
-];
+import FitnessFeaturesSection from "@/components/FitnessFeaturesSection/FitnessFeaturesSection";
 
 export const metadata = {
   title: "Fitness App Development | Apex Labs",
@@ -31,20 +26,20 @@ export default function FitnessAppDevelopmentPage() {
   return (
     <>
       <FitnessBanner />
-      <FitnessIndustrySection />
-      <FitnessTechnologySuiteSection />
-      <FitnessTechBoostSection />
+      <FitnessAppDevelopmentOperationsSection />
+      <FitnessAppDevelopmentPlatformSection />
+      <FitnessAppDevelopmentSetupSection />
       <FitnessFeaturesSection />
-      <MarqueeSliderSection />
-      <CTASection />
-      <OurPortfolioSection
-        noTopPadding
-        portfolioImageSrcs={FITNESS_PORTFOLIO_SLIDES}
-      />
-      <FitnessTechStackSection />
-      <PricingSection sectionPadding84 />
-      <TestimonialSection />
-      <BlogSection />
+      <FitnessTechnologySuiteSection />
+      <FitnessAppDevelopmentFulfillmentSection />
+      <FitnessAppDevelopmentMarketingSection />
+      <FitnessAppDevelopmentIntegrationsSection />
+      {/* <MarqueeSliderSection /> */}
+      <FitnessAppDevelopmentOutcomesSection />
+      <TestimonialSection sectionPadding80 sectionPaddingTopZero />
+      <FitnessAppDevelopmentFaqSection />
+      <BlogSection sectionPadding80 />
+      <CTASection sectionPadding80 />
     </>
   );
 }

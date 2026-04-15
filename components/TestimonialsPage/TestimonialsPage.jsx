@@ -91,7 +91,7 @@ export default function TestimonialsPage() {
       </section>
 
       <section
-        className={`${contactStyles.contactLight} px-4 py-12 min-[480px]:px-6 sm:px-10 sm:py-16 lg:py-20`}
+        className={`${contactStyles.contactLight} px-4 py-[80px] min-[480px]:px-6 sm:px-10`}
         aria-label="Client testimonials"
       >
         <div className="mx-auto max-w-[1200px]">

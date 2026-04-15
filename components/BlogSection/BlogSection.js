@@ -15,11 +15,14 @@ export default function BlogSection({
   posts,
   gridClassName,
   headingId = "blog-section-heading",
+  sectionPadding80 = false,
 }) {
   const list = posts ?? BLOG_POSTS_HOME_PREVIEW;
   return (
     <section
-      className={styles.section}
+      className={[styles.section, sectionPadding80 && styles.sectionPadding80]
+        .filter(Boolean)
+        .join(" ")}
       aria-labelledby={headingId}
     >
       <div className={styles.shadowLayer} aria-hidden>

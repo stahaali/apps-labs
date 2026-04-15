@@ -7,7 +7,7 @@ import { ECOMMERCE_APP_DEVELOPMENT_FAQ } from "@/lib/ecommerceAppDevelopmentFaq"
 export default function EcommerceAppDevelopmentFaqSection() {
   return (
     <section
-      className="relative w-full overflow-x-clip bg-gradient-to-b from-[#f4f6ff] to-[#fdf7ec] py-[clamp(3.25rem,7vw,5.25rem)]"
+      className="relative w-full overflow-x-clip bg-gradient-to-b from-[#f4f6ff] to-[#fdf7ec] py-[clamp(3.25rem,7vw,5rem)]"
       aria-labelledby="ecommerce-app-faq-heading"
     >
       <div className="mx-auto max-w-[1200px] px-4 min-[480px]:px-6 sm:px-8 lg:px-10">

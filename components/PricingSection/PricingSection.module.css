@@ -1,17 +1,17 @@
 .paddingtopbottom
 {
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
-/* Fitness page: reliable padding (avoids Tailwind not emitting py-[84px] from a JS variable) */
+/* Fitness page: reliable padding (avoids Tailwind not emitting py-[80px] from a JS variable) */
 .sectionPadding84 {
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 /* Overrides Tailwind `py-[var(--home-section-py)]` on section when food page passes noTopPadding */
 .paddingNoTopPad {
-  padding-top: 0 !important;
+  padding-top: 80px !important;
 }
 
 /* /pricing only: space below page banner before “Choose Your Plan” */
@@ -58,5 +58,14 @@
   .bestValueBadgeStar {
     font-size: 9px !important;
     line-height: 1;
+  }
+}
+
+@media(max-width:576px)
+{
+  .paddingtopbottom
+  {
+    padding-top:40px;
+    padding-bottom:40px;
   }
 }

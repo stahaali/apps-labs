@@ -67,9 +67,22 @@ function TestimonialCard({ item }) {
   );
 }
 
-export default function TestimonialSection() {
+export default function TestimonialSection({
+  sectionPadding80 = false,
+  /** Use with `sectionPadding80` — removes top gap (e.g. fitness page under outcomes). */
+  sectionPaddingTopZero = false,
+}) {
   return (
-    <section className={styles.section} aria-labelledby="testimonial-heading">
+    <section
+      className={[
+        styles.section,
+        sectionPadding80 && styles.sectionPadding80,
+        sectionPadding80 && sectionPaddingTopZero && styles.sectionPaddingTopZero,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      aria-labelledby="testimonial-heading"
+    >
       <div className={`${styles.iconShadowWrap} hidden sm:block`} aria-hidden>
         <Image
           src={SHADOW_IMAGE}

@@ -39,3 +39,12 @@ section.clientLogos {
   object-fit: contain;
   object-position: center;
 }
+
+
+@media(max-width:576px)
+{
+  section.clientLogos
+  {
+    padding-bottom:0px;
+  }
+}

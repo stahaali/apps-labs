@@ -1,0 +1,99 @@
+.section {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: #fdf8ee;
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.heading:global(.title) {
+  font-size: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+}
+
+/* Photo + chips (chips sit just past the photo’s right edge) */
+.visualCluster {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: min(100%, 560px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .visualCluster {
+    margin-inline: 0;
+    justify-content: flex-start;
+    max-width: min(100%, 580px);
+  }
+}
+
+.photoWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  max-width: min(100%, 440px);
+  border-radius: 1.35rem;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 20px 48px -18px rgba(15, 23, 42, 0.22);
+}
+
+.chipsRail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: -14px;
+  z-index: 2;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.65rem;
+  background: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 8px 22px -10px rgba(15, 23, 42, 0.2);
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+.chipIcon {
+  flex-shrink: 0;
+  color: #70aa26;
+}
+
+@media (max-width: 576px) {
+  .visualCluster {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .chipsRail {
+    margin-left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .photoWrap {
+    max-width: 100%;
+  }
+}

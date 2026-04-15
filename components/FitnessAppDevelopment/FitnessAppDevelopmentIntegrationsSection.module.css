@@ -1,0 +1,16 @@
+/* /fitness-app-development — full vertical rhythm (avoid shared v1 cream / flush-top combo). */
+.section {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: #fdf7ec;
+  padding-top: 0px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

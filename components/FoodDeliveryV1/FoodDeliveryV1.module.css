@@ -13,25 +13,25 @@
   composes: sectionBase;
   background: #fdf7ec;
   padding-top: 0;
-  padding-bottom: 84px;
+  padding-bottom: 80px;
 }
 
 .sectionLavender {
   composes: sectionBase;
   background: #fdf7ec;
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 /* Clean white band (e.g. client story cards) — same vertical rhythm as cream/lavender. */
 .sectionWhite {
   composes: sectionBase;
   background: #ffffff;
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
-/* Selected v1 sections: flush to section above; keep 84px bottom padding. */
+/* Selected v1 sections: flush to section above; keep 80px bottom padding. */
 .sectionCream.sectionNoPaddingTop,
 .sectionLavender.sectionNoPaddingTop,
 .sectionWhite.sectionNoPaddingTop {
@@ -45,7 +45,7 @@
   }
 }
 
-/* Horizontal gutter only — vertical rhythm lives on .sectionCream / .sectionLavender (84px). */
+/* Horizontal gutter only — vertical rhythm lives on .sectionCream / .sectionLavender (80px). */
 .inner {
   margin-left: auto;
   margin-right: auto;

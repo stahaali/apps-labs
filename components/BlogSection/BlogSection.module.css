@@ -2,9 +2,14 @@
   position: relative;
   width: 100%;
   overflow-x: clip;
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   background: #eef2ff;
+}
+
+.section.sectionPadding80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 /* Blog listing: dark inner-page banner above — less top padding */
@@ -266,5 +271,17 @@
 @media (min-width: 640px) {
   .cardExcerpt {
     font-size: 15px;
+  }
+}
+
+@media(max-width:576px)
+{
+  .section {
+    padding-top:40px;
+    padding-bottom:40px;
+  }
+  .section.sectionPadding80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }

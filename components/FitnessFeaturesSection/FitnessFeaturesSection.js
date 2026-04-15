@@ -75,9 +75,13 @@ function FeatureCard({ title, description }) {
 
 export default function FitnessFeaturesSection() {
   return (
-    <section className={styles.fitnessFeaturesSection} aria-labelledby="fitness-features-heading">
+    <section
+      id="fitness-features"
+      className={styles.fitnessFeaturesSection}
+      aria-labelledby="fitness-features-heading"
+    >
       <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-14">
-        <div className={`sections-surface rounded-[28px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.innercontainer}`}>
+        <div className={`sections-surface1 rounded-[28px] px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 ${styles.innercontainer}`}>
           <header className="mx-auto max-w-[1000px] text-center">
             <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
               Features

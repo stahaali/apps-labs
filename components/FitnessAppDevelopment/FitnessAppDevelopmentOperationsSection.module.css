@@ -1,0 +1,16 @@
+/* /fitness-app-development — operations / control band (matches ecommerce marketing rhythm) */
+.section {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: #fdf7ec;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
