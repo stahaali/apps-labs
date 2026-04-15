@@ -94,17 +94,17 @@
 
 /* Contact page only — extra space below fixed header */
 .contactHero400.contactHero400Contact {
-  padding-top: 132px;
+  padding-top: 66px;
 }
 
 /* Blog page only — same top inset as Contact hero */
 .contactHero400.contactHero400Blog {
-  padding-top: 132px;
+  padding-top: 66px;
 }
 
 /* Pricing page only */
 .contactHero400.contactHero400Pricing {
-  padding-top: 132px;
+  padding-top: 66px;
 }
 
 /* 450px — Testimonials page only */

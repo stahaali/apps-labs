@@ -1,9 +1,5 @@
 /* Section-level styles (not globals.css) — light band + optional texture hooks */
 
-section {
-  padding: clamp(36px, 5.5vw, 64px) 0;
-}
-
 body {
   background-color: #FDF7EC;
   overflow-x: clip;
