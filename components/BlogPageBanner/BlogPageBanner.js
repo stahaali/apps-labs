@@ -5,7 +5,7 @@ const PRIMARY = "#70AA26";
 export default function BlogPageBanner() {
   return (
     <section
-      className={`${contactStyles.contactHero400} px-4 min-[480px]:px-6 sm:px-10`}
+      className={`${contactStyles.contactHero400} ${contactStyles.contactHero400Blog} px-4 min-[480px]:px-6 sm:px-10`}
       aria-labelledby="blogs-page-heading"
     >
       <div

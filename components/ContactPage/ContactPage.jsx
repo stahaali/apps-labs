@@ -51,7 +51,7 @@ export default function ContactPage() {
     <main className="flex min-h-screen flex-col">
       {/* Dark hero — 400px grid band, content vertically centered */}
       <section
-        className={`${styles.contactHero400} px-4 min-[480px]:px-6 sm:px-10`}
+        className={`${styles.contactHero400} ${styles.contactHero400Contact} px-4 min-[480px]:px-6 sm:px-10`}
         aria-labelledby="contact-page-title"
       >
         <div

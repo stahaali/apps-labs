@@ -53,11 +53,11 @@ export default function TestimonialsPage() {
   return (
     <main className="flex min-h-screen flex-col">
       <section
-        className={`${contactStyles.contactHero400} px-4 min-[480px]:px-6 sm:px-10`}
+        className={`${contactStyles.contactHero450} px-4 min-[480px]:px-6 sm:px-10`}
         aria-labelledby="testimonials-page-title"
       >
         <div
-          className={`${contactStyles.contactHero400Inner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
+          className={`${contactStyles.contactHero450Inner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
         >
           <span
             className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"

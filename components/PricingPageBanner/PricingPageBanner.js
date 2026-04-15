@@ -5,7 +5,7 @@ const PRIMARY = "#70AA26";
 export default function PricingPageBanner() {
   return (
     <section
-      className={`${contactStyles.contactHero400} px-4 min-[480px]:px-6 sm:px-10`}
+      className={`${contactStyles.contactHero400} ${contactStyles.contactHero400Pricing} px-4 min-[480px]:px-6 sm:px-10`}
       aria-labelledby="pricing-page-heading"
     >
       <div
