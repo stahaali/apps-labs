@@ -126,3 +126,10 @@
     max-width: min(100%, 600px);
   }
 }
+@media(max-width:576px)
+{
+  .section
+  {
+    padding-top:0px;
+  }
+}

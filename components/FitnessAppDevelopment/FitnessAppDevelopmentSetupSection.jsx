@@ -118,8 +118,13 @@ export default function FitnessAppDevelopmentSetupSection() {
   );
 
   return (
-    <section className={localStyles.sectionShell} aria-labelledby={headingId}>
-      <div className={pageStyles.inner}>
+    <section
+      className={`${localStyles.sectionShell} fitnessFreeSetupSection`}
+      aria-labelledby={headingId}
+    >
+      <div
+        className={`${pageStyles.inner} fitnessFreeSetupInnerFlush`}
+      >
         <div className={localStyles.rowsWrap}>
           <div
             className={`${pageStyles.split} ${pageStyles.splitStackFlipSm} ${localStyles.splitTopAlign}`}

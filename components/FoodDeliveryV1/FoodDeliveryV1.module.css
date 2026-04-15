@@ -38,10 +38,35 @@
   padding-top: 0;
 }
 
-/* Tech suite block on /food-delivery/v1 — no top gap on narrow viewports */
 @media (max-width: 576px) {
-  .sectionCream.sectionCreamTechSuiteMobileFlushTop {
-    padding-top: 0;
+  /* Tech suite band — flush top on narrow viewports */
+  .fdV1TechSuiteMobileSectionFlushTop {
+    padding-top: 0 !important;
+  }
+
+  /* Integrations band — flush section + inner top on narrow viewports */
+  .fdV1IntegrationsMobileSectionFlushTop {
+    padding-top: 0 !important;
+  }
+
+  /* FAQ band — flush section + inner top on narrow viewports */
+  .fdV1FaqMobileFlushTop {
+    padding-top: 0 !important;
+  }
+
+  .inner
+  {
+    padding-top:40px;
+  }
+
+  .sectionCream
+  {
+    padding-bottom:0px;
+  }
+  .sectionLavender
+  {
+    padding-top:0;
+    padding-bottom:40px;
   }
 }
 

@@ -73,7 +73,7 @@ export default function FitnessAppDevelopmentPlatformSection() {
 
   return (
     <section className={styles.section} aria-labelledby={headingId}>
-      <div className={pageStyles.inner}>
+      <div className={`${pageStyles.inner} fitnessPlatformInnerFlush`}>
         <div className={pageStyles.split}>
           <AnimateOnView variant="fadeUp">{textBlock}</AnimateOnView>
           <AnimateOnView variant="fadeUp" delayMs={80}>

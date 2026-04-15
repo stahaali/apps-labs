@@ -235,6 +235,13 @@ a.site-btn-motion.btn.btn-dark {
 }
 
 @media (max-width: 576px) {
+  /**
+   * Opt-in: pair with any layout `.inner` (CSS modules) when mobile top padding should be 0.
+   */
+  .innerMobileFlushTop {
+    padding-top: 0 !important;
+  }
+
   .heroHeading {
     font-size: 40px;
   }

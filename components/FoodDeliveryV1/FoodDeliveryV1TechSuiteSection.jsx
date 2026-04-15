@@ -205,7 +205,7 @@ export default function FoodDeliveryV1TechSuiteSection({ content }) {
 
   return (
     <section
-      className={`relative ${pageStyles.sectionCream} ${pageStyles.sectionCreamTechSuiteMobileFlushTop}`}
+      className={`relative ${pageStyles.sectionCream} ${pageStyles.fdV1TechSuiteMobileSectionFlushTop}`}
       aria-labelledby={headingId}
     >
       <div className={pageStyles.inner}>

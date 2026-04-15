@@ -8,13 +8,10 @@ import FitnessAppDevelopmentSetupSection from "@/components/FitnessAppDevelopmen
 import FitnessAppDevelopmentFaqSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentFaqSection";
 import FitnessBanner from "@/components/FitnessBanner/FitnessBanner";
 import FitnessTechnologySuiteSection from "@/components/FitnessTechnologySuiteSection/FitnessTechnologySuiteSection";
-import {
-  BlogSection,
-  CTASection,
-  MarqueeSliderSection,
-  TestimonialSection,
-} from "@/lib/lazySections";
+import { BlogSection, CTASection, TestimonialSection } from "@/lib/lazySections";
 import FitnessFeaturesSection from "@/components/FitnessFeaturesSection/FitnessFeaturesSection";
+
+import styles from "./page.module.css";
 
 export const metadata = {
   title: "Fitness App Development | Apex Labs",
@@ -26,20 +23,21 @@ export default function FitnessAppDevelopmentPage() {
   return (
     <>
       <FitnessBanner />
-      <FitnessAppDevelopmentOperationsSection />
-      <FitnessAppDevelopmentPlatformSection />
-      <FitnessAppDevelopmentSetupSection />
-      <FitnessFeaturesSection />
-      <FitnessTechnologySuiteSection />
-      <FitnessAppDevelopmentFulfillmentSection />
-      <FitnessAppDevelopmentMarketingSection />
-      <FitnessAppDevelopmentIntegrationsSection />
-      {/* <MarqueeSliderSection /> */}
-      <FitnessAppDevelopmentOutcomesSection />
-      <TestimonialSection sectionPadding80 sectionPaddingTopZero />
-      <FitnessAppDevelopmentFaqSection />
-      <BlogSection sectionPadding80 />
-      <CTASection sectionPadding80 />
+      <div className={styles.pageSectionStack}>
+        <FitnessAppDevelopmentOperationsSection />
+        <FitnessAppDevelopmentPlatformSection />
+        <FitnessAppDevelopmentSetupSection />
+        <FitnessFeaturesSection />
+        <FitnessTechnologySuiteSection />
+        <FitnessAppDevelopmentFulfillmentSection />
+        <FitnessAppDevelopmentMarketingSection />
+        <FitnessAppDevelopmentIntegrationsSection />
+        <FitnessAppDevelopmentOutcomesSection />
+        <TestimonialSection sectionPadding80 />
+        <FitnessAppDevelopmentFaqSection />
+        <BlogSection sectionPadding80 />
+        <CTASection sectionPadding80 />
+      </div>
     </>
   );
 }

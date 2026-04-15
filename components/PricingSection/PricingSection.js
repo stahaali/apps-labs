@@ -201,6 +201,8 @@ export default function PricingSection({
   /** `/pricing` route: fixed top inset below dark banner (wins over `noTopPadding`) */
   pricingPageTopPadding = false,
   sectionPadding84 = false,
+  /** Home (`/`): ≤576px outer `<section>` padding-top 40px (see `.homePricingOuterMobileTop40`) */
+  homeMobileOuterTop40 = false,
   quoteHref = "#cta-heading",
   titleAs: TitleTag = "h2",
   /** Hide green “Pricing” pill when a page-level banner already shows it */
@@ -217,7 +219,13 @@ export default function PricingSection({
 
   return (
     <section
-      className={`relative bg-[#FDF7EC] ${sectionVerticalClass}`}
+      className={[
+        "relative bg-[#FDF7EC]",
+        sectionVerticalClass,
+        homeMobileOuterTop40 && styles.homePricingOuterMobileTop40,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       aria-labelledby="pricing-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

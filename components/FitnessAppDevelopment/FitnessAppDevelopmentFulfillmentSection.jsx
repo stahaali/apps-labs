@@ -147,8 +147,11 @@ export default function FitnessAppDevelopmentFulfillmentSection() {
   );
 
   return (
-    <section className={styles.section} aria-labelledby={headingId}>
-      <div className={pageStyles.inner}>
+    <section
+      className={`${styles.section} fitnessFulfillmentSection`}
+      aria-labelledby={headingId}
+    >
+      <div className={`${pageStyles.inner} fitnessFulfillmentInnerFlush`}>
         <div className={pageStyles.split}>
           <AnimateOnView variant="fadeUp">{textBlock}</AnimateOnView>
           <AnimateOnView variant="fadeUp" delayMs={80}>

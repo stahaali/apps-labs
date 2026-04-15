@@ -23,39 +23,43 @@ import {
   TestimonialSection,
 } from "@/lib/lazySections";
 
+import styles from "./page.module.css";
+
 export default function EcommerceAppDevelopmentPage() {
   return (
     <>
       <EcommerceBanner />
-      <EcommerceAppDevelopmentSplitHero
-        content={ECOMMERCE_SPLIT_HERO_SECOND}
-        headingId="ecommerce-split-hero-secondary"
-        headingLevel="h2"
-        sectionVariant="alt"
-        reverseColumns
-      />
-      <EcommerceAppDevelopmentSplitHero
-        content={ECOMMERCE_WEBSITE_MOBILE_PLATFORM}
-        headingId="ecommerce-split-hero-primary"
-        headingLevel="h1"
-        priorityImage
-      />
-      <EcommerceAppDevelopmentFreeSetupSection />
-      {/* <EcommerceIndustrySection /> */}
-      <EcommerceTechFeaturesShell />
-      {/* <EcommerceTechBoostSection /> */}
-      <EcommerceAppDevelopmentFulfillmentSection />
-      <EcommerceAppDevelopmentMarketingSection />
-      <EcommerceAppDevelopmentIntegrationsSection />
-      {/* <MarqueeSliderSection /> */}
-      <EcommerceAppDevelopmentOutcomesSection />
-      <TestimonialSection />
-      <EcommerceAppDevelopmentFaqSection />
-      <BlogSection />
-      <CTASection />
-      {/* <OurPortfolioSection /> */}
-      {/* <EcommerceTechStackSection /> */}
-      {/* <PricingSection /> */}
+      <div className={styles.pageSectionStack}>
+        <EcommerceAppDevelopmentSplitHero
+          content={ECOMMERCE_SPLIT_HERO_SECOND}
+          headingId="ecommerce-split-hero-secondary"
+          headingLevel="h2"
+          sectionVariant="alt"
+          reverseColumns
+        />
+        <EcommerceAppDevelopmentSplitHero
+          content={ECOMMERCE_WEBSITE_MOBILE_PLATFORM}
+          headingId="ecommerce-split-hero-primary"
+          headingLevel="h1"
+          priorityImage
+        />
+        <EcommerceAppDevelopmentFreeSetupSection />
+        {/* <EcommerceIndustrySection /> */}
+        <EcommerceTechFeaturesShell />
+        {/* <EcommerceTechBoostSection /> */}
+        <EcommerceAppDevelopmentFulfillmentSection />
+        <EcommerceAppDevelopmentMarketingSection />
+        <EcommerceAppDevelopmentIntegrationsSection />
+        {/* <MarqueeSliderSection /> */}
+        <EcommerceAppDevelopmentOutcomesSection />
+        <TestimonialSection />
+        <EcommerceAppDevelopmentFaqSection />
+        <BlogSection />
+        <CTASection />
+        {/* <OurPortfolioSection /> */}
+        {/* <EcommerceTechStackSection /> */}
+        {/* <PricingSection /> */}
+      </div>
     </>
   );
 }

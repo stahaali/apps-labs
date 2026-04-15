@@ -71,7 +71,9 @@ export default function EcommerceAppDevelopmentIntegrationsSection() {
       className={`${pageStyles.sectionCream} ${pageStyles.sectionNoPaddingTop}`}
       aria-labelledby="ecommerce-integrations-heading"
     >
-      <div className={pageStyles.inner}>
+      <div
+        className={`${pageStyles.inner} ecommerceIntegrationsInnerMobileFlushTop`}
+      >
         <header className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Integrations

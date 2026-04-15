@@ -2,13 +2,21 @@ import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
 import BackToTop from "@/components/BackToTop/BackToTop";
 import Header from "@/components/Header";
-import { LeadFormModalProvider } from "@/components/LeadFormModal/LeadFormModalProvider";
 import "./globals.css";
 import "@/styles/style.css";
 
 const ContactFooterSection = dynamic(
   () => import("@/components/ContactFooterSection/ContactFooterSection"),
   { loading: () => <div className="min-h-[100px] bg-[#050505]" aria-hidden /> }
+);
+
+/** Large client surface (drawer + validation); split from main layout chunk. */
+const LeadFormModalProvider = dynamic(
+  () =>
+    import("@/components/LeadFormModal/LeadFormModalProvider").then(
+      (mod) => mod.LeadFormModalProvider
+    ),
+  { ssr: true }
 );
 
 const manrope = Manrope({

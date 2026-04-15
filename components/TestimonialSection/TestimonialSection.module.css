@@ -280,6 +280,12 @@
     padding-top: 0;
     padding-bottom: 80px;
   }
+
+  /* Home only: outer `<section>` top rhythm (`HomeClientTestimonial`) */
+  .section.homeTestimonialOuterMobileTop40 {
+    padding-top: 40px !important;
+  }
+
   .grid
   {
     gap:0px;

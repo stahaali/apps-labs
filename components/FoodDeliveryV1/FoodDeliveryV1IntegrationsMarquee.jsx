@@ -70,10 +70,12 @@ export default function FoodDeliveryV1IntegrationsMarquee() {
   return (
     <section
       id="fd-v1-integrations"
-      className={`${pageStyles.sectionCream} ${pageStyles.sectionNoPaddingTop}`}
+      className={`${pageStyles.sectionCream} ${pageStyles.sectionNoPaddingTop} ${pageStyles.fdV1IntegrationsMobileSectionFlushTop}`}
       aria-labelledby="fd-v1-int-heading"
     >
-      <div className={pageStyles.inner}>
+      <div
+        className={`${pageStyles.inner} innerMobileFlushTop`}
+      >
         <header className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Integrations

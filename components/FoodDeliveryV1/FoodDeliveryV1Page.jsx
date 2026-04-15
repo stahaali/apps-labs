@@ -63,7 +63,7 @@ function CheckBullet() {
   );
 }
 
-function SplitFeature({ section, cream, noPaddingTop }) {
+function SplitFeature({ section, cream, noPaddingTop, freeSetupMobileInnerTopZero }) {
   const {
     eyebrow,
     headline,
@@ -132,9 +132,16 @@ function SplitFeature({ section, cream, noPaddingTop }) {
     </div>
   );
 
+  const innerClass = [
+    styles.inner,
+    freeSetupMobileInnerTopZero && "innerMobileFlushTop",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <section className={sectionClass} aria-labelledby={headingId}>
-      <div className={styles.inner}>
+      <div className={innerClass}>
         <div
           className={[styles.split, imageLeft && styles.splitStackFlipSm]
             .filter(Boolean)
@@ -170,7 +177,7 @@ export default function FoodDeliveryV1Page() {
 
       <SplitFeature section={ops} cream />
       <SplitFeature section={platform} cream={false} />
-      <SplitFeature section={setup} cream noPaddingTop />
+      <SplitFeature section={setup} cream noPaddingTop freeSetupMobileInnerTopZero />
 
       {/* <FoodDeliveryV1CenterSlider content={FOOD_DELIVERY_V1_GALLERY_SLIDER} /> */}
 
@@ -221,8 +228,11 @@ export default function FoodDeliveryV1Page() {
       {/* Same reviews block as homepage (`HomeClientTestimonial` → TestimonialSection) */}
       <TestimonialSection />
 
-      <section className={styles.sectionLavender} aria-labelledby="fd-v1-faq-heading">
-        <div className={styles.inner}>
+      <section
+        className={`${styles.sectionLavender} ${styles.fdV1FaqMobileFlushTop}`}
+        aria-labelledby="fd-v1-faq-heading"
+      >
+        <div className={`${styles.inner} innerMobileFlushTop`}>
           <AnimateOnView
             variant="fadeUp"
             className={`${SECTION_HEAD} max-[576px]:mx-[15px]`}

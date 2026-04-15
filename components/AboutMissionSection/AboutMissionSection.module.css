@@ -72,3 +72,13 @@
   transform: translate(1px, -1px);
   filter: brightness(1.05);
 }
+
+@media(max-width:576px)
+{
+  .lavenderPanel
+  {
+    padding-top:40px;
+    padding-bottom:40px;
+    object-fit: contain;
+  }
+}

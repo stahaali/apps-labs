@@ -1,5 +1,3 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import MarqueeSliderSection from "@/components/MarqueeSliderSection/MarqueeSliderSection";
 
@@ -13,5 +11,5 @@ export function HomeClientMarquee() {
 }
 
 export function HomeClientTestimonial() {
-  return <TestimonialSection />;
+  return <TestimonialSection homeMobileOuterTop40 />;
 }

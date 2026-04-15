@@ -94,7 +94,7 @@ export default function FitnessAppDevelopmentOperationsSection() {
 
   return (
     <section className={styles.section} aria-labelledby={headingId}>
-      <div className={pageStyles.inner}>
+      <div className={`${pageStyles.inner} fitnessOperationsInnerFlush`}>
         <div
           className={`${pageStyles.split} ${pageStyles.splitStackFlipSm}`}
         >

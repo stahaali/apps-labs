@@ -271,4 +271,7 @@
   .statCounterLabel {
     font-size: 11px !important;
   }
+  .inner {
+    padding-bottom:5.5rem;
+  }
 }

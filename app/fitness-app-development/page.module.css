@@ -1,0 +1,45 @@
+/**
+ * /fitness-app-development — post-hero sections: uniform vertical rhythm on small viewports.
+ */
+@media (max-width: 576px) {
+  .pageSectionStack > section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Free Setup (Fitness App Setup): fixed top / flush bottom on mobile. */
+  .pageSectionStack > :global(section.fitnessFreeSetupSection) {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pageSectionStack :global(.fitnessFreeSetupInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Platform (Website & mobile app): drop `.inner` top pad — section already has page rhythm. */
+  .pageSectionStack :global(.fitnessPlatformInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Operations (Fitness Apps): section top 40px — strip shared `.inner` top so it is not doubled. */
+  .pageSectionStack :global(.fitnessOperationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Fulfillment: flush top on mobile (page stack + `.inner`). */
+  .pageSectionStack > :global(section.fitnessFulfillmentSection) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessFulfillmentInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Technology suite — explicit mobile top rhythm */
+  .pageSectionStack > :global(section.fitnessTechnologySuiteSection) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}

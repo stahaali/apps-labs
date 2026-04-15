@@ -71,6 +71,8 @@ export default function TestimonialSection({
   sectionPadding80 = false,
   /** Use with `sectionPadding80` — removes top gap (e.g. fitness page under outcomes). */
   sectionPaddingTopZero = false,
+  /** Home (`/` via `HomeClientTestimonial`): ≤576px outer section padding-top 40px */
+  homeMobileOuterTop40 = false,
 }) {
   return (
     <section
@@ -78,6 +80,7 @@ export default function TestimonialSection({
         styles.section,
         sectionPadding80 && styles.sectionPadding80,
         sectionPadding80 && sectionPaddingTopZero && styles.sectionPaddingTopZero,
+        homeMobileOuterTop40 && styles.homeTestimonialOuterMobileTop40,
       ]
         .filter(Boolean)
         .join(" ")}

@@ -1,0 +1,15 @@
+/**
+ * /ecommerce-app-development — post-banner blocks: uniform vertical rhythm on small viewports.
+ */
+@media (max-width: 576px) {
+  .pageSectionStack > section,
+  .pageSectionStack > :global(.ecommerceFeaturesTechBand) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Integrations band: strip `.inner` top padding (FoodDeliveryV1 inner uses 40px on mobile). */
+  .pageSectionStack :global(.ecommerceIntegrationsInnerMobileFlushTop) {
+    padding-top: 0 !important;
+  }
+}

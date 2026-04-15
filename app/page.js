@@ -1,9 +1,9 @@
 import HeroBanner from "@/components/HeroBanner";
-import IndustrySolutionsSection from "@/components/IndustrySolutionsSection/IndustrySolutionsSection";
 import {
   BlogSection,
   ClientLogosSection,
   CTASection,
+  IndustrySolutionsSection,
   OurPortfolioSection,
   PricingSection,
   ReadyToTransformSection,
@@ -33,7 +33,7 @@ export default function Home() {
       <HomeClientMarquee />
       <CTASection />
       <ClientLogosSection />
-      <PricingSection />
+      <PricingSection homeMobileOuterTop40 />
       <HomeClientTestimonial />
       <BlogSection />
     </>
