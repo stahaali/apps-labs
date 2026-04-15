@@ -10,6 +10,7 @@ import EcommerceTechFeaturesShell from "@/components/EcommerceAppDevelopment/Eco
 import EcommerceAppDevelopmentFaqSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentFaqSection";
 import EcommerceAppDevelopmentIntegrationsSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentIntegrationsSection";
 import EcommerceAppDevelopmentMarketingSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentMarketingSection";
+import EcommerceAppDevelopmentOutcomesSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentOutcomesSection";
 import EcommerceAppDevelopmentFulfillmentSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentFulfillmentSection";
 import EcommerceAppDevelopmentFreeSetupSection from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentFreeSetupSection";
 import {
@@ -47,6 +48,7 @@ export default function EcommerceAppDevelopmentPage() {
       <EcommerceAppDevelopmentMarketingSection />
       <EcommerceAppDevelopmentIntegrationsSection />
       {/* <MarqueeSliderSection /> */}
+      <EcommerceAppDevelopmentOutcomesSection />
       <TestimonialSection />
       <EcommerceAppDevelopmentFaqSection />
       <BlogSection />

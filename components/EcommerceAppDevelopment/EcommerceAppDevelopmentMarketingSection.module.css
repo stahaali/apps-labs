@@ -1,0 +1,9 @@
+/* /ecommerce-app-development — Marketing Tools band only */
+.marketingSection {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: linear-gradient(#e8ecff, #fdf7ec);
+  padding-top: 80px;
+  padding-bottom: 84px;
+}

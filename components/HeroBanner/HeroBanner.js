@@ -31,7 +31,7 @@ function HeroBannerVisual() {
     <div className={styles.visualRoot}>
       <div className={styles.visualFrame}>
         <div
-          className={`${styles.shadowWrap} absolute right-0 top-1/2 z-0 w-[min(132%,820px)] max-w-none -translate-y-1/2`}
+          className={`${styles.shadowWrap} absolute right-0 top-1/2 z-0 w-[min(145%,980px)] max-w-none -translate-y-1/2`}
           aria-hidden
         >
           <Image
@@ -39,7 +39,7 @@ function HeroBannerVisual() {
             alt=""
             width={900}
             height={900}
-            sizes="(max-width: 767px) 90vw, 820px"
+            sizes="(max-width: 767px) 90vw, 980px"
             className={`select-none object-contain ${styles.shadowGlow}`}
             style={{ width: "100%", height: "auto" }}
             loading="lazy"
@@ -55,9 +55,8 @@ function HeroBannerVisual() {
             alt="Apex Labs mobile applications on phone mockups"
             width={680}
             height={740}
-            sizes="(max-width: 767px) 90vw, 640px"
-            className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
-            style={{ width: "100%", height: "auto" }}
+            sizes="(max-width: 767px) 90vw, 840px"
+            className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)] min-w-[700px] max-w-[700px]"
             priority
             fetchPriority="high"
             darkBackground

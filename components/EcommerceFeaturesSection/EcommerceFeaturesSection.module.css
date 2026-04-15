@@ -2,23 +2,21 @@
   position: relative;
   width: 100%;
   overflow-x: clip;
-  padding-top: 0;
-  padding-bottom: 3rem;
-  /* Background from parent `EcommerceTechFeaturesShell` gradient */
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background:linear-gradient(#e8ecff, #fdf7ec);
   background-color: transparent;
 }
 
 @media (min-width: 640px) {
   .ecommerceFeaturesSection {
-    padding-top: 0;
     padding-bottom: 3.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .ecommerceFeaturesSection {
-    padding-top: 0;
-    padding-bottom: 4rem;
+    padding-bottom: 80px;
   }
 }
 

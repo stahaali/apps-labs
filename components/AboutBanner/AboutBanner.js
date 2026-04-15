@@ -75,7 +75,7 @@ export default function AboutBanner() {
             <div className={styles.visualRoot}>
               <div className={styles.visualFrame}>
                 <div
-                  className={`${styles.shadowWrap} absolute right-0 top-1/2 z-0 w-[min(132%,820px)] max-w-none -translate-y-1/2`}
+                  className={`${styles.shadowWrap} absolute right-0 top-1/2 z-0 w-[min(145%,980px)] max-w-none -translate-y-1/2`}
                   aria-hidden
                 >
                   <Image
@@ -83,7 +83,7 @@ export default function AboutBanner() {
                     alt=""
                     width={900}
                     height={900}
-                    sizes="(max-width: 767px) 90vw, 820px"
+                    sizes="(max-width: 767px) 90vw, 980px"
                     className={`select-none object-contain ${styles.shadowGlow}`}
                     style={{ width: "100%", height: "auto" }}
                     loading="lazy"
@@ -99,8 +99,8 @@ export default function AboutBanner() {
                     alt="Apex Labs team and mobile app work"
                     width={680}
                     height={740}
-                    sizes="(max-width: 767px) 90vw, 640px"
-                    className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                    sizes="(max-width: 767px) 90vw, 840px"
+                    className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)] min-w-[700px] max-w-[700px]"
                     style={{ width: "100%", height: "auto" }}
                     priority
                     fetchPriority="high"

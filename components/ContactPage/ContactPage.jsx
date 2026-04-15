@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import GreenButton from "@/components/GreenButton/GreenButton";
-import HeroBannerNoiseOverlay from "@/components/HeroBanner/HeroBannerNoiseOverlay";
 import ContactFaq from "./ContactFaq";
 import styles from "./ContactPage.module.css";
 
@@ -50,13 +49,14 @@ const textareaLight =
 export default function ContactPage() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Dark hero — dashed grid + noise (same stack as home) */}
+      {/* Dark hero — 400px grid band, content vertically centered */}
       <section
-        className={`${styles.contactHero} px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
+        className={`${styles.contactHero400} px-4 min-[480px]:px-6 sm:px-10`}
         aria-labelledby="contact-page-title"
       >
-        {/* <HeroBannerNoiseOverlay /> */}
-        <div className={`${styles.contactHeroInner} mx-auto max-w-[1200px] text-center`}>
+        <div
+          className={`${styles.contactHero400Inner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
+        >
           <span
             className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"
             style={{ backgroundColor: PRIMARY }}

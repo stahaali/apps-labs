@@ -3,6 +3,7 @@ import GreenButton from "@/components/GreenButton/GreenButton";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import { ECOMMERCE_APP_DEVELOPMENT_MARKETING } from "@/lib/ecommerceAppDevelopmentMarketing";
 import pageStyles from "@/components/FoodDeliveryV1/FoodDeliveryV1.module.css";
+import styles from "./EcommerceAppDevelopmentMarketingSection.module.css";
 
 const THEME_PILL =
   "mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm";
@@ -73,10 +74,7 @@ export default function EcommerceAppDevelopmentMarketingSection() {
   );
 
   return (
-    <section
-      className={`${pageStyles.sectionCream} ${pageStyles.sectionNoPaddingTop}`}
-      aria-labelledby={headingId}
-    >
+    <section className={styles.marketingSection} aria-labelledby={headingId}>
       <div className={pageStyles.inner}>
         <div
           className={`${pageStyles.split} ${pageStyles.splitStackFlipSm}`}

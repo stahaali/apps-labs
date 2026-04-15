@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
 import BackToTop from "@/components/BackToTop/BackToTop";
-import ConsultationEdgeTab from "@/components/ConsultationEdgeTab/ConsultationEdgeTab";
 import Header from "@/components/Header";
 import { LeadFormModalProvider } from "@/components/LeadFormModal/LeadFormModalProvider";
 import "./globals.css";
@@ -53,7 +52,6 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <ContactFooterSection />
-          <ConsultationEdgeTab />
           <BackToTop />
         </LeadFormModalProvider>
       </body>

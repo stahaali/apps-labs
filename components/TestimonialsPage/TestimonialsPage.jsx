@@ -1,5 +1,4 @@
 import Link from "next/link";
-import HeroBannerNoiseOverlay from "@/components/HeroBanner/HeroBannerNoiseOverlay";
 import ContactFaq from "@/components/ContactPage/ContactFaq";
 import contactStyles from "@/components/ContactPage/ContactPage.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
@@ -54,12 +53,11 @@ export default function TestimonialsPage() {
   return (
     <main className="flex min-h-screen flex-col">
       <section
-        className={`${contactStyles.contactHero} px-4 pb-14 pt-[calc(72px+2.5rem)] min-[480px]:px-6 sm:px-10 sm:pb-16 sm:pt-[calc(72px+3rem)] lg:pb-20 lg:pt-[calc(72px+4rem)]`}
+        className={`${contactStyles.contactHero400} px-4 min-[480px]:px-6 sm:px-10`}
         aria-labelledby="testimonials-page-title"
       >
-        {/* <HeroBannerNoiseOverlay /> */}
         <div
-          className={`${contactStyles.contactHeroInner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
+          className={`${contactStyles.contactHero400Inner} mx-auto max-w-[1200px] max-[576px]:max-w-[350px] text-center`}
         >
           <span
             className="inline-flex rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white sm:text-xs"

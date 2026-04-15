@@ -2,14 +2,9 @@
   position: relative;
   width: 100%;
   overflow-x: clip;
-  background: linear-gradient(to bottom, #fff8f2, #faf9f6);
+  background: linear-gradient(#e8ecff, #fdf7ec);
   padding-top: clamp(3rem, 6vw, 5.25rem);
   padding-bottom: clamp(3rem, 6vw, 5.25rem);
-}
-
-/* Second split row — subtle cool tint so back-to-back heroes don’t feel identical */
-.sectionAlt {
-  background: linear-gradient(to bottom, #f3f5fc, #faf9f6);
 }
 
 .splitTopAlign {

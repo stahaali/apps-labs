@@ -12,13 +12,13 @@
 .sectionCream {
   composes: sectionBase;
   background: #fdf7ec;
-  padding-top: 84px;
+  padding-top: 0;
   padding-bottom: 84px;
 }
 
 .sectionLavender {
   composes: sectionBase;
-  background: linear-gradient(180deg, #f4f6ff 0%, #fdf7ec 100%);
+  background: #fdf7ec;
   padding-top: 84px;
   padding-bottom: 84px;
 }

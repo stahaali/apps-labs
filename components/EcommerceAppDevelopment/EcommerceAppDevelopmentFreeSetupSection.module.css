@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   overflow-x: clip;
-  background: linear-gradient(to bottom, #e8ecff, #fdf7ec);
+  background: #FDF7EC;
   padding: 0;
 }
 
@@ -11,11 +11,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 0;
   padding-bottom: 80px;
 }
 
-/* Top-align copy + image so “Free Setup” badge lines up with image top; rowsWrap pt-80 applies evenly */
+/* Top-align copy + image; no top padding on this page’s “Free Setup” block */
 .splitTopAlign {
   align-items: start;
 }

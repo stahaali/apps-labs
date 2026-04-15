@@ -1,9 +1,31 @@
-/* Fixed right-edge tab — opens lead drawer (same as Get Started) */
-.tab {
+/* SideForm-style host: fixed to viewport; inner unit slides with translateX(100%) so the left tab stays peeking */
+.shell {
   position: fixed;
-  right: 0;
   top: 50%;
-  z-index: 400;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 10040;
+  pointer-events: none;
+}
+
+.slideWrap {
+  position: relative;
+  width: min(88vw, 360px);
+  max-width: 90vw;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  pointer-events: auto;
+}
+
+.slideWrapOpen {
+  transform: translateX(0);
+}
+
+.tab {
+  position: absolute;
+  top: 50%;
+  left: -34px;
+  z-index: 2;
   translate: 0 -50%;
   display: flex;
   align-items: center;
@@ -21,10 +43,7 @@
   text-transform: uppercase;
   line-height: 1.25;
   cursor: pointer;
-  box-shadow:
-    -4px 4px 24px -6px rgba(0, 0, 0, 0.22),
-    -2px 0 0 rgba(112, 170, 38, 0.35);
-  transition:
+   transition:
     filter var(--site-btn-duration, 0.2s) var(--site-btn-ease, ease),
     box-shadow var(--site-btn-duration, 0.2s) var(--site-btn-ease, ease);
 }
@@ -46,12 +65,18 @@
   outline-offset: 2px;
 }
 
-/* Vertical copy, reads upward along the right edge (matches common “sticky tab” pattern) */
-.label {
+.tabLabel {
   display: block;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .tab {
+    left: -35px;
+    padding: 1.5rem 0.45rem;
+  }
 }
 
 @media (max-width: 380px) {
@@ -62,7 +87,7 @@
 }
 
 @media print {
-  .tab {
-    display: none;
+  .shell {
+    display: none !important;
   }
 }

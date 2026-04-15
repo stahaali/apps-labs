@@ -42,6 +42,8 @@ function securityHeaders() {
         "img-src 'self' data: blob: https:",
         "font-src 'self' data:",
         "connect-src 'self'",
+        // Contact page map iframe (maps.google.com); default-src would otherwise block all embeds
+        "frame-src 'self' https://www.google.com https://maps.google.com",
         "object-src 'none'",
         "media-src 'self'",
         "frame-ancestors 'none'",
