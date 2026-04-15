@@ -74,8 +74,11 @@ export default function FitnessAppDevelopmentMarketingSection() {
   );
 
   return (
-    <section className={styles.marketingSection} aria-labelledby={headingId}>
-      <div className={pageStyles.inner}>
+    <section
+      className={`${styles.marketingSection} fitnessMarketingSectionMobilePad40`}
+      aria-labelledby={headingId}
+    >
+      <div className={`${pageStyles.inner} fitnessMarketingInnerFlush`}>
         <div
           className={`${pageStyles.split} ${pageStyles.splitStackFlipSm}`}
         >

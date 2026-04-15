@@ -281,7 +281,7 @@ function PhoneMockup() {
 export default function FitnessTechnologySuiteSection() {
   return (
     <section
-      className={`relative w-full overflow-x-clip ${styles.fitnessTechnologySuite} fitnessTechnologySuiteSection`}
+      className={`relative w-full overflow-x-clip ${styles.fitnessTechnologySuite} fitnessTechnologySuiteSection fitnessTechnologySuiteMobileFlushTop`}
       aria-labelledby="fitness-technology-suite-heading"
     >
 

@@ -37,9 +37,45 @@
     padding-top: 0 !important;
   }
 
-  /* Technology suite — explicit mobile top rhythm */
-  .pageSectionStack > :global(section.fitnessTechnologySuiteSection) {
+  /* Technology suite — flush top on mobile (opt-in class on `<section>`). */
+  .pageSectionStack > :global(section.fitnessTechnologySuiteMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Outcomes — 40px vertical band; strip shared `.inner` top so it is not doubled. */
+  .pageSectionStack > :global(section.fitnessOutcomesSectionMobilePad40) {
     padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessOutcomesInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Integrations — flush top on mobile (page stack + shared `.inner`). */
+  .pageSectionStack > :global(section.fitnessIntegrationsSectionMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessIntegrationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Marketing Tools — 40px vertical band; strip shared `.inner` top so it is not doubled. */
+  .pageSectionStack > :global(section.fitnessMarketingSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessMarketingInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  /* Testimonials (Reviews) — flush top on mobile. */
+  .pageSectionStack > :global(section.fitnessTestimonialMobileFlushTop) {
+    padding-top: 0 !important;
     padding-bottom: 40px !important;
   }
 }

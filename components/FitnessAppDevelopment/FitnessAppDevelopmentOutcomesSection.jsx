@@ -14,8 +14,11 @@ export default function FitnessAppDevelopmentOutcomesSection() {
   const headingId = "fitness-outcomes-heading";
 
   return (
-    <section className={styles.outcomesSection} aria-labelledby={headingId}>
-      <div className={pageStyles.inner}>
+    <section
+      className={`${styles.outcomesSection} fitnessOutcomesSectionMobilePad40`}
+      aria-labelledby={headingId}
+    >
+      <div className={`${pageStyles.inner} fitnessOutcomesInnerFlush`}>
         <AnimateOnView variant="fadeUp" className={SECTION_HEAD}>
           <span className={THEME_PILL}>{eyebrow}</span>
           <h2 id={headingId} className={THEME_H2}>

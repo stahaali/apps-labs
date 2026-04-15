@@ -33,7 +33,7 @@ export default function FitnessAppDevelopmentPage() {
         <FitnessAppDevelopmentMarketingSection />
         <FitnessAppDevelopmentIntegrationsSection />
         <FitnessAppDevelopmentOutcomesSection />
-        <TestimonialSection sectionPadding80 />
+        <TestimonialSection sectionPadding80 fitnessPageMobileFlushTop />
         <FitnessAppDevelopmentFaqSection />
         <BlogSection sectionPadding80 />
         <CTASection sectionPadding80 />

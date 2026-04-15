@@ -68,8 +68,11 @@ export default function FitnessAppDevelopmentIntegrationsSection() {
   const { subtitle, headline } = FITNESS_APP_DEVELOPMENT_INTEGRATIONS;
 
   return (
-    <section className={bandStyles.section} aria-labelledby="fitness-integrations-heading">
-      <div className={pageStyles.inner}>
+    <section
+      className={`${bandStyles.section} fitnessIntegrationsSectionMobileFlushTop`}
+      aria-labelledby="fitness-integrations-heading"
+    >
+      <div className={`${pageStyles.inner} fitnessIntegrationsInnerFlush`}>
         <header className="mx-auto max-w-[900px] text-center">
           <span className="mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm">
             Integrations
