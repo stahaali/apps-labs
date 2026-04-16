@@ -34,13 +34,13 @@ export default function FitnessBanner() {
               <span className={styles.headlineAccent}>Fitness App Development</span>
               <span className={styles.headlineSub}>For Growing Brands</span>
             </h1>
-            <p className={styles.lead}>
+            <p className={`${styles.lead} text-neutral-400`}>
               From concept to user engagement. We design and build branded fitness mobile apps and web experiences that
               help you deliver better workouts, stronger retention, and seamless digital fitness journeys.
             </p>
             <ul className={styles.bulletList}>
               {BULLETS.map((item) => (
-                <li key={item} className={styles.bulletItem}>
+                <li key={item} className={`${styles.bulletItem} text-neutral-400`}>
                   <CheckBullet />
                   <span>{item}</span>
                 </li>
@@ -67,8 +67,8 @@ export default function FitnessBanner() {
                     alt="Fitness app on phone mockups with workouts and member experiences"
                     width={720}
                     height={640}
-                    sizes="(max-width: 767px) min(92vw, 520px), (max-width: 1023px) 45vw, 480px"
-                    className="w-full max-w-[min(100%,520px)] select-none object-contain object-center drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                    sizes="(max-width: 767px) min(92vw, 480px), (max-width: 1023px) 48vw, min(600px, 42vw)"
+                    className="w-full max-w-full select-none object-contain object-center drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
                     style={{ height: "auto" }}
                     priority
                     fetchPriority="high"

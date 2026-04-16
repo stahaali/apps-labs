@@ -75,6 +75,10 @@ export default function TestimonialSection({
   homeMobileOuterTop40 = false,
   /** `/fitness-app-development`: ≤576px flush outer top via `page.module.css` hook. */
   fitnessPageMobileFlushTop = false,
+  /** `/logistics-transportation`: same mobile flush hook as fitness vertical pages. */
+  logisticsPageMobileFlushTop = false,
+  /** `/about`: from 768px, equal 80px top/bottom outer section padding */
+  aboutPageTabletPadding80 = false,
 }) {
   return (
     <section
@@ -83,7 +87,9 @@ export default function TestimonialSection({
         sectionPadding80 && styles.sectionPadding80,
         sectionPadding80 && sectionPaddingTopZero && styles.sectionPaddingTopZero,
         homeMobileOuterTop40 && styles.homeTestimonialOuterMobileTop40,
+        aboutPageTabletPadding80 && styles.aboutTestimonialTabletPadding80,
         fitnessPageMobileFlushTop && "fitnessTestimonialMobileFlushTop",
+        logisticsPageMobileFlushTop && "logisticsTestimonialMobileFlushTop",
       ]
         .filter(Boolean)
         .join(" ")}

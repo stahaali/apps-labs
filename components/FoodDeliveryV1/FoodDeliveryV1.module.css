@@ -13,13 +13,18 @@
   composes: sectionBase;
   background: #fdf7ec;
   padding-top: 0;
-  padding-bottom: 80px;
+  padding-bottom: 75px;
+}
+
+/* First split under hero (“Online ordering” / operations) — breathing room from hero */
+.sectionPaddingTop80 {
+  padding-top: 80px;
 }
 
 .sectionLavender {
   composes: sectionBase;
   background: #fdf7ec;
-  padding-top: 80px;
+  padding-top: 0;
   padding-bottom: 80px;
 }
 
@@ -36,6 +41,11 @@
 .sectionLavender.sectionNoPaddingTop,
 .sectionWhite.sectionNoPaddingTop {
   padding-top: 0;
+}
+
+/* “Free setup” split only — flush to next band */
+.sectionPaddingBottomZero {
+  padding-bottom: 80px;
 }
 
 @media (max-width: 576px) {
@@ -355,4 +365,36 @@
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* iPad Pro viewport: operations band — slightly wider image column (left) */
+@media (width: 1024px) {
+  .fdV1OperationsBand .split {
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
+    gap: 2.25rem;
+  }
+}
+
+/* iPad portrait viewport: operations band — slightly narrower stacked image */
+@media (width: 768px) {
+  .fdV1OperationsBand .split > :first-child .imageCard {
+    max-width: min(540px, 86%);
+    margin-inline: auto;
+  }
+}
+
+/* iPad portrait viewport (768px only): platform band — image above copy, narrower graphic */
+@media (width: 768px) {
+  .fdV1PlatformBand .split > :first-child {
+    order: 2;
+  }
+
+  .fdV1PlatformBand .split > :nth-child(2) {
+    order: 1;
+  }
+
+  .fdV1PlatformBand .split .imageCard {
+    max-width: min(540px, 86%);
+    margin-inline: auto;
+  }
 }

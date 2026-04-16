@@ -36,7 +36,7 @@ export default function AboutPage() {
       />
       <TechStackSection />
       <PricingSection noTopPadding />
-      <TestimonialSection />
+      <TestimonialSection aboutPageTabletPadding80 />
       <BlogSection />
     </>
   );

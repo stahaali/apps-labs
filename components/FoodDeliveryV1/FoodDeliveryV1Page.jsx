@@ -63,7 +63,14 @@ function CheckBullet() {
   );
 }
 
-function SplitFeature({ section, cream, noPaddingTop, freeSetupMobileInnerTopZero }) {
+function SplitFeature({
+  section,
+  cream,
+  noPaddingTop,
+  freeSetupMobileInnerTopZero,
+  paddingTop80,
+  paddingBottomZero,
+}) {
   const {
     eyebrow,
     headline,
@@ -78,7 +85,14 @@ function SplitFeature({ section, cream, noPaddingTop, freeSetupMobileInnerTopZer
   } = section;
   const panel = cream ? styles.sectionCream : styles.sectionLavender;
   const headingId = `fd-v1-${section.id}-heading`;
-  const sectionClass = [panel, noPaddingTop && styles.sectionNoPaddingTop]
+  const sectionClass = [
+    panel,
+    noPaddingTop && styles.sectionNoPaddingTop,
+    paddingTop80 && styles.sectionPaddingTop80,
+    paddingBottomZero && styles.sectionPaddingBottomZero,
+    section.id === "operations" && styles.fdV1OperationsBand,
+    section.id === "platform" && styles.fdV1PlatformBand,
+  ]
     .filter(Boolean)
     .join(" ");
 
@@ -175,9 +189,15 @@ export default function FoodDeliveryV1Page() {
     <div className={styles.v1PageShell}>
       <FoodDeliveryV1Hero />
 
-      <SplitFeature section={ops} cream />
+      <SplitFeature section={ops} cream paddingTop80 />
       <SplitFeature section={platform} cream={false} />
-      <SplitFeature section={setup} cream noPaddingTop freeSetupMobileInnerTopZero />
+      <SplitFeature
+        section={setup}
+        cream
+        noPaddingTop
+        freeSetupMobileInnerTopZero
+        paddingBottomZero
+      />
 
       {/* <FoodDeliveryV1CenterSlider content={FOOD_DELIVERY_V1_GALLERY_SLIDER} /> */}
 
@@ -199,13 +219,17 @@ export default function FoodDeliveryV1Page() {
           ...FOOD_DELIVERY_V1_MARKETING,
         }}
         cream={false}
+        noPaddingTop
       />
 
       <FoodDeliveryV1IntegrationsMarquee />
 
       {/* <FoodDeliveryV1HappyClients content={FOOD_DELIVERY_V1_HAPPY_CLIENTS} /> */}
 
-      <section className={styles.sectionLavender} aria-labelledby="fd-v1-stats-heading">
+      <section
+        className={`${styles.sectionLavender} ${styles.sectionNoPaddingTop}`}
+        aria-labelledby="fd-v1-stats-heading"
+      >
         <div className={styles.inner}>
           <AnimateOnView variant="fadeUp" className={SECTION_HEAD}>
             <span className={THEME_PILL}>Outcomes</span>
@@ -229,7 +253,7 @@ export default function FoodDeliveryV1Page() {
       <TestimonialSection />
 
       <section
-        className={`${styles.sectionLavender} ${styles.fdV1FaqMobileFlushTop}`}
+        className={`${styles.sectionLavender} ${styles.sectionNoPaddingTop} ${styles.fdV1FaqMobileFlushTop}`}
         aria-labelledby="fd-v1-faq-heading"
       >
         <div className={`${styles.inner} innerMobileFlushTop`}>

@@ -2,7 +2,7 @@
 .ecommerceBanner {
   position: relative;
   background-color: #000000;
-  min-height: 560px;
+  min-height: 740px;
   display: flex;
   flex-direction: column;
 }
@@ -19,7 +19,7 @@
 
 @media (min-width: 1024px) {
   .ecommerceBanner {
-    min-height: 864px;
+    min-height: 740px;
   }
 }
 
@@ -86,7 +86,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: min(100%, 460px);
+  max-width: min(100%, 520px);
   align-items: center;
   justify-content: center;
 }
@@ -95,12 +95,12 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: min(100%, 460px);
+  max-width: min(100%, 520px);
 }
 
 .headline {
   margin: 0;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -131,9 +131,8 @@
   margin: 0;
   margin-top: 1.5rem;
   max-width: 540px;
-  font-size: 16px;
-  line-height: 1.65;
-  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .emailField {
@@ -234,7 +233,7 @@
   }
 
   .visualCol {
-    min-height: 520px;
+    min-height: 560px;
     justify-content: center;
   }
 
@@ -243,25 +242,31 @@
   }
 
   .visualFrame {
-    max-width: min(100%, 540px);
+    max-width: min(100%, 620px);
     padding-right: 0;
   }
 
   .visualFigure {
-    max-width: min(100%, 540px);
+    max-width: min(100%, 620px);
   }
 }
 
 @media (min-width: 1024px) {
   .ecommerceBanner .visualFrame {
-    max-width: min(100%, 580px);
+    max-width: min(100%, 700px);
   }
 
   .ecommerceBanner .visualFigure {
-    max-width: min(100%, 580px);
+    max-width: min(100%, 700px);
   }
 
   .ecommerceBanner .visualCol {
-    min-height: 560px;
+    min-height: 600px;
+  }
+}
+
+@media (width: 768px) {
+  .inner {
+    padding-top: 0;
   }
 }

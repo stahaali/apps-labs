@@ -79,6 +79,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  .tab {
+    left: -31px;
+  }
+}
+
 @media (max-width: 576px) {
   .tab {
     left: -28px;

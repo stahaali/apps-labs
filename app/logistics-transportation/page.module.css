@@ -1,0 +1,72 @@
+/**
+ * /logistics-transportation — post-hero sections: same mobile rhythm hooks as /fitness-app-development.
+ */
+@media (max-width: 576px) {
+  .pageSectionStack > section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsFreeSetupSection) {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pageSectionStack :global(.logisticsFreeSetupInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.logisticsPlatformInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.logisticsOperationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsFulfillmentSection) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.logisticsFulfillmentInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsTechnologySuiteMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsOutcomesSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.logisticsOutcomesInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsIntegrationsSectionMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.logisticsIntegrationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsMarketingSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.logisticsMarketingInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.logisticsTestimonialMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+}

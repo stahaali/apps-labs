@@ -48,3 +48,17 @@ section.clientLogos {
     padding-bottom:0px;
   }
 }
+
+@media(max-width:768px)
+{
+  .clientLogos
+  {
+    padding-bottom: 88px;
+  }
+}
+@media (min-width: 768px) {
+  section.clientLogos {
+    padding-top: 0;
+    padding-bottom: 80px;
+  }
+}

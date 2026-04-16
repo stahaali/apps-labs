@@ -49,7 +49,7 @@ export default function FoodDeliveryBanner() {
               <br />
               <span className={styles.headlinePlain}>App Development</span>
             </h1>
-            <p className={styles.lead}>
+            <p className={`${styles.lead} text-neutral-400`}>
               Optimize your food delivery app&apos;s success with the most
               advanced development services and continuous support from industry
               experts at every step.
@@ -57,7 +57,7 @@ export default function FoodDeliveryBanner() {
 
             <div className={styles.features} role="list">
               {FEATURES.map((label) => (
-                <div key={label} className={styles.featureItem} role="listitem">
+                <div key={label} className={`${styles.featureItem} text-neutral-300`} role="listitem">
                   <span className={styles.checkBubble} aria-hidden="true">
                     <CheckGlyph />
                   </span>
@@ -118,15 +118,15 @@ export default function FoodDeliveryBanner() {
                 <ImageWithSkeleton
                   src={HERO}
                   alt="Food delivery app mockups on phones"
-                  width={400}
-                  height={435}
-                  sizes="(max-width: 767px) min(90vw, 400px), 400px"
-                  className="max-w-[400px] select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                  width={520}
+                  height={566}
+                  sizes="(max-width: 767px) min(90vw, 480px), (max-width: 1023px) 48vw, min(520px, 42vw)"
+                  className="w-full max-w-full select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
                   style={{ width: "100%", height: "auto" }}
                   priority
                   fetchPriority="high"
                   darkBackground
-                  wrapClassName="block w-full max-w-[400px]"
+                  wrapClassName="block w-full max-w-full"
                 />
                 </div>
               </div>

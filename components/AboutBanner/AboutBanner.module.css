@@ -1,25 +1,54 @@
-/* Inner-page hero — same scale as Ecommerce / Fitness banners */
+/* Inner-page hero — shell + 768+ rhythm aligned with HeroBanner */
 .aboutBanner {
   position: relative;
   background-color: #000000;
   min-height: 560px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
+
+/* Global strings on form (`bannerform`, `bannerEmailShell`) — :global() so selectors match the DOM. Scoped under `.aboutBanner` so other pages’ heroes stay unchanged. */
 @media (max-width: 768px) {
-  .aboutBanner {
-    min-height: 740px;
+  .aboutBanner :global(.bannerform) input {
+    padding-left: 15px;
+    font-size: 15px;
+  }
+  .aboutBanner :global(.bannerEmailShell) {
+    padding: 7px 7px;
+  }
+  .bannerform input
+  {
+    font-size: 15px;
+  }
+
+  .aboutBanner :global(.bannerform) button {
+    padding: 11px 10px;
+  }
+
+  .aboutBanner :global(.bannerEmailShell) {
+    padding: 7px 7px;
   }
 }
 @media (min-width: 768px) {
   .aboutBanner {
-    min-height: 640px;
+    box-sizing: border-box;
+    padding-top: 0px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+
+  .inner {
+    padding-top: 0;
   }
 }
 
 @media (min-width: 1024px) {
   .aboutBanner {
     min-height: 864px;
+    height: auto;
+    max-height: none;
   }
 }
 
@@ -28,7 +57,10 @@
   z-index: 10;
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 0;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -51,11 +83,14 @@
   width: 100%;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .contentCol {
   max-width: 600px;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
 }
 
 /* Visual column matches HeroBanner.module.css (frame / figure / shadow) */
@@ -102,14 +137,14 @@
 
 .headline {
   margin: 0;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
-@media (max-width: 768px) and (min-width: 640px) {
+@media (max-width: 767px) and (min-width: 640px) {
   .aboutBanner .headline {
     font-size: 38px;
   }
@@ -132,63 +167,15 @@
   }
 }
 
-.headlineAccent {
-  color: #70aa26;
-}
-
-.headlinePlain {
-  color: #ffffff;
-}
-
-.lead {
-  margin: 0;
-  margin-top: 1.5rem;
-  max-width: 540px;
-  font-size: 16px;
-  line-height: 1.65;
-  color: #ffffff;
-}
-
-.emailField {
-  min-width: 0;
-  flex: 1;
-  align-self: center;
-  cursor: text;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  padding-top: 0.5rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: calc(var(--spacing) * 5);
-  font-size: 14px;
-  line-height: normal;
-  color: #ffffff;
-  caret-color: #ffffff;
-  outline: none;
-}
-
-.emailField::placeholder {
-  color: #737373;
-}
-
-.emailField:focus,
-.emailField:focus-visible {
-  background: transparent;
-  outline: none;
-  box-shadow: none;
-}
-
 @media (min-width: 768px) {
   .inner {
     padding-left: max(2rem, env(safe-area-inset-left, 0px));
     padding-right: max(2rem, env(safe-area-inset-right, 0px));
-    padding-bottom: 5rem;
     padding-top: 0;
+    padding-bottom: 0;
   }
 
   .grid {
-    /* Same column ratio as home HeroBanner so the hero image scales identically */
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
     column-gap: 2.5rem;
     row-gap: 0;
@@ -198,6 +185,7 @@
   .contentCol {
     max-width: none;
     padding-right: 2rem;
+    text-align: left;
   }
 
   .visualCol {
@@ -215,5 +203,115 @@
 
   .visualFigure {
     max-width: 848px;
+  }
+}
+
+/* iPad 768–1023: 500px band + type + pencil (not iPad Pro 1024 / desktop) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .aboutBanner {
+    min-height: 600px;
+    height: 600px;
+    max-height: 600px;
+  }
+
+  .aboutBanner .headline {
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    line-height: 1.12;
+  }
+
+  .aboutBanner .formPenIcon {
+    margin-left: 15px;
+  }
+
+  .aboutBanner :global(.bannerform button.site-btn-motion.btn.btn-banner) {
+    padding: 14px 2px !important;
+  }
+}
+
+/* Tablet + mobile: no right mockup — copy row uses full width (iPad + iPad Pro ≤1024px) */
+@media (max-width: 1024px) {
+  .aboutBanner .grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .aboutBanner .visualCol {
+    display: none;
+  }
+
+  .aboutBanner .contentCol {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+    min-width: 0;
+  }
+}
+
+/*
+ * iPad Pro: exact 1024px — 500px band + 2-col + right mockup (overrides max-width: 1024px above;
+ * also overrides min-width: 1024px tall desktop shell for this viewport only)
+ */
+@media (width: 1024px) {
+  .aboutBanner {
+    min-height: 600px;
+    height: 600px;
+    max-height: 600px;
+  }
+
+  .aboutBanner .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+    column-gap: 2.5rem;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  .aboutBanner .visualCol {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: flex-end;
+  }
+
+  .aboutBanner .visualRoot {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .aboutBanner .visualFrame {
+    max-width: min(100%, 440px);
+    width: 100%;
+  }
+
+  .aboutBanner .visualFigure {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .aboutBanner .visualFigure img {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  .aboutBanner .contentCol {
+    max-width: none;
+    width: auto;
+    padding-right: 2rem;
+    min-width: 0;
+  }
+
+  .aboutBanner .formPenIcon {
+    margin-left: 15px;
+  }
+
+  /* GreenButton: full global selector so module doesn’t hash Tailwind / btn classes */
+  .aboutBanner :global(.bannerform button.site-btn-motion.btn.btn-banner) {
+    padding: 14px 20px !important;
+    padding-block: 14px !important;
+    padding-inline: 20px !important;
   }
 }

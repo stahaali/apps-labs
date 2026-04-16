@@ -194,6 +194,10 @@ a.site-btn-motion.btn.btn-dark {
   {
     padding:10px 20px;
   }
+  .bannerform button
+  {
+    padding:15px 20px !important;
+  }
 }
 
 /* Mobile: one vertical rhythm so section padding-top === padding-bottom everywhere using this token */
@@ -243,7 +247,7 @@ a.site-btn-motion.btn.btn-dark {
   }
 
   .heroHeading {
-    font-size: 40px;
+    font-size: clamp(1.75rem, 8vw, 60px);
   }
   .bannerform input {
     font-size: 14px;
@@ -269,7 +273,7 @@ a.site-btn-motion.btn.btn-dark {
 
 @media (min-width: 768px) and (max-width: 992px) {
   .heroHeading {
-    font-size: 45px;
+    font-size: clamp(2.25rem, 5vw, 60px);
   }
 }
 

@@ -87,7 +87,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 400px;
+  max-width: min(100%, 480px);
   align-items: center;
   justify-content: center;
 }
@@ -96,12 +96,12 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 400px;
+  max-width: min(100%, 480px);
 }
 
 .headline {
   margin: 0;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -134,9 +134,8 @@
   margin: 0;
   margin-top: 1.5rem;
   max-width: 540px;
-  font-size: 16px;
-  line-height: 1.65;
-  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .bulletList {
@@ -154,7 +153,6 @@
   align-items: flex-start;
   font-size: 15px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.92);
 }
 
 .checkBullet {
@@ -242,11 +240,30 @@
   }
 
   .visualFrame {
-    max-width: min(100%, 520px);
+    max-width: min(100%, 600px);
     padding-right: 0;
   }
 
   .visualFigure {
-    max-width: min(100%, 520px);
+    max-width: min(100%, 600px);
+  }
+}
+
+/* iPad / small tablet only: hide hero mockup; copy uses full row (<768 unchanged) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .fitnessBanner .grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .fitnessBanner .visualCol {
+    display: none;
+  }
+
+  .fitnessBanner .contentCol {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
   }
 }

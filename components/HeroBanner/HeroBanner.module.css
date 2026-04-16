@@ -46,9 +46,11 @@
 }
 
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .homebanner {
-    min-height: 640px;
+    max-height: 500px;
+    padding-top: 43px;
+    padding-bottom: 0;
   }
 }
 
@@ -111,7 +113,7 @@
 
 .heroHeading {
   margin: 0;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -205,7 +207,7 @@
   .inner {
     padding-left: max(2rem, env(safe-area-inset-left, 0px));
     padding-right: max(2rem, env(safe-area-inset-right, 0px));
-    padding-top: 3rem;
+    padding-top: 1.2rem;
     padding-bottom: 3rem;
   }
 
@@ -253,6 +255,47 @@
   }
 }
 
+/* iPad / small tablet (+ iPad Pro 1024): type scale + stat rhythm (layout overrides below @ max 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heroHeading {
+    font-size: clamp(2rem, 4.5vw, 60px);
+    line-height: 1.12;
+  }
+
+  .grid .statCellFirst {
+    padding-right: 1.25rem;
+  }
+
+  .grid .statCellMid {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .grid .statCellLast {
+    padding-left: 1.25rem;
+  }
+}
+
+/* Tablet + mobile: hide phone mockups; copy + stats use full row (desktop 2-col from 1025px) */
+@media (max-width: 1024px) {
+  .homebanner .grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .homebanner .visualCol {
+    display: none;
+  }
+
+  .homebanner .contentCol {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 576px) {
   /* Right-column hero image: fluid width, cap at 576px (no fixed 700px bleed) */
   .visualFrame {
@@ -273,5 +316,73 @@
   }
   .inner {
     padding-bottom:5.5rem;
+  }
+}
+
+/* Home hero band height — wins over earlier breakpoint min-heights */
+.homebanner {
+  min-height: 751px;
+}
+
+/* iPad (768–1023): home hero band height — separate from iPad Pro 1024 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .homebanner {
+    min-height: 600px;
+  }
+}
+
+/*
+ * iPad Pro: exact 1024px viewport — taller band + restore 2-col + right mockup
+ * (overrides @media (max-width: 1024px) single-col / hidden visual above)
+ */
+@media (width: 1024px) {
+  .homebanner {
+    min-height: 700px;
+  }
+
+  .homebanner .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+    column-gap: 2.5rem;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  .homebanner .visualCol {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: flex-end;
+  }
+
+  .homebanner .visualRoot {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Narrow 2nd column: cap frame + kill fixed 700px lg min/max on hero img */
+  .homebanner .visualFrame {
+    max-width: min(100%, 440px);
+    width: 100%;
+  }
+
+  .homebanner .visualFigure {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .homebanner .visualFigure img {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  .homebanner .contentCol {
+    max-width: none;
+    width: auto;
+    padding-right: 2rem;
+    min-width: 0;
   }
 }

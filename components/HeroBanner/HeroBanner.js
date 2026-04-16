@@ -55,8 +55,8 @@ function HeroBannerVisual() {
             alt="Apex Labs mobile applications on phone mockups"
             width={680}
             height={740}
-            sizes="(max-width: 576px) 100vw, (max-width: 767px) 90vw, 840px"
-            className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)] w-full min-w-0 max-w-full min-[577px]:min-w-[700px] min-[577px]:max-w-[700px]"
+            sizes="(max-width: 576px) 100vw, (max-width: 1024px) min(46vw, 440px), 840px"
+            className="select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)] w-full min-w-0 max-w-full lg:min-w-[700px] lg:max-w-[700px]"
             priority
             fetchPriority="high"
             darkBackground

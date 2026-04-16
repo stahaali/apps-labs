@@ -6,6 +6,23 @@
   padding-bottom: 104px;
 }
 
+@media (max-width: 768px)
+{
+  .section
+  {
+    padding-bottom:101px;
+  }
+  .card {
+    padding: 5rem 2rem 4rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 80px;
+  }
+}
+
 .inner {
   position: relative;
   margin-left: auto;

@@ -1,0 +1,16 @@
+/* /logistics-transportation — Outcomes (matches ecommerce gradient band) */
+.outcomesSection {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: linear-gradient(#e8ecff, #fdf7ec);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .outcomesSection {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

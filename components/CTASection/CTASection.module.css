@@ -36,6 +36,11 @@
   .blueCard {
     padding: 200px 0 220px;
   }
+ 
+  .section
+  {
+    padding: 109px 0;
+  }
 }
 
 @media (min-width: 992px) {

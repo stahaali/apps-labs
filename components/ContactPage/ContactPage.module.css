@@ -107,6 +107,14 @@
   padding-top: 66px;
 }
 
+/* Dark strip heroes (Blog, Pricing, Contact, Testimonials): h1 matches service banners */
+.contactHero400.contactHero400Blog h1.title,
+.contactHero400.contactHero400Pricing h1.title,
+.contactHero400.contactHero400Contact h1.title,
+.contactHero450 h1.title {
+  font-size: clamp(1.5rem, 4vw, 60px);
+}
+
 /* 450px — Testimonials page only */
 .contactHero450 {
   position: relative;

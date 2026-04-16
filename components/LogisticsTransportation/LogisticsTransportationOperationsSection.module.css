@@ -1,0 +1,46 @@
+/* /logistics-transportation — operations / control band (matches ecommerce marketing rhythm) */
+.section {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: #fdf7ec;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+}
+
+/* Wider left column + larger mockup than default 1fr / 380px split */
+.operationsSplit {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.operationsSplit > * {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .operationsSplit {
+    grid-template-columns: 1.22fr 0.78fr;
+    gap: 3rem;
+  }
+}
+
+.imageWrapLarge {
+  max-width: min(100%, 500px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .imageWrapLarge {
+    margin-inline: 0;
+    max-width: min(100%, 520px);
+  }
+}

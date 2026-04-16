@@ -27,7 +27,7 @@ export default function EcommerceBanner() {
               <br />
               <span className={styles.headlinePlain}>App Development</span>
             </h2>
-            <p className={styles.lead}>
+            <p className={`${styles.lead} text-neutral-400`}>
               Expand your business globally and increase your revenue tenfold on your own eCommerce marketplace.
             </p>
 
@@ -86,9 +86,9 @@ export default function EcommerceBanner() {
                   <ImageWithSkeleton
                     src={HERO}
                     alt="Ecommerce app mockups on phones"
-                    width={580}
-                    height={631}
-                    sizes="(max-width: 767px) min(92vw, 460px), (max-width: 1023px) 50vw, 580px"
+                    width={700}
+                    height={761}
+                    sizes="(max-width: 767px) min(92vw, 520px), (max-width: 1023px) 52vw, min(700px, 45vw)"
                     className="w-full max-w-full select-none object-contain drop-shadow-[0_28px_70px_rgba(0,0,0,0.5)]"
                     style={{ width: "100%", height: "auto" }}
                     priority

@@ -86,7 +86,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 400px;
+  max-width: min(100%, 480px);
   align-items: center;
   justify-content: center;
 }
@@ -95,12 +95,12 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 400px;
+  max-width: min(100%, 480px);
 }
 
 .headline {
   margin: 0;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -122,14 +122,14 @@
 /* Smooth scale between tablet and desktop (avoids 38px → 70px jump at 769px). */
 @media (min-width: 769px) and (max-width: 1023px) {
   .foodDeliveryBanner .headline {
-    font-size: clamp(2rem, 4.2vw, 3rem);
+    font-size: clamp(2rem, 4.2vw, 60px);
     line-height: 1.12;
   }
 }
 
 @media (min-width: 1024px) {
   .foodDeliveryBanner .headline {
-    font-size: clamp(2.75rem, 4.5vw, 4.375rem);
+    font-size: 60px;
     line-height: 1.1;
   }
 }
@@ -146,9 +146,8 @@
   margin: 0;
   margin-top: 1.5rem;
   max-width: 540px;
-  font-size: 16px;
-  line-height: 1.65;
-  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .features {
@@ -165,7 +164,6 @@
   gap: 0.5rem;
   font-size: 14px;
   font-weight: 500;
-  color: #fafafa;
 }
 
 .checkBubble {
@@ -245,12 +243,12 @@
   }
 
   .visualFrame {
-    max-width: 400px;
+    max-width: min(100%, 520px);
     padding-right: 0;
   }
 
   .visualFigure {
-    max-width: 400px;
+    max-width: min(100%, 520px);
   }
 }
 
@@ -288,5 +286,24 @@
 
   .heroVisualFull .grid {
     align-items: center;
+  }
+}
+
+/* /food-delivery hero only — both classes are used together in FoodDeliveryV1Hero */
+.foodDeliveryBanner.heroVisualFull {
+  min-height: 751px;
+  padding-top:52px;
+}
+
+/* V1 hero CTAs: slightly smaller label on iPad portrait (768px) so two-line pills stay balanced */
+@media (width: 768px) {
+  .foodDeliveryBanner.heroVisualFull :global(.fd-v1-hero-ctas) :global(button),
+  .foodDeliveryBanner.heroVisualFull :global(.fd-v1-hero-ctas) :global(a) {
+    font-size: 14px !important;
+    line-height: 1.2;
+  }
+
+  .foodDeliveryBanner.heroVisualFull :global(.fd-v1-hero-ctas) :global(button span) {
+    font-size: inherit !important;
   }
 }

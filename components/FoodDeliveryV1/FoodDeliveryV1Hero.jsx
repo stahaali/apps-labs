@@ -42,11 +42,11 @@ export default function FoodDeliveryV1Hero() {
               <br />
               <span className={bannerStyles.headlinePlain}>{line2}</span>
             </h1>
-            <p className={bannerStyles.lead}>{lead}</p>
+            <p className={`${bannerStyles.lead} text-neutral-400`}>{lead}</p>
 
             <div className={bannerStyles.features} role="list">
               {bullets.map((label) => (
-                <div key={label} className={bannerStyles.featureItem} role="listitem">
+                <div key={label} className={`${bannerStyles.featureItem} text-neutral-300`} role="listitem">
                   <span className={bannerStyles.checkBubble} aria-hidden>
                     <CheckGlyph />
                   </span>
@@ -55,7 +55,7 @@ export default function FoodDeliveryV1Hero() {
               ))}
             </div>
 
-            <div className="mt-8 flex w-full max-w-[520px] flex-col gap-3 min-[480px]:flex-row min-[480px]:items-stretch">
+            <div className="fd-v1-hero-ctas mt-8 flex w-full max-w-[520px] flex-col gap-3 min-[480px]:flex-row min-[480px]:items-stretch">
               <GreenButton
                 type="button"
                 size="compact"
@@ -80,9 +80,9 @@ export default function FoodDeliveryV1Hero() {
                   <ImageWithSkeleton
                     src={HERO_IMG}
                     alt="Branded food ordering app on mobile — menu browse and product detail"
-                    width={960}
-                    height={420}
-                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 45vw, min(50vw, 640px)"
+                    width={1100}
+                    height={481}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 52vw, min(56vw, 900px)"
                     className="w-full select-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
                     style={{ width: "100%", height: "auto" }}
                     priority
