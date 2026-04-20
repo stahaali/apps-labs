@@ -1,0 +1,120 @@
+﻿.sectionShell {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: #fdf7ec;
+  padding: 0;
+}
+
+.rowsWrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.splitTopAlign {
+  align-items: start;
+}
+
+.splitCol {
+  min-width: 0;
+}
+
+.imageCol {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .imageCol {
+    justify-content: flex-start;
+  }
+}
+
+.heading:global(.title) {
+  font-size: clamp(1.75rem, 3.5vw, 60px);
+}
+
+/* Chips rail + rounded photo */
+.visualCluster {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: min(100%, 520px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .visualCluster {
+    margin-inline: 0;
+    max-width: min(100%, 540px);
+  }
+}
+
+.chipsRail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .rowsWrap {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .visualCluster {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .chipsRail {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 2;
+  }
+
+  .photoWrap {
+    order: 1;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 6px 18px -8px rgba(15, 23, 42, 0.18);
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+.chipIcon {
+  flex-shrink: 0;
+  color: #70aa26;
+}
+
+.photoWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 18px 40px -16px rgba(15, 23, 42, 0.2);
+}
+

@@ -1,0 +1,11 @@
+﻿.classifiedTechnologySuite {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .classifiedTechnologySuite {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+}

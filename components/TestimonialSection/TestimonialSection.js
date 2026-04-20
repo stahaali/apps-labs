@@ -77,6 +77,8 @@ export default function TestimonialSection({
   fitnessPageMobileFlushTop = false,
   /** `/logistics-transportation`: same mobile flush hook as fitness vertical pages. */
   logisticsPageMobileFlushTop = false,
+  /** `/classified-platform`: same mobile flush hook as other vertical pages. */
+  classifiedPageMobileFlushTop = false,
   /** `/about`: from 768px, equal 80px top/bottom outer section padding */
   aboutPageTabletPadding80 = false,
 }) {
@@ -90,6 +92,7 @@ export default function TestimonialSection({
         aboutPageTabletPadding80 && styles.aboutTestimonialTabletPadding80,
         fitnessPageMobileFlushTop && "fitnessTestimonialMobileFlushTop",
         logisticsPageMobileFlushTop && "logisticsTestimonialMobileFlushTop",
+        classifiedPageMobileFlushTop && "classifiedTestimonialMobileFlushTop",
       ]
         .filter(Boolean)
         .join(" ")}

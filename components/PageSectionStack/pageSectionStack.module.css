@@ -70,4 +70,68 @@
     padding-top: 0 !important;
     padding-bottom: 40px !important;
   }
+
+  /* /classified-platform — same mobile rhythm as logistics vertical */
+  .pageSectionStack > :global(section.classifiedFreeSetupSection) {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pageSectionStack :global(.classifiedFreeSetupInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.classifiedPlatformInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.classifiedOperationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.classifiedFulfillmentSection) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.classifiedFulfillmentInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.classifiedTechnologySuiteMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.classifiedOutcomesSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.classifiedOutcomesInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.classifiedIntegrationsSectionMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.classifiedIntegrationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.classifiedMarketingSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.classifiedMarketingInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.classifiedTestimonialMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
 }

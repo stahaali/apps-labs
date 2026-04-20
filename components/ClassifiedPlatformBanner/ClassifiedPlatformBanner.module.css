@@ -1,0 +1,288 @@
+﻿/* /classified-platform hero — fixed band height */
+.ClassifiedPlatformBanner {
+  position: relative;
+  background-color: #000000;
+  box-sizing: border-box;
+  height: 739px;
+  min-height: 739px;
+  max-height: 739px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 115px;
+  padding-bottom: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1280px;
+  padding-left: max(1rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  padding-bottom: 4rem;
+  padding-top: calc(72px + 1.25rem);
+}
+
+@media (min-width: 480px) {
+  .inner {
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ClassifiedPlatformBanner .grid {
+    gap: 3rem;
+  }
+}
+
+.contentCol {
+  max-width: 560px;
+  min-width: 0;
+}
+
+.visualCol {
+  position: relative;
+  display: flex;
+  min-height: 300px;
+  min-width: 0;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.visualRoot {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualFrame {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: min(100%, 520px);
+  align-items: center;
+  justify-content: center;
+}
+
+.visualFigure {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: min(100%, 520px);
+}
+
+.headline {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) and (min-width: 640px) {
+  .ClassifiedPlatformBanner .headline {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 639px) {
+  .ClassifiedPlatformBanner .headline {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+}
+
+.headlineAccent {
+  color: #70aa26;
+}
+
+.headlineSub {
+  display: block;
+  margin-top: 0.35rem;
+  color: #ffffff;
+}
+
+.lead {
+  margin: 0;
+  margin-top: 1.5rem;
+  max-width: 540px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.bulletList {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 540px;
+}
+
+.bulletItem {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.checkBullet {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  border-radius: 999px;
+  background: #70aa26;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1rem;
+  margin-top: 1.75rem;
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+  background: transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.secondaryCta:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.secondaryCta:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding-left: max(2rem, env(safe-area-inset-left, 0px));
+    padding-right: max(2rem, env(safe-area-inset-right, 0px));
+    padding-bottom: 5rem;
+    padding-top: 0;
+  }
+
+  /* Flex + cross-axis center: right hero art sits vertical middle vs left copy block */
+  .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    width: 100%;
+  }
+
+  .contentCol {
+    flex: 0.82 1 0;
+    min-width: 0;
+    max-width: min(100%, 520px);
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+
+  .visualCol {
+    flex: 1.18 1 0;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visualRoot {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .visualFrame {
+    max-width: min(100%, 680px);
+    padding-right: 0;
+  }
+
+  .visualFigure {
+    max-width: min(100%, 680px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ClassifiedPlatformBanner {
+    padding-top: 115px;
+    padding-bottom: 0;
+  }
+
+  .ClassifiedPlatformBanner .visualFrame,
+  .ClassifiedPlatformBanner .visualFigure {
+    max-width: min(100%, 780px);
+  }
+}
+
+/* iPad 768 CSS px only: banner vertical inset + hero h1 */
+@media (min-width: 768px) and (max-width: 768px) {
+  .ClassifiedPlatformBanner {
+    padding-top: 115px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .ClassifiedPlatformBanner .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .ClassifiedPlatformBanner .headline {
+    font-size: 25px !important;
+  }
+}
+
+/* iPad Pro 1024 CSS px only: hero h1 scale */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .ClassifiedPlatformBanner .headline {
+    font-size: 40px !important;
+  }
+}

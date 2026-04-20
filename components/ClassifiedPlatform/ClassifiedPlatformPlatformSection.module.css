@@ -1,0 +1,40 @@
+﻿/* Light surface — dual mockup + platform copy */
+.section {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: linear-gradient(180deg, #fafaf8 0%, #f3f2ee 100%);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+/* Slightly wider than default split mockup for dual-phone art */
+.mockupWrap {
+  max-width: min(100%, 440px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .mockupWrap {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.imageCol {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .imageCol {
+    justify-content: flex-end;
+  }
+}
