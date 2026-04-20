@@ -3,6 +3,7 @@ import GreenButton from "@/components/GreenButton/GreenButton";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import { ECOMMERCE_APP_DEVELOPMENT_FULFILLMENT } from "@/lib/ecommerceAppDevelopmentFulfillment";
 import pageStyles from "@/components/FoodDeliveryV1/FoodDeliveryV1.module.css";
+import styles from "./EcommerceAppDevelopmentFulfillmentSection.module.css";
 
 const THEME_PILL =
   "mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm";
@@ -56,7 +57,7 @@ export default function EcommerceAppDevelopmentFulfillmentSection() {
   );
 
   const imageBlock = (
-    <div className={pageStyles.imageCard}>
+    <div className={`${pageStyles.imageCard} ${styles.fulfillmentImage768}`}>
       <div className="relative w-full min-h-[200px] bg-transparent">
         <ImageWithSkeleton
           src={image}

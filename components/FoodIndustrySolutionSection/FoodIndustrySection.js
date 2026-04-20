@@ -9,19 +9,19 @@ const BASE = "/assets/images-webp/industry";
 const CARDS = [
   {
     title: "Build Food Delivery App For Your Restaurant",
-    image: `${BASE}/industry-7.png`,
+    image: `${BASE}/industry-7.webp`,
     description:
       "Empower customers to easily order food through your expertly built restaurant app.",
   },
   {
     title: "Food Ordering & Delivery App For Restaurant Chains",
-    image: `${BASE}/industry-8.png`,
+    image: `${BASE}/industry-8.webp`,
     description:
       "Boost ROI for your multi-store food business with custom food delivery app development.",
   },
   {
     title: "On-Demand Food Delivery Built by Experts",
-    image: `${BASE}/industry-9.png`,
+    image: `${BASE}/industry-9.webp`,
     description:
       "Boost your revenue with an on-demand food delivery app, built by our expert development team.",
   },

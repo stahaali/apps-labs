@@ -207,6 +207,19 @@
   }
 }
 
+/* iPad Pro 1024 CSS px (all heights): side card offsets — overrides 992px + tall-iPad card top */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .sideCardLeft {
+    bottom: -1.5rem;
+    left: 2%;
+  }
+
+  .sideCardRight {
+    top: -3%;
+    right: 3%;
+  }
+}
+
 /* 1025px+ always desktop CTA (overrides any edge-case overlap with iPad rules) */
 @media (min-width: 1025px) {
   .blueCard {
@@ -319,11 +332,12 @@
   line-height: 0;
 }
 
-.checkIconImg {
-  width: 10px;
-  height: 10px;
+.checkIconSvg {
+  display: block;
+  width: 12px;
+  height: 12px;
   flex-shrink: 0;
-  object-fit: contain;
+  shape-rendering: geometricPrecision;
 }
 
 /* Mobile: stack content + cards; no overlap / clipped floats */

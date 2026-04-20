@@ -9,37 +9,37 @@ const BASE = "/assets/images-webp/industry";
 const CARDS = [
   {
     title: "E-Commerce",
-    image: `${BASE}/industry-1.png`,
+    image: `${BASE}/industry-1.webp`,
     description:
       "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
   },
   {
     title: "Fitness & Health",
-    image: `${BASE}/industry-2.png`,
+    image: `${BASE}/industry-2.webp`,
     description:
       "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
   },
   {
     title: "Fintech & Banking",
-    image: `${BASE}/industry-3.png`,
+    image: `${BASE}/industry-3.webp`,
     description:
       "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
   },
   {
     title: "Education & eLearning",
-    image: `${BASE}/industry-4.png`,
+    image: `${BASE}/industry-4.webp`,
     description:
       "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
   },
   {
     title: "On-Demand Services",
-    image: `${BASE}/industry-5.png`,
+    image: `${BASE}/industry-5.webp`,
     description:
       "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
   },
   {
     title: "Social Media",
-    image: `${BASE}/industry-6.png`,
+    image: `${BASE}/industry-6.webp`,
     description:
       "AI-powered storefronts with seamless checkout, personalized recommendations, and real-time inventory management.",
   },

@@ -3,12 +3,12 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./EcommerceTechnologySuiteSection.module.css";
 
-/** Frame asset on disk is `Mobile.png` (capital M). */
+/** Frame asset on disk is `Mobile.webp` (capital M). */
 const ECOMMERCE_PHONE_FRAME =
-  "/assets/images-webp/ecommerce-technology/mobile-image.png";
+  "/assets/images-webp/ecommerce-technology/mobile-image.webp";
 
 const ECOMMERCE_SCREEN_SLIDES = [1, 2, 3, 4].map(
-  (n) => `/assets/images-webp/ecommerce-technology/${n}.png`
+  (n) => `/assets/images-webp/ecommerce-technology/${n}.webp`
 );
 
 const LEFT_FEATURES = [

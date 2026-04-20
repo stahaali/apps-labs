@@ -2,10 +2,14 @@
 .LogisticsTransportationBanner {
   position: relative;
   background-color: #000000;
-  min-height: 751px;
+  box-sizing: border-box;
+  height: 739px;
+  min-height: 739px;
+  max-height: 739px;
   display: flex;
   flex-direction: column;
-  padding-bottom:0px;
+  padding-top: 35px;
+  padding-bottom: 0;
 }
 
 .inner {
@@ -56,6 +60,7 @@
   min-height: 300px;
   min-width: 0;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .visualRoot {
@@ -201,26 +206,38 @@
     padding-top: 0;
   }
 
+  /* Flex + cross-axis center: right hero art sits vertical middle vs left copy block */
   .grid {
-    /* Wider hero art: give the composite image more horizontal share than the default split */
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    column-gap: 2.5rem;
-    row-gap: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    width: 100%;
   }
 
   .contentCol {
+    flex: 0.82 1 0;
+    min-width: 0;
     max-width: min(100%, 520px);
     padding-left: 0;
     padding-right: 1rem;
   }
 
   .visualCol {
-    min-height: 440px;
+    flex: 1.18 1 0;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
   .visualRoot {
+    display: flex;
+    width: 100%;
+    align-items: center;
     justify-content: center;
   }
 
@@ -235,8 +252,37 @@
 }
 
 @media (min-width: 1024px) {
+  .LogisticsTransportationBanner {
+    padding-top: 35px;
+    padding-bottom: 0;
+  }
+
   .LogisticsTransportationBanner .visualFrame,
   .LogisticsTransportationBanner .visualFigure {
     max-width: min(100%, 780px);
+  }
+}
+
+/* iPad 768 CSS px only: banner vertical inset + hero h1 */
+@media (min-width: 768px) and (max-width: 768px) {
+  .LogisticsTransportationBanner {
+    padding-top: 35px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .LogisticsTransportationBanner .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .LogisticsTransportationBanner .headline {
+    font-size: 25px !important;
+  }
+}
+
+/* iPad Pro 1024 CSS px only: hero h1 scale */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .LogisticsTransportationBanner .headline {
+    font-size: 40px !important;
   }
 }

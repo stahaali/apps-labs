@@ -2,21 +2,21 @@ import Image from "next/image";
 import styles from "./ClientLogos.module.css";
 const PRIMARY = "#70AA26";
 const CLIENT_IMAGES_BASE = "/assets/images-webp/our-clients";
-const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const SHADOW_IMAGE = `${CLIENT_IMAGES_BASE}/shadow-1.webp`;
 const SHADOW_WIDTH = 700;
 
 const TOP_ROW = [
-  { src: `${CLIENT_IMAGES_BASE}/client-1.png`, name: "PayPal" },
-  { src: `${CLIENT_IMAGES_BASE}/client-2.png`, name: "Spotify" },
-  { src: `${CLIENT_IMAGES_BASE}/client-3.png`, name: "SHOPBOT" },
-  { src: `${CLIENT_IMAGES_BASE}/client-4.png`, name: "Slack" },
-  { src: `${CLIENT_IMAGES_BASE}/client-5.png`, name: "Envato" },
+  { src: `${CLIENT_IMAGES_BASE}/client-1.webp`, name: "PayPal" },
+  { src: `${CLIENT_IMAGES_BASE}/client-2.webp`, name: "Spotify" },
+  { src: `${CLIENT_IMAGES_BASE}/client-3.webp`, name: "SHOPBOT" },
+  { src: `${CLIENT_IMAGES_BASE}/client-4.webp`, name: "Slack" },
+  { src: `${CLIENT_IMAGES_BASE}/client-5.webp`, name: "Envato" },
 ];
 
 const BOTTOM_ROW = [
-  { src: `${CLIENT_IMAGES_BASE}/client-6.png`, name: "jQuery" },
-  { src: `${CLIENT_IMAGES_BASE}/client-7.png`, name: "WooCommerce" },
-  { src: `${CLIENT_IMAGES_BASE}/client-8.png`, name: "ThemeForest" },
+  { src: `${CLIENT_IMAGES_BASE}/client-6.webp`, name: "jQuery" },
+  { src: `${CLIENT_IMAGES_BASE}/client-7.webp`, name: "WooCommerce" },
+  { src: `${CLIENT_IMAGES_BASE}/client-8.webp`, name: "ThemeForest" },
 ];
 
 const ALL_LOGOS = [...TOP_ROW, ...BOTTOM_ROW];

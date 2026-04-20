@@ -5,7 +5,7 @@ import blogStyles from "@/components/BlogSection/BlogSection.module.css";
 import { BLOG_POSTS } from "@/lib/blogData";
 
 const ACCENT = "#70AA26";
-const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const SHADOW_IMAGE = "/assets/images-webp/shadow-1.webp";
 const SHADOW_WIDTH = 700;
 
 export function generateStaticParams() {

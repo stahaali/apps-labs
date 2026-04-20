@@ -40,7 +40,7 @@ function ArrowUpRightIcon({ className }) {
 }
 
 export default function OurPortfolioInteractiveCard({ images, imageAlt }) {
-  const slides = images.length > 0 ? images : ["/assets/images-webp/our-portfolio/portfolio-1.png"];
+  const slides = images.length > 0 ? images : ["/assets/images-webp/our-portfolio/portfolio-1.webp"];
   const multi = slides.length > 1;
   const [active, setActive] = useState(0);
 
@@ -102,7 +102,7 @@ export default function OurPortfolioInteractiveCard({ images, imageAlt }) {
     <div className={styles.portfolioCard}>
       <div className={styles.shadowLayer} aria-hidden>
         <Image
-          src="/assets/images-webp/our-portfolio/shadow-2.png"
+          src="/assets/images-webp/our-portfolio/shadow-2.webp"
           alt=""
           fill
           sizes="(max-width: 767px) 60vw, 520px"

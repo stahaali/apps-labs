@@ -42,6 +42,7 @@ export default function EcommerceAppDevelopmentPage() {
           headingId="ecommerce-split-hero-primary"
           headingLevel="h1"
           priorityImage
+          imageAboveCopyAt768
         />
         <EcommerceAppDevelopmentFreeSetupSection />
         {/* <EcommerceIndustrySection /> */}

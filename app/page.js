@@ -15,11 +15,11 @@ import {
 } from "@/components/HomeClientSections";
 
 const HOME_PORTFOLIO_SLIDES = [
-  "/assets/images-webp/our-portfolio/home/1.png",
-  "/assets/images-webp/our-portfolio/home/2.png",
-  "/assets/images-webp/our-portfolio/home/3.png",
-  "/assets/images-webp/our-portfolio/home/4.png",
-  "/assets/images-webp/our-portfolio/home/5.png",
+  "/assets/images-webp/our-portfolio/home/1.webp",
+  "/assets/images-webp/our-portfolio/home/2.webp",
+  "/assets/images-webp/our-portfolio/home/3.webp",
+  "/assets/images-webp/our-portfolio/home/4.webp",
+  "/assets/images-webp/our-portfolio/home/5.webp",
 ];
 
 export default function Home() {

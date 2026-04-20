@@ -4,10 +4,10 @@ import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarous
 import styles from "./EcommerceFeaturesSection.module.css";
 
 const ECOMMERCE_PHONE_FRAME =
-  "/assets/images-webp/ecommerce-technology/mobile-image.png";
+  "/assets/images-webp/ecommerce-technology/mobile-image.webp";
 
 const ECOMMERCE_FEATURE_SCREENS = [5, 6, 7, 8].map(
-  (n) => `/assets/images-webp/ecommerce-technology/${n}.png`
+  (n) => `/assets/images-webp/ecommerce-technology/${n}.webp`
 );
 
 const FEATURE_ITEMS = [

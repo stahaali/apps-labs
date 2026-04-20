@@ -9,19 +9,19 @@ const BASE = "/assets/images-webp/industry/ecommerce";
 const CARDS = [
   {
     title: "Customer App & Website",
-    image: `${BASE}/customer-app-website.png`,
+    image: `${BASE}/customer-app-website.webp`,
     description:
       "Browse through a wide range of products, enjoy hassle-free checkout, and track your orders with ease.",
   },
   {
     title: "E-commerce App",
-    image: `${BASE}/e-commerce-app.png`,
+    image: `${BASE}/e-commerce-app.webp`,
     description:
       "Enjoy quick and secure checkout, track your orders in real-time, and receive personalized recommendations based on your preferences.",
   },
   {
     title: "Admin Dashboard",
-    image: `${BASE}/admin-dashboard.png`,
+    image: `${BASE}/admin-dashboard.webp`,
     description:
       "From product inventory and order management to customer analytics and marketing campaigns, our dashboard empowers you with comprehensive control and valuable insights.",
   },

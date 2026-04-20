@@ -228,6 +228,18 @@
   }
 }
 
+/* iPad 768 CSS px only: banner vertical inset + hero h1 */
+@media (min-width: 768px) and (max-width: 768px) {
+  .aboutBanner {
+    padding-top: 60px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .aboutBanner .headline {
+    font-size: 25px !important;
+  }
+}
+
 /* Tablet + mobile: no right mockup — copy row uses full width (iPad + iPad Pro ≤1024px) */
 @media (max-width: 1024px) {
   .aboutBanner .grid {
@@ -313,5 +325,12 @@
     padding: 14px 20px !important;
     padding-block: 14px !important;
     padding-inline: 20px !important;
+  }
+}
+
+/* iPad Pro 1024 CSS px only: hero h1 scale */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .aboutBanner .headline {
+    font-size: 40px !important;
   }
 }

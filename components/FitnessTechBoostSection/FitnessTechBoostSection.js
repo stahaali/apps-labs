@@ -3,27 +3,27 @@ import Link from "next/link";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FitnessTechBoostSection.module.css";
 
-const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.png";
+const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.webp";
 const BASE = "/assets/images-webp/technology";
 
-const PHONES = `${BASE}/fitness-technology.png`;
+const PHONES = `${BASE}/fitness-technology.webp`;
 
 const CARDS = [
   {
     title: "AI & Machine Learning",
-    icon: `${BASE}/ai-machine-learning.png`,
+    icon: `${BASE}/ai-machine-learning.webp`,
     description:
       "Our team of fitness app developers uses AI and machine learning to create advanced wellness solutions.",
   },
   {
     title: "Blockchain",
-    icon: `${BASE}/blockchain.png`,
+    icon: `${BASE}/blockchain.webp`,
     description:
       "Build secure and transparent fitness apps using blockchain technology to protect user data and ensure privacy.",
   },
   {
     title: "AR/VR",
-    icon: `${BASE}/ar-vr.png`,
+    icon: `${BASE}/ar-vr.webp`,
     description:
       "Improve your fitness app with AR/VR technology for interactive workout experiences and expert guidance, leading to better results and user engagement.",
   },

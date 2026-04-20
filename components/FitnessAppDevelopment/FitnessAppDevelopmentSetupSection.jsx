@@ -126,15 +126,13 @@ export default function FitnessAppDevelopmentSetupSection() {
         className={`${pageStyles.inner} fitnessFreeSetupInnerFlush`}
       >
         <div className={localStyles.rowsWrap}>
-          <div
-            className={`${pageStyles.split} ${pageStyles.splitStackFlipSm} ${localStyles.splitTopAlign}`}
-          >
-            <div className={`${localStyles.splitCol} ${localStyles.imageCol}`}>
-              <AnimateOnView variant="fadeUp">{visualBlock}</AnimateOnView>
-            </div>
+          <div className={`${pageStyles.split} ${localStyles.splitTopAlign}`}>
             <div className={localStyles.splitCol}>
+              <AnimateOnView variant="fadeUp">{textBlock}</AnimateOnView>
+            </div>
+            <div className={`${localStyles.splitCol} ${localStyles.imageCol}`}>
               <AnimateOnView variant="fadeUp" delayMs={80}>
-                {textBlock}
+                {visualBlock}
               </AnimateOnView>
             </div>
           </div>

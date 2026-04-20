@@ -6,9 +6,9 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import GreenButton from "@/components/GreenButton/GreenButton";
 import styles from "./FitnessTechStackSection.module.css";
 
-const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.png";
+const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.webp";
 const SHADOW_WIDTH = 700;
-const img = (n) => `/assets/images-webp/techstack/${n}.png`;
+const img = (n) => `/assets/images-webp/techstack/${n}.webp`;
 
 const TAB_ID_PREFIX = "fitness-tab-";
 const PANEL_ID_PREFIX = "fitness-techstack-panel-";

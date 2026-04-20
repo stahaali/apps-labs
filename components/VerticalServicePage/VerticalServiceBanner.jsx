@@ -5,7 +5,7 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import bannerStyles from "@/components/FoodDeliveryBanner/FoodDeliveryBanner.module.css";
 
-const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
+const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.webp";
 
 function CheckGlyph() {
   return (

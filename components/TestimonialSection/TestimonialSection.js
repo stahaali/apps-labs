@@ -12,7 +12,7 @@ import "swiper/css/mousewheel";
 import { TESTIMONIAL_SLIDER_ITEMS } from "@/lib/clientTestimonials";
 
 const BASE = "/assets/images-webp/testimonial";
-const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const SHADOW_IMAGE = `${BASE}/shadow-1.webp`;
 const SHADOW_WIDTH = 700;
 
 function Stars({ count = 5 }) {
@@ -132,7 +132,7 @@ export default function TestimonialSection({
 
             <div className={styles.smileWrap} aria-hidden>
               <ImageWithSkeleton
-                src={`${BASE}/smile-icon2.png`}
+                src={`${BASE}/smile-icon2.webp`}
                 alt=""
                 width={74}
                 height={74}
@@ -146,7 +146,8 @@ export default function TestimonialSection({
             <div className={styles.sliderFrame}>
               <Swiper
                 modules={[Autoplay, Mousewheel]}
-                loop
+                rewind
+                watchOverflow
                 spaceBetween={30}
                 mousewheel={{ forceToAxis: true }}
                 autoplay={{ delay: 2400, disableOnInteraction: false }}

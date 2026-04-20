@@ -3,7 +3,29 @@ import WhiteButton from "@/components/WhiteButton/WhiteButton";
 import styles from "./CTASection.module.css";
 
 const BASE = "/assets/images-webp/cta-section";
-const CHECK_ICON = `${BASE}/check-icon2.svg`;
+
+/** Vector check — same look on left + right cards (no raster blur from tiny webp). */
+function CtaListCheckIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 14 14"
+      width={14}
+      height={14}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path
+        d="M3.25 7.25L5.75 9.75L10.75 4.25"
+        stroke="#70aa26"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 const LEFT_CHECKS = [
   "Food Delivery Solutions",
@@ -36,7 +58,7 @@ export default function CTASection({
         <div className={styles.blueCard}>
           <div className={styles.floatIconTop} aria-hidden>
             <Image
-              src={`${BASE}/icon-01.png`}
+              src={`${BASE}/icon-01.webp`}
               alt=""
               width={56}
               height={56}
@@ -45,7 +67,7 @@ export default function CTASection({
           </div>
           <div className={styles.floatIconBottom} aria-hidden>
             <Image
-              src={`${BASE}/icon-02.png`}
+              src={`${BASE}/icon-02.webp`}
               alt=""
               width={56}
               height={56}
@@ -80,7 +102,7 @@ export default function CTASection({
             <div className={styles.sideCardHead}>
               <div className={styles.sideCardIconWrap} aria-hidden>
                 <Image
-                  src={`${BASE}/icon-03.png`}
+                  src={`${BASE}/icon-03.webp`}
                   alt=""
                   width={44}
                   height={44}
@@ -96,14 +118,7 @@ export default function CTASection({
               {LEFT_CHECKS.map((item) => (
                 <li key={item} className={styles.checkItemLeft}>
                   <span className={styles.checkIconWrap} aria-hidden>
-                    <Image
-                      src={CHECK_ICON}
-                      alt=""
-                      width={10}
-                      height={10}
-                      sizes="10px"
-                      className={styles.checkIconImg}
-                    />
+                    <CtaListCheckIcon className={styles.checkIconSvg} />
                   </span>
                   <span className={styles.checkItemText}>{item}</span>
                 </li>
@@ -117,14 +132,7 @@ export default function CTASection({
               {RIGHT_CHECKS.map((item) => (
                 <li key={item} className={styles.checkItemLeft}>
                   <span className={styles.checkIconWrap} aria-hidden>
-                    <Image
-                      src={CHECK_ICON}
-                      alt=""
-                      width={10}
-                      height={10}
-                      sizes="10px"
-                      className={styles.checkIconImg}
-                    />
+                    <CtaListCheckIcon className={styles.checkIconSvg} />
                   </span>
                   <span className={styles.checkItemText}>{item}</span>
                 </li>

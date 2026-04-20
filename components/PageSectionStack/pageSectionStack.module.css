@@ -1,0 +1,73 @@
+/**
+ * Post-hero stack (same rhythm as /fitness-app-development `page.module.css`).
+ * Import this module wherever `pageSectionStack` is applied.
+ */
+@media (max-width: 576px) {
+  .pageSectionStack > section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessFreeSetupSection) {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pageSectionStack :global(.fitnessFreeSetupInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.fitnessPlatformInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.fitnessOperationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessFulfillmentSection) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessFulfillmentInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessTechnologySuiteMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessOutcomesSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessOutcomesInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessIntegrationsSectionMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessIntegrationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessMarketingSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.fitnessMarketingInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.fitnessTestimonialMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+}

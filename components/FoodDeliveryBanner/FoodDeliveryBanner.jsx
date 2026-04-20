@@ -6,8 +6,8 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import styles from "./FoodDeliveryBanner.module.css";
 
 // Constants
-const HERO = "/assets/images-webp/banners/1.png";
-const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
+const HERO = "/assets/images-webp/banners/1.webp";
+const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.webp";
 
 const FEATURES = ["Ordering Tech", "Delivery Tech", "Management Tech"];
 

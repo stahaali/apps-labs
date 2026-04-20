@@ -307,3 +307,37 @@
     font-size: inherit !important;
   }
 }
+
+/* iPad 768 CSS px only: banner vertical inset + hero h1 */
+@media (min-width: 768px) and (max-width: 768px) {
+  .foodDeliveryBanner {
+    padding-top: 60px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .foodDeliveryBanner .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .foodDeliveryBanner .headline {
+    font-size: 25px !important;
+  }
+
+  .foodDeliveryBanner.heroVisualFull {
+    padding-top: 60px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .foodDeliveryBanner.heroVisualFull .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* iPad Pro 1024 CSS px only: hero h1 scale (food-delivery + v1 + vertical service banners) */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .foodDeliveryBanner .headline {
+    font-size: 40px !important;
+  }
+}

@@ -23,6 +23,33 @@
   padding-top: 0;
 }
 
+/* /classified-platform — fitness-flow stack: match /fitness-app-development section rhythm (80px). */
+.sectionCream.sectionCreamFitnessFlow {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.sectionLavender.sectionLavenderFitnessFlow {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.sectionCream.sectionCreamFitnessFlow.sectionCreamNoTop {
+  padding-top: 0;
+}
+
+@media (max-width: 576px) {
+  .sectionCream.sectionCreamFitnessFlow,
+  .sectionLavender.sectionLavenderFitnessFlow {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .sectionCream.sectionCreamFitnessFlow.sectionCreamNoTop {
+    padding-top: 0;
+  }
+}
+
 .inner {
   margin-left: auto;
   margin-right: auto;

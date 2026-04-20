@@ -7,14 +7,14 @@ import GreenButton from "@/components/GreenButton/GreenButton";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./EcommerceTechStackSection.module.css";
 
-const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.png";
+const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.webp";
 const SHADOW_WIDTH = 700;
-const img = (n) => `/assets/images-webp/techstack/${n}.png`;
+const img = (n) => `/assets/images-webp/techstack/${n}.webp`;
 
 const TAB_ID_PREFIX = "ecommerce-tab-";
 const PANEL_ID_PREFIX = "ecommerce-techstack-panel-";
 
-/** Each tab: three cards using techstack 1–3.png (swap assets per tab when available). */
+/** Each tab: three cards using techstack 1–3.webp (swap assets per tab when available). */
 const TABS = [
   {
     id: "mobile",

@@ -13,7 +13,7 @@
 }
 @media (min-width: 768px) {
   .ecommerceBanner {
-    min-height: 640px;
+    min-height: 400px;
   }
 }
 
@@ -97,6 +97,7 @@
   width: 100%;
   max-width: min(100%, 520px);
 }
+
 
 .headline {
   margin: 0;
@@ -265,8 +266,48 @@
   }
 }
 
-@media (width: 768px) {
-  .inner {
-    padding-top: 0;
+/*
+ * iPad 768 CSS px: `min+max` matches reliably; `!important` beats `min-width: 768px` .inner rules above.
+ * Visual column hidden + single-column grid; inner padding-top 35px; center alignment.
+ */
+@media (min-width: 768px) and (max-width: 768px) {
+  .ecommerceBanner {
+    padding-top: 60px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .ecommerceBanner .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-items: center !important;
+  }
+
+  .ecommerceBanner .grid {
+    align-items: center;
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .ecommerceBanner .visualCol {
+    display: none !important;
+  }
+
+  .ecommerceBanner .contentCol {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+/* iPad Pro 1024 CSS px only: inner vertical padding + center alignment */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .ecommerceBanner .inner {
+    padding-top: 43px !important;
+    padding-bottom: 0 !important;
+    align-items: center !important;
+  }
+
+  .ecommerceBanner .grid {
+    align-items: center;
   }
 }

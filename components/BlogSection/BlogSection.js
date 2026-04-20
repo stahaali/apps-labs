@@ -6,7 +6,8 @@ import { BLOG_POSTS_HOME_PREVIEW } from "@/lib/blogData";
 import styles from "./BlogSection.module.css";
 
 const ACCENT = "#70AA26";
-const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const BLOG_IMG_BASE = "/assets/images-webp/blog";
+const SHADOW_IMAGE = `${BLOG_IMG_BASE}/shadow-1.webp`;
 const SHADOW_WIDTH = 700;
 
 export default function BlogSection({

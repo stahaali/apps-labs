@@ -11,6 +11,7 @@ import {
   TestimonialSection,
 } from "@/lib/lazySections";
 import VerticalServiceBanner from "./VerticalServiceBanner";
+import VerticalServiceFaqBand from "./VerticalServiceFaqBand";
 import styles from "./VerticalServicePage.module.css";
 
 const PILL =
@@ -29,7 +30,12 @@ function CheckBullet() {
   );
 }
 
-export default function VerticalServicePage({ content }) {
+export default function VerticalServicePage({
+  content,
+  /** When true with `pageSectionStackClassName`, matches /fitness-app-development post-hero flow (padding + closing order). */
+  fitnessFlowLayout = false,
+  pageSectionStackClassName,
+}) {
   const {
     banner,
     overview,
@@ -38,23 +44,25 @@ export default function VerticalServicePage({ content }) {
     portfolioSlides,
     blogHeadingId,
     processSectionNoTopPadding,
+    faq,
   } = content;
 
-  return (
-    <>
-      <VerticalServiceBanner
-        headingId={banner.headingId}
-        accent={banner.accent}
-        plain={banner.plain}
-        lead={banner.lead}
-        features={banner.features}
-        image={banner.image}
-        imageAlt={banner.imageAlt}
-      />
+  const useFitnessStack = Boolean(fitnessFlowLayout && pageSectionStackClassName);
 
+  const creamClass = useFitnessStack
+    ? `${styles.sectionCream} ${styles.sectionCreamFitnessFlow}`
+    : styles.sectionCream;
+  const lavenderClass = useFitnessStack
+    ? `${styles.sectionLavender} ${styles.sectionLavenderFitnessFlow}`
+    : styles.sectionLavender;
+
+  const processSectionClass = `${creamClass}${processSectionNoTopPadding ? ` ${styles.sectionCreamNoTop}` : ""}`;
+
+  const coreBands = (
+    <>
       <section
         id={overview.sectionId}
-        className={styles.sectionCream}
+        className={creamClass}
         aria-labelledby={overview.headingId}
       >
         <div className={styles.inner}>
@@ -99,7 +107,7 @@ export default function VerticalServicePage({ content }) {
 
       <section
         id={capabilities.sectionId}
-        className={styles.sectionLavender}
+        className={lavenderClass}
         aria-labelledby={capabilities.headingId}
       >
         <div className={styles.inner}>
@@ -126,7 +134,7 @@ export default function VerticalServicePage({ content }) {
 
       <section
         id={process.sectionId}
-        className={`${styles.sectionCream}${processSectionNoTopPadding ? ` ${styles.sectionCreamNoTop}` : ""}`}
+        className={processSectionClass}
         aria-labelledby={process.headingId}
       >
         <div className={styles.inner}>
@@ -151,7 +159,11 @@ export default function VerticalServicePage({ content }) {
           </div>
         </div>
       </section>
+    </>
+  );
 
+  const closingDefault = (
+    <>
       <MarqueeSliderSection />
       <CTASection />
       <OurPortfolioSection noTopPadding portfolioImageSrcs={portfolioSlides} />
@@ -159,6 +171,58 @@ export default function VerticalServicePage({ content }) {
       <PricingSection />
       <TestimonialSection />
       <BlogSection headingId={blogHeadingId} />
+    </>
+  );
+
+  const closingFitnessFlow = (
+    <>
+      <MarqueeSliderSection />
+      <OurPortfolioSection noTopPadding portfolioImageSrcs={portfolioSlides} />
+      <TechStackSection />
+      <PricingSection />
+      <TestimonialSection
+        sectionPadding80
+        sectionPaddingTopZero
+        fitnessPageMobileFlushTop
+      />
+      {faq ? (
+        <VerticalServiceFaqBand
+          headingId={faq.headingId}
+          titleBefore={faq.titleBefore}
+          titleAccent={faq.titleAccent}
+          titleAfter={faq.titleAfter}
+          description={faq.description}
+          items={faq.items}
+        />
+      ) : null}
+      <BlogSection sectionPadding80 headingId={blogHeadingId} />
+      <CTASection sectionPadding80 />
+    </>
+  );
+
+  return (
+    <>
+      <VerticalServiceBanner
+        headingId={banner.headingId}
+        accent={banner.accent}
+        plain={banner.plain}
+        lead={banner.lead}
+        features={banner.features}
+        image={banner.image}
+        imageAlt={banner.imageAlt}
+      />
+
+      {useFitnessStack ? (
+        <div className={pageSectionStackClassName}>
+          {coreBands}
+          {closingFitnessFlow}
+        </div>
+      ) : (
+        <>
+          {coreBands}
+          {closingDefault}
+        </>
+      )}
     </>
   );
 }

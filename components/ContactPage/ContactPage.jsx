@@ -8,14 +8,14 @@ const PRIMARY = "#70AA26";
 const CONTACT_ICON_BASE = "/assets/images-webp/contact";
 
 const CONTACT_ROWS = [
-  { icon: `${CONTACT_ICON_BASE}/contact1.png`, label: "USA" },
+  { icon: `${CONTACT_ICON_BASE}/contact1.webp`, label: "USA" },
   {
-    icon: `${CONTACT_ICON_BASE}/contact2.png`,
+    icon: `${CONTACT_ICON_BASE}/contact2.webp`,
     label: "info@apexlabs.co",
     href: "mailto:info@apexlabs.co",
   },
   {
-    icon: `${CONTACT_ICON_BASE}/contact3.png`,
+    icon: `${CONTACT_ICON_BASE}/contact3.webp`,
     label: "+1 (555) 010-2030",
     href: "tel:+15550102030",
   },

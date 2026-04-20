@@ -5,8 +5,9 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ReadyToTransformSection.module.css";
 
-const CTA_IMAGE = "/assets/images-webp/ready-to-transform/digitalsolution-4.png";
-const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const IMG_BASE = "/assets/images-webp/ready-to-transform";
+const CTA_IMAGE = `${IMG_BASE}/digitalsolution-4.webp`;
+const SHADOW_IMAGE = `${IMG_BASE}/shadow-1.webp`;
 
 export default function ReadyToTransformSection() {
   return (

@@ -79,12 +79,10 @@ export default function FitnessAppDevelopmentMarketingSection() {
       aria-labelledby={headingId}
     >
       <div className={`${pageStyles.inner} fitnessMarketingInnerFlush`}>
-        <div
-          className={`${pageStyles.split} ${pageStyles.splitStackFlipSm}`}
-        >
-          <AnimateOnView variant="fadeUp">{imageBlock}</AnimateOnView>
+        <div className={pageStyles.split}>
+          <AnimateOnView variant="fadeUp">{textBlock}</AnimateOnView>
           <AnimateOnView variant="fadeUp" delayMs={80}>
-            {textBlock}
+            {imageBlock}
           </AnimateOnView>
         </div>
       </div>

@@ -5,9 +5,9 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./AboutBanner.module.css";
 
-const HERO = "/assets/images-webp/hero-banner/hero-img2.png";
-const SHADOW = "/assets/images-webp/hero-banner/shadow-3.png";
-const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
+const HERO = "/assets/images-webp/hero-banner/hero-img2.webp";
+const SHADOW = "/assets/images-webp/hero-banner/shadow-3.webp";
+const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.webp";
 
 /** Same DOM + Tailwind as `HeroBannerVisual` (home hero). */
 function AboutBannerVisual() {

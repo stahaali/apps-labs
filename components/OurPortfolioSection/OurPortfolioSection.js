@@ -2,7 +2,7 @@ import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import styles from "./OurPortfolioSection.module.css";
 import OurPortfolioInteractiveCard from "./OurPortfolioInteractiveCard";
 
-const PORTFOLIO_IMG = "/assets/images-webp/our-portfolio/portfolio-1.png";
+const PORTFOLIO_IMG = "/assets/images-webp/our-portfolio/portfolio-1.webp";
 
 const DEFAULT_IMAGE_ALT = "LuxeCart e-commerce app on iPhone mockups";
 

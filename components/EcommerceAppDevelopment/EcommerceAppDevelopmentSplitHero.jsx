@@ -76,6 +76,7 @@ function BadgeIcon({ name }) {
  * @param {boolean} [priorityImage] — LCP: true only for the first instance
  * @param {"default"|"alt"} [sectionVariant] — `alt` = slightly different background
  * @param {boolean} [reverseColumns] — image column first (left on desktop)
+ * @param {boolean} [imageAboveCopyAt768] — stacked layout only: at 768px viewport, show image above copy (ignored when `reverseColumns`)
  */
 export default function EcommerceAppDevelopmentSplitHero({
   content = ECOMMERCE_WEBSITE_MOBILE_PLATFORM,
@@ -84,6 +85,7 @@ export default function EcommerceAppDevelopmentSplitHero({
   priorityImage = false,
   sectionVariant = "default",
   reverseColumns = false,
+  imageAboveCopyAt768 = false,
 }) {
   const c = content;
   const { openModal } = useLeadFormModal();
@@ -182,10 +184,18 @@ export default function EcommerceAppDevelopmentSplitHero({
     </div>
   );
 
+  const splitRowClass = [
+    pageStyles.split,
+    localStyles.splitTopAlign,
+    imageAboveCopyAt768 && !reverseColumns && localStyles.splitFlip768,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <section className={sectionClass} aria-labelledby={headingId}>
       <div className={pageStyles.inner}>
-        <div className={`${pageStyles.split} ${localStyles.splitTopAlign}`}>
+        <div className={splitRowClass}>
           {reverseColumns ? (
             <>
               {imageCol}

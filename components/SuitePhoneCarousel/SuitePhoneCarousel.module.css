@@ -1,4 +1,4 @@
-/* Root: clipping + stacking for frame PNG + inner slides (mobile-image.png mockup). */
+/* Root: clipping + stacking for frame PNG + inner slides (mobile-image.webp mockup). */
 .phoneWrap {
   position: relative;
   overflow: hidden;
@@ -29,7 +29,7 @@
  */
 .screenSlot {
   /*
-   * Calibrated to mobile-image.png transparent display: wider slot = less side band;
+   * Calibrated to mobile-image.webp transparent display: wider slot = less side band;
    * if UI peeks past bezel, increase --suite-phone-inset-x in ~0.1% steps.
    */
   --suite-phone-inset-top: 1.42%;

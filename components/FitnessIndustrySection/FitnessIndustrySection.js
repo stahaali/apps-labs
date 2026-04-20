@@ -9,19 +9,19 @@ const BASE = "/assets/images-webp/industry/fitness";
 const CARDS = [
   {
     title: "Customer App & Website",
-    image: `${BASE}/customer-app-website.png`,
+    image: `${BASE}/customer-app-website.webp`,
     description:
       "Connect users with health experts, trainers, and gym instructors through your own fitness app.",
   },
   {
     title: "Fitness Trainer App",
-    image: `${BASE}/fitness-trainer-app.png`,
+    image: `${BASE}/fitness-trainer-app.webp`,
     description:
       "Connect fitness trainers and clients through an app where trainers can share workout instructions, diet plans, and advice.",
   },
   {
     title: "Admin Dashboard",
-    image: `${BASE}/admin-dashboard.png`,
+    image: `${BASE}/admin-dashboard.webp`,
     description:
       "Take control of your online fitness business with a comprehensive panel equipped with advanced analytics capabilities.",
   },

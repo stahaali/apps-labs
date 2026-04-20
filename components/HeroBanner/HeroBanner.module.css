@@ -5,8 +5,12 @@
   min-height: 560px;
   display: flex;
   flex-direction: column;
-  /* Clears absolute header (72px); inner uses equal block padding top/bottom */
+  /*
+   * Base: 72px top/bottom. Header is `position: fixed`, so the first 72px sits under the nav —
+   * on desktop we override with calc(72px + 72px) so a full 72px shows below the 72px-tall bar.
+   */
   padding-top: 72px;
+  padding-bottom: 72px;
   box-sizing: border-box;
   isolation: isolate;
 }
@@ -50,13 +54,7 @@
   .homebanner {
     max-height: 500px;
     padding-top: 43px;
-    padding-bottom: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .homebanner {
-    min-height: 864px;
+    padding-bottom: 43px;
   }
 }
 
@@ -73,6 +71,7 @@
 .inner {
   position: relative;
   z-index: 3;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -201,14 +200,18 @@
   z-index: 10;
   width: 100%;
   max-width: 720px;
+  /* Match hero mockup intrinsic ratio (680×740) so layout doesn’t jump before paint */
+  aspect-ratio: 680 / 740;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
   .inner {
     padding-left: max(2rem, env(safe-area-inset-left, 0px));
     padding-right: max(2rem, env(safe-area-inset-right, 0px));
-    padding-top: 1.2rem;
-    padding-bottom: 3rem;
+    /* Balanced vertical inset inside the hero band (was 1.2rem / 3rem — felt top-heavy vs mockups) */
+    padding-top: clamp(1.25rem, 2.5vw, 2.25rem);
+    padding-bottom: clamp(1.25rem, 2.5vw, 2.25rem);
   }
 
   .grid {
@@ -276,6 +279,18 @@
   }
 }
 
+/* Desktop 2-col: top-align copy + mockups (avoids “heading lower than phone tops” from align-items:center) */
+@media (min-width: 1025px) {
+  .homebanner .grid {
+    align-items: start;
+  }
+
+  /* Right column mockups — strict padding-top */
+  .homebanner .visualCol {
+    padding-top: 72px;
+  }
+}
+
 /* Tablet + mobile: hide phone mockups; copy + stats use full row (desktop 2-col from 1025px) */
 @media (max-width: 1024px) {
   .homebanner .grid {
@@ -319,15 +334,20 @@
   }
 }
 
-/* Home hero band height — wins over earlier breakpoint min-heights */
-.homebanner {
-  min-height: 751px;
-}
-
-/* iPad (768–1023): home hero band height — separate from iPad Pro 1024 */
-@media (min-width: 768px) and (max-width: 1023px) {
+/* iPad 768 CSS px only: banner vertical inset + hero h1 */
+@media (min-width: 768px) and (max-width: 768px) {
   .homebanner {
-    min-height: 600px;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .homebanner .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .homebanner .heroHeading {
+    font-size: 25px !important;
   }
 }
 
@@ -336,15 +356,11 @@
  * (overrides @media (max-width: 1024px) single-col / hidden visual above)
  */
 @media (width: 1024px) {
-  .homebanner {
-    min-height: 700px;
-  }
-
   .homebanner .grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
     column-gap: 2.5rem;
     row-gap: 0;
-    align-items: center;
+    align-items: start;
   }
 
   .homebanner .visualCol {
@@ -352,6 +368,7 @@
     min-width: 0;
     max-width: 100%;
     justify-content: flex-end;
+    padding-top: 72px;
   }
 
   .homebanner .visualRoot {
@@ -384,5 +401,20 @@
     width: auto;
     padding-right: 2rem;
     min-width: 0;
+  }
+
+  .homebanner .heroHeading {
+    font-size: 40px !important;
+  }
+}
+
+/* Fixed 740px hero band — ≥769px (≤768px keeps max-height / padding from mobile rules) */
+@media (min-width: 769px) {
+  .homebanner {
+    height: 740px;
+    min-height: 740px;
+    max-height: 740px;
+    padding-top: 280px;
+    padding-bottom: 72px;
   }
 }

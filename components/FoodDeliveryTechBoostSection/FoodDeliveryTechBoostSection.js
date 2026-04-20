@@ -4,7 +4,7 @@ import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./FoodDeliveryTechBoostSection.module.css";
-const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.png";
+const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.webp";
 const BASE = "/assets/images-webp/technology";
 
 const PHONES = `${BASE}/food-delivery.webp`;
@@ -12,19 +12,19 @@ const PHONES = `${BASE}/food-delivery.webp`;
 const CARDS = [
   {
     title: "Simplify Food Ordering",
-    icon: `${BASE}/2.png`,
+    icon: `${BASE}/2.webp`,
     description:
       "Give customers a clear, frictionless path from browse to checkout with menus, modifiers, and payments that feel natural on every device.",
   },
   {
     title: "Fast & Reliable Delivery",
-    icon: `${BASE}/3.png`,
+    icon: `${BASE}/3.webp`,
     description:
       "Keep riders, kitchens, and customers in sync with live status, smart routing, and operational tools built for speed when demand spikes.",
   },
   {
     title: "On-Time Order Experience",
-    icon: `${BASE}/4.png`,
+    icon: `${BASE}/4.webp`,
     description:
       "Schedule prep and handoff with confidence using alerts, SLAs, and dashboards so every order arrives on time without overwhelming your team.",
   },

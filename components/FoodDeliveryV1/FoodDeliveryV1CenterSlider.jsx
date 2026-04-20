@@ -46,8 +46,8 @@ export default function FoodDeliveryV1CenterSlider({
           className={`${sliderStyles.swiper} ${sliderStyles.swiperGallery}`}
           modules={[Autoplay]}
           centeredSlides={false}
-          loop={slides.length > 3}
-          loopAdditionalSlides={2}
+          rewind
+          watchOverflow
           speed={550}
           spaceBetween={16}
           slidesPerView={1}

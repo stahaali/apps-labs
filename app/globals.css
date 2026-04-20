@@ -238,6 +238,20 @@ a.site-btn-motion.btn.btn-dark {
   text-transform: capitalize;
 }
 
+/* iPad 768 CSS px only — `.title` scale */
+@media (min-width: 768px) and (max-width: 768px) {
+  .title {
+    font-size: 30px !important;
+  }
+}
+
+/* iPad Pro 1024 CSS px only — wins over section-scoped `h1.title` banner rules */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .title {
+    font-size: 27px !important;
+  }
+}
+
 @media (max-width: 576px) {
   /**
    * Opt-in: pair with any layout `.inner` (CSS modules) when mobile top padding should be 0.

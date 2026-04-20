@@ -3,15 +3,15 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./FoodDeliveryFeatures.module.css";
 
-// Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
+// Carousel slides — same folder as frame; first asset is 01.webp (not 1.webp)
 const FEATURE_SCREENS = [
-  "/assets/images-webp/food-business/5.png",
-  "/assets/images-webp/food-business/6.png",
-  "/assets/images-webp/food-business/7.png",
-  "/assets/images-webp/food-business/8.png",
+  "/assets/images-webp/food-business/5.webp",
+  "/assets/images-webp/food-business/6.webp",
+  "/assets/images-webp/food-business/7.webp",
+  "/assets/images-webp/food-business/8.webp",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/food-business/mobile-image.png";
+const PHONE_FRAME = "/assets/images-webp/food-business/mobile-image.webp";
 
 
 const FEATURE_ITEMS = [

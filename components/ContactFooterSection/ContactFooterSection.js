@@ -8,14 +8,14 @@ import styles from "./ContactFooterSection.module.css";
 
 const FOOTER_BG = "/assets/images-webp/footer/footer-bg.webp";
 const BASE = "/assets/images-webp/contact";
-/* `public/assets/images-webp/shadow-1.png` (or `.webp` — update extension if needed) */
-const SHADOW_IMAGE = "/assets/images-webp/footer/shadow-2.png";
+/* `public/assets/images-webp/shadow-1.webp` (or `.webp` — update extension if needed) */
+const SHADOW_IMAGE = "/assets/images-webp/footer/shadow-2.webp";
 const SHADOW_WIDTH = 700;
 
 const CONTACT_ITEMS = [
-  { icon: `${BASE}/contact1.png`, label: "USA" },
-  { icon: `${BASE}/contact2.png`, label: "info@apexlabs.co" },
-  { icon: `${BASE}/contact3.png`, label: "+1 (555) 010-2030" },
+  { icon: `${BASE}/contact1.webp`, label: "USA" },
+  { icon: `${BASE}/contact2.webp`, label: "info@apexlabs.co" },
+  { icon: `${BASE}/contact3.webp`, label: "+1 (555) 010-2030" },
 ];
 
 
@@ -232,6 +232,7 @@ export default function ContactFooterSection() {
                     {col.links.map((label) => (
                       <li key={label} className={styles.colItem}>
                         <Link
+                          prefetch={false}
                           href={footerLinkHref(label)}
                           className={styles.colLink}
                         >

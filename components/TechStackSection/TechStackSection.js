@@ -6,11 +6,11 @@ import GreenButton from "@/components/GreenButton/GreenButton";
 import AnimateOnView from "@/components/AnimateOnView/AnimateOnView";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./TechStackSection.module.css";
-const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.png";
+const SHADOW_IMAGE = "/assets/images-webp/techstack/shadow-1.webp";
 const SHADOW_WIDTH = 700;
-const img = (n) => `/assets/images-webp/techstack/${n}.png`;
+const img = (n) => `/assets/images-webp/techstack/${n}.webp`;
 
-/** Each tab: three cards using techstack 1–3.png (swap assets per tab when available). */
+/** Each tab: three cards using techstack 1–3.webp (swap assets per tab when available). */
 const TABS = [
   {
     id: "mobile",

@@ -5,13 +5,13 @@ import styles from "./FoodTechnologySuiteSection.module.css";
 
 /** First four screens only — `public/assets/images-webp/food-business/` */
 const FOOD_TECH_PHONE_FRAME =
-  "/assets/images-webp/food-business/mobile-image.png";
+  "/assets/images-webp/food-business/mobile-image.webp";
 
 const FOOD_TECH_CAROUSEL_SLIDES = [
-  "/assets/images-webp/food-business/01.png",
-  "/assets/images-webp/food-business/2.png",
-  "/assets/images-webp/food-business/3.png",
-  "/assets/images-webp/food-business/4.png",
+  "/assets/images-webp/food-business/01.webp",
+  "/assets/images-webp/food-business/2.webp",
+  "/assets/images-webp/food-business/3.webp",
+  "/assets/images-webp/food-business/4.webp",
 ];
 
 const LEFT_FEATURES = [

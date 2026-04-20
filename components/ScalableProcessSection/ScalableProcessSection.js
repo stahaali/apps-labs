@@ -3,13 +3,13 @@ import Image from "next/image";
 import styles from "./ScalableProcessSection.module.css";
 
 const IMG_BASE = "/assets/images-webp/scalable-process";
-const SHADOW_IMAGE = "/assets/images-webp/shadow-1.png";
+const SHADOW_IMAGE = `${IMG_BASE}/shadow-1.webp`;
 const SHADOW_WIDTH = 700;
 
 const STEPS = [
   {
     num: "01",
-    image: `${IMG_BASE}/search-1.png`,
+    image: `${IMG_BASE}/search-1.webp`,
     title: "Discover & Plan",
     kicker: "Free consultation",
     description:
@@ -17,7 +17,7 @@ const STEPS = [
   },
   {
     num: "02",
-    image: `${IMG_BASE}/design-develop-1.png`,
+    image: `${IMG_BASE}/design-develop-1.webp`,
     title: "Design & Develop",
     kicker: "Agile development process",
     description:
@@ -25,7 +25,7 @@ const STEPS = [
   },
   {
     num: "03",
-    image: `${IMG_BASE}/launch-1.png`,
+    image: `${IMG_BASE}/launch-1.webp`,
     title: "Launch & Scale",
     kicker: "Ongoing Support & Growth",
     description:

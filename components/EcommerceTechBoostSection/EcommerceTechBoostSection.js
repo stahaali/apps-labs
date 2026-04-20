@@ -5,27 +5,27 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./EcommerceTechBoostSection.module.css";
 
-const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.png";
+const SHADOW_IMG = "/assets/images-webp/technology/shadow-3.webp";
 const BASE = "/assets/images-webp/technology";
 
-const PHONES = `${BASE}/01.png`;
+const PHONES = `${BASE}/01.webp`;
 
 const CARDS = [
   {
     title: "Frictionless Shopping",
-    icon: `${BASE}/frictionless-shopping.png`,
+    icon: `${BASE}/frictionless-shopping.webp`,
     description:
       "Guide shoppers from discovery to purchase with clear catalog navigation, variants, promotions, and checkout flows that feel effortless on every device.",
   },
   {
     title: "Fulfillment & Scale",
-    icon: `${BASE}/fulfillment-scale.png`,
+    icon: `${BASE}/fulfillment-scale.webp`,
     description:
       "Sync inventory, orders, and carriers so your team can handle peaks, split shipments, and returns without losing visibility or control.",
   },
   {
     title: "Trusted Buyer Journey",
-    icon: `${BASE}/trusted-buyer-journey.png`,
+    icon: `${BASE}/trusted-buyer-journey.webp`,
     description:
       "Build confidence with order tracking, notifications, and operational dashboards that keep customers informed and support teams ahead of issues.",
   },

@@ -2,15 +2,15 @@ import Image from "next/image";
 import styles from "./LogisticsTransportationFeaturesSection.module.css";
 import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 
-// Carousel slides — same folder as frame; first asset is 01.png (not 1.png)
+// Carousel slides — same folder as frame; first asset is 01.webp (not 1.webp)
 const FEATURE_SCREENS = [
-  "/assets/images-webp/fitness-technology/5.png",
-  "/assets/images-webp/fitness-technology/6.png",
-  "/assets/images-webp/fitness-technology/7.png",
-  "/assets/images-webp/fitness-technology/8.png",
+  "/assets/images-webp/fitness-technology/5.webp",
+  "/assets/images-webp/fitness-technology/6.webp",
+  "/assets/images-webp/fitness-technology/7.webp",
+  "/assets/images-webp/fitness-technology/8.webp",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.png";
+const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.webp";
 
 const FEATURE_ITEMS = [
   {

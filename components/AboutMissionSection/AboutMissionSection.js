@@ -9,19 +9,19 @@ const TECH = "/assets/images-webp/technology";
 const CARDS = [
   {
     title: "Discovery & strategy",
-    image: `${TECH}/ai-machine-learning.png`,
+    image: `${TECH}/ai-machine-learning.webp`,
     description:
       "We align on users, markets, and milestones before a single screen is drawn—so scope, stack, and ROI stay grounded.",
   },
   {
     title: "Design & engineering",
-    image: `${TECH}/trusted-buyer-journey.png`,
+    image: `${TECH}/trusted-buyer-journey.webp`,
     description:
       "Product design, native and cross-platform builds, and integrations with the systems your business already runs on.",
   },
   {
     title: "Launch & growth",
-    image: `${TECH}/fulfillment-scale.png`,
+    image: `${TECH}/fulfillment-scale.webp`,
     description:
       "Store submissions, analytics, and iteration cycles that keep releases predictable as your user base grows.",
   },

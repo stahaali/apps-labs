@@ -1,5 +1,9 @@
 import dynamic from "next/dynamic";
-import MarqueeSliderSection from "@/components/MarqueeSliderSection/MarqueeSliderSection";
+
+const MarqueeSliderSection = dynamic(
+  () => import("@/components/MarqueeSliderSection/MarqueeSliderSection"),
+  { loading: () => null }
+);
 
 const TestimonialSection = dynamic(
   () => import("@/components/TestimonialSection/TestimonialSection"),

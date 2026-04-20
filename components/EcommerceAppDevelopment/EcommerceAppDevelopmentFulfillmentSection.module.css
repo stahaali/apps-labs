@@ -1,0 +1,7 @@
+/* iPad 768 CSS px: fulfillment split — narrower image when stacked below copy */
+@media (min-width: 768px) and (max-width: 768px) {
+  .fulfillmentImage768 {
+    max-width: min(100%, 320px);
+    margin-inline: auto;
+  }
+}

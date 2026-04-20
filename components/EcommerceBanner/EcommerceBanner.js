@@ -8,8 +8,8 @@ import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton"
 import { useLeadFormModal } from "@/components/LeadFormModal/LeadFormModalProvider";
 import styles from "./EcommerceBanner.module.css";
 
-const HERO = "/assets/images-webp/banners/ecommerce-banner1.png";
-const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.png";
+const HERO = "/assets/images-webp/banners/ecommerce-banner1.webp";
+const PEN_ICON = "/assets/images-webp/hero-banner/pen-01.webp";
 
 export default function EcommerceBanner() {
   const { openModal } = useLeadFormModal();
@@ -32,7 +32,7 @@ export default function EcommerceBanner() {
             </p>
 
             <form
-              className="mt-8 w-full max-w-[520px]"
+              className={`mt-8 w-full max-w-[520px] ${styles.emailSignupForm}`}
               action="#"
               method="post"
               aria-label="Ecommerce email signup"

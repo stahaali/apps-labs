@@ -110,7 +110,7 @@
   }
 }
 
-/* Marketing composite (e.g. 1.png) — larger column than default split hero */
+/* Marketing composite (e.g. 1.webp) — larger column than default split hero */
 .imageWrapLarge {
   max-width: min(100%, 400px);
 }
@@ -126,6 +126,23 @@
     max-width: min(100%, 600px);
   }
 }
+
+/* iPad 768 CSS px: platform split — image above copy; image narrower than 640–1023 default */
+@media (min-width: 768px) and (max-width: 768px) {
+  .splitFlip768 > :first-child {
+    order: 2;
+  }
+
+  .splitFlip768 > :nth-child(2) {
+    order: 1;
+  }
+
+  .splitFlip768 .imageWrap {
+    max-width: min(100%, 320px);
+    margin-inline: auto;
+  }
+}
+
 @media(max-width:576px)
 {
   .section

@@ -312,7 +312,7 @@ const megaBadgeClass =
 function MegaServiceRowDesktop({ item, onNavigate }) {
   return (
     <li>
-      <Link
+      <Link prefetch={false}
         href={item.href}
         className="group flex gap-3 rounded-xl px-2 py-2.5 transition-colors hover:bg-neutral-50"
         onClick={onNavigate}
@@ -367,7 +367,7 @@ function ServicesMegaMenuDesktop({ onNavigate }) {
             <MegaServiceRowDesktop key={item.label} item={item} onNavigate={onNavigate} />
           ))}
         </ul>
-        <Link
+        <Link prefetch={false}
           href="/contact"
           onClick={onNavigate}
           className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#70AA26]/22 bg-[rgba(112,170,38,0.09)] px-4 py-3.5 text-left transition-colors hover:bg-[rgba(112,170,38,0.14)]"
@@ -393,7 +393,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
   const [c1, c2, c3] = SERVICES_MEGA_COLUMNS;
   const linkRow = (item) => (
     <li key={item.label}>
-      <Link
+      <Link prefetch={false}
         href={item.href}
         className={classNameLink}
         onClick={onNavigate}
@@ -434,7 +434,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
       <ul className="m-0 w-full min-w-0 list-none space-y-0.5 py-1" role="list">
         {c3.map(linkRow)}
       </ul>
-      <Link
+      <Link prefetch={false}
         href="/contact"
         onClick={onNavigate}
         className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/10 px-3 py-3 text-left text-[13px] font-semibold text-white transition-colors hover:bg-white/[0.14]"
@@ -649,7 +649,7 @@ export default function Header() {
           }`}
         />
         <div className="relative mx-auto flex h-[72px] min-h-[72px] w-full max-w-[1280px] items-center justify-between overflow-visible px-4 min-[480px]:px-6 min-[992px]:px-8">
-        <Link
+        <Link prefetch={false}
           href="/"
           className="min-w-0 shrink-0 text-lg font-bold tracking-tight min-[400px]:text-[22px]"
         >
@@ -661,10 +661,10 @@ export default function Header() {
           className="hidden items-center gap-[34px] overflow-visible lg:flex"
           aria-label="Main navigation"
         >
-          <Link href="/" className={navLink}>
+          <Link prefetch={false} href="/" className={navLink}>
             Home
           </Link>
-          <Link href="/about" className={navLink}>
+          <Link prefetch={false} href="/about" className={navLink}>
             About
           </Link>
           <div
@@ -717,16 +717,16 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <Link href="/pricing" className={navLink}>
+          <Link prefetch={false} href="/pricing" className={navLink}>
             Pricing
           </Link>
-          <Link href="/testimonials" className={navLink}>
+          <Link prefetch={false} href="/testimonials" className={navLink}>
             Testimonials
           </Link>
-          <Link href="/blog" className={navLink}>
+          <Link prefetch={false} href="/blog" className={navLink}>
             Blog
           </Link>
-          <Link href="/contact" className={navLink}>
+          <Link prefetch={false} href="/contact" className={navLink}>
             Contact
           </Link>
         </nav>
@@ -793,7 +793,7 @@ export default function Header() {
               }`}
             >
               <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <Link
+                <Link prefetch={false}
                   href="/"
                   onClick={closeMenu}
                   className="shrink-0 text-lg font-bold tracking-tight"
@@ -848,7 +848,7 @@ export default function Header() {
                       ) : null}
                     </div>
                   ) : (
-                    <Link
+                    <Link prefetch={false}
                       key={item.href + item.label}
                       href={item.href}
                       className="flex items-center justify-between rounded-xl px-3 py-3 text-[15px] font-medium text-white/90 hover:bg-white/10"
