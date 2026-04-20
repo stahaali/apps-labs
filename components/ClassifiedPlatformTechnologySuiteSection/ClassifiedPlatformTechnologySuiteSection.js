@@ -1,59 +1,59 @@
 ﻿import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./ClassifiedPlatformTechnologySuiteSection.module.css";
 
-// Carousel slides — same folder as frame; first asset is 01.webp (not 1.webp)
+// Carousel: screens 3–6 — /public/assets/images-webp/classified/mobile/
 const FEATURE_SCREENS = [
-  "/assets/images-webp/fitness-technology/01.webp",
-  "/assets/images-webp/fitness-technology/2.webp",
-  "/assets/images-webp/fitness-technology/3.webp",
-  "/assets/images-webp/fitness-technology/4.webp",
+  "/assets/images-webp/classified/mobile/3.png",
+  "/assets/images-webp/classified/mobile/4.png",
+  "/assets/images-webp/classified/mobile/5.png",
+  "/assets/images-webp/classified/mobile/6.png",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.webp";
+const PHONE_FRAME = "/assets/images-webp/classified/mobile/mobile-image.png";
 
 const LEFT_FEATURES = [
   {
-    title: "Expert Consultation",
+    title: "User-Friendly",
     description:
-      "Align product, trust, and engineering early—so listing types, monetization, moderation, and integrations are captured before UI ships.",
+      "Enjoy a smooth browsing experience with intuitive navigation and easy-to-use interfaces.",
   },
   {
-    title: "Video & Tutorial",
+    title: "Smart Listing Management",
     description:
-      "Onboard sellers and support staff with short in-app tutorials, policy checklists, and quality cues that reduce bad listings early.",
+      "Manage listings, categories, and approvals efficiently with real-time updates and control.",
   },
   {
-    title: "Push Notifications",
+    title: "Advanced Search & Filters",
     description:
-      "Alert buyers and sellers about new matches, messages, offer updates, and verification steps with timely, actionable pushes.",
+      "Help users find listings quickly with smart search, filters, and organized categories.",
   },
   {
-    title: "Geolocation",
+    title: "Flexible Payment Options",
     description:
-      "Maps, radius search, and meetup safety patterns where proximity matters—without turning your product into a generic map clone.",
+      "Support secure payments, featured listings, and ad promotions with a seamless checkout system.",
   },
 ];
 
 const RIGHT_FEATURES = [
   {
-    title: "Listings & inventory",
+    title: "Customer Engagement Tools",
     description:
-      "Structured fields, media pipelines, and drafts so sellers publish faster while your team keeps categories consistent at scale.",
+      "Enhance communication with real-time messaging, alerts, and notifications.",
   },
   {
-    title: "Search & discovery",
+    title: "Listings & Activity Tracking",
     description:
-      "Facets, saved searches, and ranking hooks tuned to your category so buyers find what they want without drowning in noise.",
+      "Track listing performance, user activity, and engagement with detailed insights.",
   },
   {
-    title: "Offers & checkout",
+    title: "Reviews & Ratings",
     description:
-      "Threaded offers, carts, or escrow-ready flows matched to how your market closes deals—online or handoff in person.",
+      "Build trust with user feedback and improve platform quality based on real reviews.",
   },
   {
-    title: "Admin & moderation",
+    title: "Push Notifications",
     description:
-      "Queues, audit trails, and role-based tools so your team can enforce policy, resolve disputes, and watch funnel health in one place.",
+      "Send alerts for new listings, messages, and activity updates to keep users engaged.",
   },
 ];
 
@@ -290,12 +290,12 @@ export default function ClassifiedPlatformTechnologySuiteSection() {
           Technology
         </span>
         <h2 id="classified-technology-suite-heading" className="title text-balance text-neutral-900">
-          Elevate Your Marketplace Brand <span className="text-[#70AA26]">With Our Tech Tools</span>
+          Advanced Technology Suite Powering Your{" "}
+          <span className="text-[#70AA26]">Classified Growth</span>
         </h2>
         <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-          Grow trust and conversion with a classified product built for real listings volume—search, messaging, payments,
-          and moderation your team can run daily. We ship polished buyer and seller experiences, resilient APIs, and
-          analytics leadership can act on—so you lead in your niche, not in generic template limits.
+          We build your classified platform with a powerful, scalable tech stack—designed to manage listings, enhance user
+          interactions, and support seamless marketplace growth.
         </p>
       </div>
 

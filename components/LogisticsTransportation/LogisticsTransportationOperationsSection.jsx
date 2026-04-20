@@ -84,7 +84,7 @@ export default function LogisticsTransportationOperationsSection() {
           width={1600}
           height={1000}
           className="h-auto w-full object-contain object-center mix-blend-multiply"
-          sizes="(max-width: 1023px) min(92vw, 500px), min(52vw, 520px)"
+          sizes="(max-width: 1023px) min(92vw, 600px), 52vw"
           skeletonClassName="rounded-[1.25rem]"
           wrapClassName="block min-h-[200px] w-full"
         />
@@ -93,8 +93,10 @@ export default function LogisticsTransportationOperationsSection() {
   );
 
   return (
-    <section className={styles.section} aria-labelledby={headingId}>
-      <div className={`${pageStyles.inner} logisticsOperationsInnerFlush`}>
+    <section className={`${styles.section} logisticsOperationsBand`} aria-labelledby={headingId}>
+      <div
+        className={`${pageStyles.inner} ${pageStyles.innerWide} logisticsOperationsInnerFlush`}
+      >
         <div
           className={`${styles.operationsSplit} ${pageStyles.splitStackFlipSm}`}
         >

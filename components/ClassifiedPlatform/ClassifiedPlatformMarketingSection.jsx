@@ -57,15 +57,15 @@ export default function ClassifiedPlatformMarketingSection() {
   const imageBlock = (
     <div className={pageStyles.imageCard}>
       <div
-        className={`relative w-full min-h-[200px] bg-transparent ${pageStyles.splitImageNarrow}`}
+        className={`relative w-full min-h-[200px] bg-transparent ${styles.marketingImageWrap}`}
       >
         <ImageWithSkeleton
           src={image}
-          alt="Marketplace engagement mockups: alerts, saved searches, and campaigns on mobile"
+          alt="Marketplace marketing mockups: engagement, listings, and campaigns on mobile"
           width={1600}
           height={1000}
           className="h-auto w-full object-contain object-center mix-blend-multiply"
-          sizes="(max-width: 1023px) min(92vw, 440px), min(440px, 40vw)"
+          sizes="(max-width: 1023px) min(92vw, 500px), min(500px, 46vw)"
           skeletonClassName="rounded-[1.25rem]"
           wrapClassName="block min-h-[200px] w-full"
         />

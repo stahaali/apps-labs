@@ -27,22 +27,41 @@ function CtaListCheckIcon({ className }) {
   );
 }
 
-const LEFT_CHECKS = [
+const DEFAULT_LEFT_CHECKS = [
   "Food Delivery Solutions",
   "E-Commerce Platforms",
   "Appointment Booking",
 ];
 
-const RIGHT_CHECKS = ["iOS and Android", "React Native", "Flutter"];
+const DEFAULT_RIGHT_CHECKS = ["iOS and Android", "React Native", "Flutter"];
+
+const DEFAULT_TITLE = "Starting a New Project? Let's Talk.";
+
+const DEFAULT_LEAD =
+  "Ready to launch your app? Contact us today for a free consultation and project estimate. Ready to launch your app? Contact us today for a free consultation and project estimate.";
 
 export default function CTASection({
   sectionPadding84 = false,
   sectionPadding80 = false,
   ctaLabel,
+  /** Optional overrides (e.g. vertical pages like /classified-platform) */
+  title,
+  lead,
+  leftBrandName,
+  leftBrandTag,
+  leftChecks,
+  rightChecks,
   /** Match /food-delivery/v1 hero & green pill CTAs: 15px, font-weight 600 */
   matchFoodDeliveryV1Typography = false,
 }) {
   const label = ctaLabel ?? "Book Free Consultation";
+  const resolvedTitle = title ?? DEFAULT_TITLE;
+  const resolvedLead = lead ?? DEFAULT_LEAD;
+  const resolvedLeftBrand = leftBrandName ?? "AppPremier";
+  const resolvedLeftTag = leftBrandTag ?? "Services";
+  const resolvedLeftChecks = leftChecks ?? DEFAULT_LEFT_CHECKS;
+  const resolvedRightChecks = rightChecks ?? DEFAULT_RIGHT_CHECKS;
+
   return (
     <section
       className={[
@@ -77,13 +96,9 @@ export default function CTASection({
 
           <div className={styles.centerBlock}>
             <h2 id="cta-heading" className={`title ${styles.title}`}>
-              Starting a New Project? Let&apos;s Talk.
+              {resolvedTitle}
             </h2>
-            <p className={styles.lead}>
-              Ready to launch your app? Contact us today for a free consultation
-              and project estimate. Ready to launch your app? Contact us today for
-              a free consultation and project estimate.
-            </p>
+            <p className={styles.lead}>{resolvedLead}</p>
             <WhiteButton
               href="/contact"
               surface="onBlue"
@@ -110,12 +125,12 @@ export default function CTASection({
                 />
               </div>
               <div className={styles.sideCardHeadText}>
-                <p className={styles.sideCardBrandName}>AppPremier</p>
-                <p className={styles.sideCardBrandTag}>Services</p>
+                <p className={styles.sideCardBrandName}>{resolvedLeftBrand}</p>
+                <p className={styles.sideCardBrandTag}>{resolvedLeftTag}</p>
               </div>
             </div>
             <ul className={styles.checkList}>
-              {LEFT_CHECKS.map((item) => (
+              {resolvedLeftChecks.map((item) => (
                 <li key={item} className={styles.checkItemLeft}>
                   <span className={styles.checkIconWrap} aria-hidden>
                     <CtaListCheckIcon className={styles.checkIconSvg} />
@@ -129,7 +144,7 @@ export default function CTASection({
           <div className={`${styles.sideCard} ${styles.sideCardRight}`}>
             <p className={styles.sideCardTitle}>Technologies</p>
             <ul className={styles.checkList}>
-              {RIGHT_CHECKS.map((item) => (
+              {resolvedRightChecks.map((item) => (
                 <li key={item} className={styles.checkItemLeft}>
                   <span className={styles.checkIconWrap} aria-hidden>
                     <CtaListCheckIcon className={styles.checkIconSvg} />

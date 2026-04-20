@@ -1,15 +1,15 @@
 import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./LogisticsTransportationTechnologySuiteSection.module.css";
 
-// Carousel slides — same folder as frame; first asset is 01.webp (not 1.webp)
+// Carousel: last four screens only (5–8) — /public/assets/images-webp/logistic/mobile/
 const FEATURE_SCREENS = [
-  "/assets/images-webp/fitness-technology/01.webp",
-  "/assets/images-webp/fitness-technology/2.webp",
-  "/assets/images-webp/fitness-technology/3.webp",
-  "/assets/images-webp/fitness-technology/4.webp",
+  "/assets/images-webp/logistic/mobile/5.png",
+  "/assets/images-webp/logistic/mobile/6.png",
+  "/assets/images-webp/logistic/mobile/7.png",
+  "/assets/images-webp/logistic/mobile/8.png",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.webp";
+const PHONE_FRAME = "/assets/images-webp/logistic/mobile/mobile-image.png";
 
 const LEFT_FEATURES = [
   {

@@ -25,7 +25,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: min(100%, 560px);
+  max-width: min(100%, 720px);
   margin-inline: auto;
 }
 
@@ -33,20 +33,23 @@
   .visualCluster {
     margin-inline: 0;
     justify-content: flex-start;
-    max-width: min(100%, 580px);
+    max-width: 100%;
   }
 }
 
 .photoWrap {
   position: relative;
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
-  max-width: min(100%, 440px);
+  max-width: min(100%, 620px);
   border-radius: 1.35rem;
   overflow: hidden;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.85) inset,
-    0 20px 48px -18px rgba(15, 23, 42, 0.22);
+}
+
+@media (min-width: 1024px) {
+  .photoWrap {
+    max-width: 100%;
+  }
 }
 
 .chipsRail {
@@ -65,9 +68,7 @@
   padding: 0.4rem 0.75rem;
   border-radius: 0.65rem;
   background: #ffffff;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 8px 22px -10px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   font-size: 12px;
   font-weight: 600;
   color: #1e293b;

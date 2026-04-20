@@ -1,0 +1,72 @@
+/**
+ * /auction-app — post-hero sections: uniform vertical rhythm on small viewports.
+ */
+@media (max-width: 576px) {
+  .pageSectionStack > section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.auctionFreeSetupSection) {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pageSectionStack :global(.auctionFreeSetupInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.auctionPlatformInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.auctionOperationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.auctionFulfillmentSection) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.auctionFulfillmentInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.auctionTechnologySuiteMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.auctionOutcomesSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.auctionOutcomesInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.auctionIntegrationsSectionMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.auctionIntegrationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.auctionMarketingSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.auctionMarketingInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.auctionTestimonialMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+}

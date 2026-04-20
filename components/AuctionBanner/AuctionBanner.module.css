@@ -1,0 +1,299 @@
+/* ~80vh as fixed px (no vh): 560≈0.8×700, 640≈0.8×800, 864≈0.8×1080 */
+.auctionBanner {
+  position: relative;
+  background-color: #000000;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom:0px;
+  padding-top: 78px;
+}
+@media (max-width: 768px) {
+  .auctionBanner {
+    min-height: 740px;
+  }
+}
+@media (min-width: 768px) {
+  .auctionBanner {
+    min-height: 640px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .auctionBanner {
+    height: 739px;
+    min-height: 739px;
+    max-height: 739px;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1280px;
+  padding-left: max(1rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  padding-bottom: 4rem;
+  padding-top: calc(72px + 1.25rem);
+}
+
+@media (min-width: 480px) {
+  .inner {
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .auctionBanner .grid {
+    gap: 3rem;
+  }
+}
+
+.contentCol {
+  max-width: 560px;
+  min-width: 0;
+}
+
+.visualCol {
+  position: relative;
+  display: flex;
+  min-height: 300px;
+  min-width: 0;
+  justify-content: center;
+}
+
+.visualRoot {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualFrame {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: min(100%, 480px);
+  align-items: center;
+  justify-content: center;
+}
+
+.visualFigure {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: min(100%, 480px);
+}
+
+.headline {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) and (min-width: 640px) {
+  .auctionBanner .headline {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 639px) {
+  .auctionBanner .headline {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+}
+
+.headlineAccent {
+  color: #70aa26;
+}
+
+.headlineSub {
+  display: block;
+  margin-top: 0.35rem;
+  color: #ffffff;
+}
+
+.lead {
+  margin: 0;
+  margin-top: 1.5rem;
+  max-width: 540px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.bulletList {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 540px;
+}
+
+.bulletItem {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.checkBullet {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  border-radius: 999px;
+  background: #70aa26;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1rem;
+  margin-top: 1.75rem;
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+  background: transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.secondaryCta:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.secondaryCta:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding-left: max(2rem, env(safe-area-inset-left, 0px));
+    padding-right: max(2rem, env(safe-area-inset-right, 0px));
+    padding-bottom: 5rem;
+    padding-top: 0;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    column-gap: 2.5rem;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  .contentCol {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+
+  .visualCol {
+    min-height: 440px;
+    justify-content: center;
+  }
+
+  .visualRoot {
+    justify-content: center;
+  }
+
+  .visualFrame {
+    max-width: min(100%, 600px);
+    padding-right: 0;
+  }
+
+  .visualFigure {
+    max-width: min(100%, 600px);
+  }
+}
+
+/* iPad / small tablet only: hide hero mockup; copy uses full row (<768 unchanged) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .auctionBanner .grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+
+  .auctionBanner .visualCol {
+    display: none;
+  }
+
+  .auctionBanner .contentCol {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+/* iPad 768 CSS px only: banner vertical inset + hero h1 */
+@media (min-width: 768px) and (max-width: 768px) {
+  .auctionBanner {
+    height: 500px;
+    min-height: 500px !important;
+    padding-top: 78px !important;
+    padding-bottom: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .auctionBanner .inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .auctionBanner .headline {
+    font-size: 25px !important;
+  }
+}
+
+/* iPad Pro 1024 CSS px only: hero h1 scale */
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .auctionBanner .headline {
+    font-size: 40px !important;
+  }
+}

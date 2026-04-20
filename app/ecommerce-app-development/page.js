@@ -1,5 +1,6 @@
 import EcommerceAppDevelopmentSplitHero from "@/components/EcommerceAppDevelopment/EcommerceAppDevelopmentSplitHero";
 import {
+  ECOMMERCE_APP_DEVELOPMENT_CTA_BAND,
   ECOMMERCE_SPLIT_HERO_SECOND,
   ECOMMERCE_WEBSITE_MOBILE_PLATFORM,
 } from "@/lib/ecommerceAppDevelopmentFreeSetup";
@@ -56,7 +57,7 @@ export default function EcommerceAppDevelopmentPage() {
         <TestimonialSection />
         <EcommerceAppDevelopmentFaqSection />
         <BlogSection />
-        <CTASection />
+        <CTASection {...ECOMMERCE_APP_DEVELOPMENT_CTA_BAND} />
         {/* <OurPortfolioSection /> */}
         {/* <EcommerceTechStackSection /> */}
         {/* <PricingSection /> */}

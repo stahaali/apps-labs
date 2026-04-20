@@ -2,15 +2,15 @@ import Image from "next/image";
 import styles from "./LogisticsTransportationFeaturesSection.module.css";
 import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 
-// Carousel slides — same folder as frame; first asset is 01.webp (not 1.webp)
+// Carousel: first four screens only — /public/assets/images-webp/logistic/mobile/
 const FEATURE_SCREENS = [
-  "/assets/images-webp/fitness-technology/5.webp",
-  "/assets/images-webp/fitness-technology/6.webp",
-  "/assets/images-webp/fitness-technology/7.webp",
-  "/assets/images-webp/fitness-technology/8.webp",
+  "/assets/images-webp/logistic/mobile/1.png",
+  "/assets/images-webp/logistic/mobile/2.png",
+  "/assets/images-webp/logistic/mobile/3.png",
+  "/assets/images-webp/logistic/mobile/4.png",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.webp";
+const PHONE_FRAME = "/assets/images-webp/logistic/mobile/mobile-image.png";
 
 const FEATURE_ITEMS = [
   {
@@ -107,10 +107,11 @@ export default function LogisticsTransportationFeaturesSection() {
               <div className="flex w-full shrink-0 justify-center lg:w-[280px] lg:max-w-[280px] lg:justify-end lg:pt-2 xl:w-[300px] xl:max-w-[300px]">
                 <div className="w-full max-w-[300px]">
                   {/* Props yahan pass kar diye hain taake crash na ho */}
-                  <SuitePhoneCarousel 
-                    frameSrc={PHONE_FRAME} 
-                    screenSrcs={FEATURE_SCREENS} 
+                  <SuitePhoneCarousel
+                    frameSrc={PHONE_FRAME}
+                    screenSrcs={FEATURE_SCREENS}
                     intervalMs={3000}
+                    alt="Logistics and transportation app preview on a phone"
                   />
                 </div>
               </div>

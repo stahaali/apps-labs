@@ -1,16 +1,15 @@
-﻿import Image from "next/image";
-import styles from "./ClassifiedPlatformFeaturesSection.module.css";
+﻿import styles from "./ClassifiedPlatformFeaturesSection.module.css";
 import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 
-// Carousel slides — same folder as frame; first asset is 01.webp (not 1.webp)
+// Carousel: screens 1, 2, 7, 8 — /public/assets/images-webp/classified/mobile/
 const FEATURE_SCREENS = [
-  "/assets/images-webp/fitness-technology/5.webp",
-  "/assets/images-webp/fitness-technology/6.webp",
-  "/assets/images-webp/fitness-technology/7.webp",
-  "/assets/images-webp/fitness-technology/8.webp",
+  "/assets/images-webp/classified/mobile/1.png",
+  "/assets/images-webp/classified/mobile/2.png",
+  "/assets/images-webp/classified/mobile/7.png",
+  "/assets/images-webp/classified/mobile/8.png",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/fitness-technology/mobile-image.webp";
+const PHONE_FRAME = "/assets/images-webp/classified/mobile/mobile-image.png";
 
 const FEATURE_ITEMS = [
   {
@@ -107,10 +106,11 @@ export default function ClassifiedPlatformFeaturesSection() {
               <div className="flex w-full shrink-0 justify-center lg:w-[280px] lg:max-w-[280px] lg:justify-end lg:pt-2 xl:w-[300px] xl:max-w-[300px]">
                 <div className="w-full max-w-[300px]">
                   {/* Props yahan pass kar diye hain taake crash na ho */}
-                  <SuitePhoneCarousel 
-                    frameSrc={PHONE_FRAME} 
-                    screenSrcs={FEATURE_SCREENS} 
+                  <SuitePhoneCarousel
+                    frameSrc={PHONE_FRAME}
+                    screenSrcs={FEATURE_SCREENS}
                     intervalMs={3000}
+                    alt="Classified marketplace app preview on a phone"
                   />
                 </div>
               </div>

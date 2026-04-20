@@ -14,3 +14,15 @@
     padding-bottom: 40px;
   }
 }
+
+/* Wider than shared .splitImageNarrow (380px) so dual-phone mockup reads larger */
+.marketingImageWrap {
+  max-width: min(100%, 460px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .marketingImageWrap {
+    max-width: min(100%, 500px);
+  }
+}

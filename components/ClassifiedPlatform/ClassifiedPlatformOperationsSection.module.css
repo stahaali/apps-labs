@@ -1,4 +1,4 @@
-﻿/* /classified-platform — operations / control band (matches ecommerce marketing rhythm) */
+/* /classified-platform — operations / control band (matches ecommerce marketing rhythm) */
 .section {
   position: relative;
   width: 100%;
@@ -15,7 +15,7 @@
   }
 }
 
-/* Wider left column + larger mockup than default 1fr / 380px split */
+/* Equal columns: mockup and copy each get half the row */
 .operationsSplit {
   display: grid;
   gap: 2rem;
@@ -28,19 +28,20 @@
 
 @media (min-width: 1024px) {
   .operationsSplit {
-    grid-template-columns: 1.22fr 0.78fr;
-    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
 }
 
 .imageWrapLarge {
-  max-width: min(100%, 500px);
+  width: 100%;
+  max-width: min(100%, 600px);
   margin-inline: auto;
 }
 
 @media (min-width: 1024px) {
   .imageWrapLarge {
     margin-inline: 0;
-    max-width: min(100%, 520px);
+    max-width: 100%;
   }
 }

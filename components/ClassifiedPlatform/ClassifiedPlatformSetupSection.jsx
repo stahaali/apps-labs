@@ -6,7 +6,7 @@ import pageStyles from "@/components/FoodDeliveryV1/FoodDeliveryV1.module.css";
 import localStyles from "./ClassifiedPlatformSetupSection.module.css";
 
 const THEME_PILL =
-  "mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white shadow-sm";
+  "mb-5 inline-flex rounded-full bg-[#70AA26] px-4 py-2 text-[13px] font-semibold tracking-wide text-white";
 const THEME_H2 = "title text-balance break-words text-neutral-900";
 const THEME_LEAD =
   "mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]";
@@ -94,6 +94,19 @@ function ChipIcon({ name }) {
       </svg>
     );
   }
+  if (name === "message") {
+    return (
+      <svg {...svgProps}>
+        <path
+          d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 3v-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path d="M8 10h8M8 13h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
   return null;
 }
 
@@ -130,7 +143,7 @@ export default function ClassifiedPlatformSetupSection() {
             width={1600}
             height={1000}
             className="h-auto w-full object-cover object-center"
-            sizes="(max-width: 639px) 90vw, (max-width: 1023px) 80vw, 500px"
+            sizes="(max-width: 639px) 90vw, (max-width: 1023px) 82vw, 620px"
             skeletonClassName="rounded-[1.25rem]"
             wrapClassName="block min-h-[200px] w-full"
           />

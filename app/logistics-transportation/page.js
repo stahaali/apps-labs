@@ -1,15 +1,18 @@
-import LogisticsTransportationFulfillmentSection from "@/components/LogisticsTransportation/LogisticsTransportationFulfillmentSection";
-import LogisticsTransportationIntegrationsSection from "@/components/LogisticsTransportation/LogisticsTransportationIntegrationsSection";
-import LogisticsTransportationMarketingSection from "@/components/LogisticsTransportation/LogisticsTransportationMarketingSection";
 import LogisticsTransportationOperationsSection from "@/components/LogisticsTransportation/LogisticsTransportationOperationsSection";
-import LogisticsTransportationOutcomesSection from "@/components/LogisticsTransportation/LogisticsTransportationOutcomesSection";
-import LogisticsTransportationPlatformSection from "@/components/LogisticsTransportation/LogisticsTransportationPlatformSection";
-import LogisticsTransportationSetupSection from "@/components/LogisticsTransportation/LogisticsTransportationSetupSection";
-import LogisticsTransportationFaqSection from "@/components/LogisticsTransportation/LogisticsTransportationFaqSection";
 import LogisticsTransportationBanner from "@/components/LogisticsTransportationBanner/LogisticsTransportationBanner";
-import LogisticsTransportationTechnologySuiteSection from "@/components/LogisticsTransportationTechnologySuiteSection/LogisticsTransportationTechnologySuiteSection";
+import {
+  LogisticsTransportationFaqSection,
+  LogisticsTransportationFeaturesSection,
+  LogisticsTransportationFulfillmentSection,
+  LogisticsTransportationIntegrationsSection,
+  LogisticsTransportationMarketingSection,
+  LogisticsTransportationOutcomesSection,
+  LogisticsTransportationPlatformSection,
+  LogisticsTransportationSetupSection,
+  LogisticsTransportationTechnologySuiteSection,
+} from "@/lib/lazyVerticalPageSections";
 import { BlogSection, CTASection, TestimonialSection } from "@/lib/lazySections";
-import LogisticsTransportationFeaturesSection from "@/components/LogisticsTransportationFeaturesSection/LogisticsTransportationFeaturesSection";
+import { LOGISTICS_TRANSPORTATION_CONTENT } from "@/lib/verticalServicePageContent";
 
 import styles from "./page.module.css";
 
@@ -40,7 +43,7 @@ export default function LogisticsTransportationPage() {
         />
         <LogisticsTransportationFaqSection />
         <BlogSection sectionPadding80 />
-        <CTASection sectionPadding80 />
+        <CTASection sectionPadding80 {...LOGISTICS_TRANSPORTATION_CONTENT.ctaBand} />
       </div>
     </>
   );

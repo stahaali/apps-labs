@@ -37,21 +37,21 @@
   font-size: clamp(1.75rem, 3.5vw, 60px);
 }
 
-/* Chips rail + rounded photo */
+/* Chips rail + rounded photo — wider cap so the hero photo dominates the column */
 .visualCluster {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.65rem;
   width: 100%;
-  max-width: min(100%, 520px);
+  max-width: min(100%, 600px);
   margin-inline: auto;
 }
 
 @media (min-width: 1024px) {
   .visualCluster {
     margin-inline: 0;
-    max-width: min(100%, 540px);
+    max-width: min(100%, 640px);
   }
 }
 
@@ -93,9 +93,7 @@
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
   background: #ffffff;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 6px 18px -8px rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   font-size: 12px;
   font-weight: 600;
   color: #1e293b;
@@ -113,8 +111,6 @@
   min-width: 0;
   border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.85) inset,
-    0 18px 40px -16px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(15, 23, 42, 0.06);
 }
 

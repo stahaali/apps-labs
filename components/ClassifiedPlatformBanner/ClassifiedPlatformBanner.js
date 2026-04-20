@@ -5,12 +5,12 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ClassifiedPlatformBanner.module.css";
 
-const HERO = "/assets/images-webp/our-portfolio/ecommerce/1.webp";
+const HERO = "/assets/images-webp/banners/clasified-banner.webp";
 
 const BULLETS = [
-  "Structured listings, search, and trust workflows for your niche",
-  "Messaging, offers, and payments aligned to how you monetize",
-  "Admin, moderation, and analytics your team can run day one",
+  "Custom iOS, Android, and web classified apps",
+  "Listings management, user accounts, and messaging",
+  "Integrations for payments, ads, and analytics",
 ];
 
 function CheckBullet() {
@@ -31,12 +31,11 @@ export default function ClassifiedPlatformBanner() {
         <div className={styles.grid}>
           <AnimateOnView variant="fadeUp" className={styles.contentCol} delayMs={80}>
             <h1 id="classified-hero-heading" className={styles.headline}>
-              <span className={styles.headlineAccent}>Classified platform</span>
-              <span className={styles.headlineSub}>Built for serious operators</span>
+              <span className={styles.headlineAccent}>Classified App</span>
+              <span className={styles.headlineSub}>Development For Modern Brands</span>
             </h1>
             <p className={`${styles.lead} text-neutral-400`}>
-              Launch a trustworthy listings experience: structured categories, seller tools, buyer safety, and revenue levers
-              you can grow—without duct-taping plugins together.
+            From listings to transactions. We design and build branded classified mobile apps and web platforms that help you manage users, listings, and buyer-seller interactions.
             </p>
             <ul className={styles.bulletList}>
               {BULLETS.map((item) => (

@@ -96,6 +96,11 @@
   }
 }
 
+/* +80px vs .inner — use with .inner for split bands that need a touch more mockup + copy width */
+.innerWide {
+  max-width: min(100%, 1280px);
+}
+
 .integrationsMarqueeBleed {
   width: 100%;
   max-width: 100%;

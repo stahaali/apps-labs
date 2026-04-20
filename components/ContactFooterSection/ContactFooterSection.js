@@ -164,6 +164,7 @@ export default function ContactFooterSection() {
                       name="firstName"
                       placeholder="First Name"
                       autoComplete="given-name"
+                      required
                     />
                   </label>
                   <label className={`${styles.field} ${styles.nameFieldLast}`}>
@@ -173,6 +174,7 @@ export default function ContactFooterSection() {
                       name="lastName"
                       placeholder="Last Name"
                       autoComplete="family-name"
+                      required
                     />
                   </label>
                 </div>
@@ -185,6 +187,7 @@ export default function ContactFooterSection() {
                     placeholder="Email"
                     type="email"
                     autoComplete="email"
+                    required
                   />
                 </label>
 
@@ -194,7 +197,10 @@ export default function ContactFooterSection() {
                     className={styles.input}
                     name="phone"
                     placeholder="Phone Number"
+                    type="tel"
                     autoComplete="tel"
+                    inputMode="tel"
+                    required
                   />
                 </label>
 
@@ -205,6 +211,7 @@ export default function ContactFooterSection() {
                     name="message"
                     placeholder="Message"
                     rows={4}
+                    required
                   />
                 </label>
 

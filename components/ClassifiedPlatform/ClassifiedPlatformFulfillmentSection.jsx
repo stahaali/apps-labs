@@ -68,6 +68,40 @@ function ChipIcon({ name }) {
       </svg>
     );
   }
+  if (name === "list") {
+    return (
+      <svg {...svgProps}>
+        <path
+          d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  if (name === "chat") {
+    return (
+      <svg {...svgProps}>
+        <path
+          d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 3v-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+  if (name === "grid") {
+    return (
+      <svg {...svgProps}>
+        <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    );
+  }
   return null;
 }
 
@@ -129,7 +163,7 @@ export default function ClassifiedPlatformFulfillmentSection() {
             width={1200}
             height={1400}
             className="h-auto w-full object-cover object-center"
-            sizes="(max-width: 1023px) min(92vw, 480px), min(480px, 42vw)"
+            sizes="(max-width: 1023px) min(92vw, 640px), (max-width: 1400px) 46vw, 620px"
             skeletonClassName="rounded-[1.35rem]"
             wrapClassName="block min-h-[220px] w-full"
           />
@@ -151,7 +185,9 @@ export default function ClassifiedPlatformFulfillmentSection() {
       className={`${styles.section} classifiedFulfillmentSection`}
       aria-labelledby={headingId}
     >
-      <div className={`${pageStyles.inner} classifiedFulfillmentInnerFlush`}>
+      <div
+        className={`${pageStyles.inner} ${pageStyles.innerWide} classifiedFulfillmentInnerFlush`}
+      >
         <div className={pageStyles.split}>
           <AnimateOnView variant="fadeUp">{textBlock}</AnimateOnView>
           <AnimateOnView variant="fadeUp" delayMs={80}>

@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   overflow-x: clip;
-  background: linear-gradient(#e8ecff, #fdf7ec);
+  background: linear-gradient(180deg, #faf8f4 0%, #fdf6e8 55%, #f8f4eb 100%);
   padding-top: 80px;
   padding-bottom: 80px;
 }

@@ -15,14 +15,15 @@
   }
 }
 
-/* Slightly wider than default split mockup for dual-phone art */
+/* Dual-phone mockup — wider cap so art reads larger next to copy */
 .mockupWrap {
-  max-width: min(100%, 440px);
+  max-width: min(100%, 520px);
   margin-inline: auto;
 }
 
 @media (min-width: 1024px) {
   .mockupWrap {
+    max-width: min(100%, 580px);
     margin-left: auto;
     margin-right: 0;
   }

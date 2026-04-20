@@ -203,14 +203,14 @@
   margin: 0;
   font-size: 16px;
   font-weight: 800;
-  color: #000000;
+  color: #111827;
 }
 
 .role {
   margin: 2px 0 0;
   font-size: 14px;
   font-weight: 600;
-  color: #000000;
+  color: #888b92;
 }
 
 .stars {
@@ -230,7 +230,7 @@
   margin: 0;
   font-size: 16px;
   line-height: 1.65;
-  color: #000000;
+  color: #4d525d;
 }
 
 @media (min-width: 768px) {

@@ -1,6 +1,13 @@
 /**
  * /logistics-transportation — post-hero sections: same mobile rhythm hooks as /fitness-app-development.
  */
+
+/* Operations band (first split under hero): always 80px vertical padding on the page stack. */
+.pageSectionStack > :global(section.logisticsOperationsBand) {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+
 @media (max-width: 576px) {
   .pageSectionStack > section {
     padding-top: 40px !important;

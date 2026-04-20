@@ -63,7 +63,7 @@ export default function ClassifiedPlatformPlatformSection() {
           width={1600}
           height={1000}
           className="h-auto w-full object-contain object-center drop-shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
-          sizes="(max-width: 1023px) min(92vw, 480px), min(520px, 42vw)"
+          sizes="(max-width: 1023px) min(92vw, 560px), min(580px, 50vw)"
           skeletonClassName="rounded-[1.25rem]"
           wrapClassName="block min-h-[200px] w-full"
         />

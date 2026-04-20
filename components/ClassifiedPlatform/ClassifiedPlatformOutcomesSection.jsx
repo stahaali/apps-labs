@@ -32,7 +32,7 @@ export default function ClassifiedPlatformOutcomesSection() {
         <div className={`${pageStyles.statsGrid} ${AFTER_HEAD}`}>
           {stats.map((s, i) => (
             <AnimateOnView key={s.label} variant="fadeUp" delayMs={i * 60}>
-              <div className={pageStyles.statCard}>
+              <div className={`${pageStyles.statCard} text-center`}>
                 <div className={pageStyles.statValue}>{s.value}</div>
                 <div className={pageStyles.statLabel}>{s.label}</div>
                 <p className={pageStyles.statDetail}>{s.detail}</p>

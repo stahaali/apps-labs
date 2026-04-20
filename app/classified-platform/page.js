@@ -1,14 +1,16 @@
 import ClassifiedPlatformBanner from "@/components/ClassifiedPlatformPage/ClassifiedPlatformBanner";
 import ClassifiedPlatformOperationsSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformOperationsSection";
-import ClassifiedPlatformPlatformSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformPlatformSection";
-import ClassifiedPlatformSetupSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformSetupSection";
-import ClassifiedPlatformFeaturesSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformFeaturesSection";
-import ClassifiedPlatformTechnologySuiteSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformTechnologySuiteSection";
-import ClassifiedPlatformFulfillmentSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformFulfillmentSection";
-import ClassifiedPlatformMarketingSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformMarketingSection";
-import ClassifiedPlatformIntegrationsSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformIntegrationsSection";
-import ClassifiedPlatformOutcomesSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformOutcomesSection";
-import ClassifiedPlatformFaqSection from "@/components/ClassifiedPlatformPage/ClassifiedPlatformFaqSection";
+import {
+  ClassifiedPlatformFaqSection,
+  ClassifiedPlatformFeaturesSection,
+  ClassifiedPlatformFulfillmentSection,
+  ClassifiedPlatformIntegrationsSection,
+  ClassifiedPlatformMarketingSection,
+  ClassifiedPlatformOutcomesSection,
+  ClassifiedPlatformPlatformSection,
+  ClassifiedPlatformSetupSection,
+  ClassifiedPlatformTechnologySuiteSection,
+} from "@/lib/lazyVerticalPageSections";
 import { BlogSection, CTASection, TestimonialSection } from "@/lib/lazySections";
 import stackStyles from "@/components/PageSectionStack/pageSectionStack.module.css";
 import { CLASSIFIED_PLATFORM_CONTENT } from "@/lib/verticalServicePageContent";
@@ -36,7 +38,7 @@ export default function ClassifiedPlatformPage() {
         />
         <ClassifiedPlatformFaqSection />
         <BlogSection sectionPadding80 />
-        <CTASection sectionPadding80 />
+        <CTASection sectionPadding80 {...CLASSIFIED_PLATFORM_CONTENT.ctaBand} />
       </div>
     </>
   );

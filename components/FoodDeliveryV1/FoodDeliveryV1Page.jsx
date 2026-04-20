@@ -278,11 +278,7 @@ export default function FoodDeliveryV1Page() {
 
       <BlogSection headingId="fd-v1-blog-heading" />
 
-      <CTASection
-        sectionPadding84
-        ctaLabel="Start Selling Food online"
-        matchFoodDeliveryV1Typography
-      />
+      <CTASection sectionPadding84 matchFoodDeliveryV1Typography />
     </div>
   );
 }

@@ -231,7 +231,7 @@ a.site-btn-motion.btn.btn-dark {
 
 /* Section / page titles: fluid scale (phones → desktop), no awkward 577–767px jump */
 .title {
-  font-size: clamp(1.625rem, 4.2vw + 0.85rem, 3.375rem);
+  font-size: 50px;
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
