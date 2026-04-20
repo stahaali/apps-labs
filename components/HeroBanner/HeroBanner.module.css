@@ -312,6 +312,15 @@
 }
 
 @media (max-width: 576px) {
+  /* Home hero band — fixed height + nav offset (overrides @media max-width 768px on this viewport). */
+  .homebanner {
+    height: 700px;
+    min-height: 700px;
+    max-height: 700px;
+    padding-top: 62px;
+    padding-bottom: 0;
+  }
+
   /* Right-column hero image: fluid width, cap at 576px (no fixed 700px bleed) */
   .visualFrame {
     max-width: min(576px, 100%);
