@@ -20,57 +20,6 @@ function CheckBullet() {
   );
 }
 
-function ChipIcon({ name }) {
-  const svgProps = {
-    className: styles.chipIcon,
-    width: 14,
-    height: 14,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    "aria-hidden": true,
-  };
-  if (name === "video") {
-    return (
-      <svg {...svgProps}>
-        <rect x="2" y="5" width="15" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
-        <path
-          d="M17 9l5-3v12l-5-3"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-  if (name === "pulse") {
-    return (
-      <svg {...svgProps}>
-        <path
-          d="M4 12h3l2-6 3 12 2-8h6"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-  if (name === "user") {
-    return (
-      <svg {...svgProps}>
-        <path
-          d="M12 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3ZM6 20a6 6 0 0 1 12 0"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    );
-  }
-  return null;
-}
-
 function Headline({ id, lines }) {
   return (
     <h2 id={id} className={`${THEME_H2} ${styles.heading}`}>
@@ -87,16 +36,8 @@ function Headline({ id, lines }) {
 }
 
 export default function AuctionAppDevelopmentFulfillmentSection() {
-  const {
-    eyebrow,
-    headlineLines,
-    body,
-    bullets,
-    cta,
-    image,
-    imageAlt,
-    chips,
-  } = AUCTION_APP_DEVELOPMENT_FULFILLMENT;
+  const { eyebrow, headlineLines, body, bullets, cta, image, imageAlt } =
+    AUCTION_APP_DEVELOPMENT_FULFILLMENT;
 
   const headingId = "auction-fulfillment-heading";
 
@@ -122,20 +63,19 @@ export default function AuctionAppDevelopmentFulfillmentSection() {
   const visualBlock = (
     <div className={styles.visualCluster}>
       <div className={styles.photoWrap}>
-        <div className="relative w-full min-h-[220px] bg-neutral-100/50">
+        <div className="relative w-full min-h-[240px] bg-transparent">
           <ImageWithSkeleton
             src={image}
             alt={imageAlt}
-            width={1200}
-            height={1400}
-            className="h-auto w-full object-cover object-center"
-            sizes="(max-width: 1023px) min(92vw, 440px), 440px"
+            width={1248}
+            height={1456}
+            className="h-auto w-full object-contain object-center"
+            sizes="(max-width: 1023px) min(92vw, 500px), min(50vw, 520px)"
             skeletonClassName="rounded-[1.35rem]"
-            wrapClassName="block min-h-[220px] w-full"
+            wrapClassName="block min-h-[240px] w-full"
           />
         </div>
       </div>
-     
     </div>
   );
 

@@ -1,59 +1,59 @@
 import SuitePhoneCarousel from "@/components/SuitePhoneCarousel/SuitePhoneCarousel";
 import styles from "./AuctionTechnologySuiteSection.module.css";
 
-// Carousel slides + frame — /public/assets/images-webp/ecommerce-technology/
+// Carousel slides + frame — /public/assets/images-webp/auction-app/mobile/
 const FEATURE_SCREENS = [
-  "/assets/images-webp/ecommerce-technology/1.webp",
-  "/assets/images-webp/ecommerce-technology/2.webp",
-  "/assets/images-webp/ecommerce-technology/3.webp",
-  "/assets/images-webp/ecommerce-technology/4.webp",
+  "/assets/images-webp/auction-app/mobile/1.webp",
+  "/assets/images-webp/auction-app/mobile/2.webp",
+  "/assets/images-webp/auction-app/mobile/3.webp",
+  "/assets/images-webp/auction-app/mobile/4.webp",
 ];
 
-const PHONE_FRAME = "/assets/images-webp/ecommerce-technology/mobile-image.webp";
+const PHONE_FRAME = "/assets/images-webp/auction-app/mobile/mobile-image.webp";
 
 const LEFT_FEATURES = [
   {
-    title: "Expert Consultation",
+    title: "User-Friendly",
     description:
-      "Align catalog rules, increments, buyer types, and compliance needs before UI—so bidding logic and settlement stay consistent in production.",
+      "Deliver a smooth bidding experience with intuitive navigation and easy-to-use interfaces.",
   },
   {
-    title: "Video & Tutorial",
+    title: "Smart Auction Management",
     description:
-      "Onboard consignors and bidders with short walkthroughs for lot submission, max bids, and payment timing—fewer mistakes on closing night.",
+      "Manage auctions, items, categories, and approvals efficiently with real-time control.",
   },
   {
-    title: "Push Notifications",
+    title: "Advanced Search & Filters",
     description:
-      "Alert users on outbid, ending soon, hammer-down wins, and payment due—actionable pushes that keep serious bidders in the flow.",
+      "Help users find auction items quickly with smart search, filters, and organized categories.",
   },
   {
-    title: "Geolocation",
+    title: "Flexible Payment Options",
     description:
-      "Support pickup workflows with geofenced handoffs, directions, and proof-of-collection when your auction mixes digital bids with physical lots.",
+      "Support secure payments, deposits, and winning bid transactions with a seamless checkout flow.",
   },
 ];
 
 const RIGHT_FEATURES = [
   {
-    title: "Lots & Catalog",
+    title: "Real-Time Engagement Tools",
     description:
-      "Model lots, variants, media, and reserves so browsing feels fast while ops teams can approve, schedule, and publish with confidence.",
+      "Boost communication with live bid alerts, notifications, and instant activity updates.",
   },
   {
-    title: "Live & Timed Bidding",
+    title: "Bid & Activity Tracking",
     description:
-      "Low-latency bid paths, reconnect-tolerant clients, and clear ordering when the clock matters and spikes hit hardest.",
+      "Monitor bidder activity, auction performance, and engagement with detailed insights.",
   },
   {
-    title: "Settlement & Risk",
+    title: "Reviews & Ratings",
     description:
-      "Capture payments, fees, and payouts with dispute hooks and admin overrides when reality diverges from the happy path.",
+      "Build trust with user feedback and improve platform credibility through reviews.",
   },
   {
-    title: "Integrations",
+    title: "Push Notifications",
     description:
-      "Wire PSPs, CRM, email, analytics, and partner APIs so marketing, finance, and operations share one source of truth.",
+      "Send alerts for new bids, auction endings, and item activity to keep users engaged.",
   },
 ];
 

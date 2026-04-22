@@ -1,0 +1,72 @@
+/**
+ * /nutrition-platform — post-hero sections: same mobile rhythm hooks as /auction-app.
+ */
+@media (max-width: 576px) {
+  .pageSectionStack > section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionFreeSetupSection) {
+    padding-top: 40px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .pageSectionStack :global(.nutritionFreeSetupInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.nutritionPlatformInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack :global(.nutritionOperationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionFulfillmentSection) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.nutritionFulfillmentInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionTechnologySuiteMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionOutcomesSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.nutritionOutcomesInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionIntegrationsSectionMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.nutritionIntegrationsInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionMarketingSectionMobilePad40) {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .pageSectionStack :global(.nutritionMarketingInnerFlush) {
+    padding-top: 0 !important;
+  }
+
+  .pageSectionStack > :global(section.nutritionTestimonialMobileFlushTop) {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+  }
+}

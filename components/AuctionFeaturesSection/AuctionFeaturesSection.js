@@ -1,43 +1,43 @@
 import styles from "./AuctionFeaturesSection.module.css";
 import SuitePhoneCarousel from "../SuitePhoneCarousel/SuitePhoneCarousel";
 
-const ECOMMERCE_PHONE_FRAME =
-  "/assets/images-webp/ecommerce-technology/mobile-image.webp";
+const AUCTION_PHONE_FRAME =
+  "/assets/images-webp/auction-app/mobile/mobile-image.webp";
 
-const ECOMMERCE_FEATURE_SCREENS = [5, 6, 7, 8].map(
-  (n) => `/assets/images-webp/ecommerce-technology/${n}.webp`
+const AUCTION_FEATURE_SCREENS = [5, 6, 7, 8].map(
+  (n) => `/assets/images-webp/auction-app/mobile/${n}.webp`
 );
 
 const FEATURE_ITEMS = [
   {
     title: "Own Your Source Code",
     description:
-      "Complete source code for your application—full ownership and freedom to extend, customize, or migrate on your terms.",
+      "Full ownership of your auction platform—customize, scale, and expand without limitations.",
   },
   {
-    title: "Endless Integrations",
+    title: "Real-Time Bidding System",
     description:
-      "Connect PSPs, CRM, email, identity, notifications, and partner APIs so listings, bids, and payouts run as one stack.",
+      "Seamless live bidding with instant updates, countdown timers, and competitive user engagement.",
   },
   {
-    title: "Exceptional UI/UX",
+    title: "Advanced Auction UI/UX",
     description:
-      "Interfaces bidders and consignors actually finish—clear lot detail, fast filters, and trust cues where money changes hands.",
+      "Modern, user-focused design that enhances bidding experience and keeps users engaged.",
   },
   {
-    title: "Dedicated Support",
+    title: "Integrated Payments",
     description:
-      "Expert support through launch, marquee events, and new auction formats when moderation and settlements need steady hands.",
+      "Secure payment gateways for deposits, winning bids, and transaction handling.",
   },
   {
     title: "100% Customized Solution",
     description:
-      "Tailored to your fee model, buyer types, reserves, and how you verify sellers, handle disputes, and grow categories over time.",
+      "Tailored systems built around your auction types, categories, and workflows.",
   },
   {
-    title: "Highly Robust & Scalable Solution",
+    title: "Highly Scalable Platform",
     description:
-      "Built for closing-night spikes, media-heavy catalogs, and enterprise-grade traffic without sacrificing bid ordering or checkout reliability.",
+      "Robust architecture designed to handle high traffic, real-time bids, and platform growth.",
   },
 ];
 
@@ -83,11 +83,12 @@ export default function AuctionFeaturesSection() {
               Features
             </span>
             <h2 id="auction-features-heading" className="title text-balance text-neutral-900">
-              This Is Just The Start - Delve Into <span className="text-[#70AA26]">Our Wide Range Of Thrilling Features!</span>
+              {"That's Not All! Explore Our "}
+              <span className="text-[#70AA26]">Powerful Auction App</span> Features!
             </h2>
             <p className="mx-auto mt-5 max-w-[640px] text-[15px] leading-relaxed text-neutral-600 sm:text-[16px]">
-              Explore capabilities that elevate your auction product—from discovery and trust to bidding, settlement, and admin
-              beyond template limits.
+              Discover powerful features designed to help you manage auctions, connect bidders, and grow your platform. From live
+              bidding to analytics, everything works together to scale your auction business.
             </p>
           </header>
 
@@ -102,8 +103,8 @@ export default function AuctionFeaturesSection() {
               <div className="flex w-full shrink-0 justify-center lg:w-[280px] lg:max-w-[280px] lg:justify-end lg:pt-2 xl:w-[300px] xl:max-w-[300px]">
                 <div className="w-full max-w-[300px]">
                   <SuitePhoneCarousel
-                    frameSrc={ECOMMERCE_PHONE_FRAME}
-                    screenSrcs={ECOMMERCE_FEATURE_SCREENS}
+                    frameSrc={AUCTION_PHONE_FRAME}
+                    screenSrcs={AUCTION_FEATURE_SCREENS}
                     intervalMs={3000}
                     alt="Auction app preview on a phone"
                   />

@@ -10,7 +10,7 @@ import {
   AuctionAppDevelopmentSetupSection,
   AuctionFeaturesSection,
   AuctionTechnologySuiteSection,
-} from "@/lib/lazyVerticalPageSections";
+} from "@/lib/lazyAuctionPageSections";
 import { AUCTION_APP_DEVELOPMENT_CTA_BAND } from "@/lib/auctionAppDevelopmentSetup";
 import { BlogSection, CTASection, TestimonialSection } from "@/lib/lazySections";
 

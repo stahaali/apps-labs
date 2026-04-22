@@ -1,0 +1,14 @@
+
+.nutritionFeaturesSection {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: linear-gradient(#e8ecff, #fdf7ec);
+}
+.innercontainer
+{
+  padding-top: 0;
+  padding-bottom: 0 !important;
+}

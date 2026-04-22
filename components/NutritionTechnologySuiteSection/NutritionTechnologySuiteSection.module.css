@@ -1,0 +1,11 @@
+.nutritionTechnologySuite {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 576px) {
+  .nutritionTechnologySuite {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+}

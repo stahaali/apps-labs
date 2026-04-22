@@ -59,7 +59,7 @@ export default function AuctionAppDevelopmentPlatformSection() {
       >
         <ImageWithSkeleton
           src={image}
-          alt="Auction marketplace mockups showing lots, bids, and checkout"
+          alt="Auction platform mobile app mockups with curated collection and gallery flows"
           width={1600}
           height={1000}
           className="h-auto w-full object-contain object-center drop-shadow-[0_20px_50px_rgba(15,23,42,0.08)]"

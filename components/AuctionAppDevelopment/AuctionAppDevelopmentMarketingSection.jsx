@@ -28,12 +28,13 @@ export default function AuctionAppDevelopmentMarketingSection() {
     bullets,
     cta,
     image,
+    imageAlt,
   } = AUCTION_APP_DEVELOPMENT_MARKETING;
 
   const headingId = "auction-marketing-heading";
 
   const textBlock = (
-    <div>
+    <div className="text-left lg:max-w-xl">
       <span className={THEME_PILL}>{eyebrow}</span>
       <h2 id={headingId} className={THEME_H2}>
         <span className="block">{headlineLine1}</span>
@@ -56,16 +57,15 @@ export default function AuctionAppDevelopmentMarketingSection() {
 
   const imageBlock = (
     <div className={pageStyles.imageCard}>
-      <div
-        className={`relative w-full min-h-[200px] bg-transparent ${pageStyles.splitImageNarrow}`}
-      >
+      <div className={`relative w-full min-h-[200px] bg-transparent ${styles.mockupWrap}`}>
         <ImageWithSkeleton
           src={image}
-          alt="Auction app on phone mockups with lots, bids, and engagement screens"
-          width={1600}
-          height={1000}
-          className="h-auto w-full object-contain object-center mix-blend-multiply"
-          sizes="(max-width: 1023px) min(90vw, 380px), 380px"
+          alt={imageAlt}
+          width={2000}
+          height={1250}
+          className="h-auto w-full object-contain object-center"
+          sizes="(max-width: 1023px) min(92vw, 560px), min(640px, 50vw)"
+          quality={88}
           skeletonClassName="rounded-[1.25rem]"
           wrapClassName="block min-h-[200px] w-full"
         />
@@ -80,9 +80,9 @@ export default function AuctionAppDevelopmentMarketingSection() {
     >
       <div className={`${pageStyles.inner} auctionMarketingInnerFlush`}>
         <div className={pageStyles.split}>
-          <AnimateOnView variant="fadeUp">{textBlock}</AnimateOnView>
+          <AnimateOnView variant="fadeUp">{imageBlock}</AnimateOnView>
           <AnimateOnView variant="fadeUp" delayMs={80}>
-            {imageBlock}
+            {textBlock}
           </AnimateOnView>
         </div>
       </div>

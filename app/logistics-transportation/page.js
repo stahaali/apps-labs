@@ -1,4 +1,3 @@
-import LogisticsTransportationOperationsSection from "@/components/LogisticsTransportation/LogisticsTransportationOperationsSection";
 import LogisticsTransportationBanner from "@/components/LogisticsTransportationBanner/LogisticsTransportationBanner";
 import {
   LogisticsTransportationFaqSection,
@@ -6,13 +5,14 @@ import {
   LogisticsTransportationFulfillmentSection,
   LogisticsTransportationIntegrationsSection,
   LogisticsTransportationMarketingSection,
+  LogisticsTransportationOperationsSection,
   LogisticsTransportationOutcomesSection,
   LogisticsTransportationPlatformSection,
   LogisticsTransportationSetupSection,
   LogisticsTransportationTechnologySuiteSection,
-} from "@/lib/lazyVerticalPageSections";
+} from "@/lib/lazyLogisticsPageSections";
 import { BlogSection, CTASection, TestimonialSection } from "@/lib/lazySections";
-import { LOGISTICS_TRANSPORTATION_CONTENT } from "@/lib/verticalServicePageContent";
+import { LOGISTICS_TRANSPORTATION_CTA_BAND } from "@/lib/logisticsTransportationSetup";
 
 import styles from "./page.module.css";
 
@@ -43,7 +43,7 @@ export default function LogisticsTransportationPage() {
         />
         <LogisticsTransportationFaqSection />
         <BlogSection sectionPadding80 />
-        <CTASection sectionPadding80 {...LOGISTICS_TRANSPORTATION_CONTENT.ctaBand} />
+        <CTASection sectionPadding80 {...LOGISTICS_TRANSPORTATION_CTA_BAND} />
       </div>
     </>
   );

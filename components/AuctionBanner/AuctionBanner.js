@@ -5,7 +5,7 @@ import animateStyles from "@/components/AnimateOnView/AnimateOnView.module.css";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./AuctionBanner.module.css";
 
-const HERO = "/assets/images-webp/our-portfolio/ecommerce/5.webp";
+const HERO = "/assets/images-webp/banners/auction-banner.webp";
 
 const BULLETS = [
   "Custom iOS, Android, and web auction apps",

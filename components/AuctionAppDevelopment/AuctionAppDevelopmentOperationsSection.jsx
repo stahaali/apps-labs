@@ -75,16 +75,15 @@ export default function AuctionAppDevelopmentOperationsSection() {
 
   const imageBlock = (
     <div className={pageStyles.imageCard}>
-      <div
-        className={`relative w-full min-h-[200px] bg-transparent ${pageStyles.splitImageNarrow}`}
-      >
+      <div className={`relative w-full min-h-[200px] bg-transparent ${styles.mockupWrap}`}>
         <ImageWithSkeleton
           src={image}
-          alt="Auction app mockups showing lots, bidding, and seller home screens"
-          width={1600}
-          height={1000}
-          className="h-auto w-full object-contain object-center mix-blend-multiply"
-          sizes="(max-width: 1023px) min(90vw, 380px), 380px"
+          alt="Person using a tablet with live auction metrics and bidding activity"
+          width={2000}
+          height={1250}
+          className="h-auto w-full object-contain object-center"
+          sizes="(max-width: 1023px) min(92vw, 580px), min(620px, 52vw)"
+          quality={85}
           skeletonClassName="rounded-[1.25rem]"
           wrapClassName="block min-h-[200px] w-full"
         />
