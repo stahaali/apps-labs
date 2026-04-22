@@ -149,17 +149,7 @@ export default function EcommerceAppDevelopmentSplitHero({
           wrapClassName="block min-h-[200px] w-full max-w-full"
           priority={priorityImage}
           {...(priorityImage ? { fetchPriority: "high" } : {})}
-        />
-        {badges?.length ? (
-          <ul className={localStyles.floatingBadges} aria-label="Highlights">
-            {badges.map((b, i) => (
-              <li key={`${headingId}-fb-${i}`} className={localStyles.floatingBadge}>
-                <BadgeIcon name={b.icon} />
-                <span>{b.label}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
+        />      
       </div>
     </div>
   );

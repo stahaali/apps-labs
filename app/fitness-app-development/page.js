@@ -1,10 +1,10 @@
-import FitnessAppDevelopmentOperationsSection from "@/components/FitnessAppDevelopment/FitnessAppDevelopmentOperationsSection";
 import FitnessBanner from "@/components/FitnessBanner/FitnessBanner";
 import {
   FitnessAppDevelopmentFaqSection,
   FitnessAppDevelopmentFulfillmentSection,
   FitnessAppDevelopmentIntegrationsSection,
   FitnessAppDevelopmentMarketingSection,
+  FitnessAppDevelopmentOperationsSection,
   FitnessAppDevelopmentOutcomesSection,
   FitnessAppDevelopmentPlatformSection,
   FitnessAppDevelopmentSetupSection,

@@ -1,10 +1,10 @@
-import AuctionAppDevelopmentOperationsSection from "@/components/AuctionAppDevelopment/AuctionAppDevelopmentOperationsSection";
 import AuctionBanner from "@/components/AuctionBanner/AuctionBanner";
 import {
   AuctionAppDevelopmentFaqSection,
   AuctionAppDevelopmentFulfillmentSection,
   AuctionAppDevelopmentIntegrationsSection,
   AuctionAppDevelopmentMarketingSection,
+  AuctionAppDevelopmentOperationsSection,
   AuctionAppDevelopmentOutcomesSection,
   AuctionAppDevelopmentPlatformSection,
   AuctionAppDevelopmentSetupSection,
@@ -13,11 +13,15 @@ import {
 } from "@/lib/lazyVerticalPageSections";
 import { AUCTION_APP_DEVELOPMENT_CTA_BAND } from "@/lib/auctionAppDevelopmentSetup";
 import { BlogSection, CTASection, TestimonialSection } from "@/lib/lazySections";
-import { AUCTION_APP_CONTENT } from "@/lib/verticalServicePageContent";
 
 import styles from "./page.module.css";
 
-export const metadata = AUCTION_APP_CONTENT.metadata;
+/** Inline so this route does not import the full `verticalServicePageContent` barrel (large compile graph). */
+export const metadata = {
+  title: "Auction App Development | Apex Labs",
+  description:
+    "Timed auctions, live bidding, seller tooling, and secure checkout—custom auction and marketplace apps tailored to your category.",
+};
 
 export default function AuctionAppPage() {
   return (

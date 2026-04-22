@@ -3,7 +3,7 @@
 import Link from "next/link";
 import HeaderLeadFormDialog from "@/components/LeadFormModal/HeaderLeadFormDialog";
 import WhiteButton from "@/components/WhiteButton/WhiteButton";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
@@ -129,6 +129,10 @@ const SERVICES_MEGA_COLUMNS = [
     },
   ],
 ];
+
+const SERVICES_MEGA_PREFETCH_HREFS = SERVICES_MEGA_COLUMNS.flat().map(
+  (item) => item.href
+);
 
 /** Industries mega-menu: soft mint pill + saturated lime strokes (all items match). */
 const SERVICE_MENU_ICON_WRAP =
@@ -312,7 +316,7 @@ const megaBadgeClass =
 function MegaServiceRowDesktop({ item, onNavigate }) {
   return (
     <li>
-      <Link prefetch={false}
+      <Link
         href={item.href}
         className="group flex gap-3 rounded-xl px-2 py-2.5 transition-colors hover:bg-neutral-50"
         onClick={onNavigate}
@@ -367,7 +371,7 @@ function ServicesMegaMenuDesktop({ onNavigate }) {
             <MegaServiceRowDesktop key={item.label} item={item} onNavigate={onNavigate} />
           ))}
         </ul>
-        <Link prefetch={false}
+        <Link
           href="/contact"
           onClick={onNavigate}
           className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#70AA26]/22 bg-[rgba(112,170,38,0.09)] px-4 py-3.5 text-left transition-colors hover:bg-[rgba(112,170,38,0.14)]"
@@ -393,7 +397,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
   const [c1, c2, c3] = SERVICES_MEGA_COLUMNS;
   const linkRow = (item) => (
     <li key={item.label}>
-      <Link prefetch={false}
+      <Link
         href={item.href}
         className={classNameLink}
         onClick={onNavigate}
@@ -434,7 +438,7 @@ function ServicesMenuLinksMobile({ onNavigate, classNameLink }) {
       <ul className="m-0 w-full min-w-0 list-none space-y-0.5 py-1" role="list">
         {c3.map(linkRow)}
       </ul>
-      <Link prefetch={false}
+      <Link
         href="/contact"
         onClick={onNavigate}
         className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/10 px-3 py-3 text-left text-[13px] font-semibold text-white transition-colors hover:bg-white/[0.14]"
@@ -502,6 +506,7 @@ function CloseIcon({ className }) {
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [headerLeadOpen, setHeaderLeadOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -547,6 +552,33 @@ export default function Header() {
   useEffect(() => {
     setServicesMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!servicesMenuOpen) return undefined;
+
+    const prefetchAll = () => {
+      for (const href of SERVICES_MEGA_PREFETCH_HREFS) {
+        router.prefetch(href);
+      }
+      router.prefetch("/contact");
+    };
+
+    let idleId = 0;
+    let timeoutId = 0;
+
+    if (typeof requestIdleCallback === "function") {
+      idleId = requestIdleCallback(prefetchAll, { timeout: 2500 });
+    } else {
+      timeoutId = window.setTimeout(prefetchAll, 0);
+    }
+
+    return () => {
+      if (idleId && typeof cancelIdleCallback === "function") {
+        cancelIdleCallback(idleId);
+      }
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, [servicesMenuOpen, router]);
 
   useEffect(() => {
     let rafId = 0;
@@ -649,9 +681,11 @@ export default function Header() {
           }`}
         />
         <div className="relative mx-auto flex h-[72px] min-h-[72px] w-full max-w-[1280px] items-center justify-between overflow-visible px-4 min-[480px]:px-6 min-[992px]:px-8">
-        <Link prefetch={false}
+        <Link
+          prefetch={false}
           href="/"
-          className="min-w-0 shrink-0 text-lg font-bold tracking-tight min-[400px]:text-[22px]"
+          aria-label="Apex Labs — Home"
+          className="relative z-[20] inline-flex min-w-0 shrink-0 items-center text-lg font-bold tracking-tight min-[400px]:text-[22px] text-inherit no-underline hover:opacity-95"
         >
           <span className="text-white">Apex </span>
           <span className="text-[#70AA26]">Labs</span>
@@ -793,10 +827,12 @@ export default function Header() {
               }`}
             >
               <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <Link prefetch={false}
+                <Link
+                  prefetch={false}
                   href="/"
                   onClick={closeMenu}
-                  className="shrink-0 text-lg font-bold tracking-tight"
+                  aria-label="Apex Labs — Home"
+                  className="relative z-[20] inline-flex shrink-0 items-center text-lg font-bold tracking-tight text-inherit no-underline hover:opacity-95"
                 >
                   <span className="text-white">Apex </span>
                   <span className="text-[#70AA26]">Labs</span>

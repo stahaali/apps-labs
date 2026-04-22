@@ -135,14 +135,6 @@ export default function FitnessAppDevelopmentFulfillmentSection() {
           />
         </div>
       </div>
-      <div className={styles.chipsRail}>
-        {chips.map((c) => (
-          <div key={c.key} className={styles.chip}>
-            <ChipIcon name={c.icon} />
-            <span>{c.label}</span>
-          </div>
-        ))}
-      </div>
     </div>
   );
 

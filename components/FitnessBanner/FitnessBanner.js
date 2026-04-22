@@ -24,7 +24,7 @@ function CheckBullet() {
 export default function FitnessBanner() {
   return (
     <section
-      className={`${styles.fitnessBanner} relative z-[1] w-full overflow-hidden`}
+      className={`${styles.fitnessBanner} relative z-[1] w-full overflow-hidden max-[576px]:overflow-visible`}
       aria-labelledby="fitness-hero-heading"
     >
       <div className={styles.inner}>
@@ -68,7 +68,7 @@ export default function FitnessBanner() {
                     width={720}
                     height={640}
                     sizes="(max-width: 767px) min(92vw, 480px), (max-width: 1023px) 48vw, min(600px, 42vw)"
-                    className="w-full max-w-full select-none object-contain object-center drop-shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+                    className="w-full max-w-full select-none object-contain object-center"
                     style={{ height: "auto" }}
                     priority
                     fetchPriority="high"

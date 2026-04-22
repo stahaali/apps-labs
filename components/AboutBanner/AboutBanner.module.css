@@ -157,6 +157,10 @@
 }
 
 @media (max-width: 576px) {
+  .inner {
+    padding-top: 80px;
+  }
+
   /* Match home hero: right-column image scales within 576px */
   .visualFrame {
     max-width: min(576px, 100%);

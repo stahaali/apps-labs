@@ -120,6 +120,12 @@
   }
 }
 
+@media (max-width: 576px) {
+  .inner {
+    padding-bottom: 10px;
+  }
+}
+
 .headlineAccent {
   color: #70aa26;
 }

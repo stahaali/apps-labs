@@ -14,3 +14,7 @@
     padding-bottom: 80px;
   }
 }
+
+.imageWide {
+  max-width: min(100%, 560px);
+}

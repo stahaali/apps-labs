@@ -74,17 +74,15 @@ export default function FitnessAppDevelopmentOperationsSection() {
   );
 
   const imageBlock = (
-    <div className={pageStyles.imageCard}>
-      <div
-        className={`relative w-full min-h-[200px] bg-transparent ${pageStyles.splitImageNarrow}`}
-      >
+    <div className={`${pageStyles.imageCard} ${styles.imageWide}`}>
+      <div className="relative w-full min-h-[200px] bg-transparent">
         <ImageWithSkeleton
           src={image}
           alt="Fitness app mockups showing training plans, workouts, and member home screens"
           width={1600}
           height={1000}
           className="h-auto w-full object-contain object-center mix-blend-multiply"
-          sizes="(max-width: 1023px) min(90vw, 380px), 380px"
+          sizes="(max-width: 1023px) min(92vw, 560px), 560px"
           skeletonClassName="rounded-[1.25rem]"
           wrapClassName="block min-h-[200px] w-full"
         />

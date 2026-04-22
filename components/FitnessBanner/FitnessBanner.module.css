@@ -123,6 +123,32 @@
   }
 }
 
+@media (max-width: 576px) {
+  /* Let the band grow with stacked copy + hero image (740px min-height was clipping). */
+  .fitnessBanner {
+    padding-top: 43px;
+    padding-bottom: 43px;
+    box-sizing: border-box;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+
+  .inner {
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: flex-start;
+  }
+
+  .fitnessBanner .grid {
+    align-items: start;
+  }
+
+  .fitnessBanner .visualCol {
+    min-height: 0;
+  }
+}
+
 .headlineAccent {
   color: #70aa26;
 }

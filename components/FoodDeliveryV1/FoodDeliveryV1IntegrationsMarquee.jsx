@@ -18,7 +18,7 @@ import marqueeStyles from "./FoodDeliveryV1IntegrationsMarquee.module.css";
 /** Keep in sync with `spaceBetween` on Swiper (px between badge columns). */
 const MARQUEE_GAP_PX = 12;
 
-function repeatSlides(items, times = 3) {
+function repeatSlides(items, times = 12) {
   const out = [];
   for (let t = 0; t < times; t += 1) {
     items.forEach((item, i) => {
@@ -29,7 +29,7 @@ function repeatSlides(items, times = 3) {
 }
 
 function IntegrationMarqueeRow({ items, reverse }) {
-  const slides = useMemo(() => repeatSlides(items, 3), [items]);
+  const slides = useMemo(() => repeatSlides(items), [items]);
 
   return (
     <div className={`relative w-full overflow-hidden py-0 ${marqueeStyles.rowMask}`}>

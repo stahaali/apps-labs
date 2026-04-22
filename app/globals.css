@@ -7,6 +7,8 @@ html {
   /* Prevent iOS from inflating small text in landscape */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* In-page anchors land below the fixed ~72px header */
+  scroll-padding-top: 72px;
 }
 
 :root {
@@ -275,9 +277,8 @@ a.site-btn-motion.btn.btn-dark {
   .statCounterLabel {
     font-size: 10px;
   }
-  .title 
-  {
-    font-size: 24px;
+  .title {
+    font-size: 20px;
   }
   .subtitle
   {

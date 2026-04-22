@@ -32,7 +32,7 @@ export default function Home() {
       <ScalableProcessSection />
       <HomeClientMarquee />
       <CTASection />
-      <ClientLogosSection />
+      <ClientLogosSection />`` 
       <PricingSection homeMobileOuterTop40 />
       <HomeClientTestimonial />
       <BlogSection />

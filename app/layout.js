@@ -1,9 +1,32 @@
 import dynamic from "next/dynamic";
 import { Manrope } from "next/font/google";
-import BackToTop from "@/components/BackToTop/BackToTop";
-import Header from "@/components/Header";
+import GlobalSmoothScroll from "@/components/GlobalSmoothScroll/GlobalSmoothScroll";
 import "./globals.css";
 import "@/styles/style.css";
+
+/** Large client nav — split from root layout JS so every route’s first chunk stays smaller. */
+const Header = dynamic(() => import("@/components/Header"), {
+  ssr: true,
+  loading: () => (
+    <header
+      className="pointer-events-none fixed inset-x-0 top-0 z-[100] flex justify-center"
+      aria-busy="true"
+      aria-label="Loading navigation"
+    >
+      <div className="pointer-events-auto flex h-[72px] w-full max-w-none items-center justify-between border-b border-white/10 bg-[#050505]/90 px-4 backdrop-blur-md min-[480px]:px-6 min-[992px]:px-8">
+        <div className="h-6 w-28 max-w-[40%] rounded-md bg-white/10" aria-hidden />
+        <div className="flex items-center gap-3">
+          <div className="h-9 w-9 rounded-full bg-white/10 lg:hidden" aria-hidden />
+          <div className="hidden h-9 w-24 rounded-full bg-white/10 lg:block" aria-hidden />
+        </div>
+      </div>
+    </header>
+  ),
+});
+
+const BackToTop = dynamic(() => import("@/components/BackToTop/BackToTop"), {
+  loading: () => null,
+});
 
 const ContactFooterSection = dynamic(
   () => import("@/components/ContactFooterSection/ContactFooterSection"),
@@ -24,6 +47,8 @@ const manrope = Manrope({
   variable: "--font-manrope",
   display: "swap",
   adjustFontFallback: true,
+  /** Fewer weights → smaller font payload site-wide. */
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const siteUrl =
@@ -57,6 +82,7 @@ export default function RootLayout({ children }) {
     >
       <body className="font-sans">
         <LeadFormModalProvider>
+          <GlobalSmoothScroll />
           <Header />
           {children}
           <ContactFooterSection />

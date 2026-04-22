@@ -50,7 +50,8 @@
 }
 
 
-@media (max-width: 768px) {
+/* Tablet only — must not apply at ≤576px (home hero uses fixed 700px band there). */
+@media (min-width: 577px) and (max-width: 768px) {
   .homebanner {
     max-height: 500px;
     padding-top: 43px;
@@ -312,12 +313,18 @@
 }
 
 @media (max-width: 576px) {
-  /* Home hero band — fixed height + nav offset (overrides @media max-width 768px on this viewport). */
+  /* Home hero band — fixed height + nav offset (≤576px only; tablet rules are 577–768px). */
   .homebanner {
     height: 700px;
     min-height: 700px;
     max-height: 700px;
-    padding-top: 62px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Flush bottom inside the band (was 5.5rem — read as extra “banner” space above the wave). */
+  .inner {
+    padding-top: 0;
     padding-bottom: 0;
   }
 
@@ -337,9 +344,6 @@
 
   .statCounterLabel {
     font-size: 11px !important;
-  }
-  .inner {
-    padding-bottom:5.5rem;
   }
 }
 
@@ -417,7 +421,7 @@
   }
 }
 
-/* Fixed 740px hero band — ≥769px (≤768px keeps max-height / padding from mobile rules) */
+/* Fixed 740px hero band — ≥769px (577–768px: tablet cap above; ≤576px: 700px mobile band) */
 @media (min-width: 769px) {
   .homebanner {
     height: 740px;

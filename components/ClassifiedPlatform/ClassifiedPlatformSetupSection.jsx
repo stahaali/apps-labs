@@ -127,14 +127,7 @@ export default function ClassifiedPlatformSetupSection() {
 
   const visualBlock = (
     <div className={localStyles.visualCluster}>
-      <div className={localStyles.chipsRail}>
-        {chips.map((c) => (
-          <div key={c.key} className={localStyles.chip}>
-            <ChipIcon name={c.icon} />
-            <span>{c.label}</span>
-          </div>
-        ))}
-      </div>
+      
       <div className={localStyles.photoWrap}>
         <div className="relative w-full min-h-[200px] bg-neutral-100/40">
           <ImageWithSkeleton

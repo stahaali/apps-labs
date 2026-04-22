@@ -11,6 +11,7 @@
     min-height: 740px;
   }
 }
+
 @media (min-width: 768px) {
   .foodDeliveryBanner {
     min-height: 640px;
@@ -116,6 +117,13 @@
 @media (max-width: 639px) {
   .foodDeliveryBanner .headline {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .inner {
+    padding-top: 43px;
+    padding-bottom: 43px;
   }
 }
 
